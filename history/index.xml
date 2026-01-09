@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Histories on DAMI LAB</title>
+    <link>https://damilab.github.io/history/</link>
+    <description>Recent content in Histories on DAMI LAB</description>
+    <generator>Hugo</generator>
+    <language>ko</language>
+    <lastBuildDate>Wed, 24 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://damilab.github.io/history/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>연구실 논문 “Large Language Models as Financial Analysts: Sector-Aware Reasoning for Investment Decisions”</title>
+      <link>https://damilab.github.io/history/finance/</link>
+      <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://damilab.github.io/history/finance/</guid>
+      <description>Computational Economics(SCIE, JCR Q2, IF: 2.2) 게재</description>
+    </item>
+    <item>
+      <title>연구실 졸업생 Christoph Timmermann 학생, Technical University of Munich × Audi 박사과정 합격</title>
+      <link>https://damilab.github.io/history/christoph_timmermann/</link>
+      <pubDate>Wed, 26 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://damilab.github.io/history/christoph_timmermann/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>연구실 정승현 학생, 한국정보처리학회 ACK 2025 산학연협동우수상 수상</title>
+      <link>https://damilab.github.io/history/ack2025/</link>
+      <pubDate>Sat, 08 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://damilab.github.io/history/ack2025/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>김캐디 산학 과제 수행</title>
+      <link>https://damilab.github.io/history/kimcaddie2025/</link>
+      <pubDate>Mon, 01 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://damilab.github.io/history/kimcaddie2025/</guid>
+      <description>골프 클럽과 관절 정보를 활용한 골프 스윙 분석 (2025.09 - 2026.01)</description>
+    </item>
+    <item>
+      <title>연구실 이현세 학생, 한국데이터마이닝학회 2025 하계학술대회 최우수 논문상 수상</title>
+      <link>https://damilab.github.io/history/datamining2025/</link>
+      <pubDate>Thu, 28 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://damilab.github.io/history/datamining2025/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>연구실 논문 “Deep learning-enhanced geospatial modeling for indoor radon mapping in Jeollabuk-do, South Korea”</title>
+      <link>https://damilab.github.io/history/geomatic2025/</link>
+      <pubDate>Thu, 21 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://damilab.github.io/history/geomatic2025/</guid>
+      <description>Geomatics, Natural Hazards and Risk(SCIE, JCR Q1, IF: 4.4) 게재</description>
+    </item>
+    <item>
+      <title>연구실 논문 “CaddieSet: A Golf Swing Dataset with Human Joint Features and Ball Information”</title>
+      <link>https://damilab.github.io/history/caddieset/</link>
+      <pubDate>Thu, 12 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://damilab.github.io/history/caddieset/</guid>
+      <description>11th International Workshop on Computer Vision in Sports (CVsports) at CVPR 2025 게재</description>
+    </item>
+    <item>
+      <title>연구실 논문 “Towards undetectable adversarial attack on time series classification”</title>
+      <link>https://damilab.github.io/history/towards/</link>
+      <pubDate>Wed, 23 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://damilab.github.io/history/towards/</guid>
+      <description>Information Sciences(SCIE, JCR Q1, IF: 8.2) 게재</description>
+    </item>
+    <item>
+      <title>연구실 논문 “LM-CLIP: Adapting Positive Asymmetric Loss for Long-Tailed Multi-Label Classification”</title>
+      <link>https://damilab.github.io/history/lm-clip/</link>
+      <pubDate>Wed, 16 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://damilab.github.io/history/lm-clip/</guid>
+      <description>IEEE Access(SCIE, JCR Q2, IF: 3.6) 게재</description>
+    </item>
+    <item>
+      <title>연구실 논문 “Interconnected dynamics of sustainable cryptocurrencies: Insights from transfer entropy analysis”</title>
+      <link>https://damilab.github.io/history/interconnected/</link>
+      <pubDate>Thu, 10 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://damilab.github.io/history/interconnected/</guid>
+      <description>Finance Research Letters(SSCI, JCR Q1, IF: 7.4, JCR Top 1%) 게재</description>
+    </item>
+    <item>
+      <title>기상청 산학 과제 수행</title>
+      <link>https://damilab.github.io/history/cma2025/</link>
+      <pubDate>Tue, 01 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://damilab.github.io/history/cma2025/</guid>
+      <description>전천(All sky) 기후자료 산출 및 초해상화 인공지능 모델 개발 (2025.04 - 2027.12)</description>
+    </item>
+    <item>
+      <title>한국과학기술정보연구원 산학 과제 수행</title>
+      <link>https://damilab.github.io/history/kisti2025/</link>
+      <pubDate>Tue, 01 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://damilab.github.io/history/kisti2025/</guid>
+      <description>지능형 데이터 큐레이션 및 통합 구축 기술 개발 (2025.04 - 2025.09)</description>
+    </item>
+    <item>
+      <title>한국연구재단 우수신진연구 선정</title>
+      <link>https://damilab.github.io/history/nrf2025/</link>
+      <pubDate>Tue, 01 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://damilab.github.io/history/nrf2025/</guid>
+      <description>윤리적인 다국어 LLM 활용을 위한 문맥 기반 탈옥 가드레일 구축 (2025.03 - 2027.02)</description>
+    </item>
+    <item>
+      <title>연구실 논문 “Black-box adversarial examples via frequency distortion against fault diagnosis systems”</title>
+      <link>https://damilab.github.io/history/black-box/</link>
+      <pubDate>Sat, 01 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://damilab.github.io/history/black-box/</guid>
+      <description>Applied Soft Computing(SCIE, JCR Q1, IF: 7.2, JCR Top 10%) 게재</description>
+    </item>
+    <item>
+      <title>연구실 논문 “AI-Driven Geospatial Analysis of Indoor Radon Levels: A Case Study in Chungcheongbuk-do, South Korea”</title>
+      <link>https://damilab.github.io/history/ai-driven2025/</link>
+      <pubDate>Fri, 07 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://damilab.github.io/history/ai-driven2025/</guid>
+      <description>Earth Systems and Environment(ESCI, JCR Q1, IF: 5.3, JCR Top 10%) 게재</description>
+    </item>
+    <item>
+      <title>연구실 논문 “Multi-stage ensemble with refinement for noisy labeled data classification”</title>
+      <link>https://damilab.github.io/history/multi-stage2024/</link>
+      <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://damilab.github.io/history/multi-stage2024/</guid>
+      <description>Expert Systems with Applications(SCIE, JCR Q1, IF: 7.5, JCR Top 10%) 게재</description>
+    </item>
+    <item>
+      <title>사물인터넷 혁신융합대학사업 산학 과제 수행</title>
+      <link>https://damilab.github.io/history/iot2024/</link>
+      <pubDate>Sun, 01 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://damilab.github.io/history/iot2024/</guid>
+      <description>예외 상황과 일반 상황의 분포 차이 최소화 적응 기법 개발 (2024.09 - 2025.01)</description>
+    </item>
+    <item>
+      <title>연구실 논문 Flood susceptibility mapping of Cheongju, South Korea based on the integration of environmental factors using various machine learning approaches</title>
+      <link>https://damilab.github.io/history/flood2024/</link>
+      <pubDate>Mon, 01 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://damilab.github.io/history/flood2024/</guid>
+      <description>Journal of Environmental Management(SCIE, JCR Q1, IF: 8.0, JCR Top 10%) 게재</description>
+    </item>
+    <item>
+      <title>연구실 논문 “Sliced Wasserstein adversarial training for improving adversarial robustness”</title>
+      <link>https://damilab.github.io/history/sliced2024/</link>
+      <pubDate>Sun, 05 May 2024 00:00:00 +0000</pubDate>
+      <guid>https://damilab.github.io/history/sliced2024/</guid>
+      <description>Journal of Ambient Intelligence and Humanized Computing(SCIE, JCR Q1, IF: 7.104, JCR Top 10%) 게재</description>
+    </item>
+    <item>
+      <title>연구실 논문 “Graph contrastive learning with consistency regularization”</title>
+      <link>https://damilab.github.io/history/graph2024/</link>
+      <pubDate>Wed, 01 May 2024 00:00:00 +0000</pubDate>
+      <guid>https://damilab.github.io/history/graph2024/</guid>
+      <description>Pattern Recognition Letters(SCIE, JCR Q2, IF: 3.9) 게재</description>
+    </item>
+    <item>
+      <title>연구실 논문 “Evaluating practical adversarial robustness of fault diagnosis systems via spectrogram-aware ensemble method”</title>
+      <link>https://damilab.github.io/history/evaluating2024/</link>
+      <pubDate>Fri, 01 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://damilab.github.io/history/evaluating2024/</guid>
+      <description>Engineering Applications of Artificial Intelligence(SCIE, JCR Q1, IF: 7.5, JCR Top 2%) 게재</description>
+    </item>
+    <item>
+      <title>김캐디 산학 과제 수행</title>
+      <link>https://damilab.github.io/history/kimcaddie2024/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://damilab.github.io/history/kimcaddie2024/</guid>
+      <description>XAI를 활용한 골프 스윙 피드백 모델 개발 (2024.01 -</description>
+    </item>
+    <item>
+      <title>연구실 논문 “Fairness-Aware Multimodal Learning in Automatic Video Interview Assessment”</title>
+      <link>https://damilab.github.io/history/fairness2023/</link>
+      <pubDate>Thu, 19 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>https://damilab.github.io/history/fairness2023/</guid>
+      <description>IEEE Access(SCIE, JCR Q2, IF: 3.9) 게재</description>
+    </item>
+    <item>
+      <title>연구실 논문 “Bridged adversarial training”</title>
+      <link>https://damilab.github.io/history/bridged2023/</link>
+      <pubDate>Sun, 01 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>https://damilab.github.io/history/bridged2023/</guid>
+      <description>Neural Networks(SCIE, JCR Q1, IF: 6.6, JCR Top 11%) 게재</description>
+    </item>
+    <item>
+      <title>연구실 논문 “Fast sharpness-aware training for periodic time series classification and forecasting”</title>
+      <link>https://damilab.github.io/history/fast2023/</link>
+      <pubDate>Fri, 01 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>https://damilab.github.io/history/fast2023/</guid>
+      <description>Applied Soft Computing(SCIE, JCR Q1, IF: 7.2, JCR Top 10%) 게재</description>
+    </item>
+    <item>
+      <title>연구실 논문 “Genetic descriptor search algorithm for predicting hydrogen adsorption free energy of 2D material”</title>
+      <link>https://damilab.github.io/history/genetic2023/</link>
+      <pubDate>Sat, 05 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>https://damilab.github.io/history/genetic2023/</guid>
+      <description>Scientific Reports(SCIE, JCR Q2, IF: 4.6) 게재</description>
+    </item>
+    <item>
+      <title>Pixt 산학 과제 수행</title>
+      <link>https://damilab.github.io/history/pixt2023/</link>
+      <pubDate>Mon, 01 May 2023 00:00:00 +0000</pubDate>
+      <guid>https://damilab.github.io/history/pixt2023/</guid>
+      <description>한국어 전용 동영상 캡션 AI 모델 개발 (2023.05 - 2024.04)</description>
+    </item>
+    <item>
+      <title>연구실 논문 “Variational cycle-consistent imputation adversarial networks for general missing patterns”</title>
+      <link>https://damilab.github.io/history/variational2022/</link>
+      <pubDate>Thu, 01 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://damilab.github.io/history/variational2022/</guid>
+      <description>Pattern Recognition(SCIE, JCR Q1, IF: 7.5, JCR Top 7%) 게재.</description>
+    </item>
+    <item>
+      <title>제네시스랩 산학 과제 수행</title>
+      <link>https://damilab.github.io/history/genesislab2022/</link>
+      <pubDate>Fri, 01 Jul 2022 00:00:00 +0000</pubDate>
+      <guid>https://damilab.github.io/history/genesislab2022/</guid>
+      <description>공정한 인공지능 면접 모델 알고리즘 개발 (2022.07 - 2022.12)</description>
+    </item>
+    <item>
+      <title>한국연구재단 산학 과제 수행</title>
+      <link>https://damilab.github.io/history/nrf2022/</link>
+      <pubDate>Wed, 01 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>https://damilab.github.io/history/nrf2022/</guid>
+      <description>인공지능 시스템의 실용화를 위한 딥러닝 안정성 알고리즘 개발 (2022.06 - 2025.02)</description>
+    </item>
+    <item>
+      <title>연구실 논문 “Parameter-free HE-friendly Logistic Regression”</title>
+      <link>https://damilab.github.io/history/parameter2021/</link>
+      <pubDate>Mon, 06 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://damilab.github.io/history/parameter2021/</guid>
+      <description>Advances in Neural Information Processing Systems 게재</description>
+    </item>
+    <item>
+      <title>연구실 논문 “Towards Better Understanding of Training Certifiably Robust Models against Adversarial Examples”</title>
+      <link>https://damilab.github.io/history/towards2021/</link>
+      <pubDate>Mon, 06 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://damilab.github.io/history/towards2021/</guid>
+      <description>Advances in Neural Information Processing Systems 게재</description>
+    </item>
+    <item>
+      <title>연구실 논문 “Fair clustering with fair correspondence distribution”</title>
+      <link>https://damilab.github.io/history/fair2021/</link>
+      <pubDate>Wed, 01 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://damilab.github.io/history/fair2021/</guid>
+      <description>Information Sciences(SCIE, JCR Q1, IF: 8.233, JCR Top 10%) 게재</description>
+    </item>
+    <item>
+      <title>연구실 논문 “Compact class-conditional domain invariant learning for multi-class domain adaptation”</title>
+      <link>https://damilab.github.io/history/compact2021/</link>
+      <pubDate>Thu, 01 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://damilab.github.io/history/compact2021/</guid>
+      <description>Pattern Recognition(SCIE, JCR Q1, IF: 7.5, JCR Top 7%) 게재</description>
+    </item>
+  </channel>
+</rss>
