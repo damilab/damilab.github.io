@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Research Topic on DAMI LAB</title>
+    <link>https://damilab.github.io/research/</link>
+    <description>Recent content in Research Topic on DAMI LAB</description>
+    <generator>Hugo</generator>
+    <language>ko</language>
+    <lastBuildDate>Sat, 13 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://damilab.github.io/research/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI Applications</title>
+      <link>https://damilab.github.io/research/ai-applications/</link>
+      <pubDate>Sat, 13 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://damilab.github.io/research/ai-applications/</guid>
+      <description>&lt;h3 id=&#34;연구된-알고리즘과-방법론을-환경-의료-스포츠-등-다양한-사회산업-도메인에-적용하여-실제-문제-해결에-기여할-수-있는-실용적인-시스템을-설계합니다&#34;&gt;연구된 알고리즘과 방법론을 환경, 의료, 스포츠 등 다양한 사회·산업 도메인에 적용하여 실제 문제 해결에 기여할 수 있는 실용적인 시스템을 설계합니다.&lt;/h3&gt;&#xA;&lt;p&gt;Applying AI techniques to practical domains such as healthcare, sports analytics, recruitment, and video understanding.&lt;/p&gt;&#xA;&lt;h3 id=&#34;주요-응용-분야&#34;&gt;주요 응용 분야&lt;/h3&gt;&#xA;&lt;div style=&#34;display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem;&#34;&gt;&#xD;&#xA;&lt;div style=&#34;border: 1px solid #e2e8f0; border-radius: 0.75rem; padding: 1.5rem; background-color: #f8fafc;&#34;&gt;&#xD;&#xA;  &lt;h4 style=&#34;margin-top: 0; color: #1e40af; font-size: 1.1rem; font-weight: 700;&#34;&gt;헬스케어&lt;/h4&gt;&#xD;&#xA;  &lt;p style=&#34;color: #374151; margin: 0.5rem 0; line-height: 1.6;&#34;&gt;의료 영상 분석, 질병 예측, 개인 맞춤형 치료 추천 시스템&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Representation Learning</title>
+      <link>https://damilab.github.io/research/representation-learning/</link>
+      <pubDate>Sat, 13 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://damilab.github.io/research/representation-learning/</guid>
+      <description>&lt;h3 id=&#34;전이학습transfer-learning-도메인-적응domain-adaptation-멀티모달-학습multimodal-learning-등을-통해-한정된-데이터-환경에서도-일반화-가능한-모델을-개발하고-서로-다른-데이터-소스를-통합하는-연구를-수행합니다&#34;&gt;전이학습(Transfer Learning), 도메인 적응(Domain Adaptation), 멀티모달 학습(Multimodal Learning) 등을 통해 한정된 데이터 환경에서도 일반화 가능한 모델을 개발하고, 서로 다른 데이터 소스를 통합하는 연구를 수행합니다.&lt;/h3&gt;&#xA;&lt;p&gt;Advancing transfer and multimodal learning methods to capture meaningful representations across domains and data modalities.&lt;/p&gt;&#xA;&lt;h3 id=&#34;주요-연구-분야&#34;&gt;주요 연구 분야&lt;/h3&gt;&#xA;&lt;div style=&#34;display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem;&#34;&gt;&#xD;&#xA;&lt;div style=&#34;border: 1px solid #e2e8f0; border-radius: 0.75rem; padding: 1.5rem; background-color: #f8fafc;&#34;&gt;&#xD;&#xA;  &lt;h4 style=&#34;margin-top: 0; color: #1e40af; font-size: 1.1rem; font-weight: 700;&#34;&gt;전이학습(Transfer Learning)&lt;/h4&gt;&#xD;&#xA;  &lt;p style=&#34;color: #374151; margin: 0.5rem 0; line-height: 1.6;&#34;&gt;한 도메인에서 학습한 지식을 다른 도메인에 효과적으로 전이하는 기술&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Trustworthy AI</title>
+      <link>https://damilab.github.io/research/trustworthy-ai/</link>
+      <pubDate>Sat, 13 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://damilab.github.io/research/trustworthy-ai/</guid>
+      <description>&lt;h3 id=&#34;공정성fairness-견고성robustness-프라이버시보안privacy--security-해석-가능성interpretability-등-실제-현장에서-안전하고-윤리적인-ai를-구현하는-기반을-연구합니다&#34;&gt;공정성(Fairness), 견고성(Robustness), 프라이버시·보안(Privacy &amp;amp; Security), 해석 가능성(Interpretability) 등 실제 현장에서 안전하고 윤리적인 AI를 구현하는 기반을 연구합니다.&lt;/h3&gt;&#xA;&lt;p&gt;Developing reliable, fair, and robust AI systems that generalize well under real-world uncertainties.&lt;/p&gt;&#xA;&lt;h3 id=&#34;주요-연구-분야&#34;&gt;주요 연구 분야&lt;/h3&gt;&#xA;&lt;div style=&#34;display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem;&#34;&gt;&#xD;&#xA;&lt;div style=&#34;border: 1px solid #e2e8f0; border-radius: 0.75rem; padding: 1.5rem; background-color: #f8fafc;&#34;&gt;&#xD;&#xA;  &lt;h4 style=&#34;margin-top: 0; color: #1e40af; font-size: 1.1rem; font-weight: 700;&#34;&gt;공정성(Fairness)&lt;/h4&gt;&#xD;&#xA;  &lt;p style=&#34;color: #374151; margin: 0.5rem 0; line-height: 1.6;&#34;&gt;AI 시스템이 특정 집단에 대한 편향 없이 공정한 결정을 내릴 수 있도록 하는 알고리즘 개발&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
