@@ -10,9 +10,37 @@
 		
 		
 		
-			<lastBuildDate>Wed, 26 Nov 2025 00:00:00 +0000</lastBuildDate>
+			<lastBuildDate>Tue, 14 Apr 2026 00:00:00 +0000</lastBuildDate>
 		
 			<atom:link href="https://damilab.github.io/history/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>연구실 논문 “Explainable Graph-Based Golf Swing Analysis Integrating Club and Body Keypoints for Ball Flight Outcome Prediction”</title>
+				<link>https://damilab.github.io/history/golf-swing/</link>
+				<pubDate>Tue, 14 Apr 2026 00:00:00 +0000</pubDate>
+				<guid>https://damilab.github.io/history/golf-swing/</guid>
+				<description>Applied Sciences(SCIE, JCR Q2, IF: 2.5) 게재</description>
+			</item>
+			<item>
+				<title>연구실 논문 “Co-occurring Associated REtained concepts in Diffusion Unlearning”</title>
+				<link>https://damilab.github.io/history/recare2026/</link>
+				<pubDate>Mon, 26 Jan 2026 00:00:00 +0000</pubDate>
+				<guid>https://damilab.github.io/history/recare2026/</guid>
+				<description>The 14th International Conference on Learning Representations(ICLR 2026) Accept</description>
+			</item>
+			<item>
+				<title>연구실 논문 “SlotGCG: Exploiting the Positional Vulnerability in LLMs for Jailbreak Attacks”</title>
+				<link>https://damilab.github.io/history/slotgcg2026/</link>
+				<pubDate>Sun, 25 Jan 2026 00:00:00 +0000</pubDate>
+				<guid>https://damilab.github.io/history/slotgcg2026/</guid>
+				<description>The 14th International Conference on Learning Representations(ICLR 2026) Accept</description>
+			</item>
+			<item>
+				<title>연구실 논문 “Large Language Models as Financial Analysts: Sector-Aware Reasoning for Investment Decisions”</title>
+				<link>https://damilab.github.io/history/finance/</link>
+				<pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
+				<guid>https://damilab.github.io/history/finance/</guid>
+				<description>Computational Economics(SCIE, JCR Q2, IF: 2.2) 게재</description>
+			</item>
 			<item>
 				<title>연구실 졸업생 Christoph Timmermann 학생, Technical University of Munich × Audi 박사과정 합격</title>
 				<link>https://damilab.github.io/history/christoph_timmermann/</link>
@@ -40,6 +68,13 @@
 				<pubDate>Thu, 28 Aug 2025 00:00:00 +0000</pubDate>
 				<guid>https://damilab.github.io/history/datamining2025/</guid>
 				<description></description>
+			</item>
+			<item>
+				<title>연구실 논문 “Deep learning-enhanced geospatial modeling for indoor radon mapping in Jeollabuk-do, South Korea”</title>
+				<link>https://damilab.github.io/history/geomatic2025/</link>
+				<pubDate>Thu, 21 Aug 2025 00:00:00 +0000</pubDate>
+				<guid>https://damilab.github.io/history/geomatic2025/</guid>
+				<description>Geomatics, Natural Hazards and Risk(SCIE, JCR Q1, IF: 4.4) 게재</description>
 			</item>
 			<item>
 				<title>연구실 논문 “CaddieSet: A Golf Swing Dataset with Human Joint Features and Ball Information”</title>
@@ -119,7 +154,7 @@
 				<description>예외 상황과 일반 상황의 분포 차이 최소화 적응 기법 개발 (2024.09 - 2025.01)</description>
 			</item>
 			<item>
-				<title>연구실 논문 “Flood susceptibility mapping of Cheongju, South Korea based on the integration of environmental factors using various machine learning approaches”</title>
+				<title>연구실 논문 Flood susceptibility mapping of Cheongju, South Korea based on the integration of environmental factors using various machine learning approaches</title>
 				<link>https://damilab.github.io/history/flood2024/</link>
 				<pubDate>Mon, 01 Jul 2024 00:00:00 +0000</pubDate>
 				<guid>https://damilab.github.io/history/flood2024/</guid>

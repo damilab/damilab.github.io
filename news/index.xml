@@ -15,10 +15,73 @@
 			<atom:link href="https://damilab.github.io/news/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>DAMI 연구실 학석사연계과정 학생 모집 (~2026.6.21)</title>
-				<link>https://damilab.github.io/news/43/</link>
+				<link>https://damilab.github.io/news/52/</link>
 				<pubDate>Mon, 08 Jun 2026 10:00:00 +0900</pubDate>
-				<guid>https://damilab.github.io/news/43/</guid>
+				<guid>https://damilab.github.io/news/52/</guid>
 				<description>저희 DAMI연구실에서 미래의 인공지능 연구를 함께 선도할 학석사연계과정 학생을 모집합니다.</description>
+			</item>
+			<item>
+				<title>스승의날</title>
+				<link>https://damilab.github.io/news/51/</link>
+				<pubDate>Fri, 15 May 2026 12:00:00 +0900</pubDate>
+				<guid>https://damilab.github.io/news/51/</guid>
+				<description>2026년 5월 15일 스승의날을 맞아 DAMI Lab 학생들이 이우진 교수님께 감사의 마음을 전했습니다.</description>
+			</item>
+			<item>
+				<title>ICLR 2026</title>
+				<link>https://damilab.github.io/news/49/</link>
+				<pubDate>Thu, 23 Apr 2026 10:00:00 +0900</pubDate>
+				<guid>https://damilab.github.io/news/49/</guid>
+				<description>정승원, 이거루 학생이 2026년 4월 23일~27일 브라질 리우데자네이루에서 열린 ICLR 2026에 참여하였습니다.</description>
+			</item>
+			<item>
+				<title>ITRC 인재양성대전 2026</title>
+				<link>https://damilab.github.io/news/50/</link>
+				<pubDate>Wed, 22 Apr 2026 10:00:00 +0900</pubDate>
+				<guid>https://damilab.github.io/news/50/</guid>
+				<description>정승현, 이윤석, 김민석, 정지우, 김윤지, 이현세 학생이 2026년 4월 22일~24일 서울 코엑스에서 열린 ITRC 인재양성대전 2026에 참여하였습니다.</description>
+			</item>
+			<item>
+				<title>연구실 워크샵</title>
+				<link>https://damilab.github.io/news/48/</link>
+				<pubDate>Fri, 10 Apr 2026 12:00:00 +0900</pubDate>
+				<guid>https://damilab.github.io/news/48/</guid>
+				<description>2026년 4월 10일, DAMI 연구실 워크샵을 진행했습니다.</description>
+			</item>
+			<item>
+				<title>2026년도 2월 졸업식</title>
+				<link>https://damilab.github.io/news/47/</link>
+				<pubDate>Thu, 12 Feb 2026 12:00:00 +0900</pubDate>
+				<guid>https://damilab.github.io/news/47/</guid>
+				<description>연구실 정승현 학생이 석사과정을 졸업하였습니다. 동시에 박사과정에 입학하였습니다.</description>
+			</item>
+			<item>
+				<title>연구실 논문 ICLR 2026 Accept</title>
+				<link>https://damilab.github.io/news/46/</link>
+				<pubDate>Mon, 26 Jan 2026 12:00:00 +0900</pubDate>
+				<guid>https://damilab.github.io/news/46/</guid>
+				<description>연구실 논문 &amp;ldquo;Co-occurring Associated REtained concepts in Diffusion Unlearning&amp;quot;이 ICLR 2026에 Accept 되었습니다.</description>
+			</item>
+			<item>
+				<title>연구실 논문 ICLR 2026 Accept</title>
+				<link>https://damilab.github.io/news/45/</link>
+				<pubDate>Mon, 26 Jan 2026 11:00:00 +0900</pubDate>
+				<guid>https://damilab.github.io/news/45/</guid>
+				<description>연구실 논문 &amp;ldquo;SlotGCG, Exploiting the Positional Vulnerability in LLMs for Jailbreak Attacks&amp;quot;이 ICLR 2026에 Accept 되었습니다.</description>
+			</item>
+			<item>
+				<title>연구실 송년회</title>
+				<link>https://damilab.github.io/news/44/</link>
+				<pubDate>Mon, 22 Dec 2025 11:00:00 +0900</pubDate>
+				<guid>https://damilab.github.io/news/44/</guid>
+				<description>&lt;div class=&#34;grid grid-cols-1 gap-2&#34;&gt;&#xA;  &#xA;    &#xA;    &#xA;    &#xA;      &#xA;        &#xA;      &#xA;    &#xA;      &#xA;        &#xA;      &#xA;    &#xA;      &#xA;        &#xA;      &#xA;    &#xA;      &#xA;        &#xA;      &#xA;    &#xA;      &#xA;        &#xA;      &#xA;    &#xA;    &#xA;&#xA;    &#xA;    &#xA;    &#xA;      &#xA;    &#xA;    &#xA;&#xA;    &#xA;    &#xA;    &#xA;      &#xA;      &#xA;    &#xA;      &#xA;      &#xA;    &#xA;      &#xA;      &#xA;    &#xA;      &#xA;      &#xA;    &#xA;      &#xA;      &#xA;    &#xA;&#xA;    &lt;figure class=&#34;relative w-full overflow-hidden rounded-lg shadow-md bg-gray-100 dark:bg-gray-800&#34;&gt;&#xA;      &lt;div class=&#34;w-full flex items-center justify-center p-4&#34; style=&#34;min-height: 300px;&#34;&gt;&#xA;        &lt;img&#xA;          src=&#34;https://damilab.github.io/images/posts/44/%EC%86%A1%EB%85%84%ED%9A%8C1_hu_2edf3b992f64f7c2.jpg&#34;&#xA;          srcset=&#34;https://damilab.github.io/images/posts/44/%EC%86%A1%EB%85%84%ED%9A%8C1_hu_52b0c1f699da1e95.jpg 480w, https://damilab.github.io/images/posts/44/%EC%86%A1%EB%85%84%ED%9A%8C1_hu_9783138bb84a80d0.jpg 768w, https://damilab.github.io/images/posts/44/%EC%86%A1%EB%85%84%ED%9A%8C1_hu_2edf3b992f64f7c2.jpg 1024w, https://damilab.github.io/images/posts/44/%EC%86%A1%EB%85%84%ED%9A%8C1_hu_17825487b10960cb.jpg 1536w, https://damilab.github.io/images/posts/44/%EC%86%A1%EB%85%84%ED%9A%8C1_hu_5e68d9753c6af674.jpg 2048w&#34;&#xA;          sizes=&#34;100vw&#34;&#xA;          alt=&#34;/images/posts/44/송년회1.jpg&#34;&#xA;          class=&#34;max-w-full max-h-full object-contain&#34;&#xA;          loading=&#34;lazy&#34;&#xA;          decoding=&#34;async&#34;&#xA;          fetchpriority=&#34;low&#34;&#xA;        /&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/figure&gt;&#xA;  &#xA;    &#xA;    &#xA;    &#xA;      &#xA;        &#xA;      &#xA;    &#xA;      &#xA;        &#xA;      &#xA;    &#xA;      &#xA;        &#xA;      &#xA;    &#xA;      &#xA;        &#xA;      &#xA;    &#xA;      &#xA;        &#xA;      &#xA;    &#xA;    &#xA;&#xA;    &#xA;    &#xA;    &#xA;      &#xA;    &#xA;    &#xA;&#xA;    &#xA;    &#xA;    &#xA;      &#xA;      &#xA;    &#xA;      &#xA;      &#xA;    &#xA;      &#xA;      &#xA;    &#xA;      &#xA;      &#xA;    &#xA;      &#xA;      &#xA;    &#xA;&#xA;    &lt;figure class=&#34;relative w-full overflow-hidden rounded-lg shadow-md bg-gray-100 dark:bg-gray-800&#34;&gt;&#xA;      &lt;div class=&#34;w-full flex items-center justify-center p-4&#34; style=&#34;min-height: 300px;&#34;&gt;&#xA;        &lt;img&#xA;          src=&#34;https://damilab.github.io/images/posts/44/%EC%86%A1%EB%85%84%ED%9A%8C2_hu_347aa2ac67724cd4.jpg&#34;&#xA;          srcset=&#34;https://damilab.github.io/images/posts/44/%EC%86%A1%EB%85%84%ED%9A%8C2_hu_9e7e52410169db55.jpg 480w, https://damilab.github.io/images/posts/44/%EC%86%A1%EB%85%84%ED%9A%8C2_hu_395fbbf2846bb471.jpg 768w, https://damilab.github.io/images/posts/44/%EC%86%A1%EB%85%84%ED%9A%8C2_hu_347aa2ac67724cd4.jpg 1024w, https://damilab.github.io/images/posts/44/%EC%86%A1%EB%85%84%ED%9A%8C2_hu_cc20b6c799ec8f50.jpg 1536w, https://damilab.github.io/images/posts/44/%EC%86%A1%EB%85%84%ED%9A%8C2_hu_9619f240b5f5fe60.jpg 2048w&#34;&#xA;          sizes=&#34;100vw&#34;&#xA;          alt=&#34;/images/posts/44/송년회2.jpg&#34;&#xA;          class=&#34;max-w-full max-h-full object-contain&#34;&#xA;          loading=&#34;lazy&#34;&#xA;          decoding=&#34;async&#34;&#xA;          fetchpriority=&#34;low&#34;&#xA;        /&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/figure&gt;&#xA;  &#xA;    &#xA;    &#xA;    &#xA;      &#xA;        &#xA;      &#xA;    &#xA;      &#xA;        &#xA;      &#xA;    &#xA;      &#xA;        &#xA;      &#xA;    &#xA;      &#xA;        &#xA;      &#xA;    &#xA;      &#xA;        &#xA;      &#xA;    &#xA;    &#xA;&#xA;    &#xA;    &#xA;    &#xA;      &#xA;    &#xA;    &#xA;&#xA;    &#xA;    &#xA;    &#xA;      &#xA;      &#xA;    &#xA;      &#xA;      &#xA;    &#xA;      &#xA;      &#xA;    &#xA;      &#xA;      &#xA;    &#xA;      &#xA;      &#xA;    &#xA;&#xA;    &lt;figure class=&#34;relative w-full overflow-hidden rounded-lg shadow-md bg-gray-100 dark:bg-gray-800&#34;&gt;&#xA;      &lt;div class=&#34;w-full flex items-center justify-center p-4&#34; style=&#34;min-height: 300px;&#34;&gt;&#xA;        &lt;img&#xA;          src=&#34;https://damilab.github.io/images/posts/44/%EC%86%A1%EB%85%84%ED%9A%8C3_hu_da8a1a4db3de066f.jpg&#34;&#xA;          srcset=&#34;https://damilab.github.io/images/posts/44/%EC%86%A1%EB%85%84%ED%9A%8C3_hu_4d863e6676269fd8.jpg 480w, https://damilab.github.io/images/posts/44/%EC%86%A1%EB%85%84%ED%9A%8C3_hu_af1ad019aa7b5c6b.jpg 768w, https://damilab.github.io/images/posts/44/%EC%86%A1%EB%85%84%ED%9A%8C3_hu_da8a1a4db3de066f.jpg 1024w, https://damilab.github.io/images/posts/44/%EC%86%A1%EB%85%84%ED%9A%8C3_hu_4c2099bd48abd735.jpg 1536w, https://damilab.github.io/images/posts/44/%EC%86%A1%EB%85%84%ED%9A%8C3_hu_d80db36e448b12b6.jpg 2048w&#34;&#xA;          sizes=&#34;100vw&#34;&#xA;          alt=&#34;/images/posts/44/송년회3.jpg&#34;&#xA;          class=&#34;max-w-full max-h-full object-contain&#34;&#xA;          loading=&#34;lazy&#34;&#xA;          decoding=&#34;async&#34;&#xA;          fetchpriority=&#34;low&#34;&#xA;        /&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/figure&gt;&#xA;  &#xA;&lt;/div&gt;</description>
+			</item>
+			<item>
+				<title>연구실 인턴 회식</title>
+				<link>https://damilab.github.io/news/43/</link>
+				<pubDate>Wed, 17 Dec 2025 11:00:00 +0900</pubDate>
+				<guid>https://damilab.github.io/news/43/</guid>
+				<description>&lt;div class=&#34;grid grid-cols-1 gap-2&#34;&gt;&#xA;  &#xA;    &#xA;    &#xA;    &#xA;      &#xA;        &#xA;      &#xA;    &#xA;      &#xA;        &#xA;      &#xA;    &#xA;      &#xA;        &#xA;      &#xA;    &#xA;      &#xA;        &#xA;      &#xA;    &#xA;      &#xA;        &#xA;      &#xA;    &#xA;    &#xA;&#xA;    &#xA;    &#xA;    &#xA;      &#xA;    &#xA;    &#xA;&#xA;    &#xA;    &#xA;    &#xA;      &#xA;      &#xA;    &#xA;      &#xA;      &#xA;    &#xA;      &#xA;      &#xA;    &#xA;      &#xA;      &#xA;    &#xA;      &#xA;      &#xA;    &#xA;&#xA;    &lt;figure class=&#34;relative w-full overflow-hidden rounded-lg shadow-md bg-gray-100 dark:bg-gray-800&#34;&gt;&#xA;      &lt;div class=&#34;w-full flex items-center justify-center p-4&#34; style=&#34;min-height: 300px;&#34;&gt;&#xA;        &lt;img&#xA;          src=&#34;https://damilab.github.io/images/posts/43/%EC%9D%B8%ED%84%B41_hu_43a3a9384068ed45.jpg&#34;&#xA;          srcset=&#34;https://damilab.github.io/images/posts/43/%EC%9D%B8%ED%84%B41_hu_83ad4619d922b4cb.jpg 480w, https://damilab.github.io/images/posts/43/%EC%9D%B8%ED%84%B41_hu_e972877512e226bc.jpg 768w, https://damilab.github.io/images/posts/43/%EC%9D%B8%ED%84%B41_hu_43a3a9384068ed45.jpg 1024w, https://damilab.github.io/images/posts/43/%EC%9D%B8%ED%84%B41_hu_4c1885d0ef739145.jpg 1536w, https://damilab.github.io/images/posts/43/%EC%9D%B8%ED%84%B41_hu_b009d3245e54c55e.jpg 2048w&#34;&#xA;          sizes=&#34;100vw&#34;&#xA;          alt=&#34;/images/posts/43/인턴1.jpg&#34;&#xA;          class=&#34;max-w-full max-h-full object-contain&#34;&#xA;          loading=&#34;lazy&#34;&#xA;          decoding=&#34;async&#34;&#xA;          fetchpriority=&#34;low&#34;&#xA;        /&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/figure&gt;&#xA;  &#xA;    &#xA;    &#xA;    &#xA;      &#xA;        &#xA;      &#xA;    &#xA;      &#xA;        &#xA;      &#xA;    &#xA;      &#xA;        &#xA;      &#xA;    &#xA;      &#xA;        &#xA;      &#xA;    &#xA;      &#xA;        &#xA;      &#xA;    &#xA;    &#xA;&#xA;    &#xA;    &#xA;    &#xA;      &#xA;    &#xA;    &#xA;&#xA;    &#xA;    &#xA;    &#xA;      &#xA;      &#xA;    &#xA;      &#xA;      &#xA;    &#xA;      &#xA;      &#xA;    &#xA;      &#xA;      &#xA;    &#xA;      &#xA;      &#xA;    &#xA;&#xA;    &lt;figure class=&#34;relative w-full overflow-hidden rounded-lg shadow-md bg-gray-100 dark:bg-gray-800&#34;&gt;&#xA;      &lt;div class=&#34;w-full flex items-center justify-center p-4&#34; style=&#34;min-height: 300px;&#34;&gt;&#xA;        &lt;img&#xA;          src=&#34;https://damilab.github.io/images/posts/43/%EC%9D%B8%ED%84%B42_hu_d7d094fb304c2bc.jpg&#34;&#xA;          srcset=&#34;https://damilab.github.io/images/posts/43/%EC%9D%B8%ED%84%B42_hu_1cb85a67b1eedfd0.jpg 480w, https://damilab.github.io/images/posts/43/%EC%9D%B8%ED%84%B42_hu_a7cf774a1acf3ffc.jpg 768w, https://damilab.github.io/images/posts/43/%EC%9D%B8%ED%84%B42_hu_d7d094fb304c2bc.jpg 1024w, https://damilab.github.io/images/posts/43/%EC%9D%B8%ED%84%B42_hu_2f708ffe1647b2f7.jpg 1536w, https://damilab.github.io/images/posts/43/%EC%9D%B8%ED%84%B42_hu_e14088d2554aad6e.jpg 2048w&#34;&#xA;          sizes=&#34;100vw&#34;&#xA;          alt=&#34;/images/posts/43/인턴2.jpg&#34;&#xA;          class=&#34;max-w-full max-h-full object-contain&#34;&#xA;          loading=&#34;lazy&#34;&#xA;          decoding=&#34;async&#34;&#xA;          fetchpriority=&#34;low&#34;&#xA;        /&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/figure&gt;&#xA;  &#xA;&lt;/div&gt;</description>
 			</item>
 			<item>
 				<title>Christoph Timmermann 학생 TUM × Audi 박사과정 합격</title>
