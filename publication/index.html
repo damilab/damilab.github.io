@@ -69,18 +69,6 @@ html, body, * {
 }
 .publication-item .publication-signal.jcr { background: #fff1d8; color: #a76405; }
 .publication-item .publication-signal.ai { background: #e8f0ff; color: #1657c4; }
-.publication-item .publication-authors { line-height: 1.55; }
-.publication-item .publication-authors-toggle {
-  border: 0;
-  padding: 0;
-  margin-left: 0.25rem;
-  background: transparent;
-  color: #243c8f;
-  cursor: pointer;
-  font: inherit;
-  font-weight: 600;
-  text-decoration: underline;
-}
 @media (max-width: 640px) {
   .publication-item { flex-direction: column; }
   .publication-item > .flex-shrink-0 {
@@ -985,7 +973,7 @@ html, body, * {
                 </div>
             </div>
             
-                <div class="publication-item flex overflow-hidden rounded-lg shadow-lg bg-gray-50" data-topic="" data-year="2025" data-type="international">
+                <div class="publication-item flex overflow-hidden rounded-lg shadow-lg bg-gray-50" data-topic="" data-year="2025" data-published="2025-08-21" data-type="international">
                 
                 
                 <div class="flex-shrink-0 overflow-hidden rounded-lg bg-white flex items-center justify-center" style="width: 350px; height: 250px; min-width: 350px; min-height: 250px;">
@@ -1125,7 +1113,7 @@ html, body, * {
                 </div>
             </div>
             
-                <div class="publication-item flex overflow-hidden rounded-lg shadow-lg bg-gray-50" data-topic="" data-year="2025" data-type="international">
+                <div class="publication-item flex overflow-hidden rounded-lg shadow-lg bg-gray-50" data-topic="" data-year="2025" data-published="2025-04-23" data-type="international">
                 
                 
                 <div class="flex-shrink-0 overflow-hidden rounded-lg bg-white flex items-center justify-center" style="width: 350px; height: 250px; min-width: 350px; min-height: 250px;">
@@ -1247,7 +1235,7 @@ html, body, * {
                 </div>
             </div>
             
-                <div class="publication-item flex overflow-hidden rounded-lg shadow-lg bg-gray-50" data-topic="" data-year="2025" data-type="international">
+                <div class="publication-item flex overflow-hidden rounded-lg shadow-lg bg-gray-50" data-topic="" data-year="2025" data-published="2025-04-16" data-type="international">
                 
                 
                 <div class="flex-shrink-0 overflow-hidden rounded-lg bg-white flex items-center justify-center" style="width: 350px; height: 250px; min-width: 350px; min-height: 250px;">
@@ -1369,7 +1357,7 @@ html, body, * {
                 </div>
             </div>
             
-                <div class="publication-item flex overflow-hidden rounded-lg shadow-lg bg-gray-50" data-topic="" data-year="2025" data-type="international">
+                <div class="publication-item flex overflow-hidden rounded-lg shadow-lg bg-gray-50" data-topic="" data-year="2025" data-published="2025-06-11" data-type="international">
                 
                 
                 <div class="flex-shrink-0 overflow-hidden rounded-lg bg-white flex items-center justify-center" style="width: 350px; height: 250px; min-width: 350px; min-height: 250px;">
@@ -1509,7 +1497,7 @@ html, body, * {
                 </div>
             </div>
             
-                <div class="publication-item flex overflow-hidden rounded-lg shadow-lg bg-gray-50" data-topic="" data-year="2025" data-type="international">
+                <div class="publication-item flex overflow-hidden rounded-lg shadow-lg bg-gray-50" data-topic="" data-year="2025" data-published="2025-04-10" data-type="international">
                 
                 
                 <div class="flex-shrink-0 overflow-hidden rounded-lg bg-white flex items-center justify-center" style="width: 350px; height: 250px; min-width: 350px; min-height: 250px;">
@@ -1625,7 +1613,7 @@ html, body, * {
                 </div>
             </div>
             
-                <div class="publication-item flex overflow-hidden rounded-lg shadow-lg bg-gray-50" data-topic="" data-year="2025" data-type="international">
+                <div class="publication-item flex overflow-hidden rounded-lg shadow-lg bg-gray-50" data-topic="" data-year="2025" data-published="2025-03-01" data-type="international">
                 
                 
                 <div class="flex-shrink-0 overflow-hidden rounded-lg bg-white flex items-center justify-center" style="width: 350px; height: 250px; min-width: 350px; min-height: 250px;">
@@ -1747,7 +1735,7 @@ html, body, * {
                 </div>
             </div>
             
-                <div class="publication-item flex overflow-hidden rounded-lg shadow-lg bg-gray-50" data-topic="" data-year="2025" data-type="international">
+                <div class="publication-item flex overflow-hidden rounded-lg shadow-lg bg-gray-50" data-topic="" data-year="2025" data-published="2025-02-07" data-type="international">
                 
                 
                 <div class="flex-shrink-0 overflow-hidden rounded-lg bg-white flex items-center justify-center" style="width: 350px; height: 250px; min-width: 350px; min-height: 250px;">
@@ -5593,8 +5581,8 @@ function clearAllFilters() {
     });
 }
 
-function sort2026PublicationsByDate() {
-    const items = Array.from(document.querySelectorAll('.publication-item[data-year="2026"][data-published]'));
+function sortPublicationsByDate(year) {
+    const items = Array.from(document.querySelectorAll(`.publication-item[data-year="${year}"][data-published]`));
     if (items.length < 2) return;
 
     const parent = items[0].parentElement;
@@ -5604,7 +5592,8 @@ function sort2026PublicationsByDate() {
         .forEach(item => parent.insertBefore(item, anchor));
 }
 
-sort2026PublicationsByDate();
+sortPublicationsByDate('2026');
+sortPublicationsByDate('2025');
 
 function formatPublicationDate(value, fallbackYear) {
     if (!value) return { year: fallbackYear, monthDay: '' };
@@ -5616,22 +5605,73 @@ function formatPublicationDate(value, fallbackYear) {
 function enhancePublicationMetadata() {
     const venueSignals = {
         'Journal of Hazardous Materials Advances': {
-            label: 'JCR Top 10%', kind: 'jcr', title: 'JCR 2026 · Environmental Sciences · 39/395'
+            label: 'Top 10%', kind: 'jcr', title: 'JCR · Environmental Sciences · Top 9.9%'
         },
         'IEEE Access': {
-            label: 'JCR Q2', kind: 'jcr', title: 'JCR 2026 · Engineering, Electrical & Electronic · 128/366'
+            label: 'JCR Q2', kind: 'jcr', title: 'JCR percentile 64.1% · Q2'
         },
         'ICLR': {
             label: 'ICLR', kind: 'ai', title: 'AI Conference · ICLR 2026'
         },
         'Applied Sciences': {
-            label: 'JCR Q2', kind: 'jcr', title: 'JCR 2026 · Engineering, Multidisciplinary'
+            label: 'JCR Q2', kind: 'jcr', title: 'JCR percentile 72.3% · Q2'
         },
         'Computational Economics': {
-            label: 'JCR Q2', kind: 'jcr', title: 'JCR 2026 · Economics / Mathematics, Interdisciplinary Applications'
+            label: 'JCR Q2', kind: 'jcr', title: 'JCR · Economics / Mathematics, Interdisciplinary Applications · Q2'
         },
         'Journal of Theoretical and Applied Electronic Commerce Research': {
-            label: 'JCR Q2', kind: 'jcr', title: 'JCR 2026 · Business'
+            label: 'JCR Q2', kind: 'jcr', title: 'JCR · Business · Q2'
+        },
+        'Geomatics, Natural Hazards and Risk': {
+            label: 'Top 13%', kind: 'jcr', title: 'JCR percentile 87.0% · Top 13.0%'
+        },
+        'Information Sciences': {
+            label: 'Top 8%', kind: 'jcr', title: 'JCR percentile 92.1% · Top 7.9%'
+        },
+        'Finance Research Letters': {
+            label: 'Top 5%', kind: 'jcr', title: 'JCR percentile 95.2% · Top 4.8%'
+        },
+        'Applied Soft Computing': {
+            label: 'Top 17%', kind: 'jcr', title: 'JCR percentile 83.1% · Top 16.9%'
+        },
+        'Earth Systems and Environment': {
+            label: 'Top 12%', kind: 'jcr', title: 'JCR percentile 88.6% · Top 11.4%'
+        },
+        'Expert Systems with Applications': {
+            label: 'Top 6%', kind: 'jcr', title: 'JCR percentile 93.9% · Top 6.1%'
+        },
+        'Journal of Environmental Management': {
+            label: 'Top 8%', kind: 'jcr', title: 'JCR percentile 91.8% · Top 8.2%'
+        },
+        'Pattern Recognition Letters': {
+            label: 'JCR Q2', kind: 'jcr', title: 'JCR percentile 54.7% · Q2'
+        },
+        'Engineering Applications of Artificial Intelligence': {
+            label: 'Top 8%', kind: 'jcr', title: 'JCR percentile 91.6% · Top 8.4%'
+        },
+        'Neural Networks': {
+            label: 'Top 10%', kind: 'jcr', title: 'JCR percentile 89.6% · Top 10.4%'
+        },
+        'Scientific Reports': {
+            label: 'Top 18%', kind: 'jcr', title: 'JCR percentile 81.9% · Top 18.1%'
+        },
+        'Pattern Recognition': {
+            label: 'Top 13%', kind: 'jcr', title: 'JCR percentile 87.5% · Top 12.5%'
+        },
+        'PloS one': {
+            label: 'JCR Q2', kind: 'jcr', title: 'JCR percentile 67.8% · Q2'
+        },
+        'Energy policy': {
+            label: 'Top 2%', kind: 'jcr', title: 'JCR percentile 98.5% · Top 1.5%'
+        },
+        'CVPR[W]': {
+            label: 'CVPR Workshops', kind: 'ai', title: 'AI Conference · CVPR Workshops 2025'
+        },
+        'NeurIPS': {
+            label: 'NeurIPS', kind: 'ai', title: 'AI Conference · NeurIPS'
+        },
+        'AAAI': {
+            label: 'AAAI', kind: 'ai', title: 'AI Conference · AAAI'
         }
     };
 
@@ -5652,50 +5692,26 @@ function enhancePublicationMetadata() {
             content.appendChild(rail);
         }
 
-        if (item.dataset.year === '2026') {
-            const venueChip = chips.find(chip => chip !== yearChip);
-            const venueName = venueChip && venueChip.textContent.trim();
-            const signal = venueName && venueSignals[venueName];
-            if (signal) {
-                if (venueName === 'ICLR') {
-                    venueChip.textContent = 'International Conference on Learning Representations';
-                }
-                const badge = document.createElement('span');
-                badge.className = `publication-signal ${signal.kind}`;
-                badge.textContent = signal.label;
-                badge.title = signal.title;
-                metaRow.appendChild(badge);
+        const venueChip = chips.find(chip => chip !== yearChip);
+        const venueName = venueChip && venueChip.textContent.trim();
+        const signal = venueName && venueSignals[venueName];
+        if (signal) {
+            const fullConferenceNames = {
+                'ICLR': 'International Conference on Learning Representations',
+                'CVPR[W]': 'IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops',
+                'NeurIPS': 'Conference on Neural Information Processing Systems',
+                'AAAI': 'AAAI Conference on Artificial Intelligence'
+            };
+            if (fullConferenceNames[venueName]) {
+                venueChip.textContent = fullConferenceNames[venueName];
             }
+            const badge = document.createElement('span');
+            badge.className = `publication-signal ${signal.kind}`;
+            badge.textContent = signal.label;
+            badge.title = signal.title;
+            metaRow.appendChild(badge);
         }
 
-        const authorLine = Array.from(content.querySelectorAll('p')).find(p => /^Authors:\s*/i.test(p.textContent.trim()));
-        if (!authorLine) return;
-        const authorText = authorLine.textContent.trim().replace(/^Authors:\s*/i, '');
-        const authors = authorText.split(',').map(author => author.trim()).filter(Boolean);
-        if (authors.length <= 3) return;
-
-        const preview = authors.slice(0, 3).join(', ');
-        const remaining = authors.slice(3).join(', ');
-        const label = document.createElement('span');
-        label.className = 'font-medium';
-        label.textContent = 'Authors: ';
-        const visible = document.createTextNode(preview);
-        const hidden = document.createElement('span');
-        hidden.className = 'publication-hidden-authors';
-        hidden.hidden = true;
-        hidden.textContent = `, ${remaining}`;
-        const toggle = document.createElement('button');
-        toggle.type = 'button';
-        toggle.className = 'publication-authors-toggle';
-        toggle.textContent = `+ ${authors.length - 3} authors`;
-        toggle.setAttribute('aria-expanded', 'false');
-        toggle.addEventListener('click', () => {
-            hidden.hidden = !hidden.hidden;
-            toggle.textContent = hidden.hidden ? `+ ${authors.length - 3} authors` : 'Show less';
-            toggle.setAttribute('aria-expanded', String(!hidden.hidden));
-        });
-        authorLine.replaceChildren(label, visible, hidden, toggle);
-        authorLine.classList.add('publication-authors');
     });
 }
 
