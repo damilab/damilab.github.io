@@ -82,6 +82,11 @@ html, body, * {
   text-decoration: underline;
 }
 @media (max-width: 640px) {
+  .publication-item { flex-direction: column; }
+  .publication-item > .flex-shrink-0 {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
   .publication-item .publication-content { padding-right: 6.1rem; }
   .publication-item .publication-date-rail strong { font-size: 1.1rem; }
   .publication-item .publication-date-rail { font-size: 0.62rem; }
