@@ -36,6 +36,56 @@
 html, body, * {
   font-family: 'Pretendard', ui-sans-serif, system-ui, sans-serif !important;
 }
+
+/* Publication metadata: compact date rail, expandable author list, and venue signals. */
+.publication-item .publication-content {
+  position: relative;
+  padding-right: 7.25rem;
+}
+.publication-item .publication-date-rail {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 4.7rem;
+  color: #59667a;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.25;
+  text-align: right;
+}
+.publication-item .publication-date-rail strong {
+  display: block;
+  color: #1f2937;
+  font-size: 1.35rem;
+  letter-spacing: -0.04em;
+}
+.publication-item .publication-year-chip { display: none; }
+.publication-item .publication-signal {
+  border-radius: 0.375rem;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.publication-item .publication-signal.jcr { background: #fff1d8; color: #a76405; }
+.publication-item .publication-signal.ai { background: #e8f0ff; color: #1657c4; }
+.publication-item .publication-authors { line-height: 1.55; }
+.publication-item .publication-authors-toggle {
+  border: 0;
+  padding: 0;
+  margin-left: 0.25rem;
+  background: transparent;
+  color: #243c8f;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+}
+@media (max-width: 640px) {
+  .publication-item .publication-content { padding-right: 6.1rem; }
+  .publication-item .publication-date-rail strong { font-size: 1.1rem; }
+  .publication-item .publication-date-rail { font-size: 0.62rem; }
+}
 </style>
 
 
@@ -5550,6 +5600,97 @@ function sort2026PublicationsByDate() {
 }
 
 sort2026PublicationsByDate();
+
+function formatPublicationDate(value, fallbackYear) {
+    if (!value) return { year: fallbackYear, monthDay: '' };
+    const [year, month, day] = value.split('-');
+    const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+    return { year, monthDay: `${Number(day)} ${months[Number(month) - 1]}` };
+}
+
+function enhancePublicationMetadata() {
+    const venueSignals = {
+        'Journal of Hazardous Materials Advances': {
+            label: 'JCR Top 10%', kind: 'jcr', title: 'JCR 2026 · Environmental Sciences · 39/395'
+        },
+        'IEEE Access': {
+            label: 'JCR Q2', kind: 'jcr', title: 'JCR 2026 · Engineering, Electrical & Electronic · 128/366'
+        },
+        'ICLR': {
+            label: 'AI Conference · ICLR', kind: 'ai', title: 'AI Conference · ICLR 2026'
+        },
+        'Applied Sciences': {
+            label: 'JCR Q2', kind: 'jcr', title: 'JCR 2026 · Engineering, Multidisciplinary'
+        },
+        'Computational Economics': {
+            label: 'JCR Q2', kind: 'jcr', title: 'JCR 2026 · Economics / Mathematics, Interdisciplinary Applications'
+        },
+        'Journal of Theoretical and Applied Electronic Commerce Research': {
+            label: 'JCR Q2', kind: 'jcr', title: 'JCR 2026 · Business'
+        }
+    };
+
+    document.querySelectorAll('.publication-item').forEach(item => {
+        const content = item.querySelector(':scope > .flex-1');
+        const metaRow = content && content.querySelector(':scope > .flex');
+        if (!content || !metaRow) return;
+
+        content.classList.add('publication-content');
+        const chips = Array.from(metaRow.querySelectorAll(':scope > span'));
+        const yearChip = chips.find(chip => /^\d{4}$/.test(chip.textContent.trim()));
+        if (yearChip) {
+            yearChip.classList.add('publication-year-chip');
+            const date = formatPublicationDate(item.dataset.published, item.dataset.year || yearChip.textContent.trim());
+            const rail = document.createElement('span');
+            rail.className = 'publication-date-rail';
+            rail.innerHTML = `<strong>${date.year}</strong>${date.monthDay}`;
+            content.appendChild(rail);
+        }
+
+        if (item.dataset.year === '2026') {
+            const venueChip = chips.find(chip => chip !== yearChip);
+            const signal = venueChip && venueSignals[venueChip.textContent.trim()];
+            if (signal) {
+                const badge = document.createElement('span');
+                badge.className = `publication-signal ${signal.kind}`;
+                badge.textContent = signal.label;
+                badge.title = signal.title;
+                metaRow.appendChild(badge);
+            }
+        }
+
+        const authorLine = Array.from(content.querySelectorAll('p')).find(p => /^Authors:\s*/i.test(p.textContent.trim()));
+        if (!authorLine) return;
+        const authorText = authorLine.textContent.trim().replace(/^Authors:\s*/i, '');
+        const authors = authorText.split(',').map(author => author.trim()).filter(Boolean);
+        if (authors.length <= 3) return;
+
+        const preview = authors.slice(0, 3).join(', ');
+        const remaining = authors.slice(3).join(', ');
+        const label = document.createElement('span');
+        label.className = 'font-medium';
+        label.textContent = 'Authors: ';
+        const visible = document.createTextNode(preview);
+        const hidden = document.createElement('span');
+        hidden.className = 'publication-hidden-authors';
+        hidden.hidden = true;
+        hidden.textContent = `, ${remaining}`;
+        const toggle = document.createElement('button');
+        toggle.type = 'button';
+        toggle.className = 'publication-authors-toggle';
+        toggle.textContent = `+ ${authors.length - 3} authors`;
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.addEventListener('click', () => {
+            hidden.hidden = !hidden.hidden;
+            toggle.textContent = hidden.hidden ? `+ ${authors.length - 3} authors` : 'Show less';
+            toggle.setAttribute('aria-expanded', String(!hidden.hidden));
+        });
+        authorLine.replaceChildren(label, visible, hidden, toggle);
+        authorLine.classList.add('publication-authors');
+    });
+}
+
+enhancePublicationMetadata();
 </script>
     </div>
 </div>
