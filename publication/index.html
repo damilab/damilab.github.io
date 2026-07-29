@@ -272,7 +272,7 @@ html, body, * {
         <div id="tab-international" class="publication-tab-panel" style="display: block;">
             <div class="grid gap-6 mx-auto mt-12 mb-4 lg:max-w-none grid-cols-1">
                 
-                <div class="publication-item flex overflow-hidden rounded-lg shadow-lg bg-gray-50" data-topic="" data-year="2026" data-type="international">
+                <div class="publication-item flex overflow-hidden rounded-lg shadow-lg bg-gray-50" data-topic="" data-year="2026" data-published="2026-04-14" data-type="international">
                 
                 
                 <div class="flex-shrink-0 overflow-hidden rounded-lg bg-white flex items-center justify-center" style="width: 350px; height: 250px; min-width: 350px; min-height: 250px;">
@@ -436,7 +436,7 @@ html, body, * {
                 </div>
             </div>
             
-                <div class="publication-item flex overflow-hidden rounded-lg shadow-lg bg-gray-50" data-topic="" data-year="2026" data-type="international">
+                <div class="publication-item flex overflow-hidden rounded-lg shadow-lg bg-gray-50" data-topic="" data-year="2026" data-published="2026-04-23" data-type="international">
                 
                 
                 <div class="flex-shrink-0 overflow-hidden rounded-lg bg-white flex items-center justify-center" style="width: 350px; height: 250px; min-width: 350px; min-height: 250px;">
@@ -571,7 +571,7 @@ html, body, * {
                 </div>
             </div>
 
-                <div class="publication-item flex overflow-hidden rounded-lg shadow-lg bg-gray-50" data-topic="Groundwater" data-year="2026" data-type="international">
+                <div class="publication-item flex overflow-hidden rounded-lg shadow-lg bg-gray-50" data-topic="Groundwater" data-year="2026" data-published="2026-06-11" data-type="international">
                 <div class="flex-shrink-0 overflow-hidden rounded-lg bg-white flex items-center justify-center" style="width: 350px; height: 250px; min-width: 350px; min-height: 250px;">
                     <img src="/images/publications/groundwater-potential-fr-lstm.png" alt="Groundwater potential maps developed using the FR and FR-LSTM hybrid models" class="object-contain object-center max-w-full max-h-full">
                 </div>
@@ -611,7 +611,7 @@ html, body, * {
                 </div>
             </div>
             
-                <div class="publication-item flex overflow-hidden rounded-lg shadow-lg bg-gray-50" data-topic="" data-year="2026" data-type="international">
+                <div class="publication-item flex overflow-hidden rounded-lg shadow-lg bg-gray-50" data-topic="" data-year="2026" data-published="2026-04-24" data-type="international">
                 
                 
                 <div class="flex-shrink-0 overflow-hidden rounded-lg bg-white flex items-center justify-center" style="width: 350px; height: 250px; min-width: 350px; min-height: 250px;">
@@ -745,7 +745,7 @@ html, body, * {
                 </div>
             </div>
             
-                <div class="publication-item flex overflow-hidden rounded-lg shadow-lg bg-gray-50" data-topic="" data-year="2026" data-type="international">
+                <div class="publication-item flex overflow-hidden rounded-lg shadow-lg bg-gray-50" data-topic="" data-year="2026" data-published="2026-02-21" data-type="international">
                 
                 
                 <div class="flex-shrink-0 overflow-hidden rounded-lg bg-white flex items-center justify-center" style="width: 350px; height: 250px; min-width: 350px; min-height: 250px;">
@@ -5474,6 +5474,19 @@ function clearAllFilters() {
         item.style.display = 'flex'; 
     });
 }
+
+function sort2026PublicationsByDate() {
+    const items = Array.from(document.querySelectorAll('.publication-item[data-year="2026"][data-published]'));
+    if (items.length < 2) return;
+
+    const parent = items[0].parentElement;
+    const anchor = items[items.length - 1].nextElementSibling;
+    items
+        .sort((a, b) => b.dataset.published.localeCompare(a.dataset.published))
+        .forEach(item => parent.insertBefore(item, anchor));
+}
+
+sort2026PublicationsByDate();
 </script>
     </div>
 </div>
