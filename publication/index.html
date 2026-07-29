@@ -5622,7 +5622,7 @@ function enhancePublicationMetadata() {
             label: 'JCR Q2', kind: 'jcr', title: 'JCR 2026 · Engineering, Electrical & Electronic · 128/366'
         },
         'ICLR': {
-            label: 'AI Conference · ICLR', kind: 'ai', title: 'AI Conference · ICLR 2026'
+            label: 'ICLR', kind: 'ai', title: 'AI Conference · ICLR 2026'
         },
         'Applied Sciences': {
             label: 'JCR Q2', kind: 'jcr', title: 'JCR 2026 · Engineering, Multidisciplinary'
@@ -5654,8 +5654,12 @@ function enhancePublicationMetadata() {
 
         if (item.dataset.year === '2026') {
             const venueChip = chips.find(chip => chip !== yearChip);
-            const signal = venueChip && venueSignals[venueChip.textContent.trim()];
+            const venueName = venueChip && venueChip.textContent.trim();
+            const signal = venueName && venueSignals[venueName];
             if (signal) {
+                if (venueName === 'ICLR') {
+                    venueChip.textContent = 'International Conference on Learning Representations';
+                }
                 const badge = document.createElement('span');
                 badge.className = `publication-signal ${signal.kind}`;
                 badge.textContent = signal.label;
