@@ -5592,8 +5592,43 @@ function sortPublicationsByDate(year) {
         .forEach(item => parent.insertBefore(item, anchor));
 }
 
-sortPublicationsByDate('2026');
-sortPublicationsByDate('2025');
+function applyKnownPublicationDates() {
+    const dates = {
+        'Multi-stage ensemble with refinement for noisy labeled data classification': '2024-12-01',
+        'Flood susceptibility mapping of Cheongju, South Korea based on the integration of environmental factors using various machine learning approaches': '2024-07-01',
+        'Sliced Wasserstein adversarial training for improving adversarial robustness': '2024-05-05',
+        'Graph contrastive learning with consistency regularization': '2024-05-01',
+        'Evaluating practical adversarial robustness of fault diagnosis systems via spectrogram-aware ensemble method': '2024-03-01',
+        'Fairness-Aware Multimodal Learning in Automatic Video Interview Assessment': '2023-10-19',
+        'Bridged adversarial training': '2023-10-01',
+        'Fast sharpness-aware training for periodic time series classification and forecasting': '2023-09-01',
+        'Genetic descriptor search algorithm for predicting hydrogen adsorption free energy of 2D material': '2023-08-05',
+        'Variational cycle-consistent imputation adversarial networks for general missing patterns': '2022-09-01',
+        'Parameter-free HE-friendly Logistic Regression': '2021-12-06',
+        'Towards Better Understanding of Training Certifiably Robust Models against Adversarial Examples': '2021-12-06',
+        'Fair clustering with fair correspondence distribution': '2021-12-01',
+        'Compact class-conditional domain invariant learning for multi-class domain adaptation': '2020-12-06',
+        'Understanding catastrophic overfitting in single-step adversarial training': '2020-10-05',
+        'Joint transfer of model knowledge and fairness over domains using wasserstein distance': '2020-06-30',
+        'Learning of indiscriminate distributions of document embeddings for domain adaptation': '2019-01-01',
+        'Instance weighting domain adaptation using distance kernel': '2018-06-01',
+        'Adjusted Impact Factor by using F min Search Algorithm': '2018-03-01',
+        'Information-based boundary equilibrium generative adversarial networks with interpretable representation learning': '2018-01-01',
+        'Patent network analysis and quadratic assignment procedures to identify the convergence of robot technologies': '2016-10-20',
+        'A Novel journal evaluation metric that adjusts the impact factors across different subject categories': '2016-09-01',
+        'Patent analysis to identify shale gas development in China and the United States': '2014-11-01'
+    };
+
+    document.querySelectorAll('.publication-item').forEach(item => {
+        if (item.dataset.published) return;
+        const title = item.querySelector('h3')?.textContent.replace(/\s+/g, ' ').trim();
+        if (title && dates[title]) item.dataset.published = dates[title];
+    });
+}
+
+applyKnownPublicationDates();
+Array.from(new Set(Array.from(document.querySelectorAll('.publication-item[data-published]')).map(item => item.dataset.year)))
+    .forEach(sortPublicationsByDate);
 
 function formatPublicationDate(value, fallbackYear) {
     if (!value) return { year: fallbackYear, monthDay: '' };
