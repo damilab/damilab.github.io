@@ -127,146 +127,773 @@ html, body, * {
     
 <main>
 
-  
-  <div class="bg-gradient-to-r from-gray-100 to-blue-800 dark:from-gray-900 dark:to-blue-950">
-    <div class="max-w-screen-xl px-4 sm:px-6 lg:px-8 mx-auto py-16 md:py-24">
-      <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight text-black dark:text-white">
-        Research Topic
-      </h1>
-    
-      <p class="mt-4 text-lg text-gray-700 dark:text-gray-300">
-        본 연구실은 <b>D</b>ata <b>A</b>nalysis &amp; <b>M</b>achine <b>I</b>ntelligence를 포괄하는 세 가지 핵심 연구 주제를 설정하여 연구를 진행합니다.
+  <div style="background:linear-gradient(115deg,#000B2E 0%,#001456 45%,#123A9E 100%)">
+    <div class="max-w-screen-xl px-4 sm:px-6 lg:px-8 mx-auto py-16 md:py-20">
+      <h1 class="text-5xl font-extrabold tracking-tight text-white">Research</h1>
+      <p class="mt-4 text-lg" style="color:#DBEAFE;max-width:860px;line-height:1.8">
+        신뢰 가능한 기계학습, 도메인을 넘어 일반화하는 표현 학습, 그리고 이를 실제 산업·사회 도메인에 적용하는 연구를 합니다.
       </p>
-    
     </div>
   </div>
 
-  
-  
-  
-    
-    <section id="trustworthy-ai" class="relative my-6">
-      <div class="lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-2 lg:items-center lg:gap-24 lg:px-8">
+<style>
+.dami-areas{--navy:#001456;--ink:#0F172A;--ink-2:#3F4A60;--line:#C9D0DE;
+  background:#E8ECF4;border-top:2px solid #C9D0DE;border-bottom:2px solid #C9D0DE;
+  padding:64px 0 72px;font-family:'Pretendard',system-ui,-apple-system,sans-serif;color:#0F172A}
+.dami-areas *{box-sizing:border-box}
+.dami-wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.dami-areas .shead{margin-bottom:6px}
+.dami-areas .shead h2{font-size:38px;font-weight:900;letter-spacing:-.03em;color:#001456;margin:0}
+.dami-areas .shead p{margin-top:10px;font-size:16px;color:#3F4A60;line-height:1.65;max-width:820px}
+.dami-areas img{display:block;max-width:100%}
+.dami-areas a{color:inherit;text-decoration:none}
+.dami-areas ul{list-style:none;margin:0;padding:0}
+/* ---------- Research Areas: v2 + figure 뷰어 ---------- */
+.dami-areas .axis{background:#fff;border:2px solid var(--line);border-radius:18px;
+  margin-top:30px;box-shadow:0 4px 16px rgba(15,23,42,.06)}
+.dami-areas .axis .head{padding:24px 30px 22px;color:#fff;position:relative;overflow:hidden;border-radius:16px 16px 0 0}
+.dami-areas .axis .head .num{position:absolute;right:24px;top:-16px;font-size:112px;font-weight:900;
+  letter-spacing:-.06em;color:rgba(255,255,255,.16);line-height:1}
+.dami-areas .axis .head .kicker{font-size:11.5px;font-weight:900;letter-spacing:.14em;color:rgba(255,255,255,.85)}
+.dami-areas .axis .head h3{margin-top:8px;font-size:35px;font-weight:900;letter-spacing:-.035em;line-height:1.08}
+.dami-areas .axis .head .kw{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.dami-areas .axis .head .kw span{font-size:12px;font-weight:800;padding:5px 11px;border-radius:6px;
+  background:rgba(255,255,255,.16);border:1.5px solid rgba(255,255,255,.42)}
+.dami-areas .axis .head .desc{margin-top:15px;font-size:15px;line-height:1.75;color:rgba(255,255,255,.94);max-width:880px}
+.dami-areas .axis.a1 .head{background:linear-gradient(102deg,#7F1220 0%,#B91C1C 100%)}
+.dami-areas .axis.a2 .head{background:linear-gradient(102deg,#0A4E62 0%,#0E7490 100%)}
+.dami-areas .axis.a3 .head{background:linear-gradient(102deg,#8A2C06 0%,#C2410C 100%)}
+.dami-areas .axis .body{display:block;padding:14px 30px 8px}
 
-        
-        <div class=" relative max-w-md px-4 mx-auto sm:max-w-3xl sm:px-6 lg:px-0">
-          <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-50">Trustworthy AI</h2>
-          <p class="mt-4 text-lg text-gray-900 dark:text-white">공정성(Fairness), 견고성(Robustness), 프라이버시·보안(Privacy &amp; Security), 해석 가능성(Interpretability) 등 실제 현장에서 안전하고 윤리적인 AI를 구현하는 기반</p>
-          <p class="mt-4 text-lg text-gray-900 dark:text-white">Developing reliable, fair, and robust AI systems that generalize well under real-world uncertainties.</p>
+/* 축 헤더: 왼쪽 소개 + 오른쪽 연도 그래프 */
+.dami-areas .axis.a1{--axis:#B91C1C} .axis.a2{--axis:#0E7490} .axis.a3{--axis:#C2410C}
+.dami-areas .axis .head{display:grid;grid-template-columns:1fr 392px;gap:38px;align-items:start;
+  padding:26px 30px 24px}
+.dami-areas .axis .head .hleft{min-width:0}
+.dami-areas .axis .head .desc{margin-top:15px;font-size:15px;line-height:1.75;color:rgba(255,255,255,.94);max-width:none}
+.dami-areas .traj{border-left:2px solid rgba(255,255,255,.3);padding-left:22px;margin:0}
+.dami-areas .traj .th{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.dami-areas .traj .tl{font-size:10.5px;font-weight:900;letter-spacing:.14em;color:rgba(255,255,255,.82)}
+.dami-areas .traj .tt{font-size:20px;font-weight:900;letter-spacing:-.03em;color:#fff}
+.dami-areas .traj .tbox{height:152px;margin-top:10px}
+.dami-areas .traj .tc{margin-top:12px;font-size:11.5px;font-weight:700;color:rgba(255,255,255,.86);line-height:1.6}
 
-          
-          
-          <a href="/research/trustworthy-ai/"
-            style="background:rgb(0, 20, 86);color:white"
-            class="mt-6 inline-flex items-center rounded-lg px-5 py-3 font-semibold">
-            Learn more
-          </a>
-        </div>
+.dami-areas .axis .sub{display:grid;grid-template-columns:1fr 386px;gap:30px;align-items:start;
+  padding:20px 16px 20px 22px;border-radius:8px;
+  border-bottom:1.5px solid #EEF1F7;cursor:pointer;transition:background .16s ease}
+.dami-areas .axis .sub:last-child{border-bottom:none}
+.dami-areas .axis .sub:hover{background:#F4F6FB}
+.dami-areas .axis .sub:focus-visible{outline:3px solid #FBBF24;outline-offset:2px}
+.dami-areas .axis .sub.on{background:none;box-shadow:none}
+.dami-areas .axis .sub .nm{position:relative;padding-bottom:9px}
+.dami-areas .axis .sub .nm::after{content:"";position:absolute;left:0;bottom:0;width:34px;height:3px;
+  border-radius:2px;background:var(--axis)}
+.dami-areas .axis .sub .nm{font-size:16.5px;font-weight:900;letter-spacing:-.02em;line-height:1.35;color:var(--axis)}
+.dami-areas .axis .sub ul.pts{list-style:none;margin:11px 0 0;padding:0}
+.dami-areas .axis .sub ul.pts li{position:relative;padding-left:16px;font-size:14.5px;line-height:1.7;
+  color:var(--ink-2);margin-top:5px}
+.dami-areas .axis .sub ul.pts li:first-child{margin-top:0}
+.dami-areas .axis .sub ul.pts li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;
+  border-radius:1px;background:#9AA4B8}
+.dami-areas .axis .sub ul.paps{list-style:none;margin:13px 0 0;padding:0}
+.dami-areas .axis .sub ul.paps li{display:grid;grid-template-columns:172px 1fr;gap:16px;align-items:baseline;
+  font-size:13.5px;line-height:1.6;font-weight:800;color:var(--ink);
+  padding:8px 0;border-top:1px solid #E9EDF4}
+.dami-areas .axis .sub ul.paps li:first-child{border-top:none;padding-top:0}
+.dami-areas .axis .sub ul.paps li::before{content:none}
+.dami-areas .axis .sub ul.paps .vchip{display:block;margin:0;padding:0;border:none;background:none;
+  border-radius:0;white-space:normal;line-height:1.45;text-align:left;
+  font-size:12px;font-weight:900;letter-spacing:.01em;color:#111827}
+.dami-areas .axis .sub ul.paps .vchip.jr, .dami-areas .axis .sub ul.paps .vchip.prj{color:#4B5670;font-weight:800}
+.dami-areas .axis .sub ul.paps .vchip b{display:inline;margin-left:6px;font-weight:800;color:#98A2B3;opacity:1;font-size:11.5px}
+.dami-areas .axis .sub ul.paps .pt{min-width:0;padding-left:16px;border-left:2px solid #DDE3ED}
+.dami-areas .axis .sub ul.paps a{border-bottom:1.5px solid #C9D0DE}
+.dami-areas .axis .sub ul.paps a:hover{border-bottom-color:var(--navy)}
+.dami-areas .axis .sub ul.paps li.ex{display:none}
+.dami-areas .axis .sub ul.paps.open li.ex{display:grid}
+.dami-areas .axis .sub ul.paps li.more{display:block;border-top:1px solid #E9EDF4;padding-top:9px}
+.dami-areas .axis .sub ul.paps li.more button{font-family:inherit;font-size:12.5px;font-weight:900;
+  color:var(--axis);background:none;border:none;border-bottom:2px solid currentColor;
+  padding:0 0 1px;cursor:pointer}
+.dami-areas .axis .sub ul.paps li.more button:hover{opacity:.75}
 
-        
-        <div class=" relative w-full h-auto px-4 py-6 mx-auto sm:max-w-3xl sm:px-6 lg:px-0 lg:py-8">
-          <div class="overflow-hidden shadow-xl rounded-2xl">
-            
-            
-            
-              
-              
-              
-              
-              <img src="/research/topic_trustworthyai_hu_73936e03fd4efbb.png"
-                   srcset="/research/topic_trustworthyai_hu_74c0eb8950114088.png 480w, /research/topic_trustworthyai_hu_73936e03fd4efbb.png 960w, /research/topic_trustworthyai_hu_5d85e0f80a7ebff7.png 1440w"
-                   sizes="(min-width: 1024px) 50vw, 100vw"
-                   width="960" height="640"
-                   alt="Trustworthy AI" loading="lazy" class="w-full h-auto">
-            
+/* 오른쪽 figure 뷰어 */
+.dami-areas .axis .fcol{position:sticky;top:88px}
+.dami-areas .fview{border:2.5px solid;border-radius:14px;overflow:hidden;background:#fff}
+.dami-areas .axis.a1 .fview{border-color:#B91C1C} .axis.a2 .fview{border-color:#0E7490} .axis.a3 .fview{border-color:#C2410C}
+.dami-areas .fvh{padding:11px 16px;color:#fff;display:flex;align-items:baseline;gap:10px}
+.dami-areas .axis.a1 .fvh{background:#B91C1C} .axis.a2 .fvh{background:#0E7490} .axis.a3 .fvh{background:#C2410C}
+.dami-areas .fvh .fvl{font-size:10.5px;font-weight:900;letter-spacing:.14em;opacity:.85}
+.dami-areas .fvh .fvn{font-size:14.5px;font-weight:900;letter-spacing:-.02em}
+.dami-areas .fvfig{display:block;width:100%;border:none;background:#fff;padding:14px;cursor:zoom-in;
+  position:relative;font-family:inherit}
+.dami-areas .fvfig img{width:100%;height:250px;object-fit:contain;transition:opacity .22s ease,transform .18s ease}
+.dami-areas .fvfig::after{content:"크게 보기";opacity:0;position:absolute;right:14px;bottom:14px;
+  background:var(--navy);color:#fff;padding:6px 10px;border-radius:6px;
+  font-size:11.5px;font-weight:900;transition:opacity .16s ease}
+.dami-areas .fvfig:hover img{transform:scale(1.02)}
+.dami-areas .fvfig:hover::after, .dami-areas .fvfig:focus-visible::after{opacity:1}
+.dami-areas .fvfig.swap img{opacity:0}
+.dami-areas .fvcap{padding:0 18px 18px;font-size:13px;line-height:1.7;color:#5A6478;
+  transition:opacity .22s ease}
+.dami-areas .fvcap.swap{opacity:0}
+
+.dami-areas .vchip{display:inline-flex;align-items:baseline;gap:6px;margin-right:8px;vertical-align:1px;
+  font-size:11px;font-weight:800;letter-spacing:.01em;padding:4px 10px;border-radius:999px;white-space:nowrap}
+.dami-areas .vchip b{font-weight:900;opacity:.75;font-size:10.5px}
+.dami-areas .vchip.conf{background:#111827;color:#fff}
+.dami-areas .vchip.jr{background:#fff;color:#33405C;border:1.8px solid #99A3B8}
+.dami-areas .vchip.prj{background:#fff;color:var(--navy);border:1.8px dashed #7C88A3}
+
+.dami-areas .axis .foot{margin-top:18px;padding:17px 30px;border-top:2px solid #E3E7F0;display:flex;
+  align-items:center;justify-content:space-between;gap:20px;background:#F7F9FC;border-radius:0 0 16px 16px}
+.dami-areas .axis .foot .venues{font-size:13.5px;font-weight:800;color:#3F4A60}
+.dami-areas .axis .foot .go{flex:none;white-space:nowrap;color:#fff;font-weight:900;font-size:14px;
+  padding:12px 20px;border-radius:9px}
+.dami-areas .axis.a1 .foot .go{background:#B91C1C} .axis.a2 .foot .go{background:#0E7490} .axis.a3 .foot .go{background:#C2410C}
+
+.dami-areas .axis .sub .rfigwrap{min-width:0}
+.dami-areas .axis .sub .rfig{display:block;border:1.5px solid #DDE3ED;border-radius:10px;background:#fff;padding:10px;
+  height:232px;overflow:hidden;cursor:zoom-in;position:relative;font-family:inherit;width:100%}
+.dami-areas .axis .sub .rfig img{position:absolute;inset:10px;margin:auto;max-height:calc(100% - 20px);max-width:calc(100% - 20px);
+  width:auto;height:auto;object-fit:contain;opacity:0;transition:opacity .4s ease}
+.dami-areas .axis .sub .rfig img.on{opacity:1}
+.dami-areas .axis .sub .rfig::after{content:"크게 보기";opacity:0;position:absolute;right:9px;bottom:9px;
+  background:var(--navy);color:#fff;padding:5px 9px;border-radius:6px;font-size:11px;font-weight:900;
+  transition:opacity .16s ease;z-index:3}
+.dami-areas .axis .sub .rfig:hover::after, .dami-areas .axis .sub .rfig:focus-visible::after{opacity:1}
+.dami-areas .axis .sub .rfig:focus-visible{outline:3px solid #FBBF24;outline-offset:2px}
+.dami-areas .axis .sub .fbar{position:absolute;left:0;right:0;bottom:0;height:3px;background:#EDF0F6;z-index:2}
+.dami-areas .axis .sub .fbar i{display:block;height:100%;width:0;background:var(--axis)}
+.dami-areas .axis .sub .rfigwrap.playing .fbar i{animation:fbfill 2800ms linear forwards}
+@keyframes fbfill{from{width:0}to{width:100%}}
+.dami-areas .axis .sub .fmeta{margin-top:9px;display:flex;flex-direction:column;gap:2px}
+.dami-areas .axis .sub .fmeta .fv{font-size:10.5px;font-weight:900;letter-spacing:.06em;color:var(--axis)}
+.dami-areas .axis .sub .fmeta .ft{font-size:12px;font-weight:700;color:#5A6478;line-height:1.5}
+.dami-areas .axis .sub .fdots{display:flex;gap:6px;margin-top:9px}
+.dami-areas .axis .sub .fdots .fd{width:8px;height:8px;border-radius:50%;border:2px solid #C3CBDB;background:#fff;
+  padding:0;cursor:pointer}
+.dami-areas .axis .sub .fdots .fd.on{background:var(--axis);border-color:var(--axis)}
+.dami-areas .axis .sub .fdots .fd:focus-visible{outline:2.5px solid #FBBF24;outline-offset:2px}
+.dami-areas .axis .sub .txt{min-width:0}
+
+/* figure dialog */
+dialog#fdlg{border:none;border-radius:16px;padding:0;max-width:1040px;width:88vw;
+  box-shadow:0 30px 80px rgba(0,0,0,.45)}
+dialog#fdlg::backdrop{background:rgba(6,10,25,.74)}
+#fdlg .dtop{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:15px 20px;background:#111827;color:#fff}
+#fdlg .dtop .v{font-size:11.5px;font-weight:900;background:#fff;color:#111827;padding:4px 11px;border-radius:999px}
+#fdlg .dtop button{font-family:inherit;font-size:22px;font-weight:900;background:none;border:none;color:#fff;cursor:pointer;line-height:1}
+#fdlg .dimg{padding:20px;background:#fff;display:flex;align-items:center;justify-content:center}
+#fdlg .dimg img{max-height:64vh;width:auto;object-fit:contain}
+#fdlg .dmeta{padding:0 22px 22px}
+#fdlg .dmeta h4{font-size:17.5px;font-weight:900;line-height:1.45}
+#fdlg .dmeta p{margin-top:10px;font-size:14px;line-height:1.7;color:var(--ink-2)}
+
+
+@media (prefers-reduced-motion: reduce){
+.dami-areas *, .dami-areas *::before, .dami-areas *::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
+}
+
+
+/* figure dialog */
+dialog#fdlg{border:none;border-radius:16px;padding:0;max-width:1040px;width:88vw;
+  box-shadow:0 30px 80px rgba(0,0,0,.45)}
+dialog#fdlg::backdrop{background:rgba(6,10,25,.74)}
+#fdlg .dtop{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:15px 20px;background:#111827;color:#fff}
+#fdlg .dtop .v{font-size:11.5px;font-weight:900;background:#fff;color:#111827;padding:4px 11px;border-radius:999px}
+#fdlg .dtop button{font-family:inherit;font-size:22px;font-weight:900;background:none;border:none;color:#fff;cursor:pointer;line-height:1}
+#fdlg .dimg{padding:20px;background:#fff;display:flex;align-items:center;justify-content:center}
+#fdlg .dimg img{max-height:64vh;width:auto;object-fit:contain}
+#fdlg .dmeta{padding:0 22px 22px}
+#fdlg .dmeta h4{font-size:17.5px;font-weight:900;line-height:1.45}
+#fdlg .dmeta p{margin-top:10px;font-size:14px;line-height:1.7;color:var(--ink-2)}
+
+
+@media (prefers-reduced-motion: reduce){
+.dami-areas *, .dami-areas *::before, .dami-areas *::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
+}
+
+/* ---------- projects ---------- */
+.dami-areas .projects{background:#fff;border-top:2px solid var(--line);border-bottom:2px solid var(--line)}
+.dami-areas .pjcard{
+  background:#fff;border:2px solid var(--line);border-radius:14px;
+  padding:22px 24px;margin-top:18px;
+}
+.dami-areas .pjcard h4{margin-top:10px;font-size:19px;font-weight:800;letter-spacing:-.02em}
+.dami-areas .pjcard .prob{margin-top:10px;font-size:14.5px;line-height:1.7;color:var(--ink-2);max-width:820px}
+.dami-areas .pjmeta{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:18px;
+  border-top:1.5px solid #E3E7F0;
+}
+.dami-areas .pjmeta div{padding:14px 18px 0;border-left:1.5px solid #E3E7F0}
+.dami-areas .pjmeta div:first-child{padding-left:0;border-left:none}
+.dami-areas .pjmeta dt{font-size:11.5px;font-weight:900;letter-spacing:.07em;color:#5A6478}
+.dami-areas .pjmeta dd{margin-top:7px;font-size:14px;font-weight:700;line-height:1.6;color:var(--ink)}
+.dami-areas .pjmeta dd a{color:var(--navy);text-decoration:underline}
+.dami-areas .donelist{border:2px solid var(--line);border-radius:14px;overflow:hidden;margin-top:18px}
+.dami-areas .donelist .row{
+  display:grid;grid-template-columns:210px 1fr 150px;gap:18px;align-items:center;
+  padding:14px 20px;border-bottom:1.5px solid #EBEEF5;background:#fff;font-size:14.5px;
+}
+.dami-areas .donelist .row:last-child{border-bottom:none}
+.dami-areas .donelist .row .p{font-weight:800;color:#33405C}
+.dami-areas .donelist .row .t{font-weight:700}
+.dami-areas .donelist .row .d{font-size:13px;font-weight:700;color:#5F6B82;text-align:right}
+.dami-areas .pj .who, .dami-areas .who{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.dami-areas .tag-f{
+  font-size:11.5px;font-weight:900;padding:4px 10px;border-radius:5px;
+  background:var(--navy);color:#fff;
+}
+.dami-areas .tag-live{font-size:11.5px;font-weight:900;padding:4px 10px;border-radius:5px;background:#15803D;color:#fff}
+.dami-areas .tag-done{font-size:11.5px;font-weight:900;padding:4px 10px;border-radius:5px;background:#6B7280;color:#fff}
+.dami-areas .tag-area{font-size:11.5px;font-weight:900;padding:4px 10px;border-radius:5px;background:#fff;border:2px solid #4B5670;color:#33405C}
+.dami-areas .tag-sub{font-size:11.5px;font-weight:900;padding:4px 10px;border-radius:5px;background:#EDF0F6;border:1.5px solid #CBD3E3;color:#5F6B82}
+.dami-areas .pj h4{margin-top:9px;font-size:17.5px;font-weight:800;letter-spacing:-.02em}
+.dami-areas .pj .term{margin-top:6px;font-size:13px;color:#5F6B82;font-weight:600}
+
+/* ---------- join ---------- */
+.dami-areas .join{background:var(--navy);color:#fff;text-align:center}
+.dami-areas .join h2{font-size:40px;font-weight:900;letter-spacing:-.03em}
+.dami-areas .join p{margin-top:16px;font-size:17px;color:#C6D6F5;line-height:1.75}
+.dami-areas .join .btns{display:flex;gap:12px;justify-content:center;margin-top:30px;flex-wrap:wrap}
+.dami-areas .join .btns a{font-weight:900;font-size:15px;padding:15px 26px;border-radius:10px;border:2px solid #fff}
+.dami-areas .join .btns a.y{background:#FBBF24;border-color:#FBBF24;color:#111827}
+
+.dami-areas footer{background:#111827;color:#9CA3AF;padding:34px 0;font-size:13px;text-align:center}
+
+/* ---------- design notes ---------- */
+.dami-areas .note{
+  display:none;position:relative;
+  background:#FEF3C7;border:2px solid #D97706;border-left:8px solid #D97706;
+  border-radius:10px;padding:14px 18px;margin:18px 0 0;
+  font-size:14px;line-height:1.7;color:#5B3A05;
+}
+.dami-areas .note b{color:#92400E}
+.dami-areas body.notes-on .note{display:block}
+.dami-areas .note .n-tag{
+  display:inline-block;background:#D97706;color:#fff;font-size:11px;font-weight:900;
+  padding:3px 8px;border-radius:4px;margin-right:8px;letter-spacing:.05em;
+}
+
+/* ---------- detail view ---------- */
+.dami-areas #detail{display:none}
+.dami-areas body.detail-open .main-view{display:none}
+.dami-areas body.detail-open #detail{display:block}
+
+.dami-areas .d-hero{color:#fff;padding:30px 0 54px;position:relative}
+.dami-areas .crumb{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);margin-bottom:26px}
+.dami-areas .crumb button{
+  background:rgba(255,255,255,.16);border:2px solid rgba(255,255,255,.45);color:#fff;
+  font-family:inherit;font-size:13px;font-weight:800;padding:8px 14px;border-radius:8px;cursor:pointer;
+}
+.dami-areas .crumb button:hover{background:rgba(255,255,255,.28)}
+.dami-areas .d-hero .kick{font-size:12.5px;font-weight:900;letter-spacing:.12em;color:rgba(255,255,255,.85)}
+.dami-areas .d-hero h1{margin-top:10px;font-size:52px;font-weight:900;letter-spacing:-.035em;line-height:1.08}
+.dami-areas .d-hero .en{margin-top:10px;font-size:16px;font-weight:700;color:rgba(255,255,255,.82)}
+.dami-areas .d-hero .lead{margin-top:20px;font-size:17px;line-height:1.75;max-width:780px;color:#fff}
+.dami-areas .pills{display:flex;gap:10px;margin-top:26px;flex-wrap:wrap}
+.dami-areas .pill{
+  background:rgba(255,255,255,.14);border:2px solid rgba(255,255,255,.42);
+  border-radius:10px;padding:11px 16px;font-size:13.5px;font-weight:800;
+}
+.dami-areas .pill b{font-size:19px;margin-right:6px}
+
+.dami-areas .d-sec{padding:52px 0}
+.dami-areas .d-sec h2{font-size:29px;font-weight:900;letter-spacing:-.03em;color:var(--navy)}
+.dami-areas .d-sec .sub{margin-top:8px;font-size:15px;color:var(--ink-2)}
+
+.dami-areas .topics{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:26px}
+.dami-areas .topic{background:#fff;border:2px solid var(--line);border-left-width:7px;border-radius:12px;padding:20px 22px}
+.dami-areas .topic h4{font-size:17.5px;font-weight:900;letter-spacing:-.02em}
+.dami-areas .topic p{margin-top:9px;font-size:14.5px;line-height:1.7;color:var(--ink-2)}
+
+.dami-areas .paper{
+  display:grid;grid-template-columns:250px 1fr;gap:24px;align-items:center;
+  background:#fff;border:2px solid var(--line);border-radius:14px;padding:18px;margin-top:16px;
+}
+.dami-areas .paper .pf{
+  height:150px;border:1.5px solid #E2E6EF;border-radius:9px;background:#fff;
+  display:flex;align-items:center;justify-content:center;padding:8px;overflow:hidden;
+}
+.dami-areas .paper .pf img{max-height:100%;max-width:100%;object-fit:contain}
+.dami-areas .paper .pf.none{color:#5A6478;font-size:13px;font-weight:800;background:#F4F6FA}
+.dami-areas .pmeta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.dami-areas .pv{font-size:12px;font-weight:900;color:#fff;padding:5px 11px;border-radius:6px}
+.dami-areas .pyr{font-size:12px;font-weight:900;color:#33405C;background:#E7EBF3;border:1.5px solid #CBD3E3;padding:4px 10px;border-radius:6px}
+.dami-areas .pnew{font-size:12px;font-weight:900;color:#fff;background:#15803D;padding:5px 11px;border-radius:6px}
+.dami-areas .paper h4{margin-top:11px;font-size:18px;font-weight:800;line-height:1.4;letter-spacing:-.02em}
+.dami-areas .paper .why{margin-top:10px;font-size:14.5px;line-height:1.7;color:var(--ink-2)}
+
+.dami-areas .pjrow{
+  background:#fff;border:2px solid var(--line);border-radius:14px;padding:20px 22px;margin-top:16px;
+  display:grid;grid-template-columns:1fr 260px;gap:24px;align-items:center;
+}
+.dami-areas .pjrow h4{font-size:17px;font-weight:800;margin-top:9px}
+.dami-areas .pjrow .term{margin-top:6px;font-size:13px;color:#5F6B82;font-weight:600}
+
+.dami-areas .d-join{border-radius:16px;padding:36px;margin-top:12px;color:#fff;text-align:center}
+.dami-areas .d-join h3{font-size:26px;font-weight:900;letter-spacing:-.02em}
+.dami-areas .d-join p{margin-top:12px;font-size:15px;color:rgba(255,255,255,.9);line-height:1.7}
+.dami-areas .d-join a{
+  display:inline-block;margin-top:20px;background:#fff;color:#111827;
+  font-weight:900;font-size:14.5px;padding:13px 22px;border-radius:10px;
+}
+
+
+/* ---------- 편집 모드 ---------- */
+.dami-areas body.editing [contenteditable="true"]{outline:1.5px dashed #94A3B8;outline-offset:2px;border-radius:3px}
+.dami-areas body.editing [contenteditable="true"]:hover{outline:2px dashed #F59E0B;background:rgba(251,191,36,.10)}
+.dami-areas body.editing [contenteditable="true"]:focus{outline:2.5px solid #F59E0B;background:rgba(251,191,36,.16)}
+.dami-areas #edbar{
+  display:none;position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:300;
+  background:#111827;color:#fff;border:2px solid #FBBF24;border-radius:12px;
+  padding:10px 14px;gap:8px;align-items:center;font-family:inherit;
+  box-shadow:0 10px 30px rgba(0,0,0,.4);
+}
+.dami-areas body.editing #edbar{display:flex}
+.dami-areas #edbar b{font-size:12.5px;font-weight:900;color:#FBBF24;margin-right:6px;white-space:nowrap}
+.dami-areas #edbar button{
+  font-family:inherit;font-size:13px;font-weight:800;padding:8px 12px;border-radius:8px;
+  border:2px solid #4B5670;background:#1F2937;color:#fff;cursor:pointer;white-space:nowrap;
+}
+.dami-areas #edbar button:hover{background:#374151}
+.dami-areas #edbar button.save{background:#15803D;border-color:#15803D}
+.dami-areas #edbar button.off{background:#B91C1C;border-color:#B91C1C}
+.dami-areas #edbar .hint{font-size:11.5px;color:#9CA3AF;margin-left:4px;white-space:nowrap}
+
+
+/* ---------- 반응형 ---------- */
+@media (max-width:1023px){
+  .dami-areas .axis .head{grid-template-columns:1fr;gap:22px}
+  .dami-areas .traj{border-left:none;border-top:2px solid rgba(255,255,255,.28);padding-left:0;padding-top:18px}
+  .dami-areas .axis .sub{grid-template-columns:1fr;gap:18px}
+  .dami-areas .axis .sub .rfig{height:250px}
+}
+@media (max-width:767px){
+  .dami-areas{padding:44px 0 52px}
+  .dami-wrap{padding:0 18px}
+  .dami-areas .shead h2{font-size:28px}
+  .dami-areas .axis .head{padding:22px 20px}
+  .dami-areas .axis .head h3{font-size:27px}
+  .dami-areas .axis .body{padding:10px 18px 6px}
+  .dami-areas .axis .sub{padding:18px 8px 18px 14px}
+  .dami-areas .axis .sub ul.paps li{grid-template-columns:1fr;gap:4px}
+  .dami-areas .axis .sub ul.paps .pt{padding-left:0;border-left:none}
+  .dami-areas .axis .sub .rfig{height:200px}
+  .dami-areas .axis .foot{flex-direction:column;align-items:flex-start;gap:12px;padding:16px 18px}
+  .dami-areas .traj .tbox{height:132px}
+  dialog#fdlg{width:94vw}
+  #fdlg .dimg img{max-height:52vh}
+}
+
+</style>
+
+<section id="areas-anchor" class="dami-areas">
+  <div class="dami-wrap">
+    <div class="shead">
+      <div>
+        <h2>Research Areas</h2>
+        <p>연구 축 3개. 세부 분야마다 하는 일과 해당 논문을 정리했고, 오른쪽 그림은 그 분야 논문의 figure 입니다. 그림을 누르면 크게 열립니다.</p>
+      </div>
+    </div>
+
+    <article class="axis a1">
+      <div class="head">
+        <div class="hleft"><div class="kicker">AREA 01</div>
+        <h3>Trustworthy AI</h3>
+        <div class="kw"><span>Adversarial Robustness</span><span>Optimization Stability</span><span>Fairness</span><span>LLM Safety</span><span>Unlearning</span></div>
+        <p class="desc">모델이 언제, 왜 무너지는지를 먼저 규명하고 그 결과를 방어로 되돌립니다. 적대적 강건성과 공정성은 2020년부터 이어온 축이고, 최근 LLM jailbreak와 diffusion unlearning으로 확장됐습니다.</p></div>
+        <div class="hright"><div class="traj">
+            <div class="th"><span class="tl">연도별 논문</span><span class="tt">16편</span></div>
+            <div class="tbox"><canvas id="mini-a1" aria-label="이 축의 연도별 논문 수"></canvas></div>
+            <p class="tc">가장 최근 2026년 3편 · NRF 우수신진 과제 진행 중</p>
+          </div></div>
+      </div>
+      <div class="body">
+        <div class="subs">
+          <div class="sub"
+               data-nm="Adversarial Robustness" data-img="https://damilab.github.io/images/publications/towardbetter.png" data-cap="검증 가능한 견고성 학습의 손실 곡선 비교. 학습이 진행되며 방법별로 견고성과 정확도가 어떻게 갈리는지 보여줍니다." data-v="NeurIPS 2021" data-vc="conf" data-t="Towards Better Understanding of Training Certifiably Robust Models against Adversarial Examples">
+            <div class="txt">
+              <div class="nm">Adversarial Robustness</div>
+              <ul class="pts"><li>사람 눈에 보이지 않는 미세한 변형으로 답이 뒤집히는 현상 규명</li><li>그런 교란에도 흔들리지 않는 모델 설계</li><li>어느 정도까지 버티는지에 대한 수치 보증</li></ul>
+              <ul class="paps"><li><span class="vchip conf">NeurIPS<b>2021</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Towards%20Better%20Understanding%20of%20Training%20Certifiably%20Robust%20Models%20against%20Adversarial%20Examples.pdf" target="_blank">Towards Better Understanding of Training Certifiably Robust Models against Adversarial Examples</a></span></li><li><span class="vchip jr">Neural Networks<b>2023</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Bridged%20adversarial%20training.pdf" target="_blank">Bridged adversarial training</a></span></li><li><span class="vchip jr">J. Ambient Intelligence<b>2024</b></span><span class="pt">Sliced Wasserstein adversarial training</span></li><li class="ex"><span class="vchip jr">Engineering Applications of AI<b>2024</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Evaluating%20practical%20adversarial%20robustness%20of%20fault%20diagnosis%20systems%20via%20spectrogram-aware%20ensemble%20method.pdf" target="_blank">Evaluating practical adversarial robustness of fault diagnosis systems via spectrogram-aware ensemble method</a></span></li><li class="ex"><span class="vchip jr">Information Sciences<b>2025</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Towards%20undetectable%20adversarial%20attack%20on%20time%20series%20classification.pdf" target="_blank">Towards undetectable adversarial attack on time series classification</a></span></li><li class="ex"><span class="vchip jr">Applied Soft Computing<b>2025</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Black-box%20adversarial%20examples%20via%20frequency%20distortion%20against%20fault%20diagnosis%20systems.pdf" target="_blank">Black-box adversarial examples via frequency distortion</a></span></li><li class="ex"><span class="vchip jr">Computational Intelligence and Neuroscience<b>2018</b></span><span class="pt">Information-based boundary equilibrium GAN with interpretable representation</span></li><li class="more"><button type="button" onclick="toggleMore(this)" data-n="4">+4편 더 보기</button></li></ul>
+            </div>
+                      <div class="rfigwrap" data-n="5">
+              <button class="rfig" onclick="openFig(this)" aria-label="figure 크게 보기"
+                      data-img="https://damilab.github.io/images/publications/towardbetter.png" data-v="NeurIPS 2021" data-t="Towards Better Understanding of Training Certifiably Robust Models" data-cap=""><img class="on" src="https://damilab.github.io/images/publications/towardbetter.png" alt="Towards Better Understanding of Training Certifiably Robust Models figure" data-v="NeurIPS 2021" data-t="Towards Better Understanding of Training Certifiably Robust Models"><img src="https://damilab.github.io/images/publications/bridged.png" alt="Bridged adversarial training figure" data-v="Neural Networks 2023" data-t="Bridged adversarial training"><img src="https://damilab.github.io/images/publications/sliced.png" alt="Sliced Wasserstein adversarial training figure" data-v="J. Ambient Intelligence 2024" data-t="Sliced Wasserstein adversarial training"><img src="https://damilab.github.io/images/publications/evaluating.png" alt="Evaluating practical adversarial robustness of fault diagnosis systems figure" data-v="Engineering Applications of AI 2024" data-t="Evaluating practical adversarial robustness of fault diagnosis systems"><img src="https://damilab.github.io/images/publications/informationbased.png" alt="Information-based boundary equilibrium GAN figure" data-v="Comput. Intelligence and Neuroscience 2018" data-t="Information-based boundary equilibrium GAN"><span class="fbar"><i></i></span></button>
+              <div class="fmeta"><span class="fv">NeurIPS 2021</span><span class="ft">Towards Better Understanding of Training Certifiably Robust Models</span></div>
+              <div class="fdots"><button type="button" class="fd on" onclick="goFig(this,0)" aria-label="1번째 그림"></button><button type="button" class="fd" onclick="goFig(this,1)" aria-label="2번째 그림"></button><button type="button" class="fd" onclick="goFig(this,2)" aria-label="3번째 그림"></button><button type="button" class="fd" onclick="goFig(this,3)" aria-label="4번째 그림"></button><button type="button" class="fd" onclick="goFig(this,4)" aria-label="5번째 그림"></button></div>
+            </div>
+          </div>
+          <div class="sub"
+               data-nm="Optimization Stability" data-img="https://damilab.github.io/images/publications/understandingcatastrophic.png" data-cap="붕괴 직전, 결정 경계 왜곡, 붕괴 이후의 손실 지형 변화. 어느 순간 지형이 뒤틀리며 방어가 무너집니다." data-v="AAAI 2020" data-vc="conf" data-t="Understanding catastrophic overfitting in single-step adversarial training">
+            <div class="txt">
+              <div class="nm">Optimization Stability</div>
+              <ul class="pts"><li>잘 학습되던 모델이 갑자기 무너지는 지점의 원인 규명</li><li>학습을 끝까지 안정적으로 유지하는 방법 설계</li></ul>
+              <ul class="paps"><li><span class="vchip conf">AAAI<b>2020</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Understanding%20Catastrophic%20Overfitting%20in%20Single-step%20Adversarial%20Training.pdf" target="_blank">Understanding catastrophic overfitting in single-step adversarial training</a></span></li><li><span class="vchip jr">IEEE Access<b>2026</b></span><span class="pt">Exploring the Effect of Multi-Step Ascent in Sharpness-Aware Minimization</span></li><li><span class="vchip jr">Applied Soft Computing<b>2023</b></span><span class="pt">Fast sharpness-aware training for periodic time series classification</span></li></ul>
+            </div>
+                      <div class="rfigwrap" data-n="2">
+              <button class="rfig" onclick="openFig(this)" aria-label="figure 크게 보기"
+                      data-img="https://damilab.github.io/images/publications/understandingcatastrophic.png" data-v="AAAI 2020" data-t="Understanding catastrophic overfitting in single-step adversarial training" data-cap=""><img class="on" src="https://damilab.github.io/images/publications/understandingcatastrophic.png" alt="Understanding catastrophic overfitting in single-step adversarial training figure" data-v="AAAI 2020" data-t="Understanding catastrophic overfitting in single-step adversarial training"><img src="https://damilab.github.io/images/publications/fastsharpness.png" alt="Fast sharpness-aware training for periodic time series classification figure" data-v="Applied Soft Computing 2023" data-t="Fast sharpness-aware training for periodic time series classification"><span class="fbar"><i></i></span></button>
+              <div class="fmeta"><span class="fv">AAAI 2020</span><span class="ft">Understanding catastrophic overfitting in single-step adversarial training</span></div>
+              <div class="fdots"><button type="button" class="fd on" onclick="goFig(this,0)" aria-label="1번째 그림"></button><button type="button" class="fd" onclick="goFig(this,1)" aria-label="2번째 그림"></button></div>
+            </div>
+          </div>
+          <div class="sub"
+               data-nm="Fairness" data-img="https://damilab.github.io/images/publications/fairclustering.png" data-cap="공정 분포를 직접 다루기 어려운 문제 설정과, 대응 분포를 제약해 군집을 배정하는 제안 방법의 구조." data-v="Information Sciences 2021" data-vc="jr" data-t="Fair clustering with fair correspondence distribution">
+            <div class="txt">
+              <div class="nm">Fairness</div>
+              <ul class="pts"><li>성별·나이 같은 정보 때문에 특정 집단이 불리해지는 편향 완화</li><li>채용 면접 평가처럼 사람에게 직접 영향을 주는 상황에 적용</li></ul>
+              <ul class="paps"><li><span class="vchip jr">Information Sciences<b>2021</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Fair%20Clustering%20with%20Fair%20Correspondence%20Distribution.pdf" target="_blank">Fair clustering with fair correspondence distribution</a></span></li><li><span class="vchip jr">IEEE Access<b>2023</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Fairness-Aware%20Multimodal%20Learning%20in%20Automatic%20Video%20Interview%20Assessment.pdf" target="_blank">Fairness-Aware Multimodal Learning in Automatic Video Interview Assessment</a></span></li><li><span class="vchip jr">IEEE Access<b>2020</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Joint%20Transfer%20of%20Model%20Knowledge%20and%20Fairness%20Over%20Domains%20Using%20Wasserstein%20Distance.pdf" target="_blank">Joint transfer of model knowledge and fairness over domains</a></span></li><li class="ex"><span class="vchip prj">대한산업공학회<b>2023</b></span><span class="pt">멀티모달을 사용하는 AI 면접에서의 공정성 개선</span></li><li class="more"><button type="button" onclick="toggleMore(this)" data-n="1">+1편 더 보기</button></li></ul>
+            </div>
+                      <div class="rfigwrap" data-n="3">
+              <button class="rfig" onclick="openFig(this)" aria-label="figure 크게 보기"
+                      data-img="https://damilab.github.io/images/publications/fairclustering.png" data-v="Information Sciences 2021" data-t="Fair clustering with fair correspondence distribution" data-cap=""><img class="on" src="https://damilab.github.io/images/publications/fairclustering.png" alt="Fair clustering with fair correspondence distribution figure" data-v="Information Sciences 2021" data-t="Fair clustering with fair correspondence distribution"><img src="https://damilab.github.io/images/publications/fairnessaware.png" alt="Fairness-Aware Multimodal Learning in Automatic Video Interview Assessment figure" data-v="IEEE Access 2023" data-t="Fairness-Aware Multimodal Learning in Automatic Video Interview Assessment"><img src="https://damilab.github.io/images/publications/jointtransfer.png" alt="Joint transfer of model knowledge and fairness over domains figure" data-v="IEEE Access 2020" data-t="Joint transfer of model knowledge and fairness over domains"><span class="fbar"><i></i></span></button>
+              <div class="fmeta"><span class="fv">Information Sciences 2021</span><span class="ft">Fair clustering with fair correspondence distribution</span></div>
+              <div class="fdots"><button type="button" class="fd on" onclick="goFig(this,0)" aria-label="1번째 그림"></button><button type="button" class="fd" onclick="goFig(this,1)" aria-label="2번째 그림"></button><button type="button" class="fd" onclick="goFig(this,2)" aria-label="3번째 그림"></button></div>
+            </div>
+          </div>
+          <div class="sub"
+               data-nm="LLM &amp; Agent Safety" data-img="https://damilab.github.io/images/publications/slotgcg.png" data-cap="프롬프트 끝에만 토큰을 붙이던 기존 방식(좌)과 내부 슬롯을 탐색하는 제안 방식(우). 같은 유해 프롬프트가 삽입 위치에 따라 거절과 탈옥으로 갈립니다." data-v="ICLR 2026" data-vc="conf" data-t="SlotGCG: Exploiting the Positional Vulnerability in LLMs for Jailbreak Attacks">
+            <div class="txt">
+              <div class="nm">LLM &amp; Agent Safety</div>
+              <ul class="pts"><li>챗봇이 위험한 답을 하도록 유도하는 공격 직접 제작</li><li>어디가 뚫리는지 확인하고 그 결과로 막는 장치 설계</li><li>한국어를 포함한 여러 언어에서 동시 점검</li></ul>
+              <ul class="paps"><li><span class="vchip conf">ICLR<b>2026</b></span><span class="pt"><a href="https://arxiv.org/abs/2606.05609" target="_blank">SlotGCG: Exploiting the Positional Vulnerability in LLMs for Jailbreak Attacks</a></span></li><li><span class="vchip jr">Information Sciences<b>2025</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Towards%20undetectable%20adversarial%20attack%20on%20time%20series%20classification.pdf" target="_blank">Towards undetectable adversarial attack on time series classification</a></span></li><li><span class="vchip jr">Applied Soft Computing<b>2025</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Black-box%20adversarial%20examples%20via%20frequency%20distortion%20against%20fault%20diagnosis%20systems.pdf" target="_blank">Black-box adversarial examples via frequency distortion</a></span></li></ul>
+            </div>
+                      <div class="rfigwrap" data-n="3">
+              <button class="rfig" onclick="openFig(this)" aria-label="figure 크게 보기"
+                      data-img="https://damilab.github.io/images/publications/slotgcg.png" data-v="ICLR 2026" data-t="SlotGCG: Exploiting the Positional Vulnerability in LLMs" data-cap=""><img class="on" src="https://damilab.github.io/images/publications/slotgcg.png" alt="SlotGCG: Exploiting the Positional Vulnerability in LLMs figure" data-v="ICLR 2026" data-t="SlotGCG: Exploiting the Positional Vulnerability in LLMs"><img src="https://damilab.github.io/images/publications/Towards_undetectable_adversarial_attack_on_time_series_classification.png" alt="Towards undetectable adversarial attack on time series classification figure" data-v="Information Sciences 2025" data-t="Towards undetectable adversarial attack on time series classification"><img src="https://damilab.github.io/images/publications/blackbox.png" alt="Black-box adversarial examples via frequency distortion figure" data-v="Applied Soft Computing 2025" data-t="Black-box adversarial examples via frequency distortion"><span class="fbar"><i></i></span></button>
+              <div class="fmeta"><span class="fv">ICLR 2026</span><span class="ft">SlotGCG: Exploiting the Positional Vulnerability in LLMs</span></div>
+              <div class="fdots"><button type="button" class="fd on" onclick="goFig(this,0)" aria-label="1번째 그림"></button><button type="button" class="fd" onclick="goFig(this,1)" aria-label="2번째 그림"></button><button type="button" class="fd" onclick="goFig(this,2)" aria-label="3번째 그림"></button></div>
+            </div>
+          </div>
+          <div class="sub"
+               data-nm="Unlearning &amp; Privacy" data-img="https://damilab.github.io/images/publications/recare.png" data-cap="개념 제거 이후 생성 결과 비교. 기존 방법은 무해한 동반 개념까지 잃지만 제안 방법은 그것을 보존합니다." data-v="ICLR 2026" data-vc="conf" data-t="Co-occurring Associated REtained concepts in Diffusion Unlearning">
+            <div class="txt">
+              <div class="nm">Unlearning &amp; Privacy</div>
+              <ul class="pts"><li>학습한 정보 중 지워야 할 것만 정확히 제거</li><li>나머지 능력은 그대로 유지</li><li>데이터를 들여다보지 않고 학습하는 방법 연구</li></ul>
+              <ul class="paps"><li><span class="vchip conf">ICLR<b>2026</b></span><span class="pt"><a href="https://arxiv.org/abs/2606.24192" target="_blank">Co-occurring Associated REtained concepts in Diffusion Unlearning</a></span></li><li><span class="vchip conf">NeurIPS<b>2021</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Parameter-free%20HE-friendly%20Logistic%20Regression.pdf" target="_blank">Parameter-free HE-friendly Logistic Regression</a></span></li></ul>
+            </div>
+                      <div class="rfigwrap" data-n="2">
+              <button class="rfig" onclick="openFig(this)" aria-label="figure 크게 보기"
+                      data-img="https://damilab.github.io/images/publications/recare.png" data-v="ICLR 2026" data-t="Co-occurring Associated REtained concepts in Diffusion Unlearning" data-cap=""><img class="on" src="https://damilab.github.io/images/publications/recare.png" alt="Co-occurring Associated REtained concepts in Diffusion Unlearning figure" data-v="ICLR 2026" data-t="Co-occurring Associated REtained concepts in Diffusion Unlearning"><img src="https://damilab.github.io/images/publications/parameterfree.png" alt="Parameter-free HE-friendly Logistic Regression figure" data-v="NeurIPS 2021" data-t="Parameter-free HE-friendly Logistic Regression"><span class="fbar"><i></i></span></button>
+              <div class="fmeta"><span class="fv">ICLR 2026</span><span class="ft">Co-occurring Associated REtained concepts in Diffusion Unlearning</span></div>
+              <div class="fdots"><button type="button" class="fd on" onclick="goFig(this,0)" aria-label="1번째 그림"></button><button type="button" class="fd" onclick="goFig(this,1)" aria-label="2번째 그림"></button></div>
+            </div>
           </div>
         </div>
-
       </div>
-    </section>
-  
-    
-    <section id="representation-learning" class="relative my-6">
-      <div class="lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-2 lg:items-center lg:gap-24 lg:px-8">
+      <div class="foot">
+        <span class="venues">ICLR 2026 2건 · NeurIPS · AAAI · Neural Networks · Information Sciences · NRF 우수신진 진행 중</span>
+        <a class="go" href="/research/trustworthy-ai/">자세히</a>
+      </div>
+    </article>
 
-        
-        <div class="order-2 md:order-1 relative max-w-md px-4 mx-auto sm:max-w-3xl sm:px-6 lg:px-0">
-          <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-50">Representation Learning</h2>
-          <p class="mt-4 text-lg text-gray-900 dark:text-white">전이학습(Transfer Learning), 도메인 적응(Domain Adaptation), 멀티모달 학습(Multimodal Learning) 등을 통해 한정된 데이터 환경에서도 일반화 가능한 모델을 개발하고, 서로 다른 데이터 소스를 통합</p>
-          <p class="mt-4 text-lg text-gray-900 dark:text-white">Advancing transfer and multimodal learning methods to capture meaningful representations across domains and data modalities.</p>
-
-          
-          
-          <a href="/research/representation-learning/"
-            style="background:rgb(0, 20, 86);color:white"
-            class="mt-6 inline-flex items-center rounded-lg px-5 py-3 font-semibold">
-            Learn more
-          </a>
-        </div>
-
-        
-        <div class="order-1 md:order-2 relative w-full h-auto px-4 py-6 mx-auto sm:max-w-3xl sm:px-6 lg:px-0 lg:py-8">
-          <div class="overflow-hidden shadow-xl rounded-2xl">
-            
-            
-            
+    <article class="axis a2">
+      <div class="head">
+        <div class="hleft"><div class="kicker">AREA 02</div>
+        <h3>Representation Learning</h3>
+        <div class="kw"><span>Domain Adaptation</span><span>Transfer</span><span>Long-tailed</span><span>Noisy Label</span><span>Graph Representation</span></div>
+        <p class="desc">학습한 도메인을 벗어나도 쓸 수 있는 표현을 만듭니다. 도메인 적응은 2018년부터 이어온, 방법론 축 중 가장 오래된 축이고 지금은 long-tailed multi-label과 noisy label로 확장돼 있습니다.</p></div>
+        <div class="hright"><div class="traj">
+            <div class="th"><span class="tl">연도별 논문</span><span class="tt">11편</span></div>
+            <div class="tbox"><canvas id="mini-a2" aria-label="이 축의 연도별 논문 수"></canvas></div>
+            <p class="tc">가장 최근 2025년 2편 · CLIP 적응으로 확장 중</p>
+          </div></div>
+      </div>
+      <div class="body">
+        <div class="subs">
+          <div class="sub"
+               data-nm="Domain Adaptation" data-img="https://damilab.github.io/images/publications/compactclass.png" data-cap="기존 class-conditional 방법(좌)과 제안 방법(우)의 결정 경계 비교. 타깃 샘플이 소스 클래스 중심으로 더 촘촘히 모입니다." data-v="Pattern Recognition 2021" data-vc="jr" data-t="Compact class-conditional domain invariant learning for multi-class domain adaptation">
+            <div class="txt">
+              <div class="nm">Domain Adaptation</div>
+              <ul class="pts"><li>환경이 다른 곳으로 옮기면 성능이 떨어지는 문제 해결</li><li>새 환경의 데이터가 적어도 작동하도록 적응</li><li>2018년부터 이어온 연구실의 가장 오래된 방법론 분야</li></ul>
+              <ul class="paps"><li><span class="vchip jr">Pattern Recognition<b>2021</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Compact%20class-conditional%20domain%20invariant%20learning%20for%20multi-class%20domain%20adaptation.pdf" target="_blank">Compact class-conditional domain invariant learning for multi-class domain adaptation</a></span></li><li><span class="vchip jr">IEMS<b>2018</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Instance%20Weighting%20Domain%20Adaptation%20Using%20Distanc.pdf" target="_blank">Instance weighting domain adaptation using distance kernel</a></span></li><li><span class="vchip jr">Intelligent Data Analysis<b>2019</b></span><span class="pt">Learning of indiscriminate distributions of document embeddings</span></li></ul>
+            </div>
+                      <div class="rfigwrap" data-n="3">
+              <button class="rfig" onclick="openFig(this)" aria-label="figure 크게 보기"
+                      data-img="https://damilab.github.io/images/publications/compactclass.png" data-v="Pattern Recognition 2021" data-t="Compact class-conditional domain invariant learning" data-cap=""><img class="on" src="https://damilab.github.io/images/publications/compactclass.png" alt="Compact class-conditional domain invariant learning figure" data-v="Pattern Recognition 2021" data-t="Compact class-conditional domain invariant learning"><img src="https://damilab.github.io/images/publications/instanceweighting.png" alt="Instance weighting domain adaptation using distance kernel figure" data-v="IEMS 2018" data-t="Instance weighting domain adaptation using distance kernel"><img src="https://damilab.github.io/images/publications/learningof.png" alt="Learning of indiscriminate distributions of document embeddings figure" data-v="Intelligent Data Analysis 2019" data-t="Learning of indiscriminate distributions of document embeddings"><span class="fbar"><i></i></span></button>
+              <div class="fmeta"><span class="fv">Pattern Recognition 2021</span><span class="ft">Compact class-conditional domain invariant learning</span></div>
+              <div class="fdots"><button type="button" class="fd on" onclick="goFig(this,0)" aria-label="1번째 그림"></button><button type="button" class="fd" onclick="goFig(this,1)" aria-label="2번째 그림"></button><button type="button" class="fd" onclick="goFig(this,2)" aria-label="3번째 그림"></button></div>
+            </div>
+          </div>
+          <div class="sub"
+               data-nm="Transfer Learning" data-img="https://damilab.github.io/images/publications/jointtransfer.png" data-cap="모델 지식과 공정성을 함께 도메인 간 이전하는 구조." data-v="IEEE Access 2020" data-vc="jr" data-t="Joint transfer of model knowledge and fairness over domains">
+            <div class="txt">
+              <div class="nm">Transfer Learning</div>
+              <ul class="pts"><li>이미 학습한 지식을 새 문제에 재활용해 학습 비용 절감</li><li>성능뿐 아니라 공정성 같은 성질까지 함께 이전</li></ul>
+              <ul class="paps"><li><span class="vchip jr">IEEE Access<b>2020</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Joint%20Transfer%20of%20Model%20Knowledge%20and%20Fairness%20Over%20Domains%20Using%20Wasserstein%20Distance.pdf" target="_blank">Joint transfer of model knowledge and fairness over domains</a></span></li><li><span class="vchip prj">한국데이터마이닝학회<b>2025</b></span><span class="pt">Efficient Few-shot Adaptation of CLIP</span></li></ul>
+            </div>
+                      <div class="rfigwrap" data-n="2">
+              <button class="rfig" onclick="openFig(this)" aria-label="figure 크게 보기"
+                      data-img="https://damilab.github.io/images/publications/jointtransfer.png" data-v="IEEE Access 2020" data-t="Joint transfer of model knowledge and fairness over domains" data-cap=""><img class="on" src="https://damilab.github.io/images/publications/jointtransfer.png" alt="Joint transfer of model knowledge and fairness over domains figure" data-v="IEEE Access 2020" data-t="Joint transfer of model knowledge and fairness over domains"><img src="https://damilab.github.io/images/publications/compactclass.png" alt="Compact class-conditional domain invariant learning figure" data-v="Pattern Recognition 2021" data-t="Compact class-conditional domain invariant learning"><span class="fbar"><i></i></span></button>
+              <div class="fmeta"><span class="fv">IEEE Access 2020</span><span class="ft">Joint transfer of model knowledge and fairness over domains</span></div>
+              <div class="fdots"><button type="button" class="fd on" onclick="goFig(this,0)" aria-label="1번째 그림"></button><button type="button" class="fd" onclick="goFig(this,1)" aria-label="2번째 그림"></button></div>
+            </div>
+          </div>
+          <div class="sub"
+               data-nm="Long-tailed · multi-label" data-img="https://damilab.github.io/images/publications/LM-CLIP_Adapting_Positive_Asymmetric_Loss_for_Long_Tailed_Multi_Label_Classification.png" data-cap="head 클래스와 tail 클래스, 다중 라벨 샘플의 임베딩이 어떻게 뭉치고 갈라지는지 비교. 오른쪽이 제안 방법입니다." data-v="IEEE Access 2025" data-vc="jr" data-t="LM-CLIP: Adapting Positive Asymmetric Loss for Long-Tailed Multi-Label Classification">
+            <div class="txt">
+              <div class="nm">Long-tailed · multi-label</div>
+              <ul class="pts"><li>드문 항목이 흔한 항목에 묻히지 않도록 보정</li><li>한 장면에 여러 항목이 동시에 있는 경우까지 처리</li></ul>
+              <ul class="paps"><li><span class="vchip jr">IEEE Access<b>2025</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/LM-CLIP_Adapting_Positive_Asymmetric_Loss_for_Long-Tailed_Multi-Label_Classification.pdf" target="_blank">LM-CLIP: Adapting Positive Asymmetric Loss for Long-Tailed Multi-Label Classification</a></span></li></ul>
+            </div>
+                      <div class="rfigwrap" data-n="1">
+              <button class="rfig" onclick="openFig(this)" aria-label="figure 크게 보기"
+                      data-img="https://damilab.github.io/images/publications/LM-CLIP_Adapting_Positive_Asymmetric_Loss_for_Long_Tailed_Multi_Label_Classification.png" data-v="IEEE Access 2025" data-t="LM-CLIP: Adapting Positive Asymmetric Loss" data-cap=""><img class="on" src="https://damilab.github.io/images/publications/LM-CLIP_Adapting_Positive_Asymmetric_Loss_for_Long_Tailed_Multi_Label_Classification.png" alt="LM-CLIP: Adapting Positive Asymmetric Loss figure" data-v="IEEE Access 2025" data-t="LM-CLIP: Adapting Positive Asymmetric Loss"><span class="fbar"><i></i></span></button>
+              <div class="fmeta"><span class="fv">IEEE Access 2025</span><span class="ft">LM-CLIP: Adapting Positive Asymmetric Loss</span></div>
               
+            </div>
+          </div>
+          <div class="sub"
+               data-nm="Noisy label" data-img="https://damilab.github.io/images/publications/multistage.png" data-cap="데이터셋 정제와 다단계 앙상블을 결합한 학습 파이프라인." data-v="Expert Systems with Applications 2024" data-vc="jr" data-t="Multi-stage ensemble with refinement for noisy labeled data classification">
+            <div class="txt">
+              <div class="nm">Noisy label</div>
+              <ul class="pts"><li>사람이 붙인 정답표에 섞인 오류 선별</li><li>틀린 정답이 있어도 학습이 무너지지 않도록 보정</li></ul>
+              <ul class="paps"><li><span class="vchip jr">Expert Systems with Applications<b>2024</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Multi-stage%20ensemble%20with%20refinement%20for%20noisy%20labeled%20data%20classification.pdf" target="_blank">Multi-stage ensemble with refinement for noisy labeled data classification</a></span></li><li><span class="vchip prj">한국데이터마이닝학회<b>2022</b></span><span class="pt">노이즈 레이블에 강건한 분류를 위한 데이터셋 정제 기반 다단계 앙상블</span></li></ul>
+            </div>
+                      <div class="rfigwrap" data-n="1">
+              <button class="rfig" onclick="openFig(this)" aria-label="figure 크게 보기"
+                      data-img="https://damilab.github.io/images/publications/multistage.png" data-v="Expert Systems with Applications 2024" data-t="Multi-stage ensemble with refinement for noisy labeled data" data-cap=""><img class="on" src="https://damilab.github.io/images/publications/multistage.png" alt="Multi-stage ensemble with refinement for noisy labeled data figure" data-v="Expert Systems with Applications 2024" data-t="Multi-stage ensemble with refinement for noisy labeled data"><span class="fbar"><i></i></span></button>
+              <div class="fmeta"><span class="fv">Expert Systems with Applications 2024</span><span class="ft">Multi-stage ensemble with refinement for noisy labeled data</span></div>
               
-              
-              
-              <img src="/research/topic_representation_hu_b9958053053ac709.png"
-                   srcset="/research/topic_representation_hu_8aa5d7bef387a714.png 480w, /research/topic_representation_hu_b9958053053ac709.png 960w, /research/topic_representation_hu_6d61e04a17bbf7f9.png 1440w"
-                   sizes="(min-width: 1024px) 50vw, 100vw"
-                   width="960" height="640"
-                   alt="Representation Learning" loading="lazy" class="w-full h-auto">
-            
+            </div>
+          </div>
+          <div class="sub"
+               data-nm="Graph &amp; Contrastive Representation" data-img="https://damilab.github.io/images/publications/graphcontrastive.png" data-cap="대조 학습에 일관성 정규화를 결합한 그래프 표현 학습 구조." data-v="Pattern Recognition Letters 2024" data-vc="jr" data-t="Graph contrastive learning with consistency regularization">
+            <div class="txt">
+              <div class="nm">Graph &amp; Contrastive Representation</div>
+              <ul class="pts"><li>관계로 이어진 데이터에서 쓸 만한 특징 추출</li><li>값이 군데군데 비어 있는 데이터의 보완</li></ul>
+              <ul class="paps"><li><span class="vchip jr">Pattern Recognition Letters<b>2024</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Graph%20contrastive%20learning%20with%20consistency%20regularization.pdf" target="_blank">Graph contrastive learning with consistency regularization</a></span></li><li><span class="vchip jr">Pattern Recognition Letters<b>2022</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Variational%20cycle-consistent%20imputation%20adversarial%20networks%20for%20general%20missing%20patterns.pdf" target="_blank">Variational cycle-consistent imputation adversarial networks</a></span></li><li><span class="vchip prj">한국데이터마이닝학회<b>2022</b></span><span class="pt">클래스 일관성을 포함한 그래프 대조 학습</span></li></ul>
+            </div>
+                      <div class="rfigwrap" data-n="2">
+              <button class="rfig" onclick="openFig(this)" aria-label="figure 크게 보기"
+                      data-img="https://damilab.github.io/images/publications/graphcontrastive.png" data-v="Pattern Recognition Letters 2024" data-t="Graph contrastive learning with consistency regularization" data-cap=""><img class="on" src="https://damilab.github.io/images/publications/graphcontrastive.png" alt="Graph contrastive learning with consistency regularization figure" data-v="Pattern Recognition Letters 2024" data-t="Graph contrastive learning with consistency regularization"><img src="https://damilab.github.io/images/publications/variational.png" alt="Variational cycle-consistent imputation adversarial networks figure" data-v="Pattern Recognition Letters 2022" data-t="Variational cycle-consistent imputation adversarial networks"><span class="fbar"><i></i></span></button>
+              <div class="fmeta"><span class="fv">Pattern Recognition Letters 2024</span><span class="ft">Graph contrastive learning with consistency regularization</span></div>
+              <div class="fdots"><button type="button" class="fd on" onclick="goFig(this,0)" aria-label="1번째 그림"></button><button type="button" class="fd" onclick="goFig(this,1)" aria-label="2번째 그림"></button></div>
+            </div>
           </div>
         </div>
-
       </div>
-    </section>
-  
-    
-    <section id="ai-applications" class="relative my-6">
-      <div class="lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-2 lg:items-center lg:gap-24 lg:px-8">
+      <div class="foot">
+        <span class="venues">Pattern Recognition · Pattern Recognition Letters · IEEE Access · Expert Systems with Applications</span>
+        <a class="go" href="/research/representation-learning/">자세히</a>
+      </div>
+    </article>
 
-        
-        <div class=" relative max-w-md px-4 mx-auto sm:max-w-3xl sm:px-6 lg:px-0">
-          <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-50">AI Applications</h2>
-          <p class="mt-4 text-lg text-gray-900 dark:text-white">연구된 알고리즘과 방법론을 환경, 의료, 스포츠 등 다양한 사회·산업 도메인에 적용하여 실제 문제 해결에 기여할 수 있는 실용적인 시스템을 설계</p>
-          <p class="mt-4 text-lg text-gray-900 dark:text-white">Applying AI techniques to practical domains such as healthcare, sports analytics, recruitment, and video understanding.</p>
-
-          
-          
-          <a href="/research/ai-applications/"
-            style="background:rgb(0, 20, 86);color:white"
-            class="mt-6 inline-flex items-center rounded-lg px-5 py-3 font-semibold">
-            Learn more
-          </a>
-        </div>
-
-        
-        <div class=" relative w-full h-auto px-4 py-6 mx-auto sm:max-w-3xl sm:px-6 lg:px-0 lg:py-8">
-          <div class="overflow-hidden shadow-xl rounded-2xl">
-            
-            
-            
+    <article class="axis a3">
+      <div class="head">
+        <div class="hleft"><div class="kicker">AREA 03</div>
+        <h3>AI Applications</h3>
+        <div class="kw"><span>Climate &amp; Satellite</span><span>Geoscience Risk Mapping</span><span>Sports Analytics</span><span>Finance</span><span>Video</span></div>
+        <p class="desc">실측 장비와 현장 데이터가 있는 문제에 방법론을 적용합니다. 위성 기후자료 초해상화, 지역별 재해 위험도 매핑, 골프 스윙 분석, LLM 기반 금융 의사결정이 현재 진행 중입니다.</p></div>
+        <div class="hright"><div class="traj">
+            <div class="th"><span class="tl">연도별 논문</span><span class="tt">17편</span></div>
+            <div class="tbox"><canvas id="mini-a3" aria-label="이 축의 연도별 논문 수"></canvas></div>
+            <p class="tc">가장 최근 2026년 5편 · 기상청 과제 2027까지</p>
+          </div></div>
+      </div>
+      <div class="body">
+        <div class="subs">
+          <div class="sub"
+               data-nm="Climate &amp; Satellite" data-img="https://damilab.github.io/images/projects/cma_2025/01.png" data-cap="고해상 RGB를 가이드로 GK2A 저해상 자료를 250m로 복원하고, 지상 관측망(ASOS+AWS)과 대조해 오차를 검증하는 구조." data-v="기상청 과제 2025-2027" data-vc="prj" data-t="전천(All-sky) 기후자료 산출 및 초해상화 인공지능 모델 개발">
+            <div class="txt">
+              <div class="nm">Climate &amp; Satellite</div>
+              <ul class="pts"><li>위성이 보내오는 성긴 기상 자료를 촘촘한 해상도로 복원</li><li>좁은 지역 단위의 기온·기후 산출</li><li>지상 관측망과 대조한 오차 검증</li></ul>
+              <ul class="paps"><li><span class="vchip prj">기상청 과제<b>2025-2027</b></span><span class="pt">전천(All-sky) 기후자료 산출 및 초해상화 인공지능 모델 개발</span></li><li><span class="vchip jr">Geosciences Journal<b>2026</b></span><span class="pt">Groundwater potential mapping using a frequency ratio-LSTM hybrid model</span></li></ul>
+            </div>
+                      <div class="rfigwrap" data-n="2">
+              <button class="rfig" onclick="openFig(this)" aria-label="figure 크게 보기"
+                      data-img="https://damilab.github.io/images/projects/cma_2025/01.png" data-v="기상청 과제 2025-2027" data-t="전천(All-sky) 기후자료 산출 및 초해상화" data-cap=""><img class="on" src="https://damilab.github.io/images/projects/cma_2025/01.png" alt="전천(All-sky) 기후자료 산출 및 초해상화 figure" data-v="기상청 과제 2025-2027" data-t="전천(All-sky) 기후자료 산출 및 초해상화"><img src="https://damilab.github.io/images/publications/groundwater-potential-fr-lstm.png" alt="Groundwater potential mapping using FR-LSTM hybrid model figure" data-v="Geosciences Journal 2026" data-t="Groundwater potential mapping using FR-LSTM hybrid model"><span class="fbar"><i></i></span></button>
+              <div class="fmeta"><span class="fv">기상청 과제 2025-2027</span><span class="ft">전천(All-sky) 기후자료 산출 및 초해상화</span></div>
+              <div class="fdots"><button type="button" class="fd on" onclick="goFig(this,0)" aria-label="1번째 그림"></button><button type="button" class="fd" onclick="goFig(this,1)" aria-label="2번째 그림"></button></div>
+            </div>
+          </div>
+          <div class="sub"
+               data-nm="Geoscience Risk Mapping" data-img="https://damilab.github.io/images/publications/flood.png" data-cap="청주 지역의 홍수 취약성 지도. 지형과 환경 인자를 결합해 위험도를 공간 단위로 예측합니다." data-v="J. Environmental Management 2024" data-vc="jr" data-t="Flood susceptibility mapping of Cheongju, South Korea">
+            <div class="txt">
+              <div class="nm">Geoscience Risk Mapping</div>
+              <ul class="pts"><li>실내 라돈, 홍수, 지하수처럼 지역별 위험도를 지도로 제작</li><li>지형·수문·환경 자료를 결합한 예측</li></ul>
+              <ul class="paps"><li><span class="vchip jr">J. Environmental Management<b>2024</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Flood%20susceptibility%20mapping%20of%20Cheongju,%20South%20Korea%20based%20on%20the%20integration%20of%20environmental%20factors%20using%20various%20machine%20learning%20approaches.pdf" target="_blank">Flood susceptibility mapping of Cheongju, South Korea</a></span></li><li><span class="vchip jr">J. Hazardous Materials Advances<b>2026</b></span><span class="pt"><a href="https://doi.org/10.1016/j.hazadv.2026.101377" target="_blank">Sampling-bias-aware mapping of geogenic indoor radon hazard</a></span></li><li><span class="vchip jr">Earth Systems and Environment<b>2025</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/AI-Driven%20Geospatial%20Analysis%20of%20Indoor%20Radon%20Levels%20A%20Case%20Study%20in%20Chungcheongbuk-do,%20South%20Korea.pdf" target="_blank">AI-Driven Geospatial Analysis of Indoor Radon Levels</a></span></li><li class="ex"><span class="vchip jr">Geomatics, Natural Hazards and Risk<b>2025</b></span><span class="pt">Deep learning-enhanced geospatial modeling for indoor radon mapping</span></li><li class="ex"><span class="vchip jr">Geosciences Journal<b>2026</b></span><span class="pt">Groundwater potential mapping using a frequency ratio-LSTM hybrid model</span></li><li class="more"><button type="button" onclick="toggleMore(this)" data-n="2">+2편 더 보기</button></li></ul>
+            </div>
+                      <div class="rfigwrap" data-n="3">
+              <button class="rfig" onclick="openFig(this)" aria-label="figure 크게 보기"
+                      data-img="https://damilab.github.io/images/publications/flood.png" data-v="J. Environmental Management 2024" data-t="Flood susceptibility mapping of Cheongju" data-cap=""><img class="on" src="https://damilab.github.io/images/publications/flood.png" alt="Flood susceptibility mapping of Cheongju figure" data-v="J. Environmental Management 2024" data-t="Flood susceptibility mapping of Cheongju"><img src="https://damilab.github.io/images/publications/aidriven.png" alt="AI-Driven Geospatial Analysis of Indoor Radon Levels figure" data-v="Earth Systems and Environment 2025" data-t="AI-Driven Geospatial Analysis of Indoor Radon Levels"><img src="https://damilab.github.io/images/publications/deeplearning.png" alt="Deep learning-enhanced geospatial modeling for indoor radon figure" data-v="Geomatics, Natural Hazards and Risk 2025" data-t="Deep learning-enhanced geospatial modeling for indoor radon"><span class="fbar"><i></i></span></button>
+              <div class="fmeta"><span class="fv">J. Environmental Management 2024</span><span class="ft">Flood susceptibility mapping of Cheongju</span></div>
+              <div class="fdots"><button type="button" class="fd on" onclick="goFig(this,0)" aria-label="1번째 그림"></button><button type="button" class="fd" onclick="goFig(this,1)" aria-label="2번째 그림"></button><button type="button" class="fd" onclick="goFig(this,2)" aria-label="3번째 그림"></button></div>
+            </div>
+          </div>
+          <div class="sub"
+               data-nm="Sports Analytics" data-img="https://damilab.github.io/images/publications/golf-swing.png" data-cap="스윙 영상에서 클럽과 관절 키포인트를 뽑아 그래프로 묶고, GCN 과 XAI 로 결과를 예측·설명하는 전체 구조." data-v="Applied Sciences 2026" data-vc="jr" data-t="Explainable Graph-Based Golf Swing Analysis Integrating Club and Body Keypoints">
+            <div class="txt">
+              <div class="nm">Sports Analytics</div>
+              <ul class="pts"><li>골프 스윙 영상만으로 공의 비행 결과 예측</li><li>스윙의 어느 구간, 어떤 동작이 결과를 만들었는지 설명</li><li>실제 측정 장비와의 대조 검증</li></ul>
+              <ul class="paps"><li><span class="vchip jr">Applied Sciences<b>2026</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Explainable%20Graph-Based%20Golf%20Swing%20Analysis%20Integrating%20Club%20and%20Body%20Keypoints%20for%20Ball%20Flight%20Outcome%20Prediction.pdf" target="_blank">Explainable Graph-Based Golf Swing Analysis Integrating Club and Body Keypoints</a></span></li><li><span class="vchip conf">CVPR Workshop<b>2025</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Jung_CaddieSet_A_Golf_Swing_Dataset_with_Human_Joint_Features_and_CVPRW_2025_paper.pdf" target="_blank">CaddieSet: A Golf Swing Dataset with Human Joint Features and Ball Information</a></span></li><li class="ex"><span class="vchip prj">대한산업공학회<b>2024</b></span><span class="pt">골프 스윙 비디오 시퀀스를 통한 관절 정보 생성과 공 궤적 간의 관계 분석</span></li><li class="ex"><span class="vchip prj">대한산업공학회<b>2025</b></span><span class="pt">시공간 그래프 합성곱 네트워크 기반 골프 클럽과 인체 관절의 통합 스윙 분석</span></li><li class="ex"><span class="vchip prj">ACK<b>2025</b></span><span class="pt">골프 클럽과 인간 관절의 통합: 스윙 분석을 위한 시공간 그래프 합성곱 기법</span></li><li class="more"><button type="button" onclick="toggleMore(this)" data-n="3">+3편 더 보기</button></li></ul>
+            </div>
+                      <div class="rfigwrap" data-n="2">
+              <button class="rfig" onclick="openFig(this)" aria-label="figure 크게 보기"
+                      data-img="https://damilab.github.io/images/publications/golf-swing.png" data-v="Applied Sciences 2026" data-t="Explainable Graph-Based Golf Swing Analysis" data-cap=""><img class="on" src="https://damilab.github.io/images/publications/golf-swing.png" alt="Explainable Graph-Based Golf Swing Analysis figure" data-v="Applied Sciences 2026" data-t="Explainable Graph-Based Golf Swing Analysis"><img src="https://damilab.github.io/images/publications/caddiset.png" alt="CaddieSet: A Golf Swing Dataset figure" data-v="CVPR Workshop 2025" data-t="CaddieSet: A Golf Swing Dataset"><span class="fbar"><i></i></span></button>
+              <div class="fmeta"><span class="fv">Applied Sciences 2026</span><span class="ft">Explainable Graph-Based Golf Swing Analysis</span></div>
+              <div class="fdots"><button type="button" class="fd on" onclick="goFig(this,0)" aria-label="1번째 그림"></button><button type="button" class="fd" onclick="goFig(this,1)" aria-label="2번째 그림"></button></div>
+            </div>
+          </div>
+          <div class="sub"
+               data-nm="Finance &amp; Business" data-img="https://damilab.github.io/images/publications/finance.png" data-cap="산업 정보와 종목 특성을 입력받아 LLM 이 추론과 근거를 함께 내놓고, 상위 종목을 고르는 흐름." data-v="Computational Economics 2026" data-vc="jr" data-t="Large Language Models as Financial Analysts: Sector-Aware Reasoning">
+            <div class="txt">
+              <div class="nm">Finance &amp; Business</div>
+              <ul class="pts"><li>산업별 상황을 반영한 AI 종목 선택</li><li>판단 근거와 실제 결과의 일치 여부 검증</li></ul>
+              <ul class="paps"><li><span class="vchip jr">Computational Economics<b>2026</b></span><span class="pt">Large Language Models as Financial Analysts: Sector-Aware Reasoning</span></li><li><span class="vchip jr">Finance Research Letters<b>2025</b></span><span class="pt">Interconnected dynamics of sustainable cryptocurrencies</span></li><li><span class="vchip jr">J. Theoretical and Applied E-Commerce<b>2026</b></span><span class="pt">Disconfirmation Dynamics in Service Recovery</span></li><li class="ex"><span class="vchip prj">한국데이터마이닝학회<b>2024</b></span><span class="pt">섹터 정보를 활용한 대규모 언어 모델(LLM)의 재무 데이터 분석</span></li><li class="ex"><span class="vchip prj">ACK<b>2025</b></span><span class="pt">산업별 맥락을 활용한 대규모 언어모델 기반 주식 선택 연구</span></li><li class="more"><button type="button" onclick="toggleMore(this)" data-n="2">+2편 더 보기</button></li></ul>
+            </div>
+                      <div class="rfigwrap" data-n="2">
+              <button class="rfig" onclick="openFig(this)" aria-label="figure 크게 보기"
+                      data-img="https://damilab.github.io/images/publications/finance.png" data-v="Computational Economics 2026" data-t="Large Language Models as Financial Analysts" data-cap=""><img class="on" src="https://damilab.github.io/images/publications/finance.png" alt="Large Language Models as Financial Analysts figure" data-v="Computational Economics 2026" data-t="Large Language Models as Financial Analysts"><img src="https://damilab.github.io/images/publications/interconnected.png" alt="Interconnected dynamics of sustainable cryptocurrencies figure" data-v="Finance Research Letters 2025" data-t="Interconnected dynamics of sustainable cryptocurrencies"><span class="fbar"><i></i></span></button>
+              <div class="fmeta"><span class="fv">Computational Economics 2026</span><span class="ft">Large Language Models as Financial Analysts</span></div>
+              <div class="fdots"><button type="button" class="fd on" onclick="goFig(this,0)" aria-label="1번째 그림"></button><button type="button" class="fd" onclick="goFig(this,1)" aria-label="2번째 그림"></button></div>
+            </div>
+          </div>
+          <div class="sub"
+               data-nm="Video &amp; Multimodal" data-img="https://damilab.github.io/images/projects/pixt_2023/01.png" data-cap="트랜스포머 기반 한국어 동영상 캡션 모델의 학습·서비스 구성." data-v="Pixt 과제 2023-2024" data-vc="prj" data-t="한국어 전용 동영상 캡션 AI 모델 개발">
+            <div class="txt">
+              <div class="nm">Video &amp; Multimodal</div>
+              <ul class="pts"><li>영상에 한국어 설명을 자동으로 붙이는 캡션 생성</li><li>어두운 밤 영상에서의 사람 탐지 성능 개선</li></ul>
+              <ul class="paps"><li><span class="vchip prj">Pixt 과제<b>2023-2024</b></span><span class="pt">한국어 전용 동영상 캡션 AI 모델 개발</span></li><li><span class="vchip prj">ACK<b>2025</b></span><span class="pt">야간 CCTV영상의 사람 탐지 성능 향상에 관한 연구</span></li></ul>
+            </div>
+                      <div class="rfigwrap" data-n="1">
+              <button class="rfig" onclick="openFig(this)" aria-label="figure 크게 보기"
+                      data-img="https://damilab.github.io/images/projects/pixt_2023/01.png" data-v="Pixt 과제 2023-2024" data-t="한국어 전용 동영상 캡션 AI 모델 개발" data-cap=""><img class="on" src="https://damilab.github.io/images/projects/pixt_2023/01.png" alt="한국어 전용 동영상 캡션 AI 모델 개발 figure" data-v="Pixt 과제 2023-2024" data-t="한국어 전용 동영상 캡션 AI 모델 개발"><span class="fbar"><i></i></span></button>
+              <div class="fmeta"><span class="fv">Pixt 과제 2023-2024</span><span class="ft">한국어 전용 동영상 캡션 AI 모델 개발</span></div>
               
-              
-              
-              
-              <img src="/research/topic_application_hu_89b79e9e06514491.png"
-                   srcset="/research/topic_application_hu_a5ea5575e90b713f.png 480w, /research/topic_application_hu_89b79e9e06514491.png 960w, /research/topic_application_hu_704d74bc9cc25124.png 1440w"
-                   sizes="(min-width: 1024px) 50vw, 100vw"
-                   width="960" height="640"
-                   alt="AI Applications" loading="lazy" class="w-full h-auto">
-            
+            </div>
           </div>
         </div>
-
       </div>
-    </section>
-  
+      <div class="foot">
+        <span class="venues">Applied Sciences · CVPR Workshop · J. Environmental Management · Computational Economics · 기상청 · 김캐디 협력 과제</span>
+        <a class="go" href="/research/ai-applications/">자세히</a>
+      </div>
+    </article>
+    <div class="note">
+      <span class="n-tag">NOTE 7</span>
+      <b>논문을 분야에 중복 배치했습니다.</b> 한 논문이 두 분야에 걸치는 경우가 실제로 있습니다.
+      예를 들어 <em>Joint transfer of model knowledge and fairness over domains</em>는 Trustworthy AI의
+      공정성과 Representation Learning의 전이 학습 양쪽에 들어가고,
+      <em>Compact class-conditional domain invariant learning</em>도 도메인 적응의 대표 논문이면서
+      전이 학습의 관련 논문으로 다시 나옵니다. 분류를 억지로 배타적으로 만들지 않았습니다.
+    </div>
+  </div>
+</section>
+
+<dialog id="fdlg">
+  <div class="dtop"><span class="v"></span><button onclick="document.getElementById('fdlg').close()" aria-label="닫기">&times;</button></div>
+  <div class="dimg"><img alt=""></div>
+  <div class="dmeta"><h4></h4><p></p></div>
+</dialog>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js"></script>
+<script>
+var RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* 분야별 figure 캐러셀 */
+var FIG_MS=2800;
+function showFig(wrap,i){
+  var imgs=wrap.querySelectorAll('.rfig img');
+  if(!imgs.length) return;
+  i=((i%imgs.length)+imgs.length)%imgs.length;
+  imgs.forEach(function(im,j){im.classList.toggle('on',j===i)});
+  wrap.querySelectorAll('.fd').forEach(function(d,j){d.classList.toggle('on',j===i)});
+  var cur=imgs[i];
+  wrap.querySelector('.fmeta .fv').textContent=cur.dataset.v;
+  wrap.querySelector('.fmeta .ft').textContent=cur.dataset.t;
+  var btn=wrap.querySelector('.rfig');
+  btn.dataset.img=cur.src; btn.dataset.v=cur.dataset.v; btn.dataset.t=cur.dataset.t;
+  btn.dataset.cap=cur.dataset.t;
+  wrap._i=i;
+  wrap.classList.remove('playing'); void wrap.offsetWidth;
+  if(wrap._on&&!RM) wrap.classList.add('playing');
+}
+function goFig(dot,i){
+  var wrap=dot.closest('.rfigwrap');
+  stopFig(wrap,true); showFig(wrap,i);
+}
+function startFig(wrap){
+  if(RM||wrap._off||wrap._on) return;
+  if(wrap.querySelectorAll('.rfig img').length<2) return;
+  wrap._on=true;
+  wrap._t=setInterval(function(){ showFig(wrap,(wrap._i||0)+1); },FIG_MS);
+  wrap.classList.remove('playing'); void wrap.offsetWidth; wrap.classList.add('playing');
+}
+function stopFig(wrap,permanent){
+  wrap._on=false; if(wrap._t){clearInterval(wrap._t);wrap._t=null;}
+  if(permanent) wrap._off=true;
+  wrap.classList.remove('playing');
+}
+document.querySelectorAll('.rfigwrap').forEach(function(wrap){
+  wrap._i=0;
+  new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) startFig(wrap); else stopFig(wrap); });
+  },{threshold:.4}).observe(wrap);
+  wrap.addEventListener('mouseenter',function(){ if(wrap._on){wrap._pause=true; stopFig(wrap);} });
+  wrap.addEventListener('mouseleave',function(){ if(wrap._pause){wrap._pause=false; wrap._off=false; startFig(wrap);} });
+});
+
+/* 축별 연도별 논문 그래프 (헤더, 연도순 등장) */
+var MD={a1:{'2018':1,'2020':1,'2021':3,'2023':4,'2024':2,'2025':2,'2026':3},
+        a2:{'2018':1,'2019':1,'2020':1,'2021':1,'2022':3,'2024':2,'2025':2},
+        a3:{'2023':1,'2024':3,'2025':8,'2026':5}};
+var miniBuilt={};
+function buildMini(k){
+  if(typeof Chart==='undefined'||miniBuilt[k]) return;
+  var el=document.getElementById('mini-'+k); if(!el) return;
+  miniBuilt[k]=true;
+  var ys=Object.keys(MD[k]).sort();
+  var STEP=RM?0:170, DUR=RM?0:560;
+  new Chart(el.getContext('2d'),{type:'bar',
+    data:{labels:ys,datasets:[{data:ys.map(function(y){return MD[k][y]}),
+      backgroundColor:'rgba(255,255,255,.94)',hoverBackgroundColor:'#fff',
+      borderRadius:4,barPercentage:.62,categoryPercentage:.9}]},
+    options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:4}},
+      animation:{duration:DUR,easing:'easeOutCubic',
+        delay:function(ctx){ return (ctx.type==='data'&&ctx.mode==='default')? ctx.dataIndex*STEP : 0; }},
+      plugins:{legend:{display:false},
+        tooltip:{backgroundColor:'#111827',titleFont:{weight:'800'},bodyFont:{weight:'700'},
+          callbacks:{title:function(c){return c[0].label+'년'},label:function(c){return c.parsed.y+'편'}}}},
+      scales:{y:{beginAtZero:true,grid:{color:'rgba(255,255,255,.24)'},border:{display:false},
+                 ticks:{stepSize:2,color:'rgba(255,255,255,.84)',font:{size:10.5,weight:'700'},padding:5}},
+              x:{grid:{display:false},border:{color:'rgba(255,255,255,.42)',width:2},
+                 ticks:{color:'rgba(255,255,255,.92)',font:{size:10.5,weight:'800'},maxRotation:0}}}}
+  });
+}
+['a1','a2','a3'].forEach(function(k){
+  var el=document.getElementById('mini-'+k); if(!el) return;
+  new IntersectionObserver(function(es,o){
+    es.forEach(function(e){ if(e.isIntersecting){ buildMini(k); o.unobserve(e.target);} });
+  },{threshold:.35}).observe(el);
+});
+
+/* figure 크게 보기 */
+var lastFig=null;
+function openFig(btn){
+  if(document.body.classList.contains('editing')) return;
+  lastFig=btn;
+  var d=document.getElementById('fdlg');
+  d.querySelector('.dimg img').src=btn.dataset.img;
+  d.querySelector('.dimg img').alt=btn.dataset.t+' figure';
+  d.querySelector('.dtop .v').textContent=btn.dataset.v;
+  d.querySelector('.dmeta h4').textContent=btn.dataset.t;
+  d.querySelector('.dmeta p').textContent=btn.dataset.cap;
+  d.showModal();
+}
+document.getElementById('fdlg').addEventListener('close',function(){ if(lastFig) lastFig.focus(); });
+
+function toggleMore(btn){
+  var ul=btn.closest('ul.paps');
+  var open=ul.classList.toggle('open');
+  btn.textContent = open ? '접기' : ('+'+btn.dataset.n+'편 더 보기');
+}
+
+</script>
 
 </main>
 
