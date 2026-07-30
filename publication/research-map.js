@@ -28,6 +28,7 @@
     .rmb{display:grid;grid-template-columns:310px minmax(0,1fr);height:430px;min-height:430px}.rml{display:flex;flex-direction:column;min-height:0;padding:12px;background:#fbfdff;border-right:1px solid #e6edf4}.rm-controls > button{display:block;width:100%;margin-bottom:7px;border:1px solid #e0e9f2;border-left:4px solid var(--c);border-radius:9px;background:#fff;padding:8px 10px;text-align:left}.rm-controls > button.active{border-color:var(--c);background:color-mix(in srgb,var(--c) 8%,#fff)}.rml span{display:flex;justify-content:space-between;gap:8px;font-size:12px;font-weight:800}.rml em,.rml small{font-style:normal;color:#61748a;font-size:11px}.rml small{display:block;margin-top:3px}
     .rm-inspector{display:flex;flex:1;min-height:0;flex-direction:column;margin-top:4px;padding:8px 2px 0;border-top:1px solid #e6edf4}.rm-list-head{display:flex;justify-content:space-between;color:#46627d;font-size:11px;font-weight:800;margin:0 6px 6px}.rm-paper-list{overflow:auto;min-height:0}.rm-paper-list button{display:block;width:100%;border:0;border-bottom:1px solid #edf2f6;background:transparent;padding:7px 6px;text-align:left;color:#47627e;font-size:12px;line-height:1.3}.rm-paper-list button:hover{background:#edf5ff;color:#1f5ea8}.rm-paper-list small{display:block;margin-top:2px;color:#7a8ca0;font-size:10px}.rm-popup{position:absolute;z-index:6;width:min(300px,calc(100% - 24px));border:1px solid #d8e2ef;border-radius:12px;background:rgba(255,255,255,.98);box-shadow:0 12px 30px rgba(23,43,71,.16);padding:12px 14px;color:#172b47}.rm-popup[hidden]{display:none}.rm-popup button[aria-label="Close"]{float:right;border:0;background:transparent;color:#64748b;font-size:19px;line-height:1;cursor:pointer}.rm-popup small{display:block;color:#2563b8;font-size:11px;font-weight:800;letter-spacing:.02em}.rm-popup strong{display:block;margin:6px 20px 6px 0;font-size:13px;line-height:1.38}.rm-popup p{margin:0;color:#52677f;font-size:12px;line-height:1.48}.rm-detail-actions{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}.rm-detail-actions button,.rm-detail-actions a{border:1px solid #d7e2ef;border-radius:6px;background:#fff;padding:5px 7px;color:#2465b2;font-size:11px;font-weight:800;text-decoration:none;cursor:pointer}.rm-detail-actions button:hover,.rm-detail-actions a:hover{background:#edf5ff}.rm-subcluster{cursor:pointer}.rm-subcluster ellipse{cursor:pointer;transition:fill-opacity .2s,stroke-opacity .2s}.rm-subcluster.is-active ellipse{fill-opacity:.19!important;stroke-opacity:.78!important;stroke-width:1.6}.rm.has-subselection .rmnode:not(.is-cluster-match){opacity:.22}.rmnode.is-cluster-match .rm-dot{stroke:#172b47;stroke-width:2.8}.rmnode.is-cluster-match .rm-halo{opacity:1}
     .rmw{position:relative;background:#f5f9fc;overflow:hidden}.rmw svg{display:block;width:100%;height:100%}.rm:not(.is-arranging) .rmw svg{cursor:grab}.rm.is-panning .rmw svg{cursor:grabbing}.rmnode{cursor:pointer;outline:none}.rmnode.is-arranging{cursor:grab;touch-action:none}.rmnode.is-arranging:active{cursor:grabbing}.rmnode.is-selected .rm-dot{stroke:#172b47;stroke-width:3.2}.rmnode:focus .rm-dot{stroke:#172b47;stroke-width:2.1}.rm-hit,.rm-wash,.rm-halo,.rm-links,.rm-selection,.rm-topic{pointer-events:none}.rm-hit{pointer-events:all;fill:transparent;stroke:none}.rm-selection{fill:#5b97de;fill-opacity:.12;stroke:#2864c7;stroke-width:1.2;stroke-dasharray:4 3}.rm-dot{stroke:#fff;stroke-width:1.5}.rmmeta{font:800 11px Pretendard,system-ui;fill:#365778;paint-order:stroke;stroke:#fff;stroke-width:2.5px}.rm-topic{font:800 10px Pretendard,system-ui;fill:#3d5874;paint-order:stroke;stroke:#fff;stroke-width:2.5px}.rmsub{font:800 10px Pretendard,system-ui;fill:#365778;paint-order:stroke;stroke:#fff;stroke-width:2.5px;cursor:pointer}.rm-legend{font:700 10px Pretendard,system-ui;fill:#6a7d90}.rm.is-arranging .rmw{background:#f9fbfe}.rm.is-arranging .rmnode .rm-dot{stroke-width:2.5}.rm.is-arranging .rm-area-label,.rm.is-arranging .rmsub{cursor:grab;touch-action:none}.rm.is-arranging .rm-legend{fill:#2563b8}
+    .rm-sub-hit{fill:transparent;pointer-events:all;cursor:pointer}.rmsub{pointer-events:all}
     @keyframes rmglow{0%{opacity:0;transform:scale(.35)}45%{opacity:1;transform:scale(1.18)}100%{opacity:.92;transform:scale(1)}}@keyframes rmwash{0%{opacity:0;transform:scale(.5)}55%{opacity:1}100%{opacity:.75;transform:scale(1)}}.rm-halo{transform-box:fill-box;transform-origin:center;animation:rmglow 1.5s ease-out both}.rm-wash{transform-box:fill-box;transform-origin:center;animation:rmwash 2s ease-out both}
     .publication-item.rm-highlight{outline:3px solid #8ab6ea;outline-offset:3px;transition:outline-color .4s}
     /* The map keeps its existing visual language; only the old left rail moves to a right-hand contextual panel. */
@@ -143,6 +144,43 @@
       popup.hidden = true;
       renderInspector();
     }
+    function selectSubcluster(clusterKey) {
+      if (arranging || justPanned) return;
+      selectedSubfield = selectedSubfield === clusterKey ? null : clusterKey;
+      field = 'all';
+      selected = null;
+      render();
+    }
+    function syncSubclusterHit(label) {
+      const clusterKey = label.dataset.clusterKey;
+      const hit = clusterKey && svg.querySelector(`[data-sub-hit="${clusterKey}"]`);
+      if (!hit) return;
+      const width = Number(hit.dataset.width) || 108;
+      hit.setAttribute('x', +label.getAttribute('x') - width / 2);
+      hit.setAttribute('y', +label.getAttribute('y') - 18);
+    }
+    function liftSubclusterLabel(label) {
+      const clusterKey = label.dataset.clusterKey;
+      if (!clusterKey) return;
+      const width = Math.max(96, Math.ceil(label.getComputedTextLength() + 26));
+      const hit = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      hit.setAttribute('class', 'rm-sub-hit');
+      hit.dataset.subHit = clusterKey;
+      hit.dataset.width = String(width);
+      hit.setAttribute('width', width);
+      hit.setAttribute('height', '27');
+      hit.setAttribute('rx', '5');
+      const stopMapPan = event => event.stopPropagation();
+      hit.addEventListener('pointerdown', stopMapPan);
+      label.addEventListener('pointerdown', event => { if (!arranging) stopMapPan(event); });
+      hit.addEventListener('click', event => { event.stopPropagation(); selectSubcluster(clusterKey); });
+      label.addEventListener('click', event => { event.stopPropagation(); selectSubcluster(clusterKey); });
+      // SVG paints later elements above paper nodes.  The transparent hit box
+      // follows the label, so the whole heading row remains easy to select.
+      svg.append(hit);
+      syncSubclusterHit(label);
+      svg.append(label);
+    }
     function render() {
       activeSimulation?.stop(); activeSimulation = null; dynamicPositions = new Map();
       host.querySelector('.rm').classList.toggle('is-arranging', arranging); host.querySelector('.rm').classList.toggle('has-subselection', !!selectedSubfield); arrangeButton.textContent = arranging ? 'Done arranging' : 'Arrange map'; arrangeExtra.hidden = !arranging; topicsButton.textContent = showTopics ? 'Topics on' : 'Topics off'; topicsButton.classList.toggle('topic-on', showTopics); clearClusterButton.hidden = !selectedSubfield;
@@ -161,8 +199,8 @@
         const clusterKey = `${group[0].research_area}|${group[0].subfield}`, labelKey = `sub:${clusterKey}`, defaultLabel = { x: (x0 + x1) / 2, y: y0 - 7 }, savedLabel = labelLayout[labelKey] || defaultLabel;
         const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
         g.setAttribute('class', `rm-subcluster${selectedSubfield === clusterKey ? ' is-active' : ''}`);
-        g.innerHTML = `<ellipse data-cluster-shell="${clusterKey}" cx="${(x0 + x1) / 2}" cy="${(y0 + y1) / 2}" rx="${Math.max(38, (x1 - x0) / 2 * 1.45)}" ry="${Math.max(30, (y1 - y0) / 2 * 1.45)}" fill="${area.color}" fill-opacity=".085" stroke="${area.color}" stroke-opacity=".09"/><text class="rmsub" data-layout-label="${labelKey}" x="${savedLabel.x}" y="${savedLabel.y}" text-anchor="middle" fill="${area.color}">${escape(group[0].subfield)}</text>`;
-        g.onclick = () => { if (!arranging && !justPanned) { selectedSubfield = selectedSubfield === clusterKey ? null : clusterKey; field = 'all'; selected = null; render(); } }; svg.append(g);
+        g.innerHTML = `<ellipse data-cluster-shell="${clusterKey}" cx="${(x0 + x1) / 2}" cy="${(y0 + y1) / 2}" rx="${Math.max(38, (x1 - x0) / 2 * 1.45)}" ry="${Math.max(30, (y1 - y0) / 2 * 1.45)}" fill="${area.color}" fill-opacity=".085" stroke="${area.color}" stroke-opacity=".09"/><text class="rmsub" data-layout-label="${labelKey}" data-cluster-key="${clusterKey}" x="${savedLabel.x}" y="${savedLabel.y}" text-anchor="middle" fill="${area.color}">${escape(group[0].subfield)}</text>`;
+        g.onclick = () => selectSubcluster(clusterKey); svg.append(g);
       });
       if (arranging) svg.querySelectorAll('[data-layout-label]').forEach(label => makeLabelDraggable(label, label.dataset.layoutLabel));
       const mapLinks = drawLinks(shown);
@@ -187,6 +225,7 @@
           };
         }
       });
+      svg.querySelectorAll('.rmsub').forEach(liftSubclusterLabel);
       // SVG paints later elements on top: keep the three primary research axes above
       // subcluster and paper-topic labels so their hierarchy never gets obscured.
       svg.querySelectorAll('.rm-area-label').forEach(label => svg.append(label));
@@ -298,6 +337,7 @@
         const saved = labelLayout[labelKey] || { x: (initialBounds.x0 + initialBounds.x1) / 2, y: initialBounds.y0 - 25 };
         label.setAttribute('x', (liveBounds.x0 + liveBounds.x1) / 2 + (saved.x - (initialBounds.x0 + initialBounds.x1) / 2));
         label.setAttribute('y', liveBounds.y0 - 25 + (saved.y - (initialBounds.y0 - 25)));
+        syncSubclusterHit(label);
       });
       Object.keys(areas).forEach(areaKey => {
         const labelKey = `area:${areaKey}`, label = svg.querySelector(`[data-layout-label="${labelKey}"]`), initial = nodes.filter(node => node.research_area === areaKey), live = physics.filter(node => node.research_area === areaKey);
