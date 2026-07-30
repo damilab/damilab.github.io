@@ -808,9 +808,15 @@ function showFig(wrap,i){
   wrap.classList.remove('playing'); void wrap.offsetWidth;
   if(wrap._on&&!RM) wrap.classList.add('playing');
 }
+/* 수동으로 넘겨도 자동 넘김은 계속 — 타이머만 처음부터 다시 */
+function restartFig(wrap,i){
+  if(wrap._t){clearInterval(wrap._t);wrap._t=null;}
+  wrap._on=false; wrap._off=false; wrap._pause=false;
+  showFig(wrap,i);
+  startFig(wrap);
+}
 function goFig(dot,i){
-  var wrap=dot.closest('.rfigwrap');
-  stopFig(wrap,true); showFig(wrap,i);
+  restartFig(dot.closest('.rfigwrap'),i);
 }
 /* 그림 오른쪽 26% 를 누르면 다음 그림, 그 밖은 크게 보기 */
 function rfigClick(ev,btn){
@@ -819,7 +825,7 @@ function rfigClick(ev,btn){
   var r=btn.getBoundingClientRect();
   var keyboard=(ev.clientX===0&&ev.clientY===0);
   if(many&&!keyboard&&(ev.clientX-r.left)>r.width*0.74){
-    stopFig(wrap,true); showFig(wrap,(wrap._i||0)+1); return;
+    restartFig(wrap,(wrap._i||0)+1); return;
   }
   openFig(btn);
 }
@@ -840,8 +846,11 @@ document.querySelectorAll('.rfigwrap').forEach(function(wrap){
   new IntersectionObserver(function(es){
     es.forEach(function(e){ if(e.isIntersecting) startFig(wrap); else stopFig(wrap); });
   },{threshold:.4}).observe(wrap);
-  wrap.addEventListener('mouseenter',function(){ if(wrap._on){wrap._pause=true; stopFig(wrap);} });
-  wrap.addEventListener('mouseleave',function(){ if(wrap._pause){wrap._pause=false; wrap._off=false; startFig(wrap);} });
+  /* hover 일시정지는 진짜 마우스가 있을 때만 (터치에선 mouseleave 가 안 와서 멈춘 채로 남는다) */
+  if(matchMedia('(hover:hover)').matches){
+    wrap.addEventListener('mouseenter',function(){ if(wrap._on){wrap._pause=true; stopFig(wrap);} });
+    wrap.addEventListener('mouseleave',function(){ if(wrap._pause){wrap._pause=false; wrap._off=false; startFig(wrap);} });
+  }
 });
 
 /* 축별 연도별 논문 그래프 (헤더, 연도순 등장) */
