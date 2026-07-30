@@ -267,8 +267,9 @@
         const labelKey = `area:${areaKey}`, label = svg.querySelector(`[data-layout-label="${labelKey}"]`), initial = nodes.filter(node => node.research_area === areaKey), live = physics.filter(node => node.research_area === areaKey);
         if (!label || !initial.length || !live.length) return;
         const initialBounds = bounds(initial), liveBounds = bounds(live), defaultX = (initialBounds.x0 + initialBounds.x1) / 2 - (areaKey === 'application' ? 90 : 0), defaultY = initialBounds.y0 - 32, saved = labelLayout[labelKey] || { x: defaultX, y: defaultY };
-        label.setAttribute('x', (liveBounds.x0 + liveBounds.x1) / 2 - (areaKey === 'application' ? 90 : 0) + (saved.x - defaultX));
-        label.setAttribute('y', liveBounds.y0 - 32 + (saved.y - defaultY));
+        const targetX = (liveBounds.x0 + liveBounds.x1) / 2 - (areaKey === 'application' ? 90 : 0) + (saved.x - defaultX), targetY = liveBounds.y0 - 32 + (saved.y - defaultY);
+        label.setAttribute('x', Math.max(145, Math.min(690, targetX)));
+        label.setAttribute('y', Math.max(58, Math.min(382, targetY)));
       });
     }
     function visibleView() {
