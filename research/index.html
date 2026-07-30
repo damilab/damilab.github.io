@@ -544,7 +544,7 @@ dialog#fdlg::backdrop{background:rgba(6,10,25,.74)}
       <div class="head">
         <div class="hleft"><div class="kicker">AREA 01</div>
         <h3>Trustworthy AI</h3>
-        <div class="kw"><span>Adversarial Robustness</span><span>Optimization Stability</span><span>Fairness</span><span>LLM &amp; Agent Safety</span><span>Unlearning &amp; Privacy</span></div>
+        <div class="kw"><span>LLM &amp; Agent Safety</span><span>Unlearning &amp; Privacy</span><span>Adversarial Robustness</span><span>Optimization Stability</span><span>Fairness</span></div>
         <p class="desc">모델이 언제, 왜 실패하는지를 먼저 규명하고, 그 결과를 방어 기법 설계로 연결합니다. 2020년 Optimization Stability와 Fairness에서 시작해, 최근 LLM jailbreak와 diffusion unlearning으로 확장됐습니다.</p></div>
         <div class="hright"><div class="traj">
             <div class="th"><span class="tl">연도별 논문</span><span class="tt">16편</span></div>
@@ -555,6 +555,38 @@ dialog#fdlg::backdrop{background:rgba(6,10,25,.74)}
       <div class="body">
         <div class="subs">
           <div class="sub"
+               data-nm="LLM &amp; Agent Safety" data-img="https://damilab.github.io/images/publications/slotgcg.png" data-cap="프롬프트 끝에만 토큰을 붙이던 기존 방식(좌)과 내부 슬롯을 탐색하는 제안 방식(우). 같은 유해 프롬프트가 삽입 위치에 따라 거절과 탈옥으로 갈립니다." data-v="ICLR 2026" data-vc="conf" data-t="SlotGCG: Exploiting the Positional Vulnerability in LLMs for Jailbreak Attacks">
+            <div class="txt">
+              <div class="nm">LLM &amp; Agent Safety</div>
+              <div class="nmko">챗봇과 AI 에이전트를 먼저 공격해보고 막는 연구</div>
+              <ul class="pts"><li>대화형 AI가 유해한 답을 내놓게 만드는 공격 기법 설계</li><li>뚫리는 지점을 찾아 방어에 반영, 한국어 포함 여러 언어에서 검증</li></ul>
+              <ul class="paps"><li><span class="vchip conf">ICLR<b>2026</b></span><span class="pt"><a href="https://arxiv.org/abs/2606.05609" target="_blank">SlotGCG: Exploiting the Positional Vulnerability in LLMs for Jailbreak Attacks</a></span></li><li><span class="vchip jr">Information Sciences<b>2025</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Towards%20undetectable%20adversarial%20attack%20on%20time%20series%20classification.pdf" target="_blank">Towards undetectable adversarial attack on time series classification</a></span></li><li><span class="vchip jr">Applied Soft Computing<b>2025</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Black-box%20adversarial%20examples%20via%20frequency%20distortion%20against%20fault%20diagnosis%20systems.pdf" target="_blank">Black-box adversarial examples via frequency distortion</a></span></li></ul>
+            </div>
+                      <div class="rfigwrap" data-n="3">
+              <button class="rfig" style="height:205px" onclick="rfigClick(event,this)" aria-label="figure 크게 보기. 오른쪽 끝을 누르면 다음 그림"
+                      data-img="https://damilab.github.io/images/publications/slotgcg.png" data-v="ICLR 2026" data-t="SlotGCG: Exploiting the Positional Vulnerability in LLMs" data-cap=""><img class="on" src="https://damilab.github.io/images/publications/slotgcg.png" alt="SlotGCG: Exploiting the Positional Vulnerability in LLMs figure" data-v="ICLR 2026" data-t="SlotGCG: Exploiting the Positional Vulnerability in LLMs"><img src="https://damilab.github.io/images/publications/Towards_undetectable_adversarial_attack_on_time_series_classification.png" alt="Towards undetectable adversarial attack on time series classification figure" data-v="Information Sciences 2025" data-t="Towards undetectable adversarial attack on time series classification"><img src="https://damilab.github.io/images/publications/blackbox.png" alt="Black-box adversarial examples via frequency distortion figure" data-v="Applied Soft Computing 2025" data-t="Black-box adversarial examples via frequency distortion"><span class="fnx" aria-hidden="true"><i></i></span><span class="fbar"><i></i></span></button>
+              <div class="fmeta"><span class="fv">ICLR 2026</span><span class="ft">SlotGCG: Exploiting the Positional Vulnerability in LLMs</span></div>
+              <div class="fdots"><button type="button" class="fd on" onclick="goFig(this,0)" aria-label="1번째 그림"></button><button type="button" class="fd" onclick="goFig(this,1)" aria-label="2번째 그림"></button><button type="button" class="fd" onclick="goFig(this,2)" aria-label="3번째 그림"></button></div>
+            </div>
+          </div>
+          <div class="sub"
+               data-nm="Unlearning &amp; Privacy" data-img="https://damilab.github.io/images/publications/recare.png" data-cap="개념 제거 이후 생성 결과 비교. 기존 방법은 무해한 동반 개념까지 잃지만 제안 방법은 그것을 보존합니다." data-v="ICLR 2026" data-vc="conf" data-t="Co-occurring Associated REtained concepts in Diffusion Unlearning">
+            <div class="txt">
+              <div class="nm">Unlearning &amp; Privacy</div>
+              <div class="nmko">AI가 배운 것 중 지워야 할 정보만 골라 지우는 기술</div>
+              <ul class="pts"><li>지울 정보만 선택적으로 삭제하고 나머지 성능은 그대로 유지</li><li>데이터를 암호화된 채로 두고 학습하는 방법 연구</li></ul>
+              <ul class="paps"><li><span class="vchip conf">ICLR<b>2026</b></span><span class="pt"><a href="https://arxiv.org/abs/2606.24192" target="_blank">Co-occurring Associated REtained concepts in Diffusion Unlearning</a></span></li><li><span class="vchip conf">NeurIPS<b>2021</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Parameter-free%20HE-friendly%20Logistic%20Regression.pdf" target="_blank">Parameter-free HE-friendly Logistic Regression</a></span></li></ul>
+            </div>
+                      <div class="rfigwrap" data-n="2">
+              <button class="rfig" onclick="rfigClick(event,this)" aria-label="figure 크게 보기. 오른쪽 끝을 누르면 다음 그림"
+                      data-img="https://damilab.github.io/images/publications/recare.png" data-v="ICLR 2026" data-t="Co-occurring Associated REtained concepts in Diffusion Unlearning" data-cap=""><img class="on" src="https://damilab.github.io/images/publications/recare.png" alt="Co-occurring Associated REtained concepts in Diffusion Unlearning figure" data-v="ICLR 2026" data-t="Co-occurring Associated REtained concepts in Diffusion Unlearning"><img src="https://damilab.github.io/images/publications/parameterfree.png" alt="Parameter-free HE-friendly Logistic Regression figure" data-v="NeurIPS 2021" data-t="Parameter-free HE-friendly Logistic Regression"><span class="fnx" aria-hidden="true"><i></i></span><span class="fbar"><i></i></span></button>
+              <div class="fmeta"><span class="fv">ICLR 2026</span><span class="ft">Co-occurring Associated REtained concepts in Diffusion Unlearning</span></div>
+              <div class="fdots"><button type="button" class="fd on" onclick="goFig(this,0)" aria-label="1번째 그림"></button><button type="button" class="fd" onclick="goFig(this,1)" aria-label="2번째 그림"></button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sub"
                data-nm="Adversarial Robustness" data-img="https://damilab.github.io/images/publications/towardbetter.png" data-cap="검증 가능한 견고성 학습의 손실 곡선 비교. 학습이 진행되며 방법별로 견고성과 정확도가 어떻게 갈리는지 보여줍니다." data-v="NeurIPS 2021" data-vc="conf" data-t="Towards Better Understanding of Training Certifiably Robust Models against Adversarial Examples">
             <div class="txt">
               <div class="nm">Adversarial Robustness</div>
@@ -599,39 +631,7 @@ dialog#fdlg::backdrop{background:rgba(6,10,25,.74)}
               <div class="fdots"><button type="button" class="fd on" onclick="goFig(this,0)" aria-label="1번째 그림"></button><button type="button" class="fd" onclick="goFig(this,1)" aria-label="2번째 그림"></button><button type="button" class="fd" onclick="goFig(this,2)" aria-label="3번째 그림"></button></div>
             </div>
           </div>
-          <div class="sub"
-               data-nm="LLM &amp; Agent Safety" data-img="https://damilab.github.io/images/publications/slotgcg.png" data-cap="프롬프트 끝에만 토큰을 붙이던 기존 방식(좌)과 내부 슬롯을 탐색하는 제안 방식(우). 같은 유해 프롬프트가 삽입 위치에 따라 거절과 탈옥으로 갈립니다." data-v="ICLR 2026" data-vc="conf" data-t="SlotGCG: Exploiting the Positional Vulnerability in LLMs for Jailbreak Attacks">
-            <div class="txt">
-              <div class="nm">LLM &amp; Agent Safety</div>
-              <div class="nmko">챗봇과 AI 에이전트를 먼저 공격해보고 막는 연구</div>
-              <ul class="pts"><li>대화형 AI가 유해한 답을 내놓게 만드는 공격 기법 설계</li><li>뚫리는 지점을 찾아 방어에 반영, 한국어 포함 여러 언어에서 검증</li></ul>
-              <ul class="paps"><li><span class="vchip conf">ICLR<b>2026</b></span><span class="pt"><a href="https://arxiv.org/abs/2606.05609" target="_blank">SlotGCG: Exploiting the Positional Vulnerability in LLMs for Jailbreak Attacks</a></span></li><li><span class="vchip jr">Information Sciences<b>2025</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Towards%20undetectable%20adversarial%20attack%20on%20time%20series%20classification.pdf" target="_blank">Towards undetectable adversarial attack on time series classification</a></span></li><li><span class="vchip jr">Applied Soft Computing<b>2025</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Black-box%20adversarial%20examples%20via%20frequency%20distortion%20against%20fault%20diagnosis%20systems.pdf" target="_blank">Black-box adversarial examples via frequency distortion</a></span></li></ul>
-            </div>
-                      <div class="rfigwrap" data-n="3">
-              <button class="rfig" style="height:205px" onclick="rfigClick(event,this)" aria-label="figure 크게 보기. 오른쪽 끝을 누르면 다음 그림"
-                      data-img="https://damilab.github.io/images/publications/slotgcg.png" data-v="ICLR 2026" data-t="SlotGCG: Exploiting the Positional Vulnerability in LLMs" data-cap=""><img class="on" src="https://damilab.github.io/images/publications/slotgcg.png" alt="SlotGCG: Exploiting the Positional Vulnerability in LLMs figure" data-v="ICLR 2026" data-t="SlotGCG: Exploiting the Positional Vulnerability in LLMs"><img src="https://damilab.github.io/images/publications/Towards_undetectable_adversarial_attack_on_time_series_classification.png" alt="Towards undetectable adversarial attack on time series classification figure" data-v="Information Sciences 2025" data-t="Towards undetectable adversarial attack on time series classification"><img src="https://damilab.github.io/images/publications/blackbox.png" alt="Black-box adversarial examples via frequency distortion figure" data-v="Applied Soft Computing 2025" data-t="Black-box adversarial examples via frequency distortion"><span class="fnx" aria-hidden="true"><i></i></span><span class="fbar"><i></i></span></button>
-              <div class="fmeta"><span class="fv">ICLR 2026</span><span class="ft">SlotGCG: Exploiting the Positional Vulnerability in LLMs</span></div>
-              <div class="fdots"><button type="button" class="fd on" onclick="goFig(this,0)" aria-label="1번째 그림"></button><button type="button" class="fd" onclick="goFig(this,1)" aria-label="2번째 그림"></button><button type="button" class="fd" onclick="goFig(this,2)" aria-label="3번째 그림"></button></div>
-            </div>
-          </div>
-          <div class="sub"
-               data-nm="Unlearning &amp; Privacy" data-img="https://damilab.github.io/images/publications/recare.png" data-cap="개념 제거 이후 생성 결과 비교. 기존 방법은 무해한 동반 개념까지 잃지만 제안 방법은 그것을 보존합니다." data-v="ICLR 2026" data-vc="conf" data-t="Co-occurring Associated REtained concepts in Diffusion Unlearning">
-            <div class="txt">
-              <div class="nm">Unlearning &amp; Privacy</div>
-              <div class="nmko">AI가 배운 것 중 지워야 할 정보만 골라 지우는 기술</div>
-              <ul class="pts"><li>지울 정보만 선택적으로 삭제하고 나머지 성능은 그대로 유지</li><li>데이터를 암호화된 채로 두고 학습하는 방법 연구</li></ul>
-              <ul class="paps"><li><span class="vchip conf">ICLR<b>2026</b></span><span class="pt"><a href="https://arxiv.org/abs/2606.24192" target="_blank">Co-occurring Associated REtained concepts in Diffusion Unlearning</a></span></li><li><span class="vchip conf">NeurIPS<b>2021</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Parameter-free%20HE-friendly%20Logistic%20Regression.pdf" target="_blank">Parameter-free HE-friendly Logistic Regression</a></span></li></ul>
-            </div>
-                      <div class="rfigwrap" data-n="2">
-              <button class="rfig" onclick="rfigClick(event,this)" aria-label="figure 크게 보기. 오른쪽 끝을 누르면 다음 그림"
-                      data-img="https://damilab.github.io/images/publications/recare.png" data-v="ICLR 2026" data-t="Co-occurring Associated REtained concepts in Diffusion Unlearning" data-cap=""><img class="on" src="https://damilab.github.io/images/publications/recare.png" alt="Co-occurring Associated REtained concepts in Diffusion Unlearning figure" data-v="ICLR 2026" data-t="Co-occurring Associated REtained concepts in Diffusion Unlearning"><img src="https://damilab.github.io/images/publications/parameterfree.png" alt="Parameter-free HE-friendly Logistic Regression figure" data-v="NeurIPS 2021" data-t="Parameter-free HE-friendly Logistic Regression"><span class="fnx" aria-hidden="true"><i></i></span><span class="fbar"><i></i></span></button>
-              <div class="fmeta"><span class="fv">ICLR 2026</span><span class="ft">Co-occurring Associated REtained concepts in Diffusion Unlearning</span></div>
-              <div class="fdots"><button type="button" class="fd on" onclick="goFig(this,0)" aria-label="1번째 그림"></button><button type="button" class="fd" onclick="goFig(this,1)" aria-label="2번째 그림"></button></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="foot">
+          <div class="foot">
         <span class="venues">ICLR 2026 2건 · NeurIPS · AAAI · Neural Networks · Information Sciences</span>
         <a class="go" href="/research/trustworthy-ai/">자세히</a>
       </div>
@@ -641,7 +641,7 @@ dialog#fdlg::backdrop{background:rgba(6,10,25,.74)}
       <div class="head">
         <div class="hleft"><div class="kicker">AREA 02</div>
         <h3>Representation Learning</h3>
-        <div class="kw"><span>Domain Adaptation</span><span>Transfer Learning</span><span>Imbalanced &amp; Noisy Labels</span><span>Graph Contrastive &amp; Imputation</span></div>
+        <div class="kw"><span>Domain Adaptation &amp; Transfer Learning</span><span>Imbalanced &amp; Noisy Labels</span><span>Graph Contrastive &amp; Imputation</span></div>
         <p class="desc">학습한 도메인을 벗어나도 동작하는 표현을 학습합니다. Domain Adaptation에서 출발해 지금은 Long-tailed Multi-label과 Noisy Label로 확장돼 있습니다.</p></div>
         <div class="hright"><div class="traj">
             <div class="th"><span class="tl">연도별 논문</span><span class="tt">11편</span></div>
@@ -652,33 +652,18 @@ dialog#fdlg::backdrop{background:rgba(6,10,25,.74)}
       <div class="body">
         <div class="subs">
           <div class="sub"
-               data-nm="Domain Adaptation" data-img="https://damilab.github.io/images/publications/compactclass.png" data-cap="기존 class-conditional 방법(좌)과 제안 방법(우)의 결정 경계 비교. 타깃 샘플이 소스 클래스 중심으로 더 촘촘히 모입니다." data-v="Pattern Recognition 2021" data-vc="jr" data-t="Compact class-conditional domain invariant learning for multi-class domain adaptation">
+               data-nm="Domain Adaptation &amp; Transfer Learning" data-img="https://damilab.github.io/images/publications/compactclass.png" data-cap="기존 class-conditional 방법(좌)과 제안 방법(우)의 결정 경계 비교. 타깃 샘플이 소스 클래스 중심으로 더 촘촘히 모입니다." data-v="Pattern Recognition 2021" data-vc="jr" data-t="Compact class-conditional domain invariant learning for multi-class domain adaptation">
             <div class="txt">
-              <div class="nm">Domain Adaptation</div>
-              <div class="nmko">학습 때와 다른 현장에서도 성능을 유지하는 기술</div>
-              <ul class="pts"><li>학습 때와 조건이 다른 환경에서 성능이 떨어지는 문제 해결</li><li>새 환경의 데이터가 거의 없는 상황에서의 적응</li></ul>
-              <ul class="paps"><li><span class="vchip jr">Pattern Recognition<b>2021</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Compact%20class-conditional%20domain%20invariant%20learning%20for%20multi-class%20domain%20adaptation.pdf" target="_blank">Compact class-conditional domain invariant learning for multi-class domain adaptation</a></span></li><li><span class="vchip jr">IEMS<b>2018</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Instance%20Weighting%20Domain%20Adaptation%20Using%20Distanc.pdf" target="_blank">Instance weighting domain adaptation using distance kernel</a></span></li><li><span class="vchip jr">Intelligent Data Analysis<b>2019</b></span><span class="pt">Learning of indiscriminate distributions of document embeddings</span></li></ul>
+              <div class="nm">Domain Adaptation &amp; Transfer Learning</div>
+              <div class="nmko">학습한 AI를 다른 환경과 새 문제에 옮겨 쓰는 기술</div>
+              <ul class="pts"><li>학습 때와 조건이 다른 환경에서 성능이 떨어지는 문제 해결</li><li>새 환경의 데이터가 거의 없는 상황에서의 적응</li><li>먼저 배운 지식을 새 문제에 다시 써서 학습 비용 절감, 공정성 같은 특성까지 함께 이전</li></ul>
+              <ul class="paps"><li><span class="vchip jr">Pattern Recognition<b>2021</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Compact%20class-conditional%20domain%20invariant%20learning%20for%20multi-class%20domain%20adaptation.pdf" target="_blank">Compact class-conditional domain invariant learning for multi-class domain adaptation</a></span></li><li><span class="vchip jr">IEEE Access<b>2020</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Joint%20Transfer%20of%20Model%20Knowledge%20and%20Fairness%20Over%20Domains%20Using%20Wasserstein%20Distance.pdf" target="_blank">Joint transfer of model knowledge and fairness over domains</a></span></li><li><span class="vchip jr">IEMS<b>2018</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Instance%20Weighting%20Domain%20Adaptation%20Using%20Distanc.pdf" target="_blank">Instance weighting domain adaptation using distance kernel</a></span></li><li class="ex"><span class="vchip jr">Intelligent Data Analysis<b>2019</b></span><span class="pt">Learning of indiscriminate distributions of document embeddings</span></li><li class="ex"><span class="vchip prj">한국데이터마이닝학회<b>2025</b></span><span class="pt">Efficient Few-shot Adaptation of CLIP</span></li><li class="more"><button type="button" onclick="toggleMore(this)" data-n="2">+2편 더 보기</button></li></ul>
             </div>
-                      <div class="rfigwrap" data-n="3">
+                      <div class="rfigwrap" data-n="4">
               <button class="rfig" style="height:170px" onclick="rfigClick(event,this)" aria-label="figure 크게 보기. 오른쪽 끝을 누르면 다음 그림"
-                      data-img="https://damilab.github.io/images/publications/compactclass.png" data-v="Pattern Recognition 2021" data-t="Compact class-conditional domain invariant learning" data-cap=""><img class="on" src="https://damilab.github.io/images/publications/compactclass.png" alt="Compact class-conditional domain invariant learning figure" data-v="Pattern Recognition 2021" data-t="Compact class-conditional domain invariant learning"><img src="https://damilab.github.io/images/publications/instanceweighting.png" alt="Instance weighting domain adaptation using distance kernel figure" data-v="IEMS 2018" data-t="Instance weighting domain adaptation using distance kernel"><img src="https://damilab.github.io/images/publications/learningof.png" alt="Learning of indiscriminate distributions of document embeddings figure" data-v="Intelligent Data Analysis 2019" data-t="Learning of indiscriminate distributions of document embeddings"><span class="fnx" aria-hidden="true"><i></i></span><span class="fbar"><i></i></span></button>
+                      data-img="https://damilab.github.io/images/publications/compactclass.png" data-v="Pattern Recognition 2021" data-t="Compact class-conditional domain invariant learning" data-cap=""><img class="on" src="https://damilab.github.io/images/publications/compactclass.png" alt="Compact class-conditional domain invariant learning figure" data-v="Pattern Recognition 2021" data-t="Compact class-conditional domain invariant learning"><img src="https://damilab.github.io/images/publications/jointtransfer.png" alt="Joint transfer of model knowledge and fairness over domains figure" data-v="IEEE Access 2020" data-t="Joint transfer of model knowledge and fairness over domains"><img src="https://damilab.github.io/images/publications/instanceweighting.png" alt="Instance weighting domain adaptation using distance kernel figure" data-v="IEMS 2018" data-t="Instance weighting domain adaptation using distance kernel"><img src="https://damilab.github.io/images/publications/learningof.png" alt="Learning of indiscriminate distributions of document embeddings figure" data-v="Intelligent Data Analysis 2019" data-t="Learning of indiscriminate distributions of document embeddings"><span class="fnx" aria-hidden="true"><i></i></span><span class="fbar"><i></i></span></button>
               <div class="fmeta"><span class="fv">Pattern Recognition 2021</span><span class="ft">Compact class-conditional domain invariant learning</span></div>
-              <div class="fdots"><button type="button" class="fd on" onclick="goFig(this,0)" aria-label="1번째 그림"></button><button type="button" class="fd" onclick="goFig(this,1)" aria-label="2번째 그림"></button><button type="button" class="fd" onclick="goFig(this,2)" aria-label="3번째 그림"></button></div>
-            </div>
-          </div>
-          <div class="sub"
-               data-nm="Transfer Learning" data-img="https://damilab.github.io/images/publications/jointtransfer.png" data-cap="모델 지식과 공정성을 함께 도메인 간 이전하는 구조." data-v="IEEE Access 2020" data-vc="jr" data-t="Joint transfer of model knowledge and fairness over domains">
-            <div class="txt">
-              <div class="nm">Transfer Learning</div>
-              <div class="nmko">이미 학습한 AI를 새 문제에 재활용하는 기술</div>
-              <ul class="pts"><li>먼저 배운 지식을 새 문제에 다시 써서 학습 비용 절감</li><li>성능뿐 아니라 공정성 같은 특성까지 함께 물려주기</li></ul>
-              <ul class="paps"><li><span class="vchip jr">IEEE Access<b>2020</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Joint%20Transfer%20of%20Model%20Knowledge%20and%20Fairness%20Over%20Domains%20Using%20Wasserstein%20Distance.pdf" target="_blank">Joint transfer of model knowledge and fairness over domains</a></span></li><li><span class="vchip prj">한국데이터마이닝학회<b>2025</b></span><span class="pt">Efficient Few-shot Adaptation of CLIP</span></li></ul>
-            </div>
-                      <div class="rfigwrap" data-n="2">
-              <button class="rfig" style="height:170px" onclick="rfigClick(event,this)" aria-label="figure 크게 보기. 오른쪽 끝을 누르면 다음 그림"
-                      data-img="https://damilab.github.io/images/publications/jointtransfer.png" data-v="IEEE Access 2020" data-t="Joint transfer of model knowledge and fairness over domains" data-cap=""><img class="on" src="https://damilab.github.io/images/publications/jointtransfer.png" alt="Joint transfer of model knowledge and fairness over domains figure" data-v="IEEE Access 2020" data-t="Joint transfer of model knowledge and fairness over domains"><img src="https://damilab.github.io/images/publications/compactclass.png" alt="Compact class-conditional domain invariant learning figure" data-v="Pattern Recognition 2021" data-t="Compact class-conditional domain invariant learning"><span class="fnx" aria-hidden="true"><i></i></span><span class="fbar"><i></i></span></button>
-              <div class="fmeta"><span class="fv">IEEE Access 2020</span><span class="ft">Joint transfer of model knowledge and fairness over domains</span></div>
-              <div class="fdots"><button type="button" class="fd on" onclick="goFig(this,0)" aria-label="1번째 그림"></button><button type="button" class="fd" onclick="goFig(this,1)" aria-label="2번째 그림"></button></div>
+              <div class="fdots"><button type="button" class="fd on" onclick="goFig(this,0)" aria-label="1번째 그림"></button><button type="button" class="fd" onclick="goFig(this,1)" aria-label="2번째 그림"></button><button type="button" class="fd" onclick="goFig(this,2)" aria-label="3번째 그림"></button><button type="button" class="fd" onclick="goFig(this,3)" aria-label="4번째 그림"></button></div>
             </div>
           </div>
           <div class="sub"
