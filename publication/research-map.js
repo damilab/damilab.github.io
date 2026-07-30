@@ -179,6 +179,9 @@
           };
         }
       });
+      // SVG paints later elements on top: keep the three primary research axes above
+      // subcluster and paper-topic labels so their hierarchy never gets obscured.
+      svg.querySelectorAll('.rm-area-label').forEach(label => svg.append(label));
       settleNodeLabels();
       if (!arranging) startDynamicLayout(mapLinks);
       if (arranging) enableBoxSelection();
