@@ -39,7 +39,7 @@
 
   function mount(papers) {
     const years = [...new Set(papers.map(p => Number(p.year)))].sort((a, b) => b - a);
-    let year = 'all', field = 'all', selected = null, selectedSubfield = null, arranging = false, layout = loadLayout(), labelLayout = loadLabelLayout(), showTopics = localStorage.getItem('dami-research-map-topics') !== '0';
+    let year = 'all', field = 'all', selected = null, selectedSubfield = null, arranging = false, layout = loadLayout(), labelLayout = loadLabelLayout(), showTopics = true;
     host.innerHTML = `<section class="rm"><div class="rmh"><div><b>RESEARCH MAP</b><h2>Three research directions, with evolving subfields</h2><p>One node = one paper · click a subcluster to inspect its papers</p></div><div class="rm-head-actions"><div class="rmy"></div><div class="rm-layout-actions"><button data-clear-cluster hidden>All clusters</button><div class="rm-zoom" aria-label="Map zoom"><button data-zoom-out aria-label="Zoom out">−</button><output data-zoom>100%</output><button data-zoom-in aria-label="Zoom in">+</button><button data-zoom-reset aria-label="Fit map">⌂</button></div><button data-topics>Topics off</button><button data-arrange class="primary">Arrange map</button><span data-arrange-extra hidden><button data-copy>Copy layout</button><button data-reset>Reset</button></span></div></div></div><div class="rmb"><aside class="rml"><div class="rm-controls"></div><div class="rm-inspector"></div></aside><div class="rmw"><svg viewBox="70 35 700 365" aria-label="Publication research map"></svg></div></div></section>`;
     const yearButtons = host.querySelector('.rmy'), left = host.querySelector('.rm-controls'), inspector = host.querySelector('.rm-inspector'), svg = host.querySelector('svg'), wrap = host.querySelector('.rmw');
     const popup = document.createElement('aside'); popup.className = 'rm-popup'; popup.hidden = true; wrap.append(popup);
@@ -341,7 +341,7 @@
       };
       svg.addEventListener('pointermove', move); svg.addEventListener('pointerup', finish); svg.addEventListener('pointercancel', finish);
     });
-    topicsButton.onclick = () => { showTopics = !showTopics; localStorage.setItem('dami-research-map-topics', showTopics ? '1' : '0'); render(); };
+    topicsButton.onclick = () => { showTopics = !showTopics; render(); };
     host.querySelector('[data-reset]').onclick = () => { layout = { ...publishedNodeLayout }; labelLayout = { ...publishedLabelLayout }; localStorage.removeItem('dami-research-map-layout-v1'); localStorage.removeItem('dami-research-map-label-layout-v1'); nodes = papers.map(position); render(); };
     host.querySelector('[data-copy]').onclick = async () => { const value = JSON.stringify({ nodes: layout, labels: labelLayout }); try { await navigator.clipboard.writeText(value); arrangeButton.textContent = 'Layout copied'; setTimeout(() => arrangeButton.textContent = 'Done arranging', 1300); } catch { prompt('Copy this layout JSON:', value); } };
     render(); d3Ready.then(d3 => { if (d3?.forceSimulation) render(); });
