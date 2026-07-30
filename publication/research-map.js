@@ -44,7 +44,7 @@
     const yearButtons = host.querySelector('.rmy'), left = host.querySelector('.rm-controls'), inspector = host.querySelector('.rm-inspector'), svg = host.querySelector('svg'), wrap = host.querySelector('.rmw');
     const popup = document.createElement('aside'); popup.className = 'rm-popup'; popup.hidden = true; wrap.append(popup);
     const arrangeButton = host.querySelector('[data-arrange]'), arrangeExtra = host.querySelector('[data-arrange-extra]'), topicsButton = host.querySelector('[data-topics]');
-    let shown = [], selectedNodeIds = new Set();
+    let shown = [], selectedNodeIds = new Set(), dynamicPositions = new Map(), activeSimulation = null;
     function loadLayout() { try { return { ...publishedNodeLayout, ...JSON.parse(localStorage.getItem('dami-research-map-layout-v1') || '{}') }; } catch { return { ...publishedNodeLayout }; } }
     function saveLayout() { localStorage.setItem('dami-research-map-layout-v1', JSON.stringify(layout)); }
     function loadLabelLayout() { try { return { ...publishedLabelLayout, ...JSON.parse(localStorage.getItem('dami-research-map-label-layout-v1') || '{}') }; } catch { return { ...publishedLabelLayout }; } }
@@ -92,20 +92,23 @@
       }));
       const picked = new Map();
       active.forEach(node => [...pairs.values()].filter(x => x.node === node || x.other === node).sort((a, b) => b.score - a.score).slice(0, 2).forEach(x => picked.set(`${x.node.id}|${x.other.id}`, x)));
-      const layer = document.createElementNS('http://www.w3.org/2000/svg', 'g'); layer.setAttribute('class', 'rm-links');
+      const layer = document.createElementNS('http://www.w3.org/2000/svg', 'g'), rendered = []; layer.setAttribute('class', 'rm-links');
       picked.forEach(({ node, other, shared, sameSubfield }) => {
         const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
         line.setAttribute('x1', node.x); line.setAttribute('y1', node.y); line.setAttribute('x2', other.x); line.setAttribute('y2', other.y);
         line.setAttribute('stroke', node.research_area === other.research_area ? areas[node.research_area].color : '#71829a');
-        line.setAttribute('stroke-width', shared ? '1.7' : sameSubfield ? '1.45' : '1.1'); line.setAttribute('stroke-opacity', shared ? '.58' : sameSubfield ? '.42' : '.30'); layer.append(line);
+        line.setAttribute('stroke-width', shared ? '1.7' : sameSubfield ? '1.45' : '1.1'); line.setAttribute('stroke-opacity', shared ? '.58' : sameSubfield ? '.42' : '.30'); layer.append(line); rendered.push({ source: node.id, target: other.id, line, shared, crossArea: node.research_area !== other.research_area });
       });
-      svg.append(layer);
+      svg.append(layer); return rendered;
     }
     function nearestNode(event) {
       if (!event || !shown.length) return null;
       const point = svg.createSVGPoint(); point.x = event.clientX; point.y = event.clientY;
       const local = point.matrixTransform(svg.getScreenCTM().inverse());
-      return shown.reduce((best, node) => ((node.x - local.x) ** 2 + (node.y - local.y) ** 2 < (best.x - local.x) ** 2 + (best.y - local.y) ** 2 ? node : best));
+      return shown.reduce((best, node) => {
+        const a = dynamicPositions.get(node.id) || node, b = dynamicPositions.get(best.id) || best;
+        return (a.x - local.x) ** 2 + (a.y - local.y) ** 2 < (b.x - local.x) ** 2 + (b.y - local.y) ** 2 ? node : best;
+      });
     }
     function showNode(node) {
       if (!node) return;
@@ -122,6 +125,7 @@
       }
     }
     function render() {
+      activeSimulation?.stop(); activeSimulation = null; dynamicPositions = new Map();
       host.querySelector('.rm').classList.toggle('is-arranging', arranging); arrangeButton.textContent = arranging ? 'Done arranging' : 'Arrange nodes'; arrangeExtra.hidden = !arranging; topicsButton.textContent = showTopics ? 'Topics on' : 'Topics off'; topicsButton.classList.toggle('topic-on', showTopics);
       yearButtons.innerHTML = ['all', ...years].map(value => `<button data-year="${value}" class="${String(year) === String(value) ? 'on' : ''}">${value === 'all' ? 'All' : value}</button>`).join('');
       yearButtons.querySelectorAll('button').forEach(button => button.onclick = () => { year = button.dataset.year === 'all' ? 'all' : Number(button.dataset.year); selected = null; render(); });
@@ -145,14 +149,14 @@
         g.querySelector('text').onclick = () => { if (!arranging) { field = group[0].research_area; selected = null; render(); } }; svg.append(g);
       });
       if (arranging) svg.querySelectorAll('[data-layout-label]').forEach(label => makeLabelDraggable(label, label.dataset.layoutLabel));
-      drawLinks(shown);
+      const mapLinks = drawLinks(shown);
       shown.forEach(node => {
         const area = areas[node.research_area], activeYear = year !== 'all';
         const g = document.createElementNS('http://www.w3.org/2000/svg', 'g'); g.setAttribute('class', `rmnode${arranging ? ' is-arranging' : ''}${selectedNodeIds.has(node.id) ? ' is-selected' : ''}`); g.dataset.id = node.id; g.setAttribute('role', 'button'); g.setAttribute('tabindex', '0');
         const topic = String(node.map_label || node.keywords?.[0] || node.subfield).replace(/\s+/g, ' ').trim();
         const shortTopic = topic.length > 16 ? `${topic.slice(0, 15)}…` : topic;
         g.innerHTML = `<title>${escape(node.title)}</title><circle class="rm-hit" cx="${node.x}" cy="${node.y}" r="14"/>${activeYear ? `<circle class="rm-wash" cx="${node.x}" cy="${node.y}" r="30" fill="url(#rmw-${node.research_area})"/><circle class="rm-halo" cx="${node.x}" cy="${node.y}" r="13" fill="url(#rmg-${node.research_area})"/>` : ''}<circle class="rm-dot" cx="${node.x}" cy="${node.y}" r="${activeYear ? 5.2 : 4.2}" fill="${area.color}"/>${showTopics ? `<text class="rm-topic" x="${node.x}" y="${node.y - 9}" text-anchor="middle">${escape(shortTopic)}</text>` : activeYear ? `<text class="rmmeta" x="${node.x + (node.x > 620 ? -9 : 9)}" y="${node.y - 8}" text-anchor="${node.x > 620 ? 'end' : 'start'}">${escape(node.map_label || node.subfield)}</text>` : ''}`;
-        g.onclick = event => { event.stopPropagation(); if (!arranging) showNode(nearestNode(event) || node); };
+        g.onclick = event => { event.stopPropagation(); if (!arranging && g.dataset.dragged !== '1') showNode(nearestNode(event) || node); };
         g.onkeydown = event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); showNode(node); } }; svg.append(g);
         if (arranging) {
           g.onpointerdown = event => {
@@ -168,6 +172,7 @@
         }
       });
       settleNodeLabels();
+      if (!arranging) startDynamicLayout(mapLinks);
       if (arranging) enableBoxSelection();
       svg.insertAdjacentHTML('beforeend', `<text class="rm-legend" x="84" y="386">${arranging ? 'Drag empty space to select · drag a selected node to move the group' : '1 node = 1 paper · lines = shared topic or nearby research thread'}</text>`);
       renderInspector();
@@ -184,6 +189,39 @@
       const simulation = d3.forceSimulation(records).force('x', d3.forceX(d => d.targetX).strength(.16)).force('y', d3.forceY(d => d.targetY).strength(.22)).force('collide', d3.forceCollide(d => Math.max(13, d.width * .46)).iterations(4)).stop();
       for (let i = 0; i < 100; i += 1) simulation.tick();
       records.forEach(d => d.label.setAttribute('transform', `translate(${Math.max(-42, Math.min(42, d.x - d.cx))} ${Math.max(-34, Math.min(28, d.y - d.cy))})`));
+    }
+    function startDynamicLayout(mapLinks) {
+      const d3 = window.d3;
+      const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!d3?.forceSimulation || reducedMotion) { dynamicPositions = new Map(shown.map(node => [node.id, node])); return; }
+      const physics = shown.map(node => {
+        const label = svg.querySelector(`.rmnode[data-id="${node.id}"] .rm-topic, .rmnode[data-id="${node.id}"] .rmmeta`);
+        const box = label?.getBBox();
+        return { ...node, x: node.x, y: node.y, homeX: node.x, homeY: node.y, radius: Math.max(11, (box?.width || 0) * .45 + 5) };
+      });
+      const byId = new Map(physics.map(node => [node.id, node]));
+      dynamicPositions = byId;
+      const links = mapLinks.map(link => ({ ...link, source: byId.get(link.source), target: byId.get(link.target) })).filter(link => link.source && link.target);
+      activeSimulation = d3.forceSimulation(physics)
+        .force('link', d3.forceLink(links).distance(link => link.crossArea ? 96 : (link.shared ? 35 : 48)).strength(link => link.crossArea ? .055 : .22))
+        .force('charge', d3.forceManyBody().strength(-42))
+        .force('x', d3.forceX(node => node.homeX).strength(.23))
+        .force('y', d3.forceY(node => node.homeY).strength(.26))
+        .force('collide', d3.forceCollide(node => node.radius).iterations(3))
+        .on('tick', () => {
+          physics.forEach(node => svg.querySelector(`.rmnode[data-id="${node.id}"]`)?.setAttribute('transform', `translate(${node.x - node.homeX} ${node.y - node.homeY})`));
+          links.forEach(link => { link.line.setAttribute('x1', link.source.x); link.line.setAttribute('y1', link.source.y); link.line.setAttribute('x2', link.target.x); link.line.setAttribute('y2', link.target.y); });
+        });
+      physics.forEach(node => {
+        const group = svg.querySelector(`.rmnode[data-id="${node.id}"]`);
+        group.onpointerdown = event => {
+          event.preventDefault(); event.stopPropagation(); const point = svgPoint(event); let moved = false;
+          node.fx = point.x; node.fy = point.y; activeSimulation.alphaTarget(.32).restart(); group.setPointerCapture?.(event.pointerId);
+          const move = moving => { const next = svgPoint(moving); node.fx = next.x; node.fy = next.y; moved = true; };
+          const finish = () => { node.fx = null; node.fy = null; activeSimulation.alphaTarget(0); if (moved) { group.dataset.dragged = '1'; setTimeout(() => delete group.dataset.dragged, 0); } group.removeEventListener('pointermove', move); group.removeEventListener('pointerup', finish); group.removeEventListener('pointercancel', finish); };
+          group.addEventListener('pointermove', move); group.addEventListener('pointerup', finish); group.addEventListener('pointercancel', finish);
+        };
+      });
     }
     function svgPoint(event) { const point = svg.createSVGPoint(); point.x = event.clientX; point.y = event.clientY; return point.matrixTransform(svg.getScreenCTM().inverse()); }
     function makeLabelDraggable(label, key) {
