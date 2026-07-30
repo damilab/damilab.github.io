@@ -2,6 +2,31 @@
   "schema": 1,
   "papers": [
     {
+      "title": "What Did You Do Behind My Back?! Covert Indirect Prompt Injection on Tool-Using LLM Agents",
+      "date": "2026-07-10",
+      "venue": "ICML 2026 Workshop",
+      "authors": [
+        "Yunseok Lee",
+        "Yunji Kim",
+        "Woojin Lee"
+      ],
+      "abstract": "As LLM agents take real-world actions through tools, indirect prompt injection (IPI) has emerged as a serious threat. The standard metric, Attack Success Rate (ASR), counts whether the injection was successful but ignores what the user notices in the agent's final response. We decompose ASR into the Covert Success Rate (CSR), which counts successes that leave no trace in the final response, and the Overt Success Rate (OSR), which counts successes the user can detect. Analyzing trajectories where injections succeed, we find that the agent's behavior after the injection is what separates covert from overt: covert traces hand control back to the user task before ending, while overt traces end at the attack.",
+      "keywords": [
+        "LLM Security",
+        "Prompt Injection",
+        "Agentic LLM"
+      ],
+      "research_area": "trust",
+      "subfield": "Security & Attacks",
+      "map_label": "Prompt Injection",
+      "id": "what-did-you-do-behind-my-back-covert-indirect-prompt-injection-on-tool-using-llm-agents",
+      "year": 2026,
+      "subfields": [
+        "Security & Attacks"
+      ],
+      "links": {}
+    },
+    {
       "id": "paper-0",
       "title": "Sampling-bias-aware machine-learning mapping of geogenic indoor radon hazard in Jeollanam-do, Korea using measured-low negatives",
       "year": 2026,
