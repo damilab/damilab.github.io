@@ -55,7 +55,8 @@
       const divider = key?.indexOf('|'), area = divider < 0 ? '' : key.slice(0, divider), name = divider < 0 ? key : key.slice(divider + 1);
       return p.research_area === area && subfieldsFor(p).includes(name);
     };
-    const filtered = p => (field === 'all' || p.research_area === field) && (year === 'all' || Number(p.year) === Number(year));
+    const inField = p => field === 'all' || p.research_area === field;
+    const filtered = p => inField(p) && (year === 'all' || Number(p.year) === Number(year));
     const position = p => {
       const same = papers.filter(q => q.research_area === p.research_area && q.subfield === p.subfield);
       const i = same.indexOf(p), c = centers[`${p.research_area}|${p.subfield}`] || [410, 185];
@@ -135,12 +136,12 @@
       activeSimulation?.stop(); activeSimulation = null; dynamicPositions = new Map();
       host.querySelector('.rm').classList.toggle('is-arranging', arranging); host.querySelector('.rm').classList.toggle('has-subselection', !!selectedSubfield); arrangeButton.textContent = arranging ? 'Done arranging' : 'Arrange map'; arrangeExtra.hidden = !arranging; topicsButton.textContent = showTopics ? 'Topics on' : 'Topics off'; topicsButton.classList.toggle('topic-on', showTopics); clearClusterButton.hidden = !selectedSubfield;
       yearButtons.innerHTML = ['all', ...years].map(value => `<button data-year="${value}" class="${String(year) === String(value) ? 'on' : ''}">${value === 'all' ? 'All' : value}</button>`).join('');
-      yearButtons.querySelectorAll('button').forEach(button => button.onclick = () => { year = button.dataset.year === 'all' ? 'all' : Number(button.dataset.year); selected = null; render(); });
+      yearButtons.querySelectorAll('button').forEach(button => button.onclick = () => { year = button.dataset.year === 'all' ? 'all' : Number(button.dataset.year); selected = null; updateYearSelection(); });
       const total = key => nodes.filter(n => key === 'all' || n.research_area === key).length;
       const visible = key => nodes.filter(n => (key === 'all' || n.research_area === key) && (year === 'all' || n.year === year)).length;
       left.innerHTML = `<button data-field="all" style="--c:#52667f" class="${field === 'all' ? 'active' : ''}"><span>All research <em>${visible('all')} of ${total('all')}</em></span><small>Trustworthy AI · Core Algorithms · Applications</small></button>` + Object.entries(areas).map(([key, area]) => `<button data-field="${key}" style="--c:${area.color}" class="${field === key ? 'active' : ''}"><span>${area.name}<em>${visible(key)} of ${total(key)}</em></span><small>${key === 'core' ? 'Transfer Learning · Fairness · Optimization' : area.summary}</small></button>`).join('');
-      left.querySelectorAll('button').forEach(button => button.onclick = () => { field = button.dataset.field; selectedSubfield = null; selected = null; render(); });
-      popup.hidden = true; shown = nodes.filter(filtered); svg.innerHTML = `<defs>${Object.entries(areas).map(([key, area]) => `<radialGradient id="rmg-${key}"><stop offset="0" stop-color="${area.color}" stop-opacity=".62"/><stop offset=".45" stop-color="${area.color}" stop-opacity=".25"/><stop offset="1" stop-color="${area.color}" stop-opacity="0"/></radialGradient><radialGradient id="rmw-${key}"><stop offset="0" stop-color="${area.color}" stop-opacity=".28"/><stop offset=".6" stop-color="${area.color}" stop-opacity=".08"/><stop offset="1" stop-color="${area.color}" stop-opacity="0"/></radialGradient>`).join('')}</defs>`;
+      left.querySelectorAll('button').forEach(button => button.onclick = () => { retainDynamicGeometry(); field = button.dataset.field; selectedSubfield = null; selected = null; render(); });
+      popup.hidden = true; shown = nodes.filter(inField); svg.innerHTML = `<defs>${Object.entries(areas).map(([key, area]) => `<radialGradient id="rmg-${key}"><stop offset="0" stop-color="${area.color}" stop-opacity=".62"/><stop offset=".45" stop-color="${area.color}" stop-opacity=".25"/><stop offset="1" stop-color="${area.color}" stop-opacity="0"/></radialGradient><radialGradient id="rmw-${key}"><stop offset="0" stop-color="${area.color}" stop-opacity=".28"/><stop offset=".6" stop-color="${area.color}" stop-opacity=".08"/><stop offset="1" stop-color="${area.color}" stop-opacity="0"/></radialGradient>`).join('')}</defs>`;
       Object.entries(areas).forEach(([key, area]) => {
         const group = nodes.filter(n => n.research_area === key); if (!group.length) return;
         const xs = group.map(n => n.x), ys = group.map(n => n.y), x0 = Math.min(...xs) - 28, x1 = Math.max(...xs) + 28, y0 = Math.min(...ys) - 28, y1 = Math.max(...ys) + 28;
@@ -159,7 +160,7 @@
       if (arranging) svg.querySelectorAll('[data-layout-label]').forEach(label => makeLabelDraggable(label, label.dataset.layoutLabel));
       const mapLinks = drawLinks(shown);
       shown.forEach(node => {
-        const area = areas[node.research_area], activeYear = year !== 'all';
+        const area = areas[node.research_area], activeYear = year !== 'all' && node.year === year;
         const g = document.createElementNS('http://www.w3.org/2000/svg', 'g'); g.setAttribute('class', `rmnode${arranging ? ' is-arranging' : ''}${selectedNodeIds.has(node.id) ? ' is-selected' : ''}${selectedSubfield && isInSubfield(node, selectedSubfield) ? ' is-cluster-match' : ''}`); g.dataset.id = node.id; g.setAttribute('role', 'button'); g.setAttribute('tabindex', '0');
         const topic = String(node.map_label || node.keywords?.[0] || node.subfield).replace(/\s+/g, ' ').trim();
         const shortTopic = topic.length > 16 ? `${topic.slice(0, 15)}…` : topic;
@@ -200,6 +201,36 @@
       const simulation = d3.forceSimulation(records).force('x', d3.forceX(d => d.targetX).strength(.16)).force('y', d3.forceY(d => d.targetY).strength(.22)).force('collide', d3.forceCollide(d => Math.max(13, d.width * .46)).iterations(4)).stop();
       for (let i = 0; i < 100; i += 1) simulation.tick();
       records.forEach(d => d.label.setAttribute('transform', `translate(${Math.max(-42, Math.min(42, d.x - d.cx))} ${Math.max(-34, Math.min(28, d.y - d.cy))})`));
+    }
+    function updateYearSelection() {
+      // A year is only a visual filter.  Freeze the live layout before
+      // changing its highlights so the selection never appears to re-layout
+      // the research map beneath the user.
+      activeSimulation?.stop();
+      yearButtons.querySelectorAll('button').forEach(button => button.classList.toggle('on', String(year) === button.dataset.year));
+      left.querySelectorAll('[data-field]').forEach(button => {
+        const key = button.dataset.field, count = nodes.filter(node => (key === 'all' || node.research_area === key) && (year === 'all' || node.year === year)).length;
+        const total = nodes.filter(node => key === 'all' || node.research_area === key).length;
+        const countEl = button.querySelector('em'); if (countEl) countEl.textContent = `${count} of ${total}`;
+      });
+      popup.hidden = true;
+      svg.querySelectorAll('.rmnode').forEach(group => {
+        const node = nodes.find(item => item.id === group.dataset.id), dot = group.querySelector('.rm-dot');
+        if (!node || !dot) return;
+        group.querySelectorAll('.rm-wash,.rm-halo,.rmmeta').forEach(item => item.remove());
+        const isSelectedYear = year !== 'all' && node.year === year, cx = dot.getAttribute('cx'), cy = dot.getAttribute('cy');
+        dot.setAttribute('r', isSelectedYear ? '5.2' : '4.2');
+        if (isSelectedYear) {
+          const makeCircle = (className, radius, fill) => { const item = document.createElementNS('http://www.w3.org/2000/svg', 'circle'); item.setAttribute('class', className); item.setAttribute('cx', cx); item.setAttribute('cy', cy); item.setAttribute('r', radius); item.setAttribute('fill', fill); return item; };
+          group.insertBefore(makeCircle('rm-wash', '30', `url(#rmw-${node.research_area})`), dot);
+          group.insertBefore(makeCircle('rm-halo', '13', `url(#rmg-${node.research_area})`), dot);
+          if (!showTopics) {
+            const point = dynamicPositions.get(node.id) || node, meta = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+            meta.setAttribute('class', 'rmmeta'); meta.setAttribute('x', +cx + (point.x > 620 ? -9 : 9)); meta.setAttribute('y', +cy - 8); meta.setAttribute('text-anchor', point.x > 620 ? 'end' : 'start'); meta.textContent = node.map_label || node.subfield; group.append(meta);
+          }
+        }
+      });
+      renderInspector();
     }
     function startDynamicLayout(mapLinks) {
       const d3 = window.d3;
@@ -311,12 +342,15 @@
         svg.addEventListener('pointermove', draw); svg.addEventListener('pointerup', finish); svg.addEventListener('pointercancel', finish);
       };
     }
-    function freezeDynamicMap() {
+    function retainDynamicGeometry() {
       dynamicPositions.forEach((point, id) => {
         const node = nodes.find(item => item.id === id);
         if (!node || !Number.isFinite(point.x) || !Number.isFinite(point.y)) return;
         node.x = +point.x.toFixed(1); node.y = +point.y.toFixed(1);
       });
+    }
+    function freezeDynamicMap() {
+      retainDynamicGeometry();
       svg.querySelectorAll('[data-layout-label]').forEach(label => {
         const key = label.dataset.layoutLabel, x = +label.getAttribute('x'), y = +label.getAttribute('y');
         if (key && Number.isFinite(x) && Number.isFinite(y)) labelLayout[key] = { x: +x.toFixed(1), y: +y.toFixed(1) };
