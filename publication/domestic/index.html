@@ -40,15 +40,15 @@ html, body, * {
 /* Publication metadata: compact date rail, expandable author list, and venue signals. */
 .publication-item .publication-content {
   position: relative;
-  padding-right: 9.1rem;
+  padding-right: 10rem;
 }
 .publication-item .publication-date-rail {
   position: absolute;
   top: 0.28rem;
   right: 0.65rem;
-  min-width: 6.3rem;
+  min-width: 7.25rem;
   color: #59667a;
-  font-size: 0.9rem;
+  font-size: 1.08rem;
   font-weight: 700;
   letter-spacing: 0.04em;
   line-height: 1.2;
@@ -57,7 +57,7 @@ html, body, * {
 .publication-item .publication-date-rail strong {
   display: block;
   color: #1f2937;
-  font-size: 2.05rem;
+  font-size: 2.46rem;
   line-height: 1.05;
   letter-spacing: -0.04em;
 }
@@ -72,15 +72,22 @@ html, body, * {
 }
 .publication-item .publication-signal.jcr { background: #faf6ef; border-color: #eadbc5; color: #8a5b20; }
 .publication-item .publication-signal.ai { background: #e8f0ff; color: #1657c4; }
+/* Keep publication cards dense: the image sets the card rhythm, not repeated utility margins. */
+.publication-item .publication-content { padding-top: 0.8rem; }
+.publication-item .publication-content > .flex:first-child { margin-bottom: 0.55rem !important; }
+.publication-item .publication-content > h3 { margin-bottom: 0.55rem !important; line-height: 1.28; }
+.publication-item .publication-content > .mb-4 { margin-bottom: 0.6rem !important; }
+.publication-item .publication-content > .flex.flex-wrap.mb-8 { margin-bottom: 0.8rem !important; }
+.publication-item .publication-content > .flex.flex-wrap.mb-8:empty { display: none; }
 @media (max-width: 640px) {
   .publication-item { flex-direction: column; }
   .publication-item > .flex-shrink-0 {
     width: 100% !important;
     min-width: 0 !important;
   }
-  .publication-item .publication-content { padding-right: 7.5rem; }
-  .publication-item .publication-date-rail strong { font-size: 1.52rem; }
-  .publication-item .publication-date-rail { top: 0.2rem; right: 0.45rem; min-width: 5.55rem; font-size: 0.78rem; }
+  .publication-item .publication-content { padding-right: 8.5rem; }
+  .publication-item .publication-date-rail strong { font-size: 1.82rem; }
+  .publication-item .publication-date-rail { top: 0.2rem; right: 0.45rem; min-width: 6.4rem; font-size: 0.94rem; }
 }
 </style>
 
