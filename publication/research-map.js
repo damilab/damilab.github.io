@@ -197,19 +197,30 @@
       const physics = shown.map(node => {
         const label = svg.querySelector(`.rmnode[data-id="${node.id}"] .rm-topic, .rmnode[data-id="${node.id}"] .rmmeta`);
         const box = label?.getBBox();
-        return { ...node, x: node.x, y: node.y, homeX: node.x, homeY: node.y, radius: Math.max(11, (box?.width || 0) * .45 + 5) };
+        return { ...node, x: node.x, y: node.y, homeX: node.x, homeY: node.y, cluster: `${node.research_area}|${node.subfield}`, radius: Math.max(11, (box?.width || 0) * .45 + 5) };
       });
+      const clusterTargets = new Map();
+      physics.forEach(node => { const target = clusterTargets.get(node.cluster) || { x: 0, y: 0, count: 0 }; target.x += node.homeX; target.y += node.homeY; target.count += 1; clusterTargets.set(node.cluster, target); });
+      clusterTargets.forEach(target => { target.x /= target.count; target.y /= target.count; });
       const byId = new Map(physics.map(node => [node.id, node]));
       dynamicPositions = byId;
       const links = mapLinks.map(link => ({ ...link, source: byId.get(link.source), target: byId.get(link.target) })).filter(link => link.source && link.target);
+      physics.forEach(node => {
+        const group = svg.querySelector(`.rmnode[data-id="${node.id}"]`);
+        group.querySelectorAll('[cx]').forEach(el => el.setAttribute('cx', +el.getAttribute('cx') - node.homeX));
+        group.querySelectorAll('[cy]').forEach(el => el.setAttribute('cy', +el.getAttribute('cy') - node.homeY));
+        group.querySelectorAll('text[x]').forEach(el => el.setAttribute('x', +el.getAttribute('x') - node.homeX));
+        group.querySelectorAll('text[y]').forEach(el => el.setAttribute('y', +el.getAttribute('y') - node.homeY));
+      });
       activeSimulation = d3.forceSimulation(physics)
-        .force('link', d3.forceLink(links).distance(link => link.crossArea ? 96 : (link.shared ? 35 : 48)).strength(link => link.crossArea ? .055 : .22))
-        .force('charge', d3.forceManyBody().strength(-42))
-        .force('x', d3.forceX(node => node.homeX).strength(.23))
-        .force('y', d3.forceY(node => node.homeY).strength(.26))
+        .alphaDecay(.025)
+        .force('link', d3.forceLink(links).distance(link => link.crossArea ? 100 : (link.shared ? 42 : 58)).strength(link => link.crossArea ? .04 : .26))
+        .force('charge', d3.forceManyBody().strength(-92))
+        .force('x', d3.forceX(node => clusterTargets.get(node.cluster).x).strength(.14))
+        .force('y', d3.forceY(node => clusterTargets.get(node.cluster).y).strength(.16))
         .force('collide', d3.forceCollide(node => node.radius).iterations(3))
         .on('tick', () => {
-          physics.forEach(node => svg.querySelector(`.rmnode[data-id="${node.id}"]`)?.setAttribute('transform', `translate(${node.x - node.homeX} ${node.y - node.homeY})`));
+          physics.forEach(node => svg.querySelector(`.rmnode[data-id="${node.id}"]`)?.setAttribute('transform', `translate(${node.x} ${node.y})`));
           links.forEach(link => { link.line.setAttribute('x1', link.source.x); link.line.setAttribute('y1', link.source.y); link.line.setAttribute('x2', link.target.x); link.line.setAttribute('y2', link.target.y); });
         });
       physics.forEach(node => {
