@@ -5,6 +5,9 @@
   "authors": ["First Author", "Woojin Lee"],
   "abstract": "One-paragraph abstract.",
   "keywords": ["LLM Security", "Jailbreaking"],
+  "research_area": "trust",
+  "subfield": "Security & Attacks",
+  "subfields": ["Security & Attacks", "Robustness"],
   "map_label": "Jailbreaking",
   "image": "/images/publications/example.png",
   "links": {"paper": "https://doi.org/..."}

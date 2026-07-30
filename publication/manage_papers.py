@@ -63,6 +63,10 @@ def normalize(raw):
     p['research_area'] = p.get('research_area') or classify(p)
     if p['research_area'] not in FIELDS: raise ValueError('research_area must be trust, core, or application')
     p['subfield'] = p.get('subfield') or subfield(p)
+    extra_subfields = p.get('subfields') or []
+    if not isinstance(extra_subfields, list) or not all(isinstance(item, str) and item.strip() for item in extra_subfields):
+        raise ValueError('subfields must be a list of non-empty strings')
+    p['subfields'] = list(dict.fromkeys([p['subfield'], *extra_subfields]))
     p['map_label'] = p.get('map_label') or KNOWN_MAP_LABELS.get(p['title']) or (p['keywords'][0] if p['keywords'] else p['subfield'])
     p['venue'] = p.get('venue', '')
     p['authors'] = list(p.get('authors') or [])

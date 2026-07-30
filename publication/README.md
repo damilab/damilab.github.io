@@ -19,8 +19,11 @@ same record to `papers.json`. The research map reads the new record
 automatically.
 
 `research_area`, `subfield`, and `map_label` are optional. If omitted, the
-manager infers them from the title, abstract, and keywords. Set them explicitly
-when you want a particular map placement or short label.
+manager infers them from the title, abstract, and keywords. `subfield` is the
+node's primary visual cluster; optionally set `subfields` to a list when the
+paper should also appear in one or more related cluster results. For example,
+an adversarial-attack paper may use `"subfields": ["Security & Attacks",
+"Robustness"]`.
 
 ## Existing data
 

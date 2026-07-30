@@ -212,6 +212,10 @@
       "topic": 2,
       "research_area": "trust",
       "subfield": "Security & Attacks",
+      "subfields": [
+        "Security & Attacks",
+        "Robustness"
+      ],
       "map_label": "Adversarial Attack",
       "venue": "",
       "authors": [],
@@ -352,6 +356,10 @@
       "topic": 2,
       "research_area": "trust",
       "subfield": "Robustness",
+      "subfields": [
+        "Robustness",
+        "Security & Attacks"
+      ],
       "map_label": "Adversarial Training",
       "venue": "",
       "authors": [],
@@ -432,6 +440,10 @@
       "topic": 2,
       "research_area": "trust",
       "subfield": "Robustness",
+      "subfields": [
+        "Robustness",
+        "Security & Attacks"
+      ],
       "map_label": "Adversarial Training",
       "venue": "",
       "authors": [],
@@ -530,6 +542,10 @@
       "topic": 2,
       "research_area": "trust",
       "subfield": "Robustness",
+      "subfields": [
+        "Robustness",
+        "Security & Attacks"
+      ],
       "map_label": "Certified Robust Training",
       "venue": "",
       "authors": [],

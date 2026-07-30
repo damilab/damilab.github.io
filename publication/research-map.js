@@ -23,10 +23,10 @@
   const style = document.createElement('style');
   style.textContent = `
     .rm{margin:0 0 32px;border:1px solid #dbe5ef;border-radius:16px;overflow:hidden;background:#fff;color:#172b47;font-family:Pretendard,system-ui;box-shadow:0 12px 32px #19325012}
-    .rmh{display:flex;justify-content:space-between;gap:16px;padding:18px 21px 14px;border-bottom:1px solid #e6edf4}.rmh b{display:block;font-size:11px;color:#2d63bc;letter-spacing:.12em}.rmh h2{margin:4px 0 0;font-size:18px}.rmh p{margin:4px 0 0;color:#62758b;font-size:12px}.rm-head-actions{display:flex;align-items:end;gap:8px}.rm-layout-actions{display:flex;gap:5px}.rm-layout-actions[hidden]{display:none}
+    .rmh{display:flex;justify-content:space-between;gap:16px;padding:18px 21px 14px;border-bottom:1px solid #e6edf4}.rmh b{display:block;font-size:11px;color:#2d63bc;letter-spacing:.12em}.rmh h2{margin:4px 0 0;font-size:18px}.rmh p{margin:4px 0 0;color:#62758b;font-size:12px}.rm-head-actions{display:flex;align-items:end;gap:8px}.rm-layout-actions{display:flex;gap:5px}.rm-layout-actions[hidden]{display:none}.rm-zoom{display:flex;align-items:center;gap:2px;border:1px solid #cad8e7;border-radius:7px;background:#fff;padding:2px}.rm-zoom button{border:0!important;min-width:25px;padding:5px!important}.rm-zoom output{min-width:35px;text-align:center;color:#58708a;font-size:10px;font-weight:800}
     .rmy{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:end}.rmy button,.rml button,.rm-paper-list button,.rm-layout-actions button{cursor:pointer}.rmy button{border:1px solid #dce6f0;border-radius:999px;background:#fff;padding:6px 9px;color:#60748c;font-size:12px;font-weight:800}.rmy .on{border-color:#2864c7;background:#e8f0ff;color:#1d4ed8}.rm-layout-actions button{border:1px solid #cad8e7;border-radius:7px;background:#fff;padding:7px 8px;color:#3c5875;font-size:11px;font-weight:800}.rm-layout-actions button.primary{border-color:#2864c7;background:#2864c7;color:#fff}.rm-layout-actions button.topic-on{border-color:#b9cfe9;background:#edf5ff;color:#1e5aa1}.rm-layout-actions button:hover{background:#edf5ff}.rm-layout-actions button.primary:hover{background:#1e56ad}
     .rmb{display:grid;grid-template-columns:310px minmax(0,1fr);height:430px;min-height:430px}.rml{display:flex;flex-direction:column;min-height:0;padding:12px;background:#fbfdff;border-right:1px solid #e6edf4}.rm-controls > button{display:block;width:100%;margin-bottom:7px;border:1px solid #e0e9f2;border-left:4px solid var(--c);border-radius:9px;background:#fff;padding:8px 10px;text-align:left}.rm-controls > button.active{border-color:var(--c);background:color-mix(in srgb,var(--c) 8%,#fff)}.rml span{display:flex;justify-content:space-between;gap:8px;font-size:12px;font-weight:800}.rml em,.rml small{font-style:normal;color:#61748a;font-size:11px}.rml small{display:block;margin-top:3px}
-    .rm-inspector{display:flex;flex:1;min-height:0;flex-direction:column;margin-top:4px;padding:8px 2px 0;border-top:1px solid #e6edf4}.rm-list-head{display:flex;justify-content:space-between;color:#46627d;font-size:11px;font-weight:800;margin:0 6px 6px}.rm-paper-list{overflow:auto;min-height:0}.rm-paper-list button{display:block;width:100%;border:0;border-bottom:1px solid #edf2f6;background:transparent;padding:7px 6px;text-align:left;color:#47627e;font-size:12px;line-height:1.3}.rm-paper-list button:hover{background:#edf5ff;color:#1f5ea8}.rm-paper-list small{display:block;margin-top:2px;color:#7a8ca0;font-size:10px}.rm-popup{position:absolute;z-index:6;width:min(300px,calc(100% - 24px));border:1px solid #d8e2ef;border-radius:12px;background:rgba(255,255,255,.98);box-shadow:0 12px 30px rgba(23,43,71,.16);padding:12px 14px;color:#172b47}.rm-popup[hidden]{display:none}.rm-popup button[aria-label="Close"]{float:right;border:0;background:transparent;color:#64748b;font-size:19px;line-height:1;cursor:pointer}.rm-popup small{display:block;color:#2563b8;font-size:11px;font-weight:800;letter-spacing:.02em}.rm-popup strong{display:block;margin:6px 20px 6px 0;font-size:13px;line-height:1.38}.rm-popup p{margin:0;color:#52677f;font-size:12px;line-height:1.48}.rm-detail-actions{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}.rm-detail-actions button,.rm-detail-actions a{border:1px solid #d7e2ef;border-radius:6px;background:#fff;padding:5px 7px;color:#2465b2;font-size:11px;font-weight:800;text-decoration:none;cursor:pointer}.rm-detail-actions button:hover,.rm-detail-actions a:hover{background:#edf5ff}
+    .rm-inspector{display:flex;flex:1;min-height:0;flex-direction:column;margin-top:4px;padding:8px 2px 0;border-top:1px solid #e6edf4}.rm-list-head{display:flex;justify-content:space-between;color:#46627d;font-size:11px;font-weight:800;margin:0 6px 6px}.rm-paper-list{overflow:auto;min-height:0}.rm-paper-list button{display:block;width:100%;border:0;border-bottom:1px solid #edf2f6;background:transparent;padding:7px 6px;text-align:left;color:#47627e;font-size:12px;line-height:1.3}.rm-paper-list button:hover{background:#edf5ff;color:#1f5ea8}.rm-paper-list small{display:block;margin-top:2px;color:#7a8ca0;font-size:10px}.rm-popup{position:absolute;z-index:6;width:min(300px,calc(100% - 24px));border:1px solid #d8e2ef;border-radius:12px;background:rgba(255,255,255,.98);box-shadow:0 12px 30px rgba(23,43,71,.16);padding:12px 14px;color:#172b47}.rm-popup[hidden]{display:none}.rm-popup button[aria-label="Close"]{float:right;border:0;background:transparent;color:#64748b;font-size:19px;line-height:1;cursor:pointer}.rm-popup small{display:block;color:#2563b8;font-size:11px;font-weight:800;letter-spacing:.02em}.rm-popup strong{display:block;margin:6px 20px 6px 0;font-size:13px;line-height:1.38}.rm-popup p{margin:0;color:#52677f;font-size:12px;line-height:1.48}.rm-detail-actions{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}.rm-detail-actions button,.rm-detail-actions a{border:1px solid #d7e2ef;border-radius:6px;background:#fff;padding:5px 7px;color:#2465b2;font-size:11px;font-weight:800;text-decoration:none;cursor:pointer}.rm-detail-actions button:hover,.rm-detail-actions a:hover{background:#edf5ff}.rm-subcluster{cursor:pointer}.rm-subcluster ellipse{cursor:pointer;transition:fill-opacity .2s,stroke-opacity .2s}.rm-subcluster.is-active ellipse{fill-opacity:.19!important;stroke-opacity:.78!important;stroke-width:1.6}.rm-sub-count{font-size:8px;fill:#647a92}.rm.has-subselection .rmnode:not(.is-cluster-match){opacity:.22}.rmnode.is-cluster-match .rm-dot{stroke:#172b47;stroke-width:2.8}.rmnode.is-cluster-match .rm-halo{opacity:1}
     .rmw{position:relative;background:#f5f9fc;overflow:hidden}.rmw svg{display:block;width:100%;height:100%}.rmnode{cursor:pointer;outline:none}.rmnode.is-arranging{cursor:grab;touch-action:none}.rmnode.is-arranging:active{cursor:grabbing}.rmnode.is-selected .rm-dot{stroke:#172b47;stroke-width:3.2}.rmnode:focus .rm-dot{stroke:#172b47;stroke-width:2.1}.rm-hit,.rm-wash,.rm-halo,.rm-links,.rm-selection,.rm-topic{pointer-events:none}.rm-hit{pointer-events:all;fill:transparent;stroke:none}.rm-selection{fill:#5b97de;fill-opacity:.12;stroke:#2864c7;stroke-width:1.2;stroke-dasharray:4 3}.rm-dot{stroke:#fff;stroke-width:1.5}.rmmeta{font:800 11px Pretendard,system-ui;fill:#365778;paint-order:stroke;stroke:#fff;stroke-width:2.5px}.rm-topic{font:800 10px Pretendard,system-ui;fill:#3d5874;paint-order:stroke;stroke:#fff;stroke-width:2.5px}.rmsub{font:800 10px Pretendard,system-ui;fill:#365778;paint-order:stroke;stroke:#fff;stroke-width:2.5px;cursor:pointer}.rm-legend{font:700 10px Pretendard,system-ui;fill:#6a7d90}.rm.is-arranging .rmw{background:#f9fbfe}.rm.is-arranging .rmnode .rm-dot{stroke-width:2.5}.rm.is-arranging .rm-area-label,.rm.is-arranging .rmsub{cursor:grab;touch-action:none}.rm.is-arranging .rm-legend{fill:#2563b8}
     @keyframes rmglow{0%{opacity:0;transform:scale(.35)}45%{opacity:1;transform:scale(1.18)}100%{opacity:.92;transform:scale(1)}}@keyframes rmwash{0%{opacity:0;transform:scale(.5)}55%{opacity:1}100%{opacity:.75;transform:scale(1)}}.rm-halo{transform-box:fill-box;transform-origin:center;animation:rmglow 1.5s ease-out both}.rm-wash{transform-box:fill-box;transform-origin:center;animation:rmwash 2s ease-out both}
     .publication-item.rm-highlight{outline:3px solid #8ab6ea;outline-offset:3px;transition:outline-color .4s}
@@ -39,16 +39,22 @@
 
   function mount(papers) {
     const years = [...new Set(papers.map(p => Number(p.year)))].sort((a, b) => b - a);
-    let year = 'all', field = 'all', selected = null, arranging = false, layout = loadLayout(), labelLayout = loadLabelLayout(), showTopics = localStorage.getItem('dami-research-map-topics') === '1';
-    host.innerHTML = `<section class="rm"><div class="rmh"><div><b>RESEARCH MAP</b><h2>Three research directions, with evolving subfields</h2><p>One node = one paper · glow = selected year</p></div><div class="rm-head-actions"><div class="rmy"></div><div class="rm-layout-actions"><button data-topics>Topics off</button><button data-arrange class="primary">Arrange nodes</button><span data-arrange-extra hidden><button data-copy>Copy layout</button><button data-reset>Reset</button></span></div></div></div><div class="rmb"><aside class="rml"><div class="rm-controls"></div><div class="rm-inspector"></div></aside><div class="rmw"><svg viewBox="70 35 700 365" aria-label="Publication research map"></svg></div></div></section>`;
+    let year = 'all', field = 'all', selected = null, selectedSubfield = null, arranging = false, layout = loadLayout(), labelLayout = loadLabelLayout(), showTopics = localStorage.getItem('dami-research-map-topics') === '1';
+    host.innerHTML = `<section class="rm"><div class="rmh"><div><b>RESEARCH MAP</b><h2>Three research directions, with evolving subfields</h2><p>One node = one paper · click a subcluster to inspect its papers</p></div><div class="rm-head-actions"><div class="rmy"></div><div class="rm-layout-actions"><button data-clear-cluster hidden>All clusters</button><div class="rm-zoom" aria-label="Map zoom"><button data-zoom-out aria-label="Zoom out">−</button><output data-zoom>100%</output><button data-zoom-in aria-label="Zoom in">+</button><button data-zoom-reset aria-label="Fit map">⌂</button></div><button data-topics>Topics off</button><button data-arrange class="primary">Arrange map</button><span data-arrange-extra hidden><button data-copy>Copy layout</button><button data-reset>Reset</button></span></div></div></div><div class="rmb"><aside class="rml"><div class="rm-controls"></div><div class="rm-inspector"></div></aside><div class="rmw"><svg viewBox="70 35 700 365" aria-label="Publication research map"></svg></div></div></section>`;
     const yearButtons = host.querySelector('.rmy'), left = host.querySelector('.rm-controls'), inspector = host.querySelector('.rm-inspector'), svg = host.querySelector('svg'), wrap = host.querySelector('.rmw');
     const popup = document.createElement('aside'); popup.className = 'rm-popup'; popup.hidden = true; wrap.append(popup);
-    const arrangeButton = host.querySelector('[data-arrange]'), arrangeExtra = host.querySelector('[data-arrange-extra]'), topicsButton = host.querySelector('[data-topics]');
+    const arrangeButton = host.querySelector('[data-arrange]'), arrangeExtra = host.querySelector('[data-arrange-extra]'), topicsButton = host.querySelector('[data-topics]'), clearClusterButton = host.querySelector('[data-clear-cluster]'), zoomOutButton = host.querySelector('[data-zoom-out]'), zoomInButton = host.querySelector('[data-zoom-in]'), zoomResetButton = host.querySelector('[data-zoom-reset]'), zoomOutput = host.querySelector('[data-zoom]');
+    const baseView = { x: 70, y: 35, width: 700, height: 365 }; let mapZoom = 1, mapCenter = { x: 420, y: 217.5 };
     let shown = [], selectedNodeIds = new Set(), dynamicPositions = new Map(), activeSimulation = null;
     function loadLayout() { try { return { ...publishedNodeLayout, ...JSON.parse(localStorage.getItem('dami-research-map-layout-v1') || '{}') }; } catch { return { ...publishedNodeLayout }; } }
     function saveLayout() { localStorage.setItem('dami-research-map-layout-v1', JSON.stringify(layout)); }
     function loadLabelLayout() { try { return { ...publishedLabelLayout, ...JSON.parse(localStorage.getItem('dami-research-map-label-layout-v1') || '{}') }; } catch { return { ...publishedLabelLayout }; } }
     function saveLabelLayout() { localStorage.setItem('dami-research-map-label-layout-v1', JSON.stringify(labelLayout)); }
+    const subfieldsFor = p => [...new Set([p.subfield, ...(Array.isArray(p.subfields) ? p.subfields : [])].filter(Boolean))];
+    const isInSubfield = (p, key) => {
+      const divider = key?.indexOf('|'), area = divider < 0 ? '' : key.slice(0, divider), name = divider < 0 ? key : key.slice(divider + 1);
+      return p.research_area === area && subfieldsFor(p).includes(name);
+    };
     const filtered = p => (field === 'all' || p.research_area === field) && (year === 'all' || Number(p.year) === Number(year));
     const position = p => {
       const same = papers.filter(q => q.research_area === p.research_area && q.subfield === p.subfield);
@@ -75,8 +81,9 @@
       setTimeout(() => card.classList.remove('rm-highlight'), 2000);
     };
     function renderInspector() {
-      const active = nodes.filter(filtered);
-      inspector.innerHTML = `<div class="rm-list-head"><span>${year === 'all' ? 'All years' : year} · ${active.length} papers</span><span>Click a title</span></div><div class="rm-paper-list">${active.map(n => `<button data-paper-id="${escape(n.id)}">${escape(n.title.split(':')[0])}<small>${escape(venueFor(n) || n.year)}</small></button>`).join('') || '<small>No papers in this filter.</small>'}</div>`;
+      const active = nodes.filter(filtered), listed = selectedSubfield ? active.filter(node => isInSubfield(node, selectedSubfield)) : active;
+      const subfieldName = selectedSubfield?.split('|')[1];
+      inspector.innerHTML = `<div class="rm-list-head"><span>${subfieldName ? `${escape(subfieldName)} · ${listed.length} papers` : `${year === 'all' ? 'All years' : year} · ${listed.length} papers`}</span><span>${subfieldName ? 'Cluster results' : 'Click a title'}</span></div><div class="rm-paper-list">${listed.map(n => `<button data-paper-id="${escape(n.id)}">${escape(n.title.split(':')[0])}<small>${escape(venueFor(n) || n.year)}${subfieldName && n.subfield !== subfieldName ? ' · related' : ''}</small></button>`).join('') || '<small>No papers in this filter.</small>'}</div>`;
       inspector.querySelectorAll('[data-paper-id]').forEach(button => button.onclick = () => showNode(nodes.find(n => n.id === button.dataset.paperId)));
     }
     function drawLinks(active) {
@@ -84,7 +91,7 @@
       active.forEach((node, i) => active.slice(i + 1).forEach(other => {
         const nodeTerms = new Set((node.keywords || []).map(k => k.toLowerCase()));
         const shared = (other.keywords || []).filter(k => nodeTerms.has(k.toLowerCase())).length;
-        const sameSubfield = node.subfield === other.subfield, sameArea = node.research_area === other.research_area;
+        const sameSubfield = subfieldsFor(node).some(name => subfieldsFor(other).includes(name)), sameArea = node.research_area === other.research_area;
         if (!shared && !sameSubfield && !sameArea) return;
         const distance = Math.hypot(node.x - other.x, node.y - other.y);
         const score = shared * 100 + (sameSubfield ? 40 : 0) + (sameArea ? 12 : 0) - distance / 12;
@@ -126,13 +133,13 @@
     }
     function render() {
       activeSimulation?.stop(); activeSimulation = null; dynamicPositions = new Map();
-      host.querySelector('.rm').classList.toggle('is-arranging', arranging); arrangeButton.textContent = arranging ? 'Done arranging' : 'Arrange map'; arrangeExtra.hidden = !arranging; topicsButton.textContent = showTopics ? 'Topics on' : 'Topics off'; topicsButton.classList.toggle('topic-on', showTopics);
+      host.querySelector('.rm').classList.toggle('is-arranging', arranging); host.querySelector('.rm').classList.toggle('has-subselection', !!selectedSubfield); arrangeButton.textContent = arranging ? 'Done arranging' : 'Arrange map'; arrangeExtra.hidden = !arranging; topicsButton.textContent = showTopics ? 'Topics on' : 'Topics off'; topicsButton.classList.toggle('topic-on', showTopics); clearClusterButton.hidden = !selectedSubfield;
       yearButtons.innerHTML = ['all', ...years].map(value => `<button data-year="${value}" class="${String(year) === String(value) ? 'on' : ''}">${value === 'all' ? 'All' : value}</button>`).join('');
       yearButtons.querySelectorAll('button').forEach(button => button.onclick = () => { year = button.dataset.year === 'all' ? 'all' : Number(button.dataset.year); selected = null; render(); });
       const total = key => nodes.filter(n => key === 'all' || n.research_area === key).length;
       const visible = key => nodes.filter(n => (key === 'all' || n.research_area === key) && (year === 'all' || n.year === year)).length;
       left.innerHTML = `<button data-field="all" style="--c:#52667f" class="${field === 'all' ? 'active' : ''}"><span>All research <em>${visible('all')} of ${total('all')}</em></span><small>Trustworthy AI · Core Algorithms · Applications</small></button>` + Object.entries(areas).map(([key, area]) => `<button data-field="${key}" style="--c:${area.color}" class="${field === key ? 'active' : ''}"><span>${area.name}<em>${visible(key)} of ${total(key)}</em></span><small>${key === 'core' ? 'Transfer Learning · Fairness · Optimization' : area.summary}</small></button>`).join('');
-      left.querySelectorAll('button').forEach(button => button.onclick = () => { field = button.dataset.field; selected = null; render(); });
+      left.querySelectorAll('button').forEach(button => button.onclick = () => { field = button.dataset.field; selectedSubfield = null; selected = null; render(); });
       popup.hidden = true; shown = nodes.filter(filtered); svg.innerHTML = `<defs>${Object.entries(areas).map(([key, area]) => `<radialGradient id="rmg-${key}"><stop offset="0" stop-color="${area.color}" stop-opacity=".62"/><stop offset=".45" stop-color="${area.color}" stop-opacity=".25"/><stop offset="1" stop-color="${area.color}" stop-opacity="0"/></radialGradient><radialGradient id="rmw-${key}"><stop offset="0" stop-color="${area.color}" stop-opacity=".28"/><stop offset=".6" stop-color="${area.color}" stop-opacity=".08"/><stop offset="1" stop-color="${area.color}" stop-opacity="0"/></radialGradient>`).join('')}</defs>`;
       Object.entries(areas).forEach(([key, area]) => {
         const group = nodes.filter(n => n.research_area === key); if (!group.length) return;
@@ -143,16 +150,17 @@
       const groups = {}; nodes.forEach(node => ((groups[`${node.research_area}|${node.subfield}`] ||= []).push(node)));
       Object.values(groups).forEach(group => {
         const xs = group.map(n => n.x), ys = group.map(n => n.y), x0 = Math.min(...xs) - 20, x1 = Math.max(...xs) + 20, y0 = Math.min(...ys) - 18, y1 = Math.max(...ys) + 18, area = areas[group[0].research_area];
-        const labelKey = `sub:${group[0].research_area}|${group[0].subfield}`, defaultLabel = { x: (x0 + x1) / 2, y: y0 - 7 }, savedLabel = labelLayout[labelKey] || defaultLabel;
+        const clusterKey = `${group[0].research_area}|${group[0].subfield}`, labelKey = `sub:${clusterKey}`, defaultLabel = { x: (x0 + x1) / 2, y: y0 - 7 }, savedLabel = labelLayout[labelKey] || defaultLabel, memberCount = nodes.filter(node => isInSubfield(node, clusterKey)).length, relatedCount = memberCount - group.length;
         const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-        g.innerHTML = `<ellipse data-cluster-shell="${group[0].research_area}|${group[0].subfield}" cx="${(x0 + x1) / 2}" cy="${(y0 + y1) / 2}" rx="${Math.max(38, (x1 - x0) / 2 * 1.45)}" ry="${Math.max(30, (y1 - y0) / 2 * 1.45)}" fill="${area.color}" fill-opacity=".085" stroke="${area.color}" stroke-opacity=".09"/><text class="rmsub" data-layout-label="${labelKey}" x="${savedLabel.x}" y="${savedLabel.y}" text-anchor="middle" fill="${area.color}">${escape(group[0].subfield)}</text>`;
-        g.querySelector('text').onclick = () => { if (!arranging) { field = group[0].research_area; selected = null; render(); } }; svg.append(g);
+        g.setAttribute('class', `rm-subcluster${selectedSubfield === clusterKey ? ' is-active' : ''}`);
+        g.innerHTML = `<title>${group.length} primary nodes${relatedCount ? ` · ${relatedCount} related nodes in another subcluster` : ''}</title><ellipse data-cluster-shell="${clusterKey}" cx="${(x0 + x1) / 2}" cy="${(y0 + y1) / 2}" rx="${Math.max(38, (x1 - x0) / 2 * 1.45)}" ry="${Math.max(30, (y1 - y0) / 2 * 1.45)}" fill="${area.color}" fill-opacity=".085" stroke="${area.color}" stroke-opacity=".09"/><text class="rmsub" data-layout-label="${labelKey}" x="${savedLabel.x}" y="${savedLabel.y}" text-anchor="middle" fill="${area.color}">${escape(group[0].subfield)} <tspan class="rm-sub-count">${group.length}${relatedCount ? ` + ${relatedCount}` : ''}</tspan></text>`;
+        g.onclick = () => { if (!arranging) { selectedSubfield = selectedSubfield === clusterKey ? null : clusterKey; field = group[0].research_area; selected = null; render(); } }; svg.append(g);
       });
       if (arranging) svg.querySelectorAll('[data-layout-label]').forEach(label => makeLabelDraggable(label, label.dataset.layoutLabel));
       const mapLinks = drawLinks(shown);
       shown.forEach(node => {
         const area = areas[node.research_area], activeYear = year !== 'all';
-        const g = document.createElementNS('http://www.w3.org/2000/svg', 'g'); g.setAttribute('class', `rmnode${arranging ? ' is-arranging' : ''}${selectedNodeIds.has(node.id) ? ' is-selected' : ''}`); g.dataset.id = node.id; g.setAttribute('role', 'button'); g.setAttribute('tabindex', '0');
+        const g = document.createElementNS('http://www.w3.org/2000/svg', 'g'); g.setAttribute('class', `rmnode${arranging ? ' is-arranging' : ''}${selectedNodeIds.has(node.id) ? ' is-selected' : ''}${selectedSubfield && isInSubfield(node, selectedSubfield) ? ' is-cluster-match' : ''}`); g.dataset.id = node.id; g.setAttribute('role', 'button'); g.setAttribute('tabindex', '0');
         const topic = String(node.map_label || node.keywords?.[0] || node.subfield).replace(/\s+/g, ' ').trim();
         const shortTopic = topic.length > 16 ? `${topic.slice(0, 15)}…` : topic;
         g.innerHTML = `<title>${escape(node.title)}</title><circle class="rm-hit" cx="${node.x}" cy="${node.y}" r="14"/>${activeYear ? `<circle class="rm-wash" cx="${node.x}" cy="${node.y}" r="30" fill="url(#rmw-${node.research_area})"/><circle class="rm-halo" cx="${node.x}" cy="${node.y}" r="13" fill="url(#rmg-${node.research_area})"/>` : ''}<circle class="rm-dot" cx="${node.x}" cy="${node.y}" r="${activeYear ? 5.2 : 4.2}" fill="${area.color}"/>${showTopics ? `<text class="rm-topic" x="${node.x}" y="${node.y - 9}" text-anchor="middle">${escape(shortTopic)}</text>` : activeYear ? `<text class="rmmeta" x="${node.x + (node.x > 620 ? -9 : 9)}" y="${node.y - 8}" text-anchor="${node.x > 620 ? 'end' : 'start'}">${escape(node.map_label || node.subfield)}</text>` : ''}`;
@@ -263,6 +271,22 @@
         label.setAttribute('y', liveBounds.y0 - 32 + (saved.y - defaultY));
       });
     }
+    function visibleView() {
+      const width = baseView.width / mapZoom, height = baseView.height / mapZoom;
+      const minX = baseView.x + width / 2, maxX = baseView.x + baseView.width - width / 2, minY = baseView.y + height / 2, maxY = baseView.y + baseView.height - height / 2;
+      mapCenter.x = Math.max(minX, Math.min(maxX, mapCenter.x)); mapCenter.y = Math.max(minY, Math.min(maxY, mapCenter.y));
+      return { x: mapCenter.x - width / 2, y: mapCenter.y - height / 2, width, height };
+    }
+    function applyMapZoom() {
+      const view = visibleView(); svg.setAttribute('viewBox', `${view.x} ${view.y} ${view.width} ${view.height}`); zoomOutput.textContent = `${Math.round(mapZoom * 100)}%`;
+    }
+    function zoomMap(factor, event) {
+      const before = visibleView(), focus = event ? svgPoint(event) : { x: mapCenter.x, y: mapCenter.y }, next = Math.max(1, Math.min(3, mapZoom * factor));
+      if (next === mapZoom) return;
+      const nextWidth = baseView.width / next, nextHeight = baseView.height / next;
+      mapCenter = { x: focus.x - ((focus.x - before.x) / before.width - .5) * nextWidth, y: focus.y - ((focus.y - before.y) / before.height - .5) * nextHeight };
+      mapZoom = next; applyMapZoom();
+    }
     function svgPoint(event) { const point = svg.createSVGPoint(); point.x = event.clientX; point.y = event.clientY; return point.matrixTransform(svg.getScreenCTM().inverse()); }
     function makeLabelDraggable(label, key) {
       label.onpointerdown = event => {
@@ -294,7 +318,12 @@
         if (key && Number.isFinite(x) && Number.isFinite(y)) labelLayout[key] = { x: +x.toFixed(1), y: +y.toFixed(1) };
       });
     }
-    arrangeButton.onclick = () => { if (!arranging) freezeDynamicMap(); arranging = !arranging; selected = null; if (!arranging) selectedNodeIds.clear(); render(); };
+    arrangeButton.onclick = () => { if (!arranging) { freezeDynamicMap(); selectedSubfield = null; } arranging = !arranging; selected = null; if (!arranging) selectedNodeIds.clear(); render(); };
+    clearClusterButton.onclick = () => { selectedSubfield = null; render(); };
+    zoomInButton.onclick = () => zoomMap(1.25);
+    zoomOutButton.onclick = () => zoomMap(1 / 1.25);
+    zoomResetButton.onclick = () => { mapZoom = 1; mapCenter = { x: 420, y: 217.5 }; applyMapZoom(); };
+    svg.addEventListener('wheel', event => { event.preventDefault(); zoomMap(event.deltaY < 0 ? 1.14 : 1 / 1.14, event); }, { passive: false });
     topicsButton.onclick = () => { showTopics = !showTopics; localStorage.setItem('dami-research-map-topics', showTopics ? '1' : '0'); render(); };
     host.querySelector('[data-reset]').onclick = () => { layout = { ...publishedNodeLayout }; labelLayout = { ...publishedLabelLayout }; localStorage.removeItem('dami-research-map-layout-v1'); localStorage.removeItem('dami-research-map-label-layout-v1'); nodes = papers.map(position); render(); };
     host.querySelector('[data-copy]').onclick = async () => { const value = JSON.stringify({ nodes: layout, labels: labelLayout }); try { await navigator.clipboard.writeText(value); arrangeButton.textContent = 'Layout copied'; setTimeout(() => arrangeButton.textContent = 'Done arranging', 1300); } catch { prompt('Copy this layout JSON:', value); } };
