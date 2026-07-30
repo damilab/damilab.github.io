@@ -3,9 +3,9 @@
   if (!host) return;
 
   const areas = {
-    trust: { name: 'Trustworthy AI', color: '#c64b61', summary: 'Robustness · Security · Privacy' },
-    core: { name: 'AI Core Algorithms', color: '#2d70c7', summary: 'Transfer · Optimization' },
-    application: { name: 'AI Applications', color: '#19856d', summary: 'Geospatial · Finance · Sports · Science' }
+    trust: { name: 'Trustworthy AI', color: '#c64b61', nodeColor: '#b9364f', summary: 'Robustness · Security · Privacy' },
+    core: { name: 'AI Core Algorithms', color: '#2d70c7', nodeColor: '#1f62bc', summary: 'Transfer · Optimization' },
+    application: { name: 'AI Applications', color: '#19856d', nodeColor: '#08755f', summary: 'Geospatial · Finance · Sports · Science' }
   };
   const centers = {
     'trust|Robustness': [145, 180], 'trust|Security & Attacks': [245, 110], 'trust|Privacy & Safety': [210, 245],
@@ -164,7 +164,7 @@
         const g = document.createElementNS('http://www.w3.org/2000/svg', 'g'); g.setAttribute('class', `rmnode${arranging ? ' is-arranging' : ''}${selectedNodeIds.has(node.id) ? ' is-selected' : ''}${selectedSubfield && isInSubfield(node, selectedSubfield) ? ' is-cluster-match' : ''}`); g.dataset.id = node.id; g.setAttribute('role', 'button'); g.setAttribute('tabindex', '0');
         const topic = String(node.map_label || node.keywords?.[0] || node.subfield).replace(/\s+/g, ' ').trim();
         const shortTopic = topic.length > 16 ? `${topic.slice(0, 15)}…` : topic;
-        g.innerHTML = `<title>${escape(node.title)}</title><circle class="rm-hit" cx="${node.x}" cy="${node.y}" r="14"/>${activeYear ? `<circle class="rm-wash" cx="${node.x}" cy="${node.y}" r="30" fill="url(#rmw-${node.research_area})"/><circle class="rm-halo" cx="${node.x}" cy="${node.y}" r="13" fill="url(#rmg-${node.research_area})"/>` : ''}<circle class="rm-dot" cx="${node.x}" cy="${node.y}" r="${activeYear ? 5.2 : 4.2}" fill="${area.color}"/>${showTopics ? `<text class="rm-topic" x="${node.x}" y="${node.y - 9}" text-anchor="middle">${escape(shortTopic)}</text>` : activeYear ? `<text class="rmmeta" x="${node.x + (node.x > 620 ? -9 : 9)}" y="${node.y - 8}" text-anchor="${node.x > 620 ? 'end' : 'start'}">${escape(node.map_label || node.subfield)}</text>` : ''}`;
+        g.innerHTML = `<title>${escape(node.title)}</title><circle class="rm-hit" cx="${node.x}" cy="${node.y}" r="14"/>${activeYear ? `<circle class="rm-wash" cx="${node.x}" cy="${node.y}" r="30" fill="url(#rmw-${node.research_area})"/><circle class="rm-halo" cx="${node.x}" cy="${node.y}" r="13" fill="url(#rmg-${node.research_area})"/>` : ''}<circle class="rm-dot" cx="${node.x}" cy="${node.y}" r="${activeYear ? 5.2 : 4.2}" fill="${area.nodeColor}"/>${showTopics ? `<text class="rm-topic" x="${node.x}" y="${node.y - 9}" text-anchor="middle">${escape(shortTopic)}</text>` : activeYear ? `<text class="rmmeta" x="${node.x + (node.x > 620 ? -9 : 9)}" y="${node.y - 8}" text-anchor="${node.x > 620 ? 'end' : 'start'}">${escape(node.map_label || node.subfield)}</text>` : ''}`;
         g.onclick = event => { event.stopPropagation(); if (!arranging && g.dataset.dragged !== '1') showNode(nearestNode(event) || node); };
         g.onkeydown = event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); showNode(node); } }; svg.append(g);
         if (arranging) {
