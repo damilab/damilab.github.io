@@ -4,17 +4,17 @@
     {
       "title": "What Did You Do Behind My Back?! Covert Indirect Prompt Injection on Tool-Using LLM Agents",
       "date": "2026-07-10",
-      "venue": "ICML 2026 Workshop",
+      "venue": "FAGEN@ICML 2026",
       "authors": [
         "Yunseok Lee",
         "Yunji Kim",
         "Woojin Lee"
       ],
-      "abstract": "As LLM agents take real-world actions through tools, indirect prompt injection (IPI) has emerged as a serious threat. The standard metric, Attack Success Rate (ASR), counts whether the injection was successful but ignores what the user notices in the agent's final response. We decompose ASR into the Covert Success Rate (CSR), which counts successes that leave no trace in the final response, and the Overt Success Rate (OSR), which counts successes the user can detect. Analyzing trajectories where injections succeed, we find that the agent's behavior after the injection is what separates covert from overt: covert traces hand control back to the user task before ending, while overt traces end at the attack.",
+      "abstract": "As LLM agents take consequential actions through tools, indirect prompt injection (IPI) has emerged as a serious threat. The standard metric, Attack Success Rate (ASR), counts whether the injection ran but ignores what the user sees. Looking at successful injection traces, we find that they fall into two very different outcomes: the agent may openly report the injected action in its final reply, giving the user a chance to respond, or carry it out quietly while returning a normal answer. We therefore measure IPI from the user's perspective and decompose ASR into the Covert Success Rate (CSR), which counts successes that leave no trace in the final reply, and the Overt Success Rate (OSR), which counts successes the user can detect. To understand what drives the gap, we analyze the trajectories where injections succeed and find that the agent's behavior right after the injection is what separates covert from overt. Covert traces hand control back to the user task before ending, while overt traces end at the attack itself. This split aligns with how ReAct naturally reports its actions, since the final reply tends to summarize whatever the agent has just done. Building on this, we design ICoA (Induced Covert Attack), the first IPI attack designed to maximize CSR. ICoA adds a single anchor sentence to an existing baseline that steers the agent's reply toward the original user task. Across three models, ICoA consistently raises CSR over the strongest existing baseline, reaching up to 33.7% CSR on Qwen3-235B with a 3.3 percentage point gain. The advantage holds even under prompting defenses that suppress overall ASR, showing that covert success is a measurable and reachable regime that earlier IPI evaluation could not see.",
       "keywords": [
-        "LLM Security",
-        "Prompt Injection",
-        "Agentic LLM"
+        "LLM Agents",
+        "Indirect Prompt Injection",
+        "AI Security"
       ],
       "research_area": "trust",
       "subfield": "Security & Attacks",
