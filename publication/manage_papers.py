@@ -19,7 +19,7 @@ MARKER = '<!-- AUTO_PUBLICATION_CARDS -->'
 
 FIELDS = {
     'trust': ('Trustworthy AI', 'Safety · Security · Privacy'),
-    'core': ('AI Core Algorithms', 'Transfer · Representation · Optimization'),
+    'core': ('AI Core Algorithms', 'Transfer · Optimization'),
     'application': ('AI Applications', 'Geospatial · Finance · Society'),
 }
 

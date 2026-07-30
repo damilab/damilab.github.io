@@ -51,8 +51,8 @@
       ],
       "abstract": "This work analyzes how the number of ascent steps affects sharpness-aware minimization. It shows that single-step and multi-step ascent yield distinct loss landscapes, and proposes a simple modification to mitigate the suboptimal generalization observed with multi-step ascent.",
       "topic": 2,
-      "research_area": "trust",
-      "subfield": "Robustness",
+      "research_area": "core",
+      "subfield": "Optimization",
       "map_label": "DL Optimization",
       "venue": "",
       "authors": [],
@@ -523,13 +523,14 @@
       "year": 2021,
       "date": "2021-01-01",
       "keywords": [
-        "2021"
+        "Certifiable Robustness",
+        "Loss Landscape"
       ],
       "abstract": "We study the problem of training certifiably robust models against adversarial examples. Certifiable training minimizes an upper bound on the worst-case loss over the allowed perturbation, and thus the tightness of the upper bound is an important factor in building certifiably robust models. However, many studies have shown that Interval Bound Propagation (IBP) training uses much looser bounds but outperforms other models that use tighter bounds. We identify another key factor that influences the performance of certifiable training: extit{smoothness of the loss landscape}. We find significant differences in the loss landscapes across many linear relaxation-based methods, and that the current state-of-the-arts method often has a landscape with favorable optimization properties. Moreover, to test the claim, we design a new certifiable training method with the desired properties. With the tightness and the smoothness, the proposed method achieves a decent performance under a wide range of perturbations, while others with only one of the two factors can perform well only for a specific range of perturbations. Our code is available at https://github.com/sungyoon-lee/LossLandscapeMatters.",
       "topic": 2,
       "research_area": "trust",
       "subfield": "Robustness",
-      "map_label": "2021",
+      "map_label": "Certified Robust Training",
       "venue": "",
       "authors": [],
       "links": {}
