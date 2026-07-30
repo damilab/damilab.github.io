@@ -14,6 +14,9 @@
   };
   const publishedNodeLayout = {"paper-31":{"x":231.1,"y":179.5},"paper-9":{"x":237.5,"y":134.4},"paper-4":{"x":278.8,"y":121.9},"paper-29":{"x":253.2,"y":105.1},"paper-6":{"x":213.1,"y":234.2},"paper-2":{"x":517.6,"y":158.5},"paper-34":{"x":136.9,"y":149.7},"paper-17":{"x":102,"y":222.7},"paper-24":{"x":95.3,"y":154.9},"paper-26":{"x":132.7,"y":183.5},"paper-18":{"x":174.2,"y":145},"paper-21":{"x":167.7,"y":174.3},"paper-15":{"x":179.3,"y":190.2},"paper-25":{"x":257.3,"y":250.4},"paper-0":{"x":565.9,"y":245.5},"paper-5":{"x":537.4,"y":267.2},"paper-3":{"x":708.8,"y":241.2},"paper-7":{"x":545.9,"y":155.5},"paper-8":{"x":551.2,"y":229.6},"paper-11":{"x":657.3,"y":262.9},"paper-12":{"x":531.2,"y":139.6},"paper-13":{"x":670.4,"y":236.1},"paper-14":{"x":563,"y":263.6},"paper-16":{"x":515.8,"y":233.3},"paper-19":{"x":678.8,"y":264.7},"paper-23":{"x":643.1,"y":243.9},"paper-33":{"x":698.2,"y":195.8},"paper-35":{"x":660.9,"y":283},"paper-36":{"x":650.1,"y":216.9},"paper-37":{"x":699.2,"y":262.8},"paper-1":{"x":427.4,"y":242.7},"paper-28":{"x":379.5,"y":173.8},"paper-32":{"x":404.9,"y":149.8},"paper-10":{"x":394.5,"y":129.9},"paper-20":{"x":343.6,"y":163.2},"paper-30":{"x":334.9,"y":140.8},"paper-22":{"x":393.5,"y":249.5},"paper-27":{"x":366.3,"y":126.9}};
   const publishedLabelLayout = {"sub:trust|Security & Attacks":{"x":246.6,"y":92.3},"sub:trust|Robustness":{"x":130.6,"y":138.3},"sub:core|Fairness":{"x":376,"y":117.6},"area:core":{"x":397.8,"y":65.7},"sub:application|Finance & Society":{"x":535.5,"y":127.5},"area:application":{"x":605.3,"y":94.6},"area:trust":{"x":193.8,"y":64.3},"sub:core|Optimization":{"x":398.2,"y":221.8}};
+  const d3Ready = window.d3?.forceSimulation ? Promise.resolve(window.d3) : new Promise(resolve => {
+    const script = document.createElement('script'); script.src = 'https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js'; script.onload = () => resolve(window.d3); script.onerror = () => resolve(null); document.head.append(script);
+  });
   const escape = value => String(value || '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const textOf = el => el?.textContent.trim() || '';
 
@@ -164,9 +167,23 @@
           };
         }
       });
+      settleNodeLabels();
       if (arranging) enableBoxSelection();
       svg.insertAdjacentHTML('beforeend', `<text class="rm-legend" x="84" y="386">${arranging ? 'Drag empty space to select · drag a selected node to move the group' : '1 node = 1 paper · lines = shared topic or nearby research thread'}</text>`);
       renderInspector();
+    }
+    function settleNodeLabels() {
+      const d3 = window.d3;
+      if (!d3?.forceSimulation) return;
+      const records = [...svg.querySelectorAll('.rm-topic,.rmmeta')].map(label => {
+        const dot = label.closest('.rmnode')?.querySelector('.rm-dot'); if (!dot) return null;
+        const box = label.getBBox(), cx = box.x + box.width / 2, cy = box.y + box.height / 2;
+        return { label, width: box.width, height: box.height, x: cx, y: cy, cx, cy, targetX: cx, targetY: +dot.getAttribute('cy') - 15 };
+      }).filter(Boolean);
+      if (records.length < 2) return;
+      const simulation = d3.forceSimulation(records).force('x', d3.forceX(d => d.targetX).strength(.16)).force('y', d3.forceY(d => d.targetY).strength(.22)).force('collide', d3.forceCollide(d => Math.max(13, d.width * .46)).iterations(4)).stop();
+      for (let i = 0; i < 100; i += 1) simulation.tick();
+      records.forEach(d => d.label.setAttribute('transform', `translate(${Math.max(-42, Math.min(42, d.x - d.cx))} ${Math.max(-34, Math.min(28, d.y - d.cy))})`));
     }
     function svgPoint(event) { const point = svg.createSVGPoint(); point.x = event.clientX; point.y = event.clientY; return point.matrixTransform(svg.getScreenCTM().inverse()); }
     function makeLabelDraggable(label, key) {
@@ -192,6 +209,6 @@
     topicsButton.onclick = () => { showTopics = !showTopics; localStorage.setItem('dami-research-map-topics', showTopics ? '1' : '0'); render(); };
     host.querySelector('[data-reset]').onclick = () => { layout = { ...publishedNodeLayout }; labelLayout = { ...publishedLabelLayout }; localStorage.removeItem('dami-research-map-layout-v1'); localStorage.removeItem('dami-research-map-label-layout-v1'); nodes = papers.map(position); render(); };
     host.querySelector('[data-copy]').onclick = async () => { const value = JSON.stringify({ nodes: layout, labels: labelLayout }); try { await navigator.clipboard.writeText(value); arrangeButton.textContent = 'Layout copied'; setTimeout(() => arrangeButton.textContent = 'Done arranging', 1300); } catch { prompt('Copy this layout JSON:', value); } };
-    render();
+    render(); d3Ready.then(d3 => { if (d3?.forceSimulation) render(); });
   }
 })();
