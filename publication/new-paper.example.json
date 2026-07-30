@@ -1,0 +1,11 @@
+{
+  "title": "Paper title",
+  "date": "2026-08-01",
+  "venue": "ICLR 2027",
+  "authors": ["First Author", "Woojin Lee"],
+  "abstract": "One-paragraph abstract.",
+  "keywords": ["LLM Security", "Jailbreaking"],
+  "map_label": "Jailbreaking",
+  "image": "/images/publications/example.png",
+  "links": {"paper": "https://doi.org/..."}
+}
