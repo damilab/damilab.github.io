@@ -28,12 +28,13 @@
     .rmb{display:grid;grid-template-columns:310px minmax(0,1fr);height:430px;min-height:430px}.rml{display:flex;flex-direction:column;min-height:0;padding:12px;background:#fbfdff;border-right:1px solid #e6edf4}.rm-controls > button{display:block;width:100%;margin-bottom:7px;border:1px solid #e0e9f2;border-left:4px solid var(--c);border-radius:9px;background:#fff;padding:8px 10px;text-align:left}.rm-controls > button.active{border-color:var(--c);background:color-mix(in srgb,var(--c) 8%,#fff)}.rml span{display:flex;justify-content:space-between;gap:8px;font-size:12px;font-weight:800}.rml em,.rml small{font-style:normal;color:#61748a;font-size:11px}.rml small{display:block;margin-top:3px}
     .rm-inspector{display:flex;flex:1;min-height:0;flex-direction:column;margin-top:4px;padding:8px 2px 0;border-top:1px solid #e6edf4}.rm-list-head{display:flex;justify-content:space-between;color:#46627d;font-size:11px;font-weight:800;margin:0 6px 6px}.rm-paper-list{overflow:auto;min-height:0}.rm-paper-list button{display:block;width:100%;border:0;border-bottom:1px solid #edf2f6;background:transparent;padding:7px 6px;text-align:left;color:#47627e;font-size:12px;line-height:1.3}.rm-paper-list button:hover{background:#edf5ff;color:#1f5ea8}.rm-paper-list small{display:block;margin-top:2px;color:#7a8ca0;font-size:10px}.rm-popup{position:absolute;z-index:6;width:min(300px,calc(100% - 24px));border:1px solid #d8e2ef;border-radius:12px;background:rgba(255,255,255,.98);box-shadow:0 12px 30px rgba(23,43,71,.16);padding:12px 14px;color:#172b47}.rm-popup[hidden]{display:none}.rm-popup button[aria-label="Close"]{float:right;border:0;background:transparent;color:#64748b;font-size:19px;line-height:1;cursor:pointer}.rm-popup small{display:block;color:#2563b8;font-size:11px;font-weight:800;letter-spacing:.02em}.rm-popup strong{display:block;margin:6px 20px 6px 0;font-size:13px;line-height:1.38}.rm-popup p{margin:0;color:#52677f;font-size:12px;line-height:1.48}.rm-detail-actions{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}.rm-detail-actions button,.rm-detail-actions a{border:1px solid #d7e2ef;border-radius:6px;background:#fff;padding:5px 7px;color:#2465b2;font-size:11px;font-weight:800;text-decoration:none;cursor:pointer}.rm-detail-actions button:hover,.rm-detail-actions a:hover{background:#edf5ff}.rm-subcluster{cursor:pointer}.rm-subcluster ellipse{cursor:pointer;transition:fill-opacity .2s,stroke-opacity .2s}.rm-subcluster.is-active ellipse{fill-opacity:.19!important;stroke-opacity:.78!important;stroke-width:1.6}.rm.has-subselection .rmnode:not(.is-cluster-match){opacity:.22}.rmnode.is-cluster-match .rm-dot{stroke:#172b47;stroke-width:2.8}.rmnode.is-cluster-match .rm-halo{opacity:1}
     .rmw{position:relative;background:#f5f9fc;overflow:hidden}.rmw svg{display:block;width:100%;height:100%}.rm:not(.is-arranging) .rmw svg{cursor:grab}.rm.is-panning .rmw svg{cursor:grabbing}.rmnode{cursor:pointer;outline:none}.rmnode.is-arranging{cursor:grab;touch-action:none}.rmnode.is-arranging:active{cursor:grabbing}.rmnode.is-selected .rm-dot{stroke:#172b47;stroke-width:3.2}.rmnode:focus .rm-dot{stroke:#172b47;stroke-width:2.1}.rm-hit,.rm-wash,.rm-halo,.rm-links,.rm-selection,.rm-topic{pointer-events:none}.rm-hit{pointer-events:all;fill:transparent;stroke:none}.rm-selection{fill:#5b97de;fill-opacity:.12;stroke:#2864c7;stroke-width:1.2;stroke-dasharray:4 3}.rm-dot{stroke:#fff;stroke-width:1.5}.rmmeta{font:800 11px Pretendard,system-ui;fill:#365778;paint-order:stroke;stroke:#fff;stroke-width:2.5px}.rm-topic{font:800 10px Pretendard,system-ui;fill:#3d5874;paint-order:stroke;stroke:#fff;stroke-width:2.5px}.rmsub{font:800 10px Pretendard,system-ui;fill:#365778;paint-order:stroke;stroke:#fff;stroke-width:2.5px;cursor:pointer}.rm-legend{font:700 10px Pretendard,system-ui;fill:#6a7d90}.rm.is-arranging .rmw{background:#f9fbfe}.rm.is-arranging .rmnode .rm-dot{stroke-width:2.5}.rm.is-arranging .rm-area-label,.rm.is-arranging .rmsub{cursor:grab;touch-action:none}.rm.is-arranging .rm-legend{fill:#2563b8}
-    .rm-sub-hit{fill:transparent;pointer-events:all;cursor:pointer}.rmsub{pointer-events:all}
+    .rm-sub-hit,.rm-area-hit{fill:transparent;pointer-events:all;cursor:pointer}.rmsub,.rm-area-label{pointer-events:all;cursor:pointer}.rm-area-shell.is-active{fill-opacity:.16!important;stroke-opacity:.58!important;stroke-width:1.8}.rm-area-label.is-active{filter:drop-shadow(0 2px 2px rgba(23,43,71,.16))}.rm.has-area-selection .rmnode:not(.is-area-match){opacity:.24}
     @keyframes rmglow{0%{opacity:0;transform:scale(.35)}45%{opacity:1;transform:scale(1.18)}100%{opacity:.92;transform:scale(1)}}@keyframes rmwash{0%{opacity:0;transform:scale(.5)}55%{opacity:1}100%{opacity:.75;transform:scale(1)}}.rm-halo{transform-box:fill-box;transform-origin:center;animation:rmglow 1.5s ease-out both}.rm-wash{transform-box:fill-box;transform-origin:center;animation:rmwash 2s ease-out both}
     .publication-item.rm-highlight{outline:3px solid #8ab6ea;outline-offset:3px;transition:outline-color .4s}
     /* The map keeps its existing visual language; only the old left rail moves to a right-hand contextual panel. */
     .rmb{grid-template-columns:minmax(0,1fr) 310px}.rml{order:2;padding:0;background:#fff;border-right:0;border-left:1px solid #e6edf4}.rm-inspector{margin:0;padding:0;border-top:0}.rm-panel-head{padding:18px 18px 13px;border-bottom:1px solid #e6edf4}.rm-panel-kicker{color:#2d63bc;font-size:10px;font-weight:850;letter-spacing:.13em}.rm-panel-title{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:4px}.rm-panel-title strong{font-size:16px;letter-spacing:-.035em}.rm-panel-close{border:0;border-radius:50%;width:25px;height:25px;background:#edf3fa;color:#506b87;font-size:17px;cursor:pointer}.rm-panel-desc{margin:7px 0 0;color:#647b93;font-size:12px;line-height:1.45}.rm-overview{padding:13px}.rm-overview-label{margin:0 5px 9px;color:#53708e;font-size:11px;font-weight:800}.rm-area-summary{display:block;width:100%;margin:0 0 9px;border:1px solid #e2eaf2;border-left:4px solid var(--area);border-radius:10px;background:#fff;padding:11px;text-align:left;color:#172b47;cursor:default}.rm-area-summary span{display:flex;justify-content:space-between;gap:8px;color:var(--area);font-size:10px;font-weight:850}.rm-area-summary b{display:block;margin-top:5px;font-size:12px;line-height:1.35}.rm-area-summary small{display:block;margin-top:4px;color:#6b8198;font-size:11px;line-height:1.38}.rm-panel-list{padding:12px 13px;overflow:auto;min-height:0}.rm-panel-list .rm-list-head{margin:0 5px 9px}.rm-panel-paper{display:block;width:100%;margin:0 0 8px;border:1px solid #e2eaf2;border-radius:10px;background:#fff;padding:11px;text-align:left;color:#172b47;cursor:pointer}.rm-panel-paper:hover{border-color:#78a6d9;background:#f8fbff}.rm-panel-paper.selected{border-color:#2864c7;background:#f3f8ff}.rm-panel-paper .meta{display:flex;justify-content:space-between;gap:8px;color:#607a96;font-size:10px;font-weight:800}.rm-panel-paper .meta b{color:#2567b9}.rm-panel-paper h3{margin:5px 0 3px;font-size:12px;line-height:1.35;letter-spacing:-.018em}.rm-panel-paper p{margin:0;color:#70869d;font-size:11px;line-height:1.35}.rm-panel-actions{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}.rm-panel-actions button,.rm-panel-actions a{border:1px solid #d7e2ef;border-radius:6px;background:#fff;padding:5px 7px;color:#2465b2;font-size:11px;font-weight:800;text-decoration:none;cursor:pointer}.rm-panel-actions button:hover,.rm-panel-actions a:hover{background:#edf5ff}
     .rm-panel-head{position:relative;padding:19px 18px 15px;border-top:3px solid var(--panel-accent,#2d63bc);background:linear-gradient(125deg,color-mix(in srgb,var(--panel-accent,#2d63bc) 8%,#fff),#fff 68%)}.rm-panel-kicker{color:var(--panel-accent,#2d63bc);font-size:10px;letter-spacing:.14em}.rm-panel-title{margin-top:6px}.rm-panel-title strong{font-size:18px;line-height:1.16;letter-spacing:-.045em}.rm-panel-head-actions{display:flex;align-items:center;gap:8px}.rm-panel-count{display:flex;align-items:baseline;gap:3px;border-radius:999px;background:color-mix(in srgb,var(--panel-accent,#2d63bc) 11%,#fff);padding:4px 8px;color:var(--panel-accent,#2d63bc);line-height:1}.rm-panel-count b{font-size:14px}.rm-panel-count small{font-size:9px;font-weight:850;letter-spacing:.04em}.rm-panel-close{flex:0 0 auto;background:color-mix(in srgb,var(--panel-accent,#2d63bc) 10%,#fff);color:var(--panel-accent,#2d63bc)}.rm-panel-desc{margin-top:8px;font-size:11px;line-height:1.45}.rm-panel-list{padding:14px 13px}.rm-panel-paper{position:relative;margin-bottom:10px;border-color:#dce7f1;border-radius:12px;padding:12px 13px;box-shadow:0 3px 10px rgba(25,55,87,.035);transition:border-color .16s,box-shadow .16s,transform .16s}.rm-panel-paper:hover{border-color:var(--panel-accent,#78a6d9);box-shadow:0 6px 16px rgba(25,55,87,.09);transform:translateY(-1px)}.rm-panel-paper .meta{align-items:flex-start;padding-right:44px;line-height:1.25}.rm-panel-paper .meta b{max-width:100%;color:#2769b9;font-size:10px;letter-spacing:-.01em}.rm-panel-paper .meta span{position:absolute;top:11px;right:11px;border-radius:999px;background:#f0f5fb;padding:4px 6px;color:#50708f;font-size:10px;line-height:1}.rm-panel-paper h3{margin:7px 0 5px;font-size:13px;line-height:1.37;letter-spacing:-.026em}.rm-panel-paper p{color:#637c96;font-size:10px;font-weight:750;line-height:1.35}.rm-panel-paper.selected{border-color:var(--panel-accent,#2864c7);background:color-mix(in srgb,var(--panel-accent,#2864c7) 5%,#fff)}
+    .rm-paper-detail{color:#172b47}.rm-detail-facts{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}.rm-detail-facts span{border-radius:999px;background:#f0f5fa;padding:4px 7px;color:#52708e;font-size:9px;font-weight:800;line-height:1.2}.rm-detail-facts span:first-child{background:color-mix(in srgb,var(--panel-accent,#2d63bc) 10%,#fff);color:var(--panel-accent,#2d63bc)}.rm-detail-figure{display:flex;align-items:center;justify-content:center;height:128px;margin:0 0 12px;overflow:hidden;border:1px solid #e0e8f1;border-radius:11px;background:#f5f8fb}.rm-detail-figure img{display:block;width:100%;height:100%;object-fit:contain}.rm-paper-detail h3{margin:0;font-size:14px;line-height:1.4;letter-spacing:-.03em}.rm-detail-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px}.rm-detail-tags span{border:1px solid #dce6ef;border-radius:999px;background:#fff;padding:3px 6px;color:#58718b;font-size:9px;font-weight:750;line-height:1.2}.rm-detail-abstract{margin-top:13px;border-top:1px solid #e5edf4;padding-top:11px}.rm-detail-abstract b{color:var(--panel-accent,#2d63bc);font-size:9px;font-weight:850;letter-spacing:.13em}.rm-detail-abstract p{margin:6px 0 0;color:#536c85;font-size:11px;line-height:1.55}.rm-paper-detail .rm-panel-actions{margin-top:13px}
     @media (prefers-reduced-motion:reduce){.rm-halo,.rm-wash{animation:none}}
     @media(max-width:820px){.rmh{flex-direction:column;padding:14px 15px 11px;gap:10px}.rmh h2{font-size:16px}.rm-head-actions{align-items:flex-start;flex-direction:column}.rmy{width:100%;justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;padding-bottom:2px;-webkit-overflow-scrolling:touch}.rmy button{flex:none}.rmb{display:block;height:auto;min-height:0}.rml{display:block;overflow:visible;padding:10px 12px;border-right:0;border-bottom:1px solid #e6edf4}.rm-controls{display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch}.rm-controls > button{flex:0 0 190px;margin:0}.rm-controls > button:first-child{flex-basis:205px}.rm-inspector{max-height:172px;margin-top:9px;padding:9px 5px;background:#fff}.rmw{overflow-x:auto}.rmw svg{display:block;min-width:760px;width:760px;height:400px}.rm-popup{position:fixed;left:12px!important;right:12px;top:auto!important;bottom:12px;width:auto;font-size:12px}.rm-detail{font-size:12px}}
   `;
@@ -43,7 +44,7 @@
 
   function mount(papers) {
     const years = [...new Set(papers.map(p => Number(p.year)))].sort((a, b) => b - a);
-    let year = 'all', field = 'all', selected = null, selectedSubfield = null, arranging = false, layout = loadLayout(), labelLayout = loadLabelLayout(), showTopics = false;
+    let year = 'all', field = 'all', selected = null, selectedSubfield = null, selectedArea = null, arranging = false, layout = loadLayout(), labelLayout = loadLabelLayout(), showTopics = false;
     host.innerHTML = `<section class="rm"><div class="rmh"><div><b>RESEARCH MAP</b><h2>Three research directions, with evolving subfields</h2><p>One node = one paper · select a topic or paper to inspect related work</p></div><div class="rm-head-actions"><div class="rmy"></div><div class="rm-layout-actions"><button data-clear-cluster hidden>All clusters</button><div class="rm-zoom" aria-label="Map zoom"><button data-zoom-out aria-label="Zoom out">−</button><output data-zoom>100%</output><button data-zoom-in aria-label="Zoom in">+</button><button data-zoom-reset aria-label="Fit map">⌂</button></div><button data-topics>Topics off</button><button data-arrange class="primary">Arrange map</button><span data-arrange-extra hidden><button data-copy>Copy layout</button><button data-reset>Reset</button></span></div></div></div><div class="rmb"><div class="rmw"><svg viewBox="70 35 700 365" aria-label="Publication research map"></svg></div><aside class="rml"><div class="rm-inspector"></div></aside></div></section>`;
     const yearButtons = host.querySelector('.rmy'), inspector = host.querySelector('.rm-inspector'), svg = host.querySelector('svg'), wrap = host.querySelector('.rmw');
     const popup = document.createElement('aside'); popup.className = 'rm-popup'; popup.hidden = true; wrap.append(popup);
@@ -79,6 +80,12 @@
       const card = [...document.querySelectorAll('.publication-item')].find(el => textOf(el.querySelector('h3')) === p.title);
       return [...(card?.querySelectorAll('a') || [])].map(a => ({ name: textOf(a).replace(/[\[\]]/g, ''), href: a.href })).filter(x => /paper|doi/i.test(x.name));
     };
+    const imageFor = p => {
+      const card = [...document.querySelectorAll('.publication-item')].find(el => textOf(el.querySelector('h3')) === p.title);
+      const image = card?.querySelector('img[src]');
+      return image ? { src: image.getAttribute('src'), alt: image.alt || p.title } : null;
+    };
+    const dateFor = p => p.date ? p.date.replaceAll('-', '.') : String(p.year || '');
     const scrollToCard = p => {
       const card = [...document.querySelectorAll('.publication-item')].find(el => textOf(el.querySelector('h3')) === p.title);
       if (!card) return;
@@ -90,22 +97,30 @@
       return `<button class="rm-panel-paper${selectedCard ? ' selected' : ''}" data-paper-id="${escape(node.id)}"><div class="meta"><b>${escape(venueFor(node) || 'Publication')}</b><span>${node.year}</span></div><h3>${escape(node.title)}</h3><p>${escape(topic)}${related ? ' · related topic' : ''}</p></button>`;
     }
     const panelTheme = areaKey => `style="--panel-accent:${areas[areaKey]?.color || '#2d63bc'}"`;
+    function selectedPaperDetail(node, venue, links) {
+      const image = imageFor(node), keywords = (node.keywords || []).slice(0, 5);
+      return `<article class="rm-paper-detail"><div class="rm-detail-facts"><span>${escape(venue || 'Publication')}</span><span>${escape(dateFor(node))}</span><span>${escape(node.subfield)}</span></div>${image ? `<figure class="rm-detail-figure"><img src="${escape(image.src)}" alt="${escape(image.alt)}"></figure>` : ''}<h3>${escape(node.title)}</h3>${keywords.length ? `<div class="rm-detail-tags">${keywords.map(keyword => `<span>${escape(keyword)}</span>`).join('')}</div>` : ''}<section class="rm-detail-abstract"><b>ABSTRACT</b><p>${escape(node.abstract || 'Abstract is not available yet.')}</p></section><div class="rm-panel-actions"><button data-show-card>전체 논문 카드 보기</button>${links.map(link => `<a href="${escape(link.href)}" target="_blank" rel="noopener">${escape(link.name)}</a>`).join('')}</div></article>`;
+    }
     function bindPanelPapers() {
       inspector.querySelectorAll('[data-paper-id]').forEach(button => button.onclick = () => showNode(nodes.find(node => node.id === button.dataset.paperId)));
-      inspector.querySelector('[data-panel-back]')?.addEventListener('click', () => { selected = null; selectedSubfield = null; renderInspector(); });
+      inspector.querySelector('[data-panel-back]')?.addEventListener('click', () => { selected = null; selectedSubfield = null; selectedArea = null; render(); });
       inspector.querySelector('[data-show-card]')?.addEventListener('click', () => selected && scrollToCard(selected));
     }
     function renderInspector() {
       const active = nodes.filter(filtered);
       if (selected) {
-        const related = active.filter(node => node.id !== selected.id && subfieldsFor(node).some(name => subfieldsFor(selected).includes(name))).slice(0, 6);
         const venue = venueFor(selected), links = linksFor(selected);
-        inspector.innerHTML = `<div class="rm-panel-head" ${panelTheme(selected.research_area)}><div class="rm-panel-kicker">SELECTED PAPER</div><div class="rm-panel-title"><strong>${escape(selected.map_label || selected.subfield)}</strong><button class="rm-panel-close" data-panel-back aria-label="Back to overview">×</button></div><p class="rm-panel-desc">${escape(venue ? `${venue} · ${selected.year}` : selected.year)} · ${escape(selected.title)}</p></div><div class="rm-panel-list">${panelCard(selected, { selectedCard: true })}<div class="rm-panel-actions"><button data-show-card>전체 논문 카드 보기</button>${links.map(link => `<a href="${escape(link.href)}" target="_blank" rel="noopener">${escape(link.name)}</a>`).join('')}</div><div class="rm-list-head" style="margin-top:14px"><span>${related.length} related papers</span><span>Shared topic</span></div>${related.map(node => panelCard(node, { related: true })).join('') || '<p class="rm-panel-desc">No additional papers share this topic yet.</p>'}</div>`;
+        inspector.innerHTML = `<div class="rm-panel-head" ${panelTheme(selected.research_area)}><div class="rm-panel-kicker">SELECTED PAPER</div><div class="rm-panel-title"><strong>${escape(selected.map_label || selected.subfield)}</strong><button class="rm-panel-close" data-panel-back aria-label="Back to overview">×</button></div><p class="rm-panel-desc">${escape(selected.research_area === 'trust' ? 'Trustworthy AI' : selected.research_area === 'core' ? 'AI Core Algorithms' : 'AI Applications')} · ${escape(selected.subfield)}</p></div><div class="rm-panel-list">${selectedPaperDetail(selected, venue, links)}</div>`;
         bindPanelPapers(); return;
       }
       if (selectedSubfield) {
         const subfieldName = selectedSubfield.split('|')[1], listed = active.filter(node => isInSubfield(node, selectedSubfield));
         inspector.innerHTML = `<div class="rm-panel-head" ${panelTheme(selectedSubfield.split('|')[0])}><div class="rm-panel-kicker">SUBFIELD RESULTS</div><div class="rm-panel-title"><strong>${escape(subfieldName)}</strong><div class="rm-panel-head-actions"><span class="rm-panel-count"><b>${listed.length}</b><small>papers</small></span><button class="rm-panel-close" data-panel-back aria-label="Back to overview">×</button></div></div><p class="rm-panel-desc">Connected publications in this research thread.</p></div><div class="rm-panel-list">${listed.map(node => panelCard(node, { related: node.subfield !== subfieldName })).join('') || '<p class="rm-panel-desc">No papers in this filter.</p>'}</div>`;
+        bindPanelPapers(); return;
+      }
+      if (selectedArea) {
+        const area = areas[selectedArea], listed = active.filter(node => node.research_area === selectedArea);
+        inspector.innerHTML = `<div class="rm-panel-head" ${panelTheme(selectedArea)}><div class="rm-panel-kicker">RESEARCH DIRECTION</div><div class="rm-panel-title"><strong>${escape(area.name)}</strong><div class="rm-panel-head-actions"><span class="rm-panel-count"><b>${listed.length}</b><small>papers</small></span><button class="rm-panel-close" data-panel-back aria-label="Back to overview">×</button></div></div><p class="rm-panel-desc">${escape(area.summary)} · selected across the research map.</p></div><div class="rm-panel-list">${listed.map(node => panelCard(node)).join('') || '<p class="rm-panel-desc">No papers in this filter.</p>'}</div>`;
         bindPanelPapers(); return;
       }
       inspector.innerHTML = `<div class="rm-panel-head" ${panelTheme('core')}><div class="rm-panel-kicker">RESEARCH OVERVIEW</div><div class="rm-panel-title"><strong>Start with the map</strong></div><p class="rm-panel-desc">Select a subfield or paper node to open its connected publication list.</p></div><div class="rm-overview"><p class="rm-overview-label">Three research directions</p>${Object.entries(areas).map(([key, area]) => { const count = active.filter(node => node.research_area === key).length; return `<div class="rm-area-summary" style="--area:${area.color}"><span><b>${escape(area.name)}</b><em>${count} papers</em></span><b>${escape(area.summary)}</b><small>${key === 'trust' ? 'Robustness · security · privacy' : key === 'core' ? 'Generalizable learning algorithms' : 'AI in real-world domains'}</small></div>`; }).join('')}</div>`;
@@ -150,6 +165,15 @@
     function selectSubcluster(clusterKey) {
       if (arranging || justPanned) return;
       selectedSubfield = selectedSubfield === clusterKey ? null : clusterKey;
+      selectedArea = null;
+      field = 'all';
+      selected = null;
+      render();
+    }
+    function selectArea(areaKey) {
+      if (arranging || justPanned) return;
+      selectedArea = selectedArea === areaKey ? null : areaKey;
+      selectedSubfield = null;
       field = 'all';
       selected = null;
       render();
@@ -184,9 +208,38 @@
       syncSubclusterHit(label);
       svg.append(label);
     }
+    function liftAreaLabel(label) {
+      const areaKey = label.dataset.areaKey;
+      if (!areaKey) return;
+      const width = Math.max(142, Math.ceil(label.getComputedTextLength() + 34));
+      const hit = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      hit.setAttribute('class', 'rm-area-hit');
+      hit.dataset.areaHit = areaKey;
+      hit.dataset.width = String(width);
+      hit.setAttribute('x', +label.getAttribute('x') - width / 2);
+      hit.setAttribute('y', +label.getAttribute('y') - 22);
+      hit.setAttribute('width', width);
+      hit.setAttribute('height', '33');
+      hit.setAttribute('rx', '6');
+      const stopMapPan = event => event.stopPropagation();
+      hit.addEventListener('pointerdown', stopMapPan);
+      label.addEventListener('pointerdown', event => { if (!arranging) stopMapPan(event); });
+      hit.addEventListener('click', event => { event.stopPropagation(); selectArea(areaKey); });
+      label.addEventListener('click', event => { event.stopPropagation(); selectArea(areaKey); });
+      svg.append(hit);
+      svg.append(label);
+    }
+    function syncAreaHit(label) {
+      const areaKey = label.dataset.areaKey;
+      const hit = areaKey && svg.querySelector(`[data-area-hit="${areaKey}"]`);
+      if (!hit) return;
+      const width = Number(hit.dataset.width) || 142;
+      hit.setAttribute('x', +label.getAttribute('x') - width / 2);
+      hit.setAttribute('y', +label.getAttribute('y') - 22);
+    }
     function render() {
       activeSimulation?.stop(); activeSimulation = null; dynamicPositions = new Map();
-      host.querySelector('.rm').classList.toggle('is-arranging', arranging); host.querySelector('.rm').classList.toggle('has-subselection', !!selectedSubfield); arrangeButton.textContent = arranging ? 'Done arranging' : 'Arrange map'; arrangeExtra.hidden = !arranging; topicsButton.textContent = showTopics ? 'Topics on' : 'Topics off'; topicsButton.classList.toggle('topic-on', showTopics); clearClusterButton.hidden = !selectedSubfield;
+      host.querySelector('.rm').classList.toggle('is-arranging', arranging); host.querySelector('.rm').classList.toggle('has-subselection', !!selectedSubfield); host.querySelector('.rm').classList.toggle('has-area-selection', !!selectedArea); arrangeButton.textContent = arranging ? 'Done arranging' : 'Arrange map'; arrangeExtra.hidden = !arranging; topicsButton.textContent = showTopics ? 'Topics on' : 'Topics off'; topicsButton.classList.toggle('topic-on', showTopics); clearClusterButton.textContent = selectedArea ? 'All topics' : 'All clusters'; clearClusterButton.hidden = !(selectedSubfield || selectedArea);
       yearButtons.innerHTML = ['all', ...years].map(value => `<button data-year="${value}" class="${String(year) === String(value) ? 'on' : ''}">${value === 'all' ? 'All' : value}</button>`).join('');
       yearButtons.querySelectorAll('button').forEach(button => button.onclick = () => { year = button.dataset.year === 'all' ? 'all' : Number(button.dataset.year); selected = null; updateYearSelection(); });
       popup.hidden = true; shown = nodes.filter(inField); svg.innerHTML = `<defs>${Object.entries(areas).map(([key, area]) => `<radialGradient id="rmg-${key}"><stop offset="0" stop-color="${area.color}" stop-opacity=".62"/><stop offset=".45" stop-color="${area.color}" stop-opacity=".25"/><stop offset="1" stop-color="${area.color}" stop-opacity="0"/></radialGradient><radialGradient id="rmw-${key}"><stop offset="0" stop-color="${area.color}" stop-opacity=".28"/><stop offset=".6" stop-color="${area.color}" stop-opacity=".08"/><stop offset="1" stop-color="${area.color}" stop-opacity="0"/></radialGradient>`).join('')}</defs>`;
@@ -194,7 +247,7 @@
         const group = nodes.filter(n => n.research_area === key); if (!group.length) return;
         const xs = group.map(n => n.x), ys = group.map(n => n.y), x0 = Math.min(...xs) - 28, x1 = Math.max(...xs) + 28, y0 = Math.min(...ys) - 28, y1 = Math.max(...ys) + 28;
         const labelKey = `area:${key}`, defaultLabel = { x: (x0 + x1) / 2 - (key === 'application' ? 90 : 0), y: y0 - 4 }, savedLabel = labelLayout[labelKey] || defaultLabel;
-        svg.insertAdjacentHTML('beforeend', `<ellipse cx="${(x0 + x1) / 2}" cy="${(y0 + y1) / 2}" rx="${Math.max(75, (x1 - x0) / 2)}" ry="${Math.max(65, (y1 - y0) / 2)}" fill="${area.color}" fill-opacity=".10" stroke="${area.color}" stroke-opacity=".13"/><text class="rm-area-label" data-layout-label="${labelKey}" x="${savedLabel.x}" y="${savedLabel.y}" text-anchor="middle" fill="${area.color}" style="font:800 16px Pretendard,system-ui;paint-order:stroke;stroke:#fff;stroke-width:3px">${area.name}</text>`);
+        svg.insertAdjacentHTML('beforeend', `<ellipse class="rm-area-shell${selectedArea === key ? ' is-active' : ''}" data-area-shell="${key}" cx="${(x0 + x1) / 2}" cy="${(y0 + y1) / 2}" rx="${Math.max(75, (x1 - x0) / 2)}" ry="${Math.max(65, (y1 - y0) / 2)}" fill="${area.color}" fill-opacity=".10" stroke="${area.color}" stroke-opacity=".13"/><text class="rm-area-label${selectedArea === key ? ' is-active' : ''}" data-layout-label="${labelKey}" data-area-key="${key}" x="${savedLabel.x}" y="${savedLabel.y}" text-anchor="middle" fill="${area.color}" style="font:800 16px Pretendard,system-ui;paint-order:stroke;stroke:#fff;stroke-width:3px">${area.name}</text>`);
       });
       const groups = {}; nodes.forEach(node => ((groups[`${node.research_area}|${node.subfield}`] ||= []).push(node)));
       Object.values(groups).forEach(group => {
@@ -209,7 +262,7 @@
       const mapLinks = drawLinks(shown);
       shown.forEach(node => {
         const area = areas[node.research_area], activeYear = year !== 'all' && node.year === year;
-        const g = document.createElementNS('http://www.w3.org/2000/svg', 'g'); g.setAttribute('class', `rmnode${arranging ? ' is-arranging' : ''}${selectedNodeIds.has(node.id) ? ' is-selected' : ''}${selectedSubfield && isInSubfield(node, selectedSubfield) ? ' is-cluster-match' : ''}`); g.dataset.id = node.id; g.setAttribute('role', 'button'); g.setAttribute('tabindex', '0');
+        const g = document.createElementNS('http://www.w3.org/2000/svg', 'g'); g.setAttribute('class', `rmnode${arranging ? ' is-arranging' : ''}${selectedNodeIds.has(node.id) ? ' is-selected' : ''}${selectedSubfield && isInSubfield(node, selectedSubfield) ? ' is-cluster-match' : ''}${selectedArea === node.research_area ? ' is-area-match' : ''}`); g.dataset.id = node.id; g.setAttribute('role', 'button'); g.setAttribute('tabindex', '0');
         const topic = String(node.map_label || node.keywords?.[0] || node.subfield).replace(/\s+/g, ' ').trim();
         const shortTopic = topic.length > 16 ? `${topic.slice(0, 15)}…` : topic;
         g.innerHTML = `<title>${escape(node.title)}</title><circle class="rm-hit" cx="${node.x}" cy="${node.y}" r="14"/>${activeYear ? `<circle class="rm-wash" cx="${node.x}" cy="${node.y}" r="30" fill="url(#rmw-${node.research_area})"/><circle class="rm-halo" cx="${node.x}" cy="${node.y}" r="13" fill="url(#rmg-${node.research_area})"/>` : ''}<circle class="rm-dot" cx="${node.x}" cy="${node.y}" r="${activeYear ? 5.2 : 4.2}" fill="${area.nodeColor}"/>${showTopics ? `<text class="rm-topic" x="${node.x}" y="${node.y - 9}" text-anchor="middle">${escape(shortTopic)}</text>` : activeYear ? `<text class="rmmeta" x="${node.x + (node.x > 620 ? -9 : 9)}" y="${node.y - 8}" text-anchor="${node.x > 620 ? 'end' : 'start'}">${escape(node.map_label || node.subfield)}</text>` : ''}`;
@@ -231,7 +284,7 @@
       svg.querySelectorAll('.rmsub').forEach(liftSubclusterLabel);
       // SVG paints later elements on top: keep the three primary research axes above
       // subcluster and paper-topic labels so their hierarchy never gets obscured.
-      svg.querySelectorAll('.rm-area-label').forEach(label => svg.append(label));
+      svg.querySelectorAll('.rm-area-label').forEach(liftAreaLabel);
       settleNodeLabels();
       if (!arranging) startDynamicLayout(mapLinks);
       if (arranging) enableBoxSelection();
@@ -349,6 +402,7 @@
         const targetX = (liveBounds.x0 + liveBounds.x1) / 2 - (areaKey === 'application' ? 90 : 0) + (saved.x - defaultX), targetY = liveBounds.y0 - 32 + (saved.y - defaultY);
         label.setAttribute('x', Math.max(145, Math.min(690, targetX)));
         label.setAttribute('y', Math.max(58, Math.min(382, targetY)));
+        syncAreaHit(label);
       });
     }
     function visibleView() {
@@ -401,8 +455,8 @@
         if (key && Number.isFinite(x) && Number.isFinite(y)) labelLayout[key] = { x: +x.toFixed(1), y: +y.toFixed(1) };
       });
     }
-    arrangeButton.onclick = () => { if (!arranging) { freezeDynamicMap(); selectedSubfield = null; } arranging = !arranging; selected = null; if (!arranging) selectedNodeIds.clear(); render(); };
-    clearClusterButton.onclick = () => { selectedSubfield = null; render(); };
+    arrangeButton.onclick = () => { if (!arranging) { freezeDynamicMap(); selectedSubfield = null; selectedArea = null; } arranging = !arranging; selected = null; if (!arranging) selectedNodeIds.clear(); render(); };
+    clearClusterButton.onclick = () => { selectedSubfield = null; selectedArea = null; render(); };
     zoomInButton.onclick = () => zoomMap(1.25);
     zoomOutButton.onclick = () => zoomMap(1 / 1.25);
     zoomResetButton.onclick = () => { mapZoom = 1; mapCenter = { x: 420, y: 217.5 }; applyMapZoom(); };
