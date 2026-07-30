@@ -30,6 +30,8 @@
     .rmw{position:relative;background:#f5f9fc;overflow:hidden}.rmw svg{display:block;width:100%;height:100%}.rm:not(.is-arranging) .rmw svg{cursor:grab}.rm.is-panning .rmw svg{cursor:grabbing}.rmnode{cursor:pointer;outline:none}.rmnode.is-arranging{cursor:grab;touch-action:none}.rmnode.is-arranging:active{cursor:grabbing}.rmnode.is-selected .rm-dot{stroke:#172b47;stroke-width:3.2}.rmnode:focus .rm-dot{stroke:#172b47;stroke-width:2.1}.rm-hit,.rm-wash,.rm-halo,.rm-links,.rm-selection,.rm-topic{pointer-events:none}.rm-hit{pointer-events:all;fill:transparent;stroke:none}.rm-selection{fill:#5b97de;fill-opacity:.12;stroke:#2864c7;stroke-width:1.2;stroke-dasharray:4 3}.rm-dot{stroke:#fff;stroke-width:1.5}.rmmeta{font:800 11px Pretendard,system-ui;fill:#365778;paint-order:stroke;stroke:#fff;stroke-width:2.5px}.rm-topic{font:800 10px Pretendard,system-ui;fill:#3d5874;paint-order:stroke;stroke:#fff;stroke-width:2.5px}.rmsub{font:800 10px Pretendard,system-ui;fill:#365778;paint-order:stroke;stroke:#fff;stroke-width:2.5px;cursor:pointer}.rm-legend{font:700 10px Pretendard,system-ui;fill:#6a7d90}.rm.is-arranging .rmw{background:#f9fbfe}.rm.is-arranging .rmnode .rm-dot{stroke-width:2.5}.rm.is-arranging .rm-area-label,.rm.is-arranging .rmsub{cursor:grab;touch-action:none}.rm.is-arranging .rm-legend{fill:#2563b8}
     @keyframes rmglow{0%{opacity:0;transform:scale(.35)}45%{opacity:1;transform:scale(1.18)}100%{opacity:.92;transform:scale(1)}}@keyframes rmwash{0%{opacity:0;transform:scale(.5)}55%{opacity:1}100%{opacity:.75;transform:scale(1)}}.rm-halo{transform-box:fill-box;transform-origin:center;animation:rmglow 1.5s ease-out both}.rm-wash{transform-box:fill-box;transform-origin:center;animation:rmwash 2s ease-out both}
     .publication-item.rm-highlight{outline:3px solid #8ab6ea;outline-offset:3px;transition:outline-color .4s}
+    /* The map keeps its existing visual language; only the old left rail moves to a right-hand contextual panel. */
+    .rmb{grid-template-columns:minmax(0,1fr) 310px}.rml{order:2;padding:0;background:#fff;border-right:0;border-left:1px solid #e6edf4}.rm-inspector{margin:0;padding:0;border-top:0}.rm-panel-head{padding:18px 18px 13px;border-bottom:1px solid #e6edf4}.rm-panel-kicker{color:#2d63bc;font-size:10px;font-weight:850;letter-spacing:.13em}.rm-panel-title{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:4px}.rm-panel-title strong{font-size:16px;letter-spacing:-.035em}.rm-panel-close{border:0;border-radius:50%;width:25px;height:25px;background:#edf3fa;color:#506b87;font-size:17px;cursor:pointer}.rm-panel-desc{margin:7px 0 0;color:#647b93;font-size:12px;line-height:1.45}.rm-overview{padding:13px}.rm-overview-label{margin:0 5px 9px;color:#53708e;font-size:11px;font-weight:800}.rm-area-summary{display:block;width:100%;margin:0 0 9px;border:1px solid #e2eaf2;border-left:4px solid var(--area);border-radius:10px;background:#fff;padding:11px;text-align:left;color:#172b47;cursor:default}.rm-area-summary span{display:flex;justify-content:space-between;gap:8px;color:var(--area);font-size:10px;font-weight:850}.rm-area-summary b{display:block;margin-top:5px;font-size:12px;line-height:1.35}.rm-area-summary small{display:block;margin-top:4px;color:#6b8198;font-size:11px;line-height:1.38}.rm-panel-list{padding:12px 13px;overflow:auto;min-height:0}.rm-panel-list .rm-list-head{margin:0 5px 9px}.rm-panel-paper{display:block;width:100%;margin:0 0 8px;border:1px solid #e2eaf2;border-radius:10px;background:#fff;padding:11px;text-align:left;color:#172b47;cursor:pointer}.rm-panel-paper:hover{border-color:#78a6d9;background:#f8fbff}.rm-panel-paper.selected{border-color:#2864c7;background:#f3f8ff}.rm-panel-paper .meta{display:flex;justify-content:space-between;gap:8px;color:#607a96;font-size:10px;font-weight:800}.rm-panel-paper .meta b{color:#2567b9}.rm-panel-paper h3{margin:5px 0 3px;font-size:12px;line-height:1.35;letter-spacing:-.018em}.rm-panel-paper p{margin:0;color:#70869d;font-size:11px;line-height:1.35}.rm-panel-actions{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}.rm-panel-actions button,.rm-panel-actions a{border:1px solid #d7e2ef;border-radius:6px;background:#fff;padding:5px 7px;color:#2465b2;font-size:11px;font-weight:800;text-decoration:none;cursor:pointer}.rm-panel-actions button:hover,.rm-panel-actions a:hover{background:#edf5ff}
     @media (prefers-reduced-motion:reduce){.rm-halo,.rm-wash{animation:none}}
     @media(max-width:820px){.rmh{flex-direction:column;padding:14px 15px 11px;gap:10px}.rmh h2{font-size:16px}.rm-head-actions{align-items:flex-start;flex-direction:column}.rmy{width:100%;justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;padding-bottom:2px;-webkit-overflow-scrolling:touch}.rmy button{flex:none}.rmb{display:block;height:auto;min-height:0}.rml{display:block;overflow:visible;padding:10px 12px;border-right:0;border-bottom:1px solid #e6edf4}.rm-controls{display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch}.rm-controls > button{flex:0 0 190px;margin:0}.rm-controls > button:first-child{flex-basis:205px}.rm-inspector{max-height:172px;margin-top:9px;padding:9px 5px;background:#fff}.rmw{overflow-x:auto}.rmw svg{display:block;min-width:760px;width:760px;height:400px}.rm-popup{position:fixed;left:12px!important;right:12px;top:auto!important;bottom:12px;width:auto;font-size:12px}.rm-detail{font-size:12px}}
   `;
@@ -40,8 +42,8 @@
   function mount(papers) {
     const years = [...new Set(papers.map(p => Number(p.year)))].sort((a, b) => b - a);
     let year = 'all', field = 'all', selected = null, selectedSubfield = null, arranging = false, layout = loadLayout(), labelLayout = loadLabelLayout(), showTopics = false;
-    host.innerHTML = `<section class="rm"><div class="rmh"><div><b>RESEARCH MAP</b><h2>Three research directions, with evolving subfields</h2><p>One node = one paper · click a subcluster to inspect its papers</p></div><div class="rm-head-actions"><div class="rmy"></div><div class="rm-layout-actions"><button data-clear-cluster hidden>All clusters</button><div class="rm-zoom" aria-label="Map zoom"><button data-zoom-out aria-label="Zoom out">−</button><output data-zoom>100%</output><button data-zoom-in aria-label="Zoom in">+</button><button data-zoom-reset aria-label="Fit map">⌂</button></div><button data-topics>Topics off</button><button data-arrange class="primary">Arrange map</button><span data-arrange-extra hidden><button data-copy>Copy layout</button><button data-reset>Reset</button></span></div></div></div><div class="rmb"><aside class="rml"><div class="rm-controls"></div><div class="rm-inspector"></div></aside><div class="rmw"><svg viewBox="70 35 700 365" aria-label="Publication research map"></svg></div></div></section>`;
-    const yearButtons = host.querySelector('.rmy'), left = host.querySelector('.rm-controls'), inspector = host.querySelector('.rm-inspector'), svg = host.querySelector('svg'), wrap = host.querySelector('.rmw');
+    host.innerHTML = `<section class="rm"><div class="rmh"><div><b>RESEARCH MAP</b><h2>Three research directions, with evolving subfields</h2><p>One node = one paper · select a topic or paper to inspect related work</p></div><div class="rm-head-actions"><div class="rmy"></div><div class="rm-layout-actions"><button data-clear-cluster hidden>All clusters</button><div class="rm-zoom" aria-label="Map zoom"><button data-zoom-out aria-label="Zoom out">−</button><output data-zoom>100%</output><button data-zoom-in aria-label="Zoom in">+</button><button data-zoom-reset aria-label="Fit map">⌂</button></div><button data-topics>Topics off</button><button data-arrange class="primary">Arrange map</button><span data-arrange-extra hidden><button data-copy>Copy layout</button><button data-reset>Reset</button></span></div></div></div><div class="rmb"><div class="rmw"><svg viewBox="70 35 700 365" aria-label="Publication research map"></svg></div><aside class="rml"><div class="rm-inspector"></div></aside></div></section>`;
+    const yearButtons = host.querySelector('.rmy'), inspector = host.querySelector('.rm-inspector'), svg = host.querySelector('svg'), wrap = host.querySelector('.rmw');
     const popup = document.createElement('aside'); popup.className = 'rm-popup'; popup.hidden = true; wrap.append(popup);
     const arrangeButton = host.querySelector('[data-arrange]'), arrangeExtra = host.querySelector('[data-arrange-extra]'), topicsButton = host.querySelector('[data-topics]'), clearClusterButton = host.querySelector('[data-clear-cluster]'), zoomOutButton = host.querySelector('[data-zoom-out]'), zoomInButton = host.querySelector('[data-zoom-in]'), zoomResetButton = host.querySelector('[data-zoom-reset]'), zoomOutput = host.querySelector('[data-zoom]');
     const baseView = { x: 70, y: 35, width: 700, height: 365 }; let mapZoom = 1, mapCenter = { x: 420, y: 217.5 };
@@ -81,11 +83,28 @@
       card.scrollIntoView({ behavior: 'smooth', block: 'center' }); card.classList.add('rm-highlight');
       setTimeout(() => card.classList.remove('rm-highlight'), 2000);
     };
+    function panelCard(node, { selectedCard = false, related = false } = {}) {
+      return `<button class="rm-panel-paper${selectedCard ? ' selected' : ''}" data-paper-id="${escape(node.id)}"><div class="meta"><b>${escape(venueFor(node) || 'Publication')}</b><span>${node.year}</span></div><h3>${escape(node.title)}</h3><p>${escape((node.authors || []).slice(0, 3).join(', ') || 'DAMI Lab')}${related ? ' · related topic' : ''}</p></button>`;
+    }
+    function bindPanelPapers() {
+      inspector.querySelectorAll('[data-paper-id]').forEach(button => button.onclick = () => showNode(nodes.find(node => node.id === button.dataset.paperId)));
+      inspector.querySelector('[data-panel-back]')?.addEventListener('click', () => { selected = null; selectedSubfield = null; renderInspector(); });
+      inspector.querySelector('[data-show-card]')?.addEventListener('click', () => selected && scrollToCard(selected));
+    }
     function renderInspector() {
-      const active = nodes.filter(filtered), listed = selectedSubfield ? active.filter(node => isInSubfield(node, selectedSubfield)) : active;
-      const subfieldName = selectedSubfield?.split('|')[1];
-      inspector.innerHTML = `<div class="rm-list-head"><span>${subfieldName ? `${escape(subfieldName)} · ${listed.length} papers` : `${year === 'all' ? 'All years' : year} · ${listed.length} papers`}</span><span>${subfieldName ? 'Cluster results' : 'Click a title'}</span></div><div class="rm-paper-list">${listed.map(n => `<button data-paper-id="${escape(n.id)}">${escape(n.title.split(':')[0])}<small>${escape(venueFor(n) || n.year)}${subfieldName && n.subfield !== subfieldName ? ' · related' : ''}</small></button>`).join('') || '<small>No papers in this filter.</small>'}</div>`;
-      inspector.querySelectorAll('[data-paper-id]').forEach(button => button.onclick = () => showNode(nodes.find(n => n.id === button.dataset.paperId)));
+      const active = nodes.filter(filtered);
+      if (selected) {
+        const related = active.filter(node => node.id !== selected.id && subfieldsFor(node).some(name => subfieldsFor(selected).includes(name))).slice(0, 6);
+        const venue = venueFor(selected), links = linksFor(selected);
+        inspector.innerHTML = `<div class="rm-panel-head"><div class="rm-panel-kicker">SELECTED PAPER</div><div class="rm-panel-title"><strong>${escape(selected.map_label || selected.subfield)}</strong><button class="rm-panel-close" data-panel-back aria-label="Back to overview">×</button></div><p class="rm-panel-desc">${escape(venue ? `${venue} · ${selected.year}` : selected.year)} · ${escape(selected.title)}</p></div><div class="rm-panel-list">${panelCard(selected, { selectedCard: true })}<div class="rm-panel-actions"><button data-show-card>전체 논문 카드 보기</button>${links.map(link => `<a href="${escape(link.href)}" target="_blank" rel="noopener">${escape(link.name)}</a>`).join('')}</div><div class="rm-list-head" style="margin-top:14px"><span>${related.length} related papers</span><span>Shared topic</span></div>${related.map(node => panelCard(node, { related: true })).join('') || '<p class="rm-panel-desc">No additional papers share this topic yet.</p>'}</div>`;
+        bindPanelPapers(); return;
+      }
+      if (selectedSubfield) {
+        const subfieldName = selectedSubfield.split('|')[1], listed = active.filter(node => isInSubfield(node, selectedSubfield));
+        inspector.innerHTML = `<div class="rm-panel-head"><div class="rm-panel-kicker">SUBFIELD RESULTS</div><div class="rm-panel-title"><strong>${escape(subfieldName)}</strong><button class="rm-panel-close" data-panel-back aria-label="Back to overview">×</button></div><p class="rm-panel-desc">${listed.length} papers connected to this research thread.</p></div><div class="rm-panel-list">${listed.map(node => panelCard(node, { related: node.subfield !== subfieldName })).join('') || '<p class="rm-panel-desc">No papers in this filter.</p>'}</div>`;
+        bindPanelPapers(); return;
+      }
+      inspector.innerHTML = `<div class="rm-panel-head"><div class="rm-panel-kicker">RESEARCH OVERVIEW</div><div class="rm-panel-title"><strong>Start with the map</strong></div><p class="rm-panel-desc">Select a subfield or paper node to open its connected publication list.</p></div><div class="rm-overview"><p class="rm-overview-label">Three research directions</p>${Object.entries(areas).map(([key, area]) => { const count = active.filter(node => node.research_area === key).length; return `<div class="rm-area-summary" style="--area:${area.color}"><span><b>${escape(area.name)}</b><em>${count} papers</em></span><b>${escape(area.summary)}</b><small>${key === 'trust' ? 'Robustness · security · privacy' : key === 'core' ? 'Generalizable learning algorithms' : 'AI in real-world domains'}</small></div>`; }).join('')}</div>`;
     }
     function drawLinks(active) {
       const pairs = new Map();
@@ -121,26 +140,14 @@
     function showNode(node) {
       if (!node) return;
       selected = node;
-      const venue = venueFor(node), links = linksFor(node), dot = svg.querySelector(`.rmnode[data-id="${node.id}"] .rm-dot`);
-      popup.hidden = false;
-      popup.innerHTML = `<button aria-label="Close">×</button><small>${escape(node.map_label || node.subfield)} · ${venue ? `${escape(venue)} · ` : ''}${node.year}</small><strong>${escape(node.title)}</strong><p>${escape(node.abstract || '').slice(0, 170)}${(node.abstract || '').length > 170 ? '…' : ''}</p><div class="rm-detail-actions"><button data-show-card>전체 항목 보기</button>${links.map(l => `<a href="${escape(l.href)}" target="_blank" rel="noopener">${escape(l.name)}</a>`).join('')}</div>`;
-      popup.querySelector('[aria-label="Close"]').onclick = () => { selected = null; popup.hidden = true; };
-      popup.querySelector('[data-show-card]').onclick = () => scrollToCard(node);
-      if (innerWidth > 820 && dot) {
-        const point = dot.getBoundingClientRect(), box = wrap.getBoundingClientRect();
-        popup.style.left = `${Math.max(12, Math.min(box.width - 312, point.left - box.left - 136))}px`;
-        popup.style.top = `${Math.max(12, point.top - box.top - popup.offsetHeight - 16)}px`;
-      }
+      popup.hidden = true;
+      renderInspector();
     }
     function render() {
       activeSimulation?.stop(); activeSimulation = null; dynamicPositions = new Map();
       host.querySelector('.rm').classList.toggle('is-arranging', arranging); host.querySelector('.rm').classList.toggle('has-subselection', !!selectedSubfield); arrangeButton.textContent = arranging ? 'Done arranging' : 'Arrange map'; arrangeExtra.hidden = !arranging; topicsButton.textContent = showTopics ? 'Topics on' : 'Topics off'; topicsButton.classList.toggle('topic-on', showTopics); clearClusterButton.hidden = !selectedSubfield;
       yearButtons.innerHTML = ['all', ...years].map(value => `<button data-year="${value}" class="${String(year) === String(value) ? 'on' : ''}">${value === 'all' ? 'All' : value}</button>`).join('');
       yearButtons.querySelectorAll('button').forEach(button => button.onclick = () => { year = button.dataset.year === 'all' ? 'all' : Number(button.dataset.year); selected = null; updateYearSelection(); });
-      const total = key => nodes.filter(n => key === 'all' || n.research_area === key).length;
-      const visible = key => nodes.filter(n => (key === 'all' || n.research_area === key) && (year === 'all' || n.year === year)).length;
-      left.innerHTML = `<button data-field="all" style="--c:#52667f" class="${field === 'all' ? 'active' : ''}"><span>All research <em>${visible('all')} of ${total('all')}</em></span><small>Trustworthy AI · Core Algorithms · Applications</small></button>` + Object.entries(areas).map(([key, area]) => `<button data-field="${key}" style="--c:${area.color}" class="${field === key ? 'active' : ''}"><span>${area.name}<em>${visible(key)} of ${total(key)}</em></span><small>${key === 'core' ? 'Transfer Learning · Fairness · Optimization' : area.summary}</small></button>`).join('');
-      left.querySelectorAll('button').forEach(button => button.onclick = () => { retainDynamicGeometry(); field = button.dataset.field; selectedSubfield = null; selected = null; render(); });
       popup.hidden = true; shown = nodes.filter(inField); svg.innerHTML = `<defs>${Object.entries(areas).map(([key, area]) => `<radialGradient id="rmg-${key}"><stop offset="0" stop-color="${area.color}" stop-opacity=".62"/><stop offset=".45" stop-color="${area.color}" stop-opacity=".25"/><stop offset="1" stop-color="${area.color}" stop-opacity="0"/></radialGradient><radialGradient id="rmw-${key}"><stop offset="0" stop-color="${area.color}" stop-opacity=".28"/><stop offset=".6" stop-color="${area.color}" stop-opacity=".08"/><stop offset="1" stop-color="${area.color}" stop-opacity="0"/></radialGradient>`).join('')}</defs>`;
       Object.entries(areas).forEach(([key, area]) => {
         const group = nodes.filter(n => n.research_area === key); if (!group.length) return;
@@ -155,7 +162,7 @@
         const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
         g.setAttribute('class', `rm-subcluster${selectedSubfield === clusterKey ? ' is-active' : ''}`);
         g.innerHTML = `<ellipse data-cluster-shell="${clusterKey}" cx="${(x0 + x1) / 2}" cy="${(y0 + y1) / 2}" rx="${Math.max(38, (x1 - x0) / 2 * 1.45)}" ry="${Math.max(30, (y1 - y0) / 2 * 1.45)}" fill="${area.color}" fill-opacity=".085" stroke="${area.color}" stroke-opacity=".09"/><text class="rmsub" data-layout-label="${labelKey}" x="${savedLabel.x}" y="${savedLabel.y}" text-anchor="middle" fill="${area.color}">${escape(group[0].subfield)}</text>`;
-        g.onclick = () => { if (!arranging && !justPanned) { selectedSubfield = selectedSubfield === clusterKey ? null : clusterKey; field = group[0].research_area; selected = null; render(); } }; svg.append(g);
+        g.onclick = () => { if (!arranging && !justPanned) { selectedSubfield = selectedSubfield === clusterKey ? null : clusterKey; field = 'all'; selected = null; render(); } }; svg.append(g);
       });
       if (arranging) svg.querySelectorAll('[data-layout-label]').forEach(label => makeLabelDraggable(label, label.dataset.layoutLabel));
       const mapLinks = drawLinks(shown);
@@ -208,11 +215,6 @@
       // the research map beneath the user.
       activeSimulation?.stop();
       yearButtons.querySelectorAll('button').forEach(button => button.classList.toggle('on', String(year) === button.dataset.year));
-      left.querySelectorAll('[data-field]').forEach(button => {
-        const key = button.dataset.field, count = nodes.filter(node => (key === 'all' || node.research_area === key) && (year === 'all' || node.year === year)).length;
-        const total = nodes.filter(node => key === 'all' || node.research_area === key).length;
-        const countEl = button.querySelector('em'); if (countEl) countEl.textContent = `${count} of ${total}`;
-      });
       popup.hidden = true;
       svg.querySelectorAll('.rmnode').forEach(group => {
         const node = nodes.find(item => item.id === group.dataset.id), dot = group.querySelector('.rm-dot');
