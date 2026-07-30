@@ -145,7 +145,7 @@
         const xs = group.map(n => n.x), ys = group.map(n => n.y), x0 = Math.min(...xs) - 20, x1 = Math.max(...xs) + 20, y0 = Math.min(...ys) - 18, y1 = Math.max(...ys) + 18, area = areas[group[0].research_area];
         const labelKey = `sub:${group[0].research_area}|${group[0].subfield}`, defaultLabel = { x: (x0 + x1) / 2, y: y0 - 7 }, savedLabel = labelLayout[labelKey] || defaultLabel;
         const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-        g.innerHTML = `<ellipse cx="${(x0 + x1) / 2}" cy="${(y0 + y1) / 2}" rx="${Math.max(38, (x1 - x0) / 2 * 1.45)}" ry="${Math.max(30, (y1 - y0) / 2 * 1.45)}" fill="${area.color}" fill-opacity=".085" stroke="${area.color}" stroke-opacity=".09"/><text class="rmsub" data-layout-label="${labelKey}" x="${savedLabel.x}" y="${savedLabel.y}" text-anchor="middle" fill="${area.color}">${escape(group[0].subfield)}</text>`;
+        g.innerHTML = `<ellipse data-cluster-shell="${group[0].research_area}|${group[0].subfield}" cx="${(x0 + x1) / 2}" cy="${(y0 + y1) / 2}" rx="${Math.max(38, (x1 - x0) / 2 * 1.45)}" ry="${Math.max(30, (y1 - y0) / 2 * 1.45)}" fill="${area.color}" fill-opacity=".085" stroke="${area.color}" stroke-opacity=".09"/><text class="rmsub" data-layout-label="${labelKey}" x="${savedLabel.x}" y="${savedLabel.y}" text-anchor="middle" fill="${area.color}">${escape(group[0].subfield)}</text>`;
         g.querySelector('text').onclick = () => { if (!arranging) { field = group[0].research_area; selected = null; render(); } }; svg.append(g);
       });
       if (arranging) svg.querySelectorAll('[data-layout-label]').forEach(label => makeLabelDraggable(label, label.dataset.layoutLabel));
@@ -248,6 +248,9 @@
         const labelKey = `sub:${key}`, label = svg.querySelector(`[data-layout-label="${labelKey}"]`);
         if (!label) return;
         const initial = nodes.filter(node => `${node.research_area}|${node.subfield}` === key), initialBounds = bounds(initial), liveBounds = bounds(group);
+        const shell = svg.querySelector(`[data-cluster-shell="${key}"]`), liveX0 = liveBounds.x0 - 20, liveX1 = liveBounds.x1 + 20, liveY0 = liveBounds.y0 - 18, liveY1 = Math.max(...group.map(node => node.y)) + 18;
+        shell?.setAttribute('cx', (liveX0 + liveX1) / 2); shell?.setAttribute('cy', (liveY0 + liveY1) / 2);
+        shell?.setAttribute('rx', Math.max(38, (liveX1 - liveX0) / 2 * 1.45)); shell?.setAttribute('ry', Math.max(30, (liveY1 - liveY0) / 2 * 1.45));
         const saved = labelLayout[labelKey] || { x: (initialBounds.x0 + initialBounds.x1) / 2, y: initialBounds.y0 - 25 };
         label.setAttribute('x', (liveBounds.x0 + liveBounds.x1) / 2 + (saved.x - (initialBounds.x0 + initialBounds.x1) / 2));
         label.setAttribute('y', liveBounds.y0 - 25 + (saved.y - (initialBounds.y0 - 25)));
@@ -280,7 +283,18 @@
         svg.addEventListener('pointermove', draw); svg.addEventListener('pointerup', finish); svg.addEventListener('pointercancel', finish);
       };
     }
-    arrangeButton.onclick = () => { arranging = !arranging; selected = null; if (!arranging) selectedNodeIds.clear(); render(); };
+    function freezeDynamicMap() {
+      dynamicPositions.forEach((point, id) => {
+        const node = nodes.find(item => item.id === id);
+        if (!node || !Number.isFinite(point.x) || !Number.isFinite(point.y)) return;
+        node.x = +point.x.toFixed(1); node.y = +point.y.toFixed(1);
+      });
+      svg.querySelectorAll('[data-layout-label]').forEach(label => {
+        const key = label.dataset.layoutLabel, x = +label.getAttribute('x'), y = +label.getAttribute('y');
+        if (key && Number.isFinite(x) && Number.isFinite(y)) labelLayout[key] = { x: +x.toFixed(1), y: +y.toFixed(1) };
+      });
+    }
+    arrangeButton.onclick = () => { if (!arranging) freezeDynamicMap(); arranging = !arranging; selected = null; if (!arranging) selectedNodeIds.clear(); render(); };
     topicsButton.onclick = () => { showTopics = !showTopics; localStorage.setItem('dami-research-map-topics', showTopics ? '1' : '0'); render(); };
     host.querySelector('[data-reset]').onclick = () => { layout = { ...publishedNodeLayout }; labelLayout = { ...publishedLabelLayout }; localStorage.removeItem('dami-research-map-layout-v1'); localStorage.removeItem('dami-research-map-label-layout-v1'); nodes = papers.map(position); render(); };
     host.querySelector('[data-copy]').onclick = async () => { const value = JSON.stringify({ nodes: layout, labels: labelLayout }); try { await navigator.clipboard.writeText(value); arrangeButton.textContent = 'Layout copied'; setTimeout(() => arrangeButton.textContent = 'Done arranging', 1300); } catch { prompt('Copy this layout JSON:', value); } };
