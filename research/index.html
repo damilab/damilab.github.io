@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=1240, minimum-scale=0.2, maximum-scale=6.0, user-scalable=yes" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=6.0, user-scalable=yes" />
 <link rel="apple-touch-icon" sizes="180x180" href="/favicon/dami_logo_b.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon/dami_logo_b.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon/dami_logo_b.png">
@@ -162,11 +162,11 @@ html, body, * {
 .dami-areas .axis .head .desc{margin-top:15px;font-size:15px;line-height:1.75;color:rgba(255,255,255,.94);max-width:880px}
 .dami-areas .axis.a1 .head{background:linear-gradient(102deg,#7F1220 0%,#B91C1C 100%)}
 .dami-areas .axis.a2 .head{background:linear-gradient(102deg,#0A4E62 0%,#0E7490 100%)}
-.dami-areas .axis.a3 .head{background:linear-gradient(102deg,#8A2C06 0%,#C2410C 100%)}
+.dami-areas .axis.a3 .head{background:linear-gradient(102deg,#3B0A70 0%,#6D28D9 100%)}
 .dami-areas .axis .body{display:block;padding:14px 30px 8px}
 
 /* 축 헤더: 왼쪽 소개 + 오른쪽 연도 그래프 */
-.dami-areas .axis.a1{--axis:#B91C1C} .axis.a2{--axis:#0E7490} .axis.a3{--axis:#C2410C}
+.dami-areas .axis.a1{--axis:#B91C1C} .axis.a2{--axis:#0E7490} .axis.a3{--axis:#6D28D9}
 .dami-areas .axis .head{display:grid;grid-template-columns:1fr 392px;gap:38px;align-items:start;
   padding:26px 30px 24px}
 .dami-areas .axis .head .hleft{min-width:0}
@@ -205,7 +205,7 @@ html, body, * {
   border-radius:0;white-space:normal;line-height:1.45;text-align:left;
   font-size:12px;font-weight:900;letter-spacing:.01em;color:#111827}
 .dami-areas .axis .sub ul.paps .vchip.jr, .dami-areas .axis .sub ul.paps .vchip.prj{color:#4B5670;font-weight:800}
-.dami-areas .axis .sub ul.paps .vchip b{display:inline;margin-left:6px;font-weight:800;color:#98A2B3;opacity:1;font-size:11.5px}
+.dami-areas .axis .sub ul.paps .vchip b{display:inline;margin-left:6px;font-weight:800;color:#5A6478;opacity:1;font-size:11.5px}
 .dami-areas .axis .sub ul.paps .pt{min-width:0;padding-left:16px;border-left:2px solid #DDE3ED}
 .dami-areas .axis .sub ul.paps a{border-bottom:1.5px solid #C9D0DE}
 .dami-areas .axis .sub ul.paps a:hover{border-bottom-color:var(--navy)}
@@ -220,9 +220,9 @@ html, body, * {
 /* 오른쪽 figure 뷰어 */
 .dami-areas .axis .fcol{position:sticky;top:88px}
 .dami-areas .fview{border:2.5px solid;border-radius:14px;overflow:hidden;background:#fff}
-.dami-areas .axis.a1 .fview{border-color:#B91C1C} .axis.a2 .fview{border-color:#0E7490} .axis.a3 .fview{border-color:#C2410C}
+.dami-areas .axis.a1 .fview{border-color:#B91C1C} .axis.a2 .fview{border-color:#0E7490} .axis.a3 .fview{border-color:#6D28D9}
 .dami-areas .fvh{padding:11px 16px;color:#fff;display:flex;align-items:baseline;gap:10px}
-.dami-areas .axis.a1 .fvh{background:#B91C1C} .axis.a2 .fvh{background:#0E7490} .axis.a3 .fvh{background:#C2410C}
+.dami-areas .axis.a1 .fvh{background:#B91C1C} .axis.a2 .fvh{background:#0E7490} .axis.a3 .fvh{background:#6D28D9}
 .dami-areas .fvh .fvl{font-size:10.5px;font-weight:900;letter-spacing:.14em;opacity:.85}
 .dami-areas .fvh .fvn{font-size:14.5px;font-weight:900;letter-spacing:-.02em}
 .dami-areas .fvfig{display:block;width:100%;border:none;background:#fff;padding:14px;cursor:zoom-in;
@@ -250,11 +250,11 @@ html, body, * {
 .dami-areas .axis .foot .venues{font-size:13.5px;font-weight:800;color:#3F4A60}
 .dami-areas .axis .foot .go{flex:none;white-space:nowrap;color:#fff;font-weight:900;font-size:14px;
   padding:12px 20px;border-radius:9px}
-.dami-areas .axis.a1 .foot .go{background:#B91C1C} .axis.a2 .foot .go{background:#0E7490} .axis.a3 .foot .go{background:#C2410C}
+.dami-areas .axis.a1 .foot .go{background:#B91C1C} .axis.a2 .foot .go{background:#0E7490} .axis.a3 .foot .go{background:#6D28D9}
 
 .dami-areas .axis .sub .rfigwrap{min-width:0}
 .dami-areas .axis .sub .rfig{display:block;border:1.5px solid #DDE3ED;border-radius:10px;background:#fff;padding:10px;
-  height:232px;overflow:hidden;cursor:zoom-in;position:relative;font-family:inherit;width:100%}
+  height:300px;overflow:hidden;cursor:zoom-in;position:relative;font-family:inherit;width:100%}
 .dami-areas .axis .sub .rfig img{position:absolute;inset:10px;margin:auto;max-height:calc(100% - 20px);max-width:calc(100% - 20px);
   width:auto;height:auto;object-fit:contain;opacity:0;transition:opacity .4s ease}
 .dami-areas .axis .sub .rfig img.on{opacity:1}
@@ -275,7 +275,7 @@ html, body, * {
 .dami-areas .axis .sub .rfig:focus-visible{outline:3px solid #FBBF24;outline-offset:2px}
 .dami-areas .axis .sub .fbar{position:absolute;left:0;right:0;bottom:0;height:3px;background:#EDF0F6;z-index:2}
 .dami-areas .axis .sub .fbar i{display:block;height:100%;width:0;background:var(--axis)}
-.dami-areas .axis .sub .rfigwrap.playing .fbar i{animation:fbfill 2800ms linear forwards}
+.dami-areas .axis .sub .rfigwrap.playing .fbar i{animation:fbfill 5200ms linear forwards}
 @keyframes fbfill{from{width:0}to{width:100%}}
 .dami-areas .axis .sub .fmeta{margin-top:9px;display:flex;flex-direction:column;gap:2px}
 .dami-areas .axis .sub .fmeta .fv{font-size:10.5px;font-weight:900;letter-spacing:.06em;color:var(--axis)}
@@ -475,12 +475,12 @@ dialog#fdlg::backdrop{background:rgba(6,10,25,.74)}
 .dami-areas #edbar .hint{font-size:11.5px;color:#9CA3AF;margin-left:4px;white-space:nowrap}
 
 
-/* ---------- 반응형 (viewport width=1240 고정이라 평소엔 발동 안 함) ---------- */
+/* ---------- 반응형 ---------- */
 @media (max-width:1023px){
   .dami-areas .axis .head{grid-template-columns:1fr;gap:22px}
   .dami-areas .traj{border-left:none;border-top:2px solid rgba(255,255,255,.28);padding-left:0;padding-top:18px}
   .dami-areas .axis .sub{grid-template-columns:1fr;gap:18px}
-  .dami-areas .axis .sub .rfig{height:250px}
+  .dami-areas .axis .sub .rfig{height:300px}
 }
 @media (max-width:767px){
   .dami-areas{padding:44px 0 52px}
@@ -492,7 +492,7 @@ dialog#fdlg::backdrop{background:rgba(6,10,25,.74)}
   .dami-areas .axis .sub{padding:18px 8px 18px 14px}
   .dami-areas .axis .sub ul.paps li{grid-template-columns:1fr;gap:4px}
   .dami-areas .axis .sub ul.paps .pt{padding-left:0;border-left:none}
-  .dami-areas .axis .sub .rfig{height:200px}
+  .dami-areas .axis .sub .rfig{height:240px}
   .dami-areas .axis .foot{flex-direction:column;align-items:flex-start;gap:12px;padding:16px 18px}
   .dami-areas .traj .tbox{height:132px}
   dialog#fdlg{width:94vw}
@@ -791,7 +791,7 @@ dialog#fdlg::backdrop{background:rgba(6,10,25,.74)}
 <script>
 var RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
 /* 분야별 figure 캐러셀 */
-var FIG_MS=2800;
+var FIG_MS=5200;
 function showFig(wrap,i){
   var imgs=wrap.querySelectorAll('.rfig img');
   if(!imgs.length) return;
