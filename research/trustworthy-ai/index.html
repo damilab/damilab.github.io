@@ -146,86 +146,226 @@ html, body, * {
 </div>
     
 <main>
+<style>
+/* Research 축 상세 페이지 초안 — 모든 규칙을 .dpage 로 스코프 */
+.dpage{--ink:#0F172A;--ink2:#3F4A60;--line:#C9D0DE;
+  font-family:inherit;color:var(--ink);background:#fff}
+.dpage *{box-sizing:border-box}
+.dpage a{color:inherit;text-decoration:none}
+.dpage ul{list-style:none;margin:0;padding:0}
+.dpage img{display:block;max-width:100%}
+.dpage .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
 
-  
-  <div class="bg-gradient-to-r from-gray-100 to-blue-800 dark:from-gray-900 dark:to-blue-950">
-    <div class="max-w-screen-xl px-4 sm:px-6 lg:px-8 mx-auto py-16 md:py-24">
-      <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight text-black dark:text-white">
-        Trustworthy AI
-      </h1>
-    </div>
-  </div>
+/* 히어로 */
+.dpage .dhero{background:linear-gradient(102deg,var(--cd) 0%,var(--c) 100%);color:#fff;
+  padding:56px 0 46px;position:relative;overflow:hidden}
+.dpage .dhero .kicker{font-size:11.5px;font-weight:900;letter-spacing:.16em;color:rgba(255,255,255,.85)}
+.dpage .dhero h1{margin:9px 0 0;font-size:52px;font-weight:900;letter-spacing:-.04em;line-height:1.05}
+.dpage .dhero .lead{margin-top:14px;font-size:16.5px;line-height:1.7;color:rgba(255,255,255,.95);max-width:760px}
+.dpage .stats{display:flex;gap:44px;margin-top:30px}
+.dpage .stats .st{display:flex;align-items:baseline;gap:9px}
+.dpage .stats .st b{font-size:42px;font-weight:900;letter-spacing:-.045em;line-height:1;
+  font-variant-numeric:tabular-nums}
+.dpage .stats .st span{font-size:13px;font-weight:800;color:rgba(255,255,255,.86)}
 
-  
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-    <div class="prose prose-lg dark:prose-invert max-w-none">
-      <h3 id="공정성fairness-견고성robustness-프라이버시보안privacy--security-해석-가능성interpretability-등-실제-현장에서-안전하고-윤리적인-ai를-구현하는-기반을-연구합니다">공정성(Fairness), 견고성(Robustness), 프라이버시·보안(Privacy &amp; Security), 해석 가능성(Interpretability) 등 실제 현장에서 안전하고 윤리적인 AI를 구현하는 기반을 연구합니다.</h3>
-<p>Developing reliable, fair, and robust AI systems that generalize well under real-world uncertainties.</p>
-<h3 id="주요-연구-분야">주요 연구 분야</h3>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
-<div style="border: 1px solid #e2e8f0; border-radius: 0.75rem; padding: 1.5rem; background-color: #f8fafc;">
-  <h4 style="margin-top: 0; color: #1e40af; font-size: 1.1rem; font-weight: 700;">공정성(Fairness)</h4>
-  <p style="color: #374151; margin: 0.5rem 0; line-height: 1.6;">AI 시스템이 특정 집단에 대한 편향 없이 공정한 결정을 내릴 수 있도록 하는 알고리즘 개발</p>
-</div>
-<div style="border: 1px solid #e2e8f0; border-radius: 0.75rem; padding: 1.5rem; background-color: #f8fafc;">
-  <h4 style="margin-top: 0; color: #1e40af; font-size: 1.1rem; font-weight: 700;">견고성(Robustness)</h4>
-  <p style="color: #374151; margin: 0.5rem 0; line-height: 1.6;">적대적 공격이나 예상치 못한 입력에도 안정적으로 작동하는 AI 모델 설계</p>
-</div>
-<div style="border: 1px solid #e2e8f0; border-radius: 0.75rem; padding: 1.5rem; background-color: #f8fafc;">
-  <h4 style="margin-top: 0; color: #1e40af; font-size: 1.1rem; font-weight: 700;">프라이버시 & 보안</h4>
-  <p style="color: #374151; margin: 0.5rem 0; line-height: 1.6;">개인정보를 보호하면서도 효과적인 학습이 가능한 기술 연구</p>
-</div>
-<div style="border: 1px solid #e2e8f0; border-radius: 0.75rem; padding: 1.5rem; background-color: #f8fafc;">
-  <h4 style="margin-top: 0; color: #1e40af; font-size: 1.1rem; font-weight: 700;">해석 가능성(Interpretability)</h4>
-  <p style="color: #374151; margin: 0.5rem 0; line-height: 1.6;">AI 모델의 의사결정 과정을 이해하고 설명할 수 있는 방법론 개발</p>
-</div>
-</div>
-<h3 id="관련-프로젝트">관련 프로젝트</h3>
-<div style="display: grid; gap: 1.5rem; margin-top: 2rem;">
-<div style="border: 1px solid #e2e8f0; border-radius: 0.75rem; padding: 1.5rem; background-color: #f8fafc; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer;" onclick="window.location.href='/projects/nrf_2022/'" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-  <h4 style="margin-top: 0; color: #1e40af; font-size: 1.25rem; font-weight: 700;">인공지능 시스템의 실용화를 위한 딥러닝 안정성 알고리즘 개발</h4>
-  <div style="display: flex; gap: 1rem; margin: 1rem 0; flex-wrap: wrap;">
-    <span style="background-color: #dbeafe; color: #1e40af; padding: 0.25rem 0.75rem; border-radius: 0.375rem; font-size: 0.875rem; font-weight: 500;">2022.06 - 2025.02</span>
-    <span style="background-color: #fef3c7; color: #92400e; padding: 0.25rem 0.75rem; border-radius: 0.375rem; font-size: 0.875rem; font-weight: 500;">한국연구재단 기본연구</span>
-  </div>
-  <p style="color: #374151; margin: 1rem 0; line-height: 1.6;">표현 학습, 적대적 노이즈 대응, 강건한 모델 개발, noisy 라벨 학습</p>
-  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-    <span style="background-color: #e5e7eb; color: #374151; padding: 0.125rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem;">#Generalization</span>
-    <span style="background-color: #e5e7eb; color: #374151; padding: 0.125rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem;">#Robustness</span>
-    <span style="background-color: #e5e7eb; color: #374151; padding: 0.125rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem;">#Fairness</span>
-  </div>
-</div>
-<div style="border: 1px solid #e2e8f0; border-radius: 0.75rem; padding: 1.5rem; background-color: #f8fafc; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer;" onclick="window.location.href='/projects/genesislab_2022/'" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-  <h4 style="margin-top: 0; color: #1e40af; font-size: 1.25rem; font-weight: 700;">공정한 인공지능 면접 모델 알고리즘 개발</h4>
-  <div style="display: flex; gap: 1rem; margin: 1rem 0; flex-wrap: wrap;">
-    <span style="background-color: #dbeafe; color: #1e40af; padding: 0.25rem 0.75rem; border-radius: 0.375rem; font-size: 0.875rem; font-weight: 500;">2022.07 - 2022.12</span>
-    <span style="background-color: #fef3c7; color: #92400e; padding: 0.25rem 0.75rem; border-radius: 0.375rem; font-size: 0.875rem; font-weight: 500;">Genesis Lab</span>
-  </div>
-  <p style="color: #374151; margin: 1rem 0; line-height: 1.6;">인공지능 면접 시스템의 공정성 분석 및 개선 알고리즘 개발</p>
-  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-    <span style="background-color: #e5e7eb; color: #374151; padding: 0.125rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem;">#Fairness</span>
-    <span style="background-color: #e5e7eb; color: #374151; padding: 0.125rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem;">#Multimodal</span>
-    <span style="background-color: #e5e7eb; color: #374151; padding: 0.125rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem;">#Deep learning</span>
-  </div>
-</div>
-<div style="border: 1px solid #e2e8f0; border-radius: 0.75rem; padding: 1.5rem; background-color: #f8fafc; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer;" onclick="window.location.href='/projects/nrf_2025/'" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-  <h4 style="margin-top: 0; color: #1e40af; font-size: 1.25rem; font-weight: 700;">윤리적인 다국어 LLM 활용을 위한 문맥 기반 탈옥 가드레일 구축</h4>
-  <div style="display: flex; gap: 1rem; margin: 1rem 0; flex-wrap: wrap;">
-    <span style="background-color: #dbeafe; color: #1e40af; padding: 0.25rem 0.75rem; border-radius: 0.375rem; font-size: 0.875rem; font-weight: 500;">2025.03 – 2027.02</span>
-    <span style="background-color: #fef3c7; color: #92400e; padding: 0.25rem 0.75rem; border-radius: 0.375rem; font-size: 0.875rem; font-weight: 500;">한국연구재단 우수신진연구</span>
-  </div>
-  <p style="color: #374151; margin: 1rem 0; line-height: 1.6;">LLM 탈옥 공격 탐지 및 방어, 다국어 유해 데이터셋 구축, 퍼플팀 기반 보안 연구</p>
-  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-    <span style="background-color: #e5e7eb; color: #374151; padding: 0.125rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem;">#Large Language Model</span>
-    <span style="background-color: #e5e7eb; color: #374151; padding: 0.125rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem;">#Jailbreaking</span>
-    <span style="background-color: #e5e7eb; color: #374151; padding: 0.125rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem;">#Guardrail</span>
-  </div>
-</div>
-</div>
+/* 섹션 공통 */
+.dpage .sec{padding:46px 0 40px}
+.dpage .sec.alt{background:#F5F7FB;border-top:1.5px solid #E4E9F2;border-bottom:1.5px solid #E4E9F2}
+.dpage .sec h2{margin:0 0 22px;font-size:26px;font-weight:900;letter-spacing:-.03em;
+  padding-left:14px;border-left:6px solid var(--c);line-height:1.2}
 
-    </div>
-  </div>
+/* 과제 목록: 한 과제 한 줄 */
+.dpage .prow{display:grid;grid-template-columns:210px 1fr;gap:22px;align-items:baseline;
+  padding:14px 0;border-top:1.5px solid #E4E9F2}
+.dpage .prow:first-child{border-top:none}
+.dpage .pwhen{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+.dpage .pwhen b{font-size:13px;font-weight:900;color:#4B5670;font-variant-numeric:tabular-nums;
+  white-space:nowrap}
+.dpage .plive{font-size:11px;font-weight:900;color:#fff;background:var(--c);
+  border-radius:5px;padding:3px 8px;white-space:nowrap}
+.dpage .ptitle{font-size:16px;font-weight:900;letter-spacing:-.02em;line-height:1.45}
+.dpage .porg{margin-top:4px;font-size:13px;font-weight:800;color:#5A6478}
 
+/* 과제 타임라인 (미사용) */
+.dpage .gantt{position:relative}
+.dpage .gyears{position:relative;height:20px;margin-bottom:8px}
+.dpage .gyears span{position:absolute;transform:translateX(-50%);font-size:11.5px;font-weight:900;color:#5A6478}
+.dpage .grow{padding:14px 0 16px;border-top:1.5px solid #E4E9F2}
+.dpage .grow:first-of-type{border-top:none}
+.dpage .gmeta{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.dpage .gmeta b{font-size:16px;font-weight:900;letter-spacing:-.02em}
+.dpage .gmeta span{font-size:12.5px;font-weight:800;color:#5A6478}
+.dpage .gtrack{position:relative;height:16px;margin-top:11px;background:#EBEFF6;border-radius:4px}
+.dpage .gtrack i{position:absolute;top:0;bottom:0;width:1px;background:#D5DCE8}
+.dpage .gbar{position:absolute;top:0;bottom:0;left:var(--l);width:var(--w);border-radius:4px;
+  background:var(--c);transform:scaleX(0);transform-origin:left center}
+.dpage .gbar.live{background:repeating-linear-gradient(115deg,var(--c) 0 12px,var(--cd) 12px 24px)}
+.dpage .gantt.on .gbar{transform:scaleX(1);
+  transition:transform .72s cubic-bezier(.22,.61,.36,1);transition-delay:calc(var(--i)*140ms)}
+.dpage .gdesc{margin-top:10px;font-size:14px;line-height:1.65;color:var(--ink2)}
+.dpage .gtags{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.dpage .gtags span{font-size:11.5px;font-weight:800;color:var(--c);
+  border:1.5px solid var(--c);border-radius:5px;padding:3px 8px}
+
+/* 연구 주제: 왼쪽 고정 목차 + 오른쪽 본문 */
+.dpage .tlayout{display:grid;grid-template-columns:224px 1fr;gap:34px;align-items:start}
+.dpage .toc{position:sticky;top:88px;display:flex;flex-direction:column;gap:2px}
+.dpage .toc a{display:block;padding:8px 12px;font-size:13.5px;font-weight:800;color:#5A6478;
+  border-left:3px solid #D5DCE8;line-height:1.4;transition:color .16s ease,border-color .16s ease}
+.dpage .toc a:hover{color:var(--ink)}
+.dpage .toc a.on{color:var(--c);border-left-color:var(--c)}
+.dpage .topic{padding:22px 0 24px;border-top:1.5px solid #E4E9F2}
+.dpage .topic:first-child{border-top:none;padding-top:0}
+.dpage .thead h3{margin:0;font-size:19px;font-weight:900;letter-spacing:-.025em;color:var(--c)}
+.dpage .thead p{margin:7px 0 0;font-size:14.5px;font-weight:800;color:#1F2937}
+.dpage .tgrid{display:grid;grid-template-columns:1fr 300px;gap:26px;align-items:start;margin-top:13px}
+.dpage .tfig{border:1.5px solid #DDE3ED;border-radius:10px;background:#fff;padding:10px}
+.dpage ul.pts li{position:relative;padding-left:16px;font-size:14.5px;line-height:1.6;
+  color:var(--ink2);margin-top:4px}
+.dpage ul.pts li:first-child{margin-top:0}
+.dpage ul.pts li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;
+  border-radius:1px;background:#9AA4B8}
+
+/* 논문 목록 (주제 안 · 연도별 공용) */
+.dpage ul.paps{margin-top:12px}
+.dpage ul.paps li{display:grid;grid-template-columns:200px 1fr;gap:16px;align-items:baseline;
+  padding:6px 0;border-top:1px solid #E9EDF4;font-size:13.5px;line-height:1.5;font-weight:800}
+.dpage ul.paps li:first-child{border-top:none}
+.dpage ul.paps .pv{font-size:12px;font-weight:900;color:#4B5670}
+.dpage ul.paps .pt{padding-left:16px;border-left:2px solid #DDE3ED;color:var(--ink)}
+.dpage ul.paps a{border-bottom:1.5px solid #C9D0DE}
+.dpage ul.paps a:hover{border-bottom-color:var(--c)}
+
+/* 논문 목록: 주제별 / 연도별 전환 */
+.dpage .phead{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.dpage .phead h2{margin-bottom:0}
+.dpage .pswitch{display:flex;gap:0;border:2px solid var(--c);border-radius:8px;overflow:hidden}
+.dpage .pswitch button{font-family:inherit;font-size:13px;font-weight:900;padding:8px 18px;
+  border:none;background:#fff;color:var(--c);cursor:pointer;transition:background .16s ease,color .16s ease}
+.dpage .pswitch button + button{border-left:2px solid var(--c)}
+.dpage .pswitch button.on{background:var(--c);color:#fff}
+.dpage .plist{margin-top:20px}
+.dpage .pview{display:grid;grid-template-columns:210px 1fr;gap:0 22px}
+.dpage .plist[data-view="topic"] .pv-year,
+.dpage .plist[data-view="year"] .pv-topic{display:none}
+.dpage .pgroup{display:contents}
+.dpage .pgroup .gh{font-size:17px;font-weight:900;letter-spacing:-.03em;color:var(--c);line-height:1.35;
+  padding:14px 0 0;border-top:2px solid #E4E9F2}
+.dpage .plist[data-view="year"] .gh{font-size:22px}
+.dpage .pgroup ul.paps{margin-top:0;padding:14px 0 16px;border-top:2px solid #E4E9F2}
+.dpage .pview.swap li,.dpage .pview.swap .gh{animation:pIn .34s both;animation-delay:calc(var(--k,0)*16ms)}
+@keyframes pIn{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
+
+/* 스크롤 진입 효과 */
+.dpage .rise{opacity:0;transform:translateY(12px)}
+.dpage .rise.in{opacity:1;transform:none;transition:opacity .5s ease,transform .5s cubic-bezier(.22,.61,.36,1)}
+
+@media (max-width:900px){
+  .dpage .tlayout{grid-template-columns:1fr}
+  .dpage .toc{position:static;flex-direction:row;flex-wrap:wrap}
+  .dpage .tgrid{grid-template-columns:1fr}
+  .dpage .pview{grid-template-columns:1fr}
+  .dpage ul.paps li{grid-template-columns:1fr;gap:3px}
+  .dpage ul.paps .pt{padding-left:0;border-left:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .dpage .gbar{transform:scaleX(1)}
+  .dpage .rise{opacity:1;transform:none}
+  .dpage .pview.swap li,.dpage .pview.swap .gh{animation:none}
+}
+
+</style>
+<div class="dpage" style="--c:#B91C1C;--cd:#7F1220">
+<header class="dhero"><div class="wrap"><div class="kicker">AREA 01</div><h1>Trustworthy AI</h1><p class="lead">모델이 언제, 왜 실패하는지를 먼저 규명하고, 그 결과를 방어 기법 설계로 연결합니다.</p></div></header>
+<section class="sec"><div class="wrap"><h2>연구 과제</h2><div class="projs"><div class="prow"><div class="pwhen"><b>2025.03 ~ 2027.02</b><span class="plive">진행 중</span></div><div class="pwhat"><div class="ptitle">윤리적인 다국어 LLM 활용을 위한 문맥 기반 탈옥 가드레일 구축</div><div class="porg">한국연구재단 우수신진연구</div></div></div><div class="prow"><div class="pwhen"><b>2022.06 ~ 2025.02</b></div><div class="pwhat"><div class="ptitle">인공지능 시스템의 실용화를 위한 딥러닝 안정성 알고리즘 개발</div><div class="porg">한국연구재단 기본연구</div></div></div><div class="prow"><div class="pwhen"><b>2022.07 ~ 2022.12</b></div><div class="pwhat"><div class="ptitle">공정한 인공지능 면접 모델 알고리즘 개발</div><div class="porg">Genesis Lab</div></div></div></div></div></section>
+<section class="sec alt"><div class="wrap"><div class="phead"><h2>논문</h2><div class="pswitch"><button type="button" class="on" data-v="topic">주제별</button><button type="button" data-v="year">연도별</button></div></div><div class="plist" data-view="topic"><div class="pview pv-topic"><div class="pgroup"><div class="gh">LLM &amp; Agent Safety</div><ul class="paps"><li style="--k:0"><span class="pv">ICLR 2026</span><span class="pt"><a href="https://arxiv.org/abs/2606.05609" target="_blank">SlotGCG: Exploiting the Positional Vulnerability in LLMs for Jailbreak Attacks</a></span></li><li style="--k:1"><span class="pv">Information Sciences 2025</span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Towards%20undetectable%20adversarial%20attack%20on%20time%20series%20classification.pdf" target="_blank">Towards undetectable adversarial attack on time series classification</a></span></li><li style="--k:2"><span class="pv">Applied Soft Computing 2025</span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Black-box%20adversarial%20examples%20via%20frequency%20distortion%20against%20fault%20diagnosis%20systems.pdf" target="_blank">Black-box adversarial examples via frequency distortion</a></span></li></ul></div><div class="pgroup"><div class="gh">Unlearning &amp; Privacy</div><ul class="paps"><li style="--k:3"><span class="pv">ICLR 2026</span><span class="pt"><a href="https://arxiv.org/abs/2606.24192" target="_blank">Co-occurring Associated REtained concepts in Diffusion Unlearning</a></span></li><li style="--k:4"><span class="pv">NeurIPS 2021</span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Parameter-free%20HE-friendly%20Logistic%20Regression.pdf" target="_blank">Parameter-free HE-friendly Logistic Regression</a></span></li></ul></div><div class="pgroup"><div class="gh">Adversarial Robustness</div><ul class="paps"><li style="--k:5"><span class="pv">NeurIPS 2021</span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Towards%20Better%20Understanding%20of%20Training%20Certifiably%20Robust%20Models%20against%20Adversarial%20Examples.pdf" target="_blank">Towards Better Understanding of Training Certifiably Robust Models against Adversarial Examples</a></span></li><li style="--k:6"><span class="pv">Neural Networks 2023</span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Bridged%20adversarial%20training.pdf" target="_blank">Bridged adversarial training</a></span></li><li style="--k:7"><span class="pv">J. Ambient Intelligence 2024</span><span class="pt">Sliced Wasserstein adversarial training</span></li><li style="--k:8"><span class="pv">Engineering Applications of AI 2024</span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Evaluating%20practical%20adversarial%20robustness%20of%20fault%20diagnosis%20systems%20via%20spectrogram-aware%20ensemble%20method.pdf" target="_blank">Evaluating practical adversarial robustness of fault diagnosis systems via spectrogram-aware ensemble method</a></span></li></ul></div><div class="pgroup"><div class="gh">Optimization Stability</div><ul class="paps"><li style="--k:9"><span class="pv">AAAI 2020</span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Understanding%20Catastrophic%20Overfitting%20in%20Single-step%20Adversarial%20Training.pdf" target="_blank">Understanding catastrophic overfitting in single-step adversarial training</a></span></li><li style="--k:10"><span class="pv">IEEE Access 2026</span><span class="pt">Exploring the Effect of Multi-Step Ascent in Sharpness-Aware Minimization</span></li><li style="--k:11"><span class="pv">Applied Soft Computing 2023</span><span class="pt">Fast sharpness-aware training for periodic time series classification</span></li></ul></div><div class="pgroup"><div class="gh">Fairness</div><ul class="paps"><li style="--k:12"><span class="pv">Information Sciences 2021</span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Fair%20Clustering%20with%20Fair%20Correspondence%20Distribution.pdf" target="_blank">Fair clustering with fair correspondence distribution</a></span></li><li style="--k:13"><span class="pv">IEEE Access 2023</span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Fairness-Aware%20Multimodal%20Learning%20in%20Automatic%20Video%20Interview%20Assessment.pdf" target="_blank">Fairness-Aware Multimodal Learning in Automatic Video Interview Assessment</a></span></li><li style="--k:14"><span class="pv">IEEE Access 2020</span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Joint%20Transfer%20of%20Model%20Knowledge%20and%20Fairness%20Over%20Domains%20Using%20Wasserstein%20Distance.pdf" target="_blank">Joint transfer of model knowledge and fairness over domains</a></span></li><li style="--k:15"><span class="pv">대한산업공학회 2023</span><span class="pt">멀티모달을 사용하는 AI 면접에서의 공정성 개선</span></li></ul></div></div><div class="pview pv-year"><div class="pgroup"><div class="gh">2026</div><ul class="paps"><li style="--k:0"><span class="pv">ICLR 2026</span><span class="pt"><a href="https://arxiv.org/abs/2606.24192" target="_blank">Co-occurring Associated REtained concepts in Diffusion Unlearning</a></span></li><li style="--k:1"><span class="pv">IEEE Access 2026</span><span class="pt">Exploring the Effect of Multi-Step Ascent in Sharpness-Aware Minimization</span></li><li style="--k:2"><span class="pv">ICLR 2026</span><span class="pt"><a href="https://arxiv.org/abs/2606.05609" target="_blank">SlotGCG: Exploiting the Positional Vulnerability in LLMs for Jailbreak Attacks</a></span></li></ul></div><div class="pgroup"><div class="gh">2025</div><ul class="paps"><li style="--k:3"><span class="pv">Applied Soft Computing 2025</span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Black-box%20adversarial%20examples%20via%20frequency%20distortion%20against%20fault%20diagnosis%20systems.pdf" target="_blank">Black-box adversarial examples via frequency distortion</a></span></li><li style="--k:4"><span class="pv">Information Sciences 2025</span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Towards%20undetectable%20adversarial%20attack%20on%20time%20series%20classification.pdf" target="_blank">Towards undetectable adversarial attack on time series classification</a></span></li></ul></div><div class="pgroup"><div class="gh">2024</div><ul class="paps"><li style="--k:5"><span class="pv">Engineering Applications of AI 2024</span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Evaluating%20practical%20adversarial%20robustness%20of%20fault%20diagnosis%20systems%20via%20spectrogram-aware%20ensemble%20method.pdf" target="_blank">Evaluating practical adversarial robustness of fault diagnosis systems via spectrogram-aware ensemble method</a></span></li><li style="--k:6"><span class="pv">J. Ambient Intelligence 2024</span><span class="pt">Sliced Wasserstein adversarial training</span></li></ul></div><div class="pgroup"><div class="gh">2023</div><ul class="paps"><li style="--k:7"><span class="pv">Neural Networks 2023</span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Bridged%20adversarial%20training.pdf" target="_blank">Bridged adversarial training</a></span></li><li style="--k:8"><span class="pv">IEEE Access 2023</span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Fairness-Aware%20Multimodal%20Learning%20in%20Automatic%20Video%20Interview%20Assessment.pdf" target="_blank">Fairness-Aware Multimodal Learning in Automatic Video Interview Assessment</a></span></li><li style="--k:9"><span class="pv">Applied Soft Computing 2023</span><span class="pt">Fast sharpness-aware training for periodic time series classification</span></li><li style="--k:10"><span class="pv">대한산업공학회 2023</span><span class="pt">멀티모달을 사용하는 AI 면접에서의 공정성 개선</span></li></ul></div><div class="pgroup"><div class="gh">2021</div><ul class="paps"><li style="--k:11"><span class="pv">Information Sciences 2021</span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Fair%20Clustering%20with%20Fair%20Correspondence%20Distribution.pdf" target="_blank">Fair clustering with fair correspondence distribution</a></span></li><li style="--k:12"><span class="pv">NeurIPS 2021</span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Parameter-free%20HE-friendly%20Logistic%20Regression.pdf" target="_blank">Parameter-free HE-friendly Logistic Regression</a></span></li><li style="--k:13"><span class="pv">NeurIPS 2021</span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Towards%20Better%20Understanding%20of%20Training%20Certifiably%20Robust%20Models%20against%20Adversarial%20Examples.pdf" target="_blank">Towards Better Understanding of Training Certifiably Robust Models against Adversarial Examples</a></span></li></ul></div><div class="pgroup"><div class="gh">2020</div><ul class="paps"><li style="--k:14"><span class="pv">IEEE Access 2020</span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Joint%20Transfer%20of%20Model%20Knowledge%20and%20Fairness%20Over%20Domains%20Using%20Wasserstein%20Distance.pdf" target="_blank">Joint transfer of model knowledge and fairness over domains</a></span></li><li style="--k:15"><span class="pv">AAAI 2020</span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Understanding%20Catastrophic%20Overfitting%20in%20Single-step%20Adversarial%20Training.pdf" target="_blank">Understanding catastrophic overfitting in single-step adversarial training</a></span></li></ul></div></div></div></div></section>
+</div>
+<script>
+(function(){
+  var RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* 히어로 숫자 카운트업 */
+  document.querySelectorAll('.dpage .stats b').forEach(function(el){
+    var to = +el.dataset.to;
+    if(RM){ el.textContent = to; return; }
+    new IntersectionObserver(function(es,o){
+      es.forEach(function(e){
+        if(!e.isIntersecting) return;
+        o.unobserve(e.target);
+        var t0 = null, dur = 900;
+        requestAnimationFrame(function step(ts){
+          if(t0===null) t0 = ts;
+          var k = Math.min(1,(ts-t0)/dur);
+          el.textContent = Math.round(to*(1-Math.pow(1-k,3)));
+          if(k<1) requestAnimationFrame(step);
+        });
+      });
+    },{threshold:.6}).observe(el);
+  });
+
+  /* 과제 막대가 왼쪽에서 자라남 */
+  var g = document.querySelector('.dpage .gantt');
+  if(g){
+    if(RM) g.classList.add('on');
+    else new IntersectionObserver(function(es,o){
+      es.forEach(function(e){ if(e.isIntersecting){ g.classList.add('on'); o.unobserve(e.target); } });
+    },{threshold:.25}).observe(g);
+  }
+
+  /* 스크롤 진입 시 떠오르기 */
+  document.querySelectorAll('.dpage .prow, .dpage .pgroup .gh').forEach(function(el){
+    el.classList.add('rise');
+  });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  },{threshold:.12});
+  document.querySelectorAll('.dpage .rise').forEach(function(el){ rio.observe(el); });
+
+  /* 논문 목록 주제별 / 연도별 전환 */
+  var plist = document.querySelector('.dpage .plist');
+  if(plist){
+    document.querySelectorAll('.dpage .pswitch button').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var v = btn.dataset.v;
+        if(plist.dataset.view === v) return;
+        document.querySelectorAll('.dpage .pswitch button').forEach(function(b){
+          b.classList.toggle('on', b === btn);
+        });
+        plist.dataset.view = v;
+        var view = plist.querySelector('.pv-' + v);
+        if(!view || RM) return;
+        view.classList.remove('swap'); void view.offsetWidth; view.classList.add('swap');
+      });
+    });
+  }
+
+  /* 목차 현재 위치 표시 */
+  var links = [].slice.call(document.querySelectorAll('.dpage .toc a'));
+  var topics = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  function sync(){
+    var y = window.scrollY + 160, cur = 0;
+    topics.forEach(function(t,i){ if(t && t.offsetTop <= y) cur = i; });
+    links.forEach(function(a,i){ a.classList.toggle('on', i===cur); });
+  }
+  if(links.length){
+    sync();
+    var tick = false;
+    addEventListener('scroll', function(){
+      if(tick) return; tick = true;
+      requestAnimationFrame(function(){ sync(); tick = false; });
+    }, {passive:true});
+    links.forEach(function(a){
+      a.addEventListener('click', function(ev){
+        var t = document.querySelector(a.getAttribute('href'));
+        if(!t) return;
+        ev.preventDefault();
+        scrollTo({top:t.offsetTop-110, behavior: RM ? 'auto' : 'smooth'});
+      });
+    });
+  }
+})();
+
+</script>
 </main>
 
     <footer class="bg-gray-900 text-gray-300">
