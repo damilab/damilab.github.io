@@ -40,15 +40,15 @@ html, body, * {
 /* Publication metadata: compact date rail, expandable author list, and venue signals. */
 .publication-item .publication-content {
   position: relative;
-  padding-right: 9.1rem;
+  padding-right: 10rem;
 }
 .publication-item .publication-date-rail {
   position: absolute;
   top: 0.28rem;
   right: 0.65rem;
-  min-width: 6.3rem;
+  min-width: 7.25rem;
   color: #59667a;
-  font-size: 0.9rem;
+  font-size: 1.08rem;
   font-weight: 700;
   letter-spacing: 0.04em;
   line-height: 1.2;
@@ -57,7 +57,7 @@ html, body, * {
 .publication-item .publication-date-rail strong {
   display: block;
   color: #1f2937;
-  font-size: 2.05rem;
+  font-size: 2.46rem;
   line-height: 1.05;
   letter-spacing: -0.04em;
 }
@@ -85,9 +85,9 @@ html, body, * {
     width: 100% !important;
     min-width: 0 !important;
   }
-  .publication-item .publication-content { padding-right: 7.5rem; }
-  .publication-item .publication-date-rail strong { font-size: 1.52rem; }
-  .publication-item .publication-date-rail { top: 0.2rem; right: 0.45rem; min-width: 5.55rem; font-size: 0.78rem; }
+  .publication-item .publication-content { padding-right: 8.5rem; }
+  .publication-item .publication-date-rail strong { font-size: 1.82rem; }
+  .publication-item .publication-date-rail { top: 0.2rem; right: 0.45rem; min-width: 6.4rem; font-size: 0.94rem; }
 }
 </style>
 
@@ -4909,8 +4909,7 @@ Array.from(new Set(Array.from(document.querySelectorAll('.publication-item[data-
 function formatPublicationDate(value, fallbackYear) {
     if (!value) return { year: fallbackYear, monthDay: '' };
     const [year, month, day] = value.split('-');
-    const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
-    return { year, monthDay: `${Number(day)} ${months[Number(month) - 1]}` };
+    return { year, monthDay: `${month}. ${day}` };
 }
 
 function enhancePublicationMetadata() {
