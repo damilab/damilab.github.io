@@ -1,8 +1,11 @@
 (() => {
-  const F={trust:['Trustworthy AI','#d94a42'],core:['AI Core Algorithms','#3267c8'],application:['AI Applications','#239c68']};
+  const F={trust:['Trustworthy AI','#c86b67'],core:['AI Core Algorithms','#3d6fae'],application:['AI Applications','#4e9478']};
   const S={'trust|Robustness':[145,180],'trust|Security & Attacks':[245,110],'trust|Privacy & Safety':[210,245],'core|Transfer & Fairness':[350,115],'core|Optimization':[410,185],'core|Representation':[375,250],'application|Geospatial & Environment':[575,255],'application|Finance & Society':[555,165],'application|Science & Technology':[665,305]};
   const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const host=document.getElementById('research-map-host'); if(!host) return;
+  const tones=document.createElement('style');
+  tones.textContent='.rmnode circle:first-child:not(:only-child){stroke:#b78945!important}';
+  document.head.append(tones);
   const fallback=p=>{let t=[p.title,...(p.keywords||[]),p.abstract].join(' ').toLowerCase();let a=/geospatial|groundwater|radon|environment|finance|financial|review|golf|swing|patent|impact factor|material|hydrogen|crypto|fault diagnosis|shale gas/.test(t),r=/robust|adversarial|security|jailbreak|privacy|homomorphic|unlearning|vulnerability/.test(t);p.research_area=p.research_area||(a?'application':r?'trust':'core');if(!p.subfield){if(p.research_area==='trust')p.subfield=/security|jailbreak|vulnerability/.test(t)?'Security & Attacks':/privacy|unlearning|homomorphic/.test(t)?'Privacy & Safety':'Robustness';else if(p.research_area==='core')p.subfield=/transfer|domain adaptation|fairness/.test(t)?'Transfer & Fairness':/optimization|sharpness/.test(t)?'Optimization':'Representation';else p.subfield=/geospatial|groundwater|radon|environment/.test(t)?'Geospatial & Environment':/finance|financial|review|crypto/.test(t)?'Finance & Society':'Science & Technology'}p.map_label=p.map_label||(p.keywords||[])[0]||p.subfield;return p};
   fetch('/publication/papers.json').then(r=>r.json()).then(d=>mount((d.papers||[]).map(fallback))).catch(()=>host.remove());
   function mount(P){let years=[...new Set(P.map(p=>+p.year))].sort((a,b)=>a-b),year=years.at(-1),field='all',sub='all';let counts=Object.fromEntries(Object.keys(F).map(k=>[k,P.filter(p=>p.research_area===k).length]));
