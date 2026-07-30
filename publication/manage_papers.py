@@ -19,7 +19,7 @@ MARKER = '<!-- AUTO_PUBLICATION_CARDS -->'
 
 FIELDS = {
     'trust': ('Trustworthy AI', 'Safety · Security · Privacy'),
-    'core': ('AI Core Algorithms', 'Transfer · Optimization'),
+    'core': ('AI Core Algorithms', 'Transfer Learning · Fairness · Optimization'),
     'application': ('AI Applications', 'Geospatial · Finance · Society'),
 }
 
@@ -47,7 +47,9 @@ def subfield(p):
     if p['research_area'] == 'trust':
         return 'Security & Attacks' if any(x in text for x in ('security', 'jailbreak', 'vulnerability')) else ('Privacy & Safety' if any(x in text for x in ('privacy', 'unlearning', 'homomorphic')) else 'Robustness')
     if p['research_area'] == 'core':
-        return 'Transfer & Fairness' if any(x in text for x in ('transfer', 'domain adaptation', 'fairness')) else ('Optimization' if any(x in text for x in ('optimization', 'sharpness')) else 'Representation')
+        if 'fairness' in text: return 'Fairness'
+        if any(x in text for x in ('transfer', 'domain adaptation')): return 'Transfer Learning'
+        return 'Optimization' if any(x in text for x in ('optimization', 'sharpness')) else 'Representation'
     return 'Geospatial & Environment' if any(x in text for x in ('geospatial', 'groundwater', 'radon', 'environment')) else ('Finance & Society' if any(x in text for x in ('finance', 'financial', 'review', 'cryptocurrenc')) else 'Science & Technology')
 
 def normalize(raw):

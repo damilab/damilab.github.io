@@ -9,9 +9,11 @@
   };
   const centers = {
     'trust|Robustness': [145, 180], 'trust|Security & Attacks': [245, 110], 'trust|Privacy & Safety': [210, 245],
-    'core|Transfer & Fairness': [350, 115], 'core|Optimization': [410, 185], 'core|Representation': [375, 250],
+    'core|Transfer Learning': [350, 115], 'core|Fairness': [380, 150], 'core|Optimization': [410, 185], 'core|Representation': [375, 250],
     'application|Geospatial & Environment': [575, 255], 'application|Finance & Society': [555, 165], 'application|Science & Technology': [665, 305]
   };
+  const publishedNodeLayout = {"paper-31":{"x":231.1,"y":179.5},"paper-9":{"x":237.5,"y":134.4},"paper-4":{"x":278.8,"y":121.9},"paper-29":{"x":253.2,"y":105.1},"paper-6":{"x":213.1,"y":234.2},"paper-2":{"x":517.6,"y":158.5},"paper-34":{"x":136.9,"y":149.7},"paper-17":{"x":102,"y":222.7},"paper-24":{"x":95.3,"y":154.9},"paper-26":{"x":132.7,"y":183.5},"paper-18":{"x":174.2,"y":145},"paper-21":{"x":167.7,"y":174.3},"paper-15":{"x":179.3,"y":190.2},"paper-25":{"x":257.3,"y":250.4},"paper-0":{"x":565.9,"y":245.5},"paper-5":{"x":537.4,"y":267.2},"paper-3":{"x":708.8,"y":241.2},"paper-7":{"x":545.9,"y":155.5},"paper-8":{"x":551.2,"y":229.6},"paper-11":{"x":657.3,"y":262.9},"paper-12":{"x":531.2,"y":139.6},"paper-13":{"x":670.4,"y":236.1},"paper-14":{"x":563,"y":263.6},"paper-16":{"x":515.8,"y":233.3},"paper-19":{"x":678.8,"y":264.7},"paper-23":{"x":643.1,"y":243.9},"paper-33":{"x":698.2,"y":195.8},"paper-35":{"x":660.9,"y":283},"paper-36":{"x":650.1,"y":216.9},"paper-37":{"x":699.2,"y":262.8},"paper-1":{"x":427.4,"y":242.7},"paper-28":{"x":379.5,"y":173.8},"paper-32":{"x":404.9,"y":149.8},"paper-10":{"x":394.5,"y":129.9},"paper-20":{"x":343.6,"y":163.2},"paper-30":{"x":334.9,"y":140.8},"paper-22":{"x":393.5,"y":249.5},"paper-27":{"x":366.3,"y":126.9}};
+  const publishedLabelLayout = {"sub:trust|Security & Attacks":{"x":246.6,"y":92.3},"sub:trust|Robustness":{"x":130.6,"y":138.3},"sub:core|Fairness":{"x":376,"y":117.6},"area:core":{"x":397.8,"y":65.7},"sub:application|Finance & Society":{"x":535.5,"y":127.5},"area:application":{"x":605.3,"y":94.6},"area:trust":{"x":193.8,"y":64.3},"sub:core|Optimization":{"x":398.2,"y":221.8}};
   const escape = value => String(value || '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const textOf = el => el?.textContent.trim() || '';
 
@@ -40,9 +42,9 @@
     const popup = document.createElement('aside'); popup.className = 'rm-popup'; popup.hidden = true; wrap.append(popup);
     const arrangeButton = host.querySelector('[data-arrange]'), arrangeExtra = host.querySelector('[data-arrange-extra]'), topicsButton = host.querySelector('[data-topics]');
     let shown = [], selectedNodeIds = new Set();
-    function loadLayout() { try { return JSON.parse(localStorage.getItem('dami-research-map-layout-v1') || '{}'); } catch { return {}; } }
+    function loadLayout() { try { return { ...publishedNodeLayout, ...JSON.parse(localStorage.getItem('dami-research-map-layout-v1') || '{}') }; } catch { return { ...publishedNodeLayout }; } }
     function saveLayout() { localStorage.setItem('dami-research-map-layout-v1', JSON.stringify(layout)); }
-    function loadLabelLayout() { try { return JSON.parse(localStorage.getItem('dami-research-map-label-layout-v1') || '{}'); } catch { return {}; } }
+    function loadLabelLayout() { try { return { ...publishedLabelLayout, ...JSON.parse(localStorage.getItem('dami-research-map-label-layout-v1') || '{}') }; } catch { return { ...publishedLabelLayout }; } }
     function saveLabelLayout() { localStorage.setItem('dami-research-map-label-layout-v1', JSON.stringify(labelLayout)); }
     const filtered = p => (field === 'all' || p.research_area === field) && (year === 'all' || Number(p.year) === Number(year));
     const position = p => {
@@ -122,14 +124,14 @@
       yearButtons.querySelectorAll('button').forEach(button => button.onclick = () => { year = button.dataset.year === 'all' ? 'all' : Number(button.dataset.year); selected = null; render(); });
       const total = key => nodes.filter(n => key === 'all' || n.research_area === key).length;
       const visible = key => nodes.filter(n => (key === 'all' || n.research_area === key) && (year === 'all' || n.year === year)).length;
-      left.innerHTML = `<button data-field="all" style="--c:#52667f" class="${field === 'all' ? 'active' : ''}"><span>All research <em>${visible('all')} of ${total('all')}</em></span><small>Trustworthy AI · Core Algorithms · Applications</small></button>` + Object.entries(areas).map(([key, area]) => `<button data-field="${key}" style="--c:${area.color}" class="${field === key ? 'active' : ''}"><span>${area.name}<em>${visible(key)} of ${total(key)}</em></span><small>${area.summary}</small></button>`).join('');
+      left.innerHTML = `<button data-field="all" style="--c:#52667f" class="${field === 'all' ? 'active' : ''}"><span>All research <em>${visible('all')} of ${total('all')}</em></span><small>Trustworthy AI · Core Algorithms · Applications</small></button>` + Object.entries(areas).map(([key, area]) => `<button data-field="${key}" style="--c:${area.color}" class="${field === key ? 'active' : ''}"><span>${area.name}<em>${visible(key)} of ${total(key)}</em></span><small>${key === 'core' ? 'Transfer Learning · Fairness · Optimization' : area.summary}</small></button>`).join('');
       left.querySelectorAll('button').forEach(button => button.onclick = () => { field = button.dataset.field; selected = null; render(); });
       popup.hidden = true; shown = nodes.filter(filtered); svg.innerHTML = `<defs>${Object.entries(areas).map(([key, area]) => `<radialGradient id="rmg-${key}"><stop offset="0" stop-color="${area.color}" stop-opacity=".62"/><stop offset=".45" stop-color="${area.color}" stop-opacity=".25"/><stop offset="1" stop-color="${area.color}" stop-opacity="0"/></radialGradient><radialGradient id="rmw-${key}"><stop offset="0" stop-color="${area.color}" stop-opacity=".28"/><stop offset=".6" stop-color="${area.color}" stop-opacity=".08"/><stop offset="1" stop-color="${area.color}" stop-opacity="0"/></radialGradient>`).join('')}</defs>`;
       Object.entries(areas).forEach(([key, area]) => {
         const group = nodes.filter(n => n.research_area === key); if (!group.length) return;
         const xs = group.map(n => n.x), ys = group.map(n => n.y), x0 = Math.min(...xs) - 28, x1 = Math.max(...xs) + 28, y0 = Math.min(...ys) - 28, y1 = Math.max(...ys) + 28;
         const labelKey = `area:${key}`, defaultLabel = { x: (x0 + x1) / 2 - (key === 'application' ? 90 : 0), y: y0 - 4 }, savedLabel = labelLayout[labelKey] || defaultLabel;
-        svg.insertAdjacentHTML('beforeend', `<ellipse cx="${(x0 + x1) / 2}" cy="${(y0 + y1) / 2}" rx="${Math.max(75, (x1 - x0) / 2)}" ry="${Math.max(65, (y1 - y0) / 2)}" fill="${area.color}" fill-opacity=".10" stroke="${area.color}" stroke-opacity=".13"/><text class="rm-area-label" data-layout-label="${labelKey}" x="${savedLabel.x}" y="${savedLabel.y}" text-anchor="middle" fill="${area.color}" style="font:800 13px Pretendard,system-ui;paint-order:stroke;stroke:#fff;stroke-width:3px">${area.name}</text>`);
+        svg.insertAdjacentHTML('beforeend', `<ellipse cx="${(x0 + x1) / 2}" cy="${(y0 + y1) / 2}" rx="${Math.max(75, (x1 - x0) / 2)}" ry="${Math.max(65, (y1 - y0) / 2)}" fill="${area.color}" fill-opacity=".10" stroke="${area.color}" stroke-opacity=".13"/><text class="rm-area-label" data-layout-label="${labelKey}" x="${savedLabel.x}" y="${savedLabel.y}" text-anchor="middle" fill="${area.color}" style="font:800 16px Pretendard,system-ui;paint-order:stroke;stroke:#fff;stroke-width:3px">${area.name}</text>`);
       });
       const groups = {}; nodes.forEach(node => ((groups[`${node.research_area}|${node.subfield}`] ||= []).push(node)));
       Object.values(groups).forEach(group => {
@@ -146,7 +148,7 @@
         const g = document.createElementNS('http://www.w3.org/2000/svg', 'g'); g.setAttribute('class', `rmnode${arranging ? ' is-arranging' : ''}${selectedNodeIds.has(node.id) ? ' is-selected' : ''}`); g.dataset.id = node.id; g.setAttribute('role', 'button'); g.setAttribute('tabindex', '0');
         const topic = String(node.map_label || node.keywords?.[0] || node.subfield).replace(/\s+/g, ' ').trim();
         const shortTopic = topic.length > 16 ? `${topic.slice(0, 15)}…` : topic;
-        g.innerHTML = `<title>${escape(node.title)}</title><circle class="rm-hit" cx="${node.x}" cy="${node.y}" r="14"/>${activeYear ? `<circle class="rm-wash" cx="${node.x}" cy="${node.y}" r="30" fill="url(#rmw-${node.research_area})"/><circle class="rm-halo" cx="${node.x}" cy="${node.y}" r="13" fill="url(#rmg-${node.research_area})"/>` : ''}<circle class="rm-dot" cx="${node.x}" cy="${node.y}" r="${activeYear ? 5.2 : 4.2}" fill="${area.color}"/>${showTopics ? `<text class="rm-topic" x="${node.x + (node.x > 620 ? -8 : 8)}" y="${node.y + 3}" text-anchor="${node.x > 620 ? 'end' : 'start'}">${escape(shortTopic)}</text>` : activeYear ? `<text class="rmmeta" x="${node.x + (node.x > 620 ? -9 : 9)}" y="${node.y - 8}" text-anchor="${node.x > 620 ? 'end' : 'start'}">${escape(node.map_label || node.subfield)}</text>` : ''}`;
+        g.innerHTML = `<title>${escape(node.title)}</title><circle class="rm-hit" cx="${node.x}" cy="${node.y}" r="14"/>${activeYear ? `<circle class="rm-wash" cx="${node.x}" cy="${node.y}" r="30" fill="url(#rmw-${node.research_area})"/><circle class="rm-halo" cx="${node.x}" cy="${node.y}" r="13" fill="url(#rmg-${node.research_area})"/>` : ''}<circle class="rm-dot" cx="${node.x}" cy="${node.y}" r="${activeYear ? 5.2 : 4.2}" fill="${area.color}"/>${showTopics ? `<text class="rm-topic" x="${node.x}" y="${node.y - 9}" text-anchor="middle">${escape(shortTopic)}</text>` : activeYear ? `<text class="rmmeta" x="${node.x + (node.x > 620 ? -9 : 9)}" y="${node.y - 8}" text-anchor="${node.x > 620 ? 'end' : 'start'}">${escape(node.map_label || node.subfield)}</text>` : ''}`;
         g.onclick = event => { event.stopPropagation(); if (!arranging) showNode(nearestNode(event) || node); };
         g.onkeydown = event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); showNode(node); } }; svg.append(g);
         if (arranging) {
@@ -188,7 +190,7 @@
     }
     arrangeButton.onclick = () => { arranging = !arranging; selected = null; if (!arranging) selectedNodeIds.clear(); render(); };
     topicsButton.onclick = () => { showTopics = !showTopics; localStorage.setItem('dami-research-map-topics', showTopics ? '1' : '0'); render(); };
-    host.querySelector('[data-reset]').onclick = () => { layout = {}; labelLayout = {}; localStorage.removeItem('dami-research-map-layout-v1'); localStorage.removeItem('dami-research-map-label-layout-v1'); nodes = papers.map(position); render(); };
+    host.querySelector('[data-reset]').onclick = () => { layout = { ...publishedNodeLayout }; labelLayout = { ...publishedLabelLayout }; localStorage.removeItem('dami-research-map-layout-v1'); localStorage.removeItem('dami-research-map-label-layout-v1'); nodes = papers.map(position); render(); };
     host.querySelector('[data-copy]').onclick = async () => { const value = JSON.stringify({ nodes: layout, labels: labelLayout }); try { await navigator.clipboard.writeText(value); arrangeButton.textContent = 'Layout copied'; setTimeout(() => arrangeButton.textContent = 'Done arranging', 1300); } catch { prompt('Copy this layout JSON:', value); } };
     render();
   }
