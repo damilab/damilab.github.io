@@ -126,7 +126,7 @@
     }
     function render() {
       activeSimulation?.stop(); activeSimulation = null; dynamicPositions = new Map();
-      host.querySelector('.rm').classList.toggle('is-arranging', arranging); arrangeButton.textContent = arranging ? 'Done arranging' : 'Arrange nodes'; arrangeExtra.hidden = !arranging; topicsButton.textContent = showTopics ? 'Topics on' : 'Topics off'; topicsButton.classList.toggle('topic-on', showTopics);
+      host.querySelector('.rm').classList.toggle('is-arranging', arranging); arrangeButton.textContent = arranging ? 'Done arranging' : 'Arrange map'; arrangeExtra.hidden = !arranging; topicsButton.textContent = showTopics ? 'Topics on' : 'Topics off'; topicsButton.classList.toggle('topic-on', showTopics);
       yearButtons.innerHTML = ['all', ...years].map(value => `<button data-year="${value}" class="${String(year) === String(value) ? 'on' : ''}">${value === 'all' ? 'All' : value}</button>`).join('');
       yearButtons.querySelectorAll('button').forEach(button => button.onclick = () => { year = button.dataset.year === 'all' ? 'all' : Number(button.dataset.year); selected = null; render(); });
       const total = key => nodes.filter(n => key === 'all' || n.research_area === key).length;
@@ -222,6 +222,7 @@
         .on('tick', () => {
           physics.forEach(node => svg.querySelector(`.rmnode[data-id="${node.id}"]`)?.setAttribute('transform', `translate(${node.x} ${node.y})`));
           links.forEach(link => { link.line.setAttribute('x1', link.source.x); link.line.setAttribute('y1', link.source.y); link.line.setAttribute('x2', link.target.x); link.line.setAttribute('y2', link.target.y); });
+          syncClusterLabels(physics);
         });
       physics.forEach(node => {
         const group = svg.querySelector(`.rmnode[data-id="${node.id}"]`);
@@ -232,6 +233,31 @@
           const finish = () => { node.fx = null; node.fy = null; activeSimulation.alphaTarget(0); if (moved) { group.dataset.dragged = '1'; setTimeout(() => delete group.dataset.dragged, 0); } group.removeEventListener('pointermove', move); group.removeEventListener('pointerup', finish); group.removeEventListener('pointercancel', finish); };
           group.addEventListener('pointermove', move); group.addEventListener('pointerup', finish); group.addEventListener('pointercancel', finish);
         };
+      });
+    }
+    function syncClusterLabels(physics) {
+      const byGroup = new Map();
+      physics.forEach(node => {
+        const key = `${node.research_area}|${node.subfield}`;
+        let group = byGroup.get(key);
+        if (!group) { group = []; byGroup.set(key, group); }
+        group.push(node);
+      });
+      const bounds = group => ({ x0: Math.min(...group.map(node => node.x)), x1: Math.max(...group.map(node => node.x)), y0: Math.min(...group.map(node => node.y)) });
+      byGroup.forEach((group, key) => {
+        const labelKey = `sub:${key}`, label = svg.querySelector(`[data-layout-label="${labelKey}"]`);
+        if (!label) return;
+        const initial = nodes.filter(node => `${node.research_area}|${node.subfield}` === key), initialBounds = bounds(initial), liveBounds = bounds(group);
+        const saved = labelLayout[labelKey] || { x: (initialBounds.x0 + initialBounds.x1) / 2, y: initialBounds.y0 - 25 };
+        label.setAttribute('x', (liveBounds.x0 + liveBounds.x1) / 2 + (saved.x - (initialBounds.x0 + initialBounds.x1) / 2));
+        label.setAttribute('y', liveBounds.y0 - 25 + (saved.y - (initialBounds.y0 - 25)));
+      });
+      Object.keys(areas).forEach(areaKey => {
+        const labelKey = `area:${areaKey}`, label = svg.querySelector(`[data-layout-label="${labelKey}"]`), initial = nodes.filter(node => node.research_area === areaKey), live = physics.filter(node => node.research_area === areaKey);
+        if (!label || !initial.length || !live.length) return;
+        const initialBounds = bounds(initial), liveBounds = bounds(live), defaultX = (initialBounds.x0 + initialBounds.x1) / 2 - (areaKey === 'application' ? 90 : 0), defaultY = initialBounds.y0 - 32, saved = labelLayout[labelKey] || { x: defaultX, y: defaultY };
+        label.setAttribute('x', (liveBounds.x0 + liveBounds.x1) / 2 - (areaKey === 'application' ? 90 : 0) + (saved.x - defaultX));
+        label.setAttribute('y', liveBounds.y0 - 32 + (saved.y - defaultY));
       });
     }
     function svgPoint(event) { const point = svg.createSVGPoint(); point.x = event.clientX; point.y = event.clientY; return point.matrixTransform(svg.getScreenCTM().inverse()); }
