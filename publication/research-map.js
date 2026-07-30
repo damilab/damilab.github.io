@@ -4,7 +4,14 @@
   const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const host=document.getElementById('research-map-host'); if(!host) return;
   const tones=document.createElement('style');
-  tones.textContent='.rmnode circle:first-child:not(:only-child){stroke:#b78945!important}';
+  tones.textContent=`.rmnode circle:first-child:not(:only-child){stroke:#b78945!important}
+  @media(max-width:820px){
+    .rmh{padding:14px 15px 11px!important;gap:10px!important}.rmh h2{font-size:16px!important}
+    .rmy{width:100%;justify-content:flex-start!important;flex-wrap:nowrap!important;overflow-x:auto;padding-bottom:2px;-webkit-overflow-scrolling:touch}.rmy button{flex:none!important}
+    .rmb{display:block!important;min-height:0!important}.rml{display:flex!important;gap:8px!important;overflow-x:auto;padding:10px 12px!important;border-right:0!important;border-bottom:1px solid #e6edf4!important;-webkit-overflow-scrolling:touch}.rml button{flex:0 0 190px!important;margin:0!important;min-height:68px}.rml button:first-child{flex-basis:205px}
+    .rmw{display:flex!important;flex-direction:column!important;min-height:0!important;overflow-x:auto!important}.rmlist{position:static!important;order:2;width:auto!important;max-height:172px!important;margin:12px 12px 0!important;flex:none}.rmlist button{font-size:10px!important;padding:7px 1px!important}.rmlist b{font-size:11px!important}
+    .rmw svg{order:1;display:block!important;flex:none!important;min-width:760px!important;width:760px!important;height:400px!important}.rmmeta{font-size:9px!important}
+  }`;
   document.head.append(tones);
   const fallback=p=>{let t=[p.title,...(p.keywords||[]),p.abstract].join(' ').toLowerCase();let a=/geospatial|groundwater|radon|environment|finance|financial|review|golf|swing|patent|impact factor|material|hydrogen|crypto|fault diagnosis|shale gas/.test(t),r=/robust|adversarial|security|jailbreak|privacy|homomorphic|unlearning|vulnerability/.test(t);p.research_area=p.research_area||(a?'application':r?'trust':'core');if(!p.subfield){if(p.research_area==='trust')p.subfield=/security|jailbreak|vulnerability/.test(t)?'Security & Attacks':/privacy|unlearning|homomorphic/.test(t)?'Privacy & Safety':'Robustness';else if(p.research_area==='core')p.subfield=/transfer|domain adaptation|fairness/.test(t)?'Transfer & Fairness':/optimization|sharpness/.test(t)?'Optimization':'Representation';else p.subfield=/geospatial|groundwater|radon|environment/.test(t)?'Geospatial & Environment':/finance|financial|review|crypto/.test(t)?'Finance & Society':'Science & Technology'}p.map_label=p.map_label||(p.keywords||[])[0]||p.subfield;return p};
   fetch('/publication/papers.json').then(r=>r.json()).then(d=>mount((d.papers||[]).map(fallback))).catch(()=>host.remove());
