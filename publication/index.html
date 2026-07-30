@@ -40,34 +40,37 @@ html, body, * {
 /* Publication metadata: compact date rail, expandable author list, and venue signals. */
 .publication-item .publication-content {
   position: relative;
-  padding-right: 7.25rem;
+  padding-right: 8.35rem;
 }
 .publication-item .publication-date-rail {
   position: absolute;
-  top: 0;
+  top: -0.1rem;
   right: 0;
-  min-width: 4.7rem;
+  min-width: 5.45rem;
   color: #59667a;
-  font-size: 0.7rem;
+  font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.04em;
-  line-height: 1.25;
+  line-height: 1.2;
   text-align: right;
 }
 .publication-item .publication-date-rail strong {
   display: block;
   color: #1f2937;
-  font-size: 1.35rem;
+  font-size: 1.72rem;
+  line-height: 1.05;
   letter-spacing: -0.04em;
 }
 .publication-item .publication-year-chip { display: none; }
 .publication-item .publication-signal {
+  border: 1px solid transparent;
   border-radius: 0.375rem;
-  padding: 0.375rem 0.75rem;
-  font-size: 0.8rem;
-  font-weight: 600;
+  padding: 0.34rem 0.62rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
-.publication-item .publication-signal.jcr { background: #fff1d8; color: #a76405; }
+.publication-item .publication-signal.jcr { background: #faf6ef; border-color: #eadbc5; color: #8a5b20; }
 .publication-item .publication-signal.ai { background: #e8f0ff; color: #1657c4; }
 @media (max-width: 640px) {
   .publication-item { flex-direction: column; }
@@ -75,9 +78,9 @@ html, body, * {
     width: 100% !important;
     min-width: 0 !important;
   }
-  .publication-item .publication-content { padding-right: 6.1rem; }
-  .publication-item .publication-date-rail strong { font-size: 1.1rem; }
-  .publication-item .publication-date-rail { font-size: 0.62rem; }
+  .publication-item .publication-content { padding-right: 6.85rem; }
+  .publication-item .publication-date-rail strong { font-size: 1.32rem; }
+  .publication-item .publication-date-rail { min-width: 4.95rem; font-size: 0.68rem; }
 }
 </style>
 
@@ -5642,7 +5645,7 @@ function formatPublicationDate(value, fallbackYear) {
 function enhancePublicationMetadata() {
     const venueSignals = {
         'Journal of Hazardous Materials Advances': {
-            label: 'Top 10%', kind: 'jcr', title: 'JCR · Environmental Sciences · Top 9.9%'
+            label: 'JCR Top 10%', kind: 'jcr', title: 'JCR · Environmental Sciences · Top 9.9%'
         },
         'IEEE Access': {
             label: 'JCR Q2', kind: 'jcr', title: 'JCR percentile 64.1% · Q2'
@@ -5660,46 +5663,46 @@ function enhancePublicationMetadata() {
             label: 'JCR Q2', kind: 'jcr', title: 'JCR · Business · Q2'
         },
         'Geomatics, Natural Hazards and Risk': {
-            label: 'Top 13%', kind: 'jcr', title: 'JCR percentile 87.0% · Top 13.0%'
+            label: 'JCR Top 13%', kind: 'jcr', title: 'JCR percentile 87.0% · Top 13.0%'
         },
         'Information Sciences': {
-            label: 'Top 8%', kind: 'jcr', title: 'JCR percentile 92.1% · Top 7.9%'
+            label: 'JCR Top 8%', kind: 'jcr', title: 'JCR percentile 92.1% · Top 7.9%'
         },
         'Finance Research Letters': {
-            label: 'Top 5%', kind: 'jcr', title: 'JCR percentile 95.2% · Top 4.8%'
+            label: 'JCR Top 5%', kind: 'jcr', title: 'JCR percentile 95.2% · Top 4.8%'
         },
         'Applied Soft Computing': {
-            label: 'Top 17%', kind: 'jcr', title: 'JCR percentile 83.1% · Top 16.9%'
+            label: 'JCR Top 17%', kind: 'jcr', title: 'JCR percentile 83.1% · Top 16.9%'
         },
         'Earth Systems and Environment': {
-            label: 'Top 12%', kind: 'jcr', title: 'JCR percentile 88.6% · Top 11.4%'
+            label: 'JCR Top 12%', kind: 'jcr', title: 'JCR percentile 88.6% · Top 11.4%'
         },
         'Expert Systems with Applications': {
-            label: 'Top 6%', kind: 'jcr', title: 'JCR percentile 93.9% · Top 6.1%'
+            label: 'JCR Top 6%', kind: 'jcr', title: 'JCR percentile 93.9% · Top 6.1%'
         },
         'Journal of Environmental Management': {
-            label: 'Top 8%', kind: 'jcr', title: 'JCR percentile 91.8% · Top 8.2%'
+            label: 'JCR Top 8%', kind: 'jcr', title: 'JCR percentile 91.8% · Top 8.2%'
         },
         'Pattern Recognition Letters': {
             label: 'JCR Q2', kind: 'jcr', title: 'JCR percentile 54.7% · Q2'
         },
         'Engineering Applications of Artificial Intelligence': {
-            label: 'Top 8%', kind: 'jcr', title: 'JCR percentile 91.6% · Top 8.4%'
+            label: 'JCR Top 8%', kind: 'jcr', title: 'JCR percentile 91.6% · Top 8.4%'
         },
         'Neural Networks': {
-            label: 'Top 10%', kind: 'jcr', title: 'JCR percentile 89.6% · Top 10.4%'
+            label: 'JCR Top 10%', kind: 'jcr', title: 'JCR percentile 89.6% · Top 10.4%'
         },
         'Scientific Reports': {
-            label: 'Top 18%', kind: 'jcr', title: 'JCR percentile 81.9% · Top 18.1%'
+            label: 'JCR Top 18%', kind: 'jcr', title: 'JCR percentile 81.9% · Top 18.1%'
         },
         'Pattern Recognition': {
-            label: 'Top 13%', kind: 'jcr', title: 'JCR percentile 87.5% · Top 12.5%'
+            label: 'JCR Top 13%', kind: 'jcr', title: 'JCR percentile 87.5% · Top 12.5%'
         },
         'PloS one': {
             label: 'JCR Q2', kind: 'jcr', title: 'JCR percentile 67.8% · Q2'
         },
         'Energy policy': {
-            label: 'Top 2%', kind: 'jcr', title: 'JCR percentile 98.5% · Top 1.5%'
+            label: 'JCR Top 2%', kind: 'jcr', title: 'JCR percentile 98.5% · Top 1.5%'
         },
         'CVPR[W]': {
             label: 'AI Conference · CVPR Workshops', kind: 'ai', title: 'AI Conference · CVPR Workshops 2025'
