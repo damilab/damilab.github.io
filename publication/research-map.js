@@ -4,7 +4,7 @@
   const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const host=document.getElementById('research-map-host'); if(!host) return;
   const tones=document.createElement('style');
-  tones.textContent=`.rmnode circle:first-child:not(:only-child){stroke:#b78945!important}
+  tones.textContent=`.rmnode circle:first-child:not(:only-child){stroke:#2563eb!important}.rmsub{fill:#475569!important}svg text[style]{fill:#1e3a5f!important;transform:translateY(-15px)}
   @media(max-width:820px){
     .rmh{padding:14px 15px 11px!important;gap:10px!important}.rmh h2{font-size:16px!important}
     .rmy{width:100%;justify-content:flex-start!important;flex-wrap:nowrap!important;overflow-x:auto;padding-bottom:2px;-webkit-overflow-scrolling:touch}.rmy button{flex:none!important}
