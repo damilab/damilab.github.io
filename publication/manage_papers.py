@@ -20,7 +20,7 @@ MARKER = '<!-- AUTO_PUBLICATION_CARDS -->'
 FIELDS = {
     'trust': ('Trustworthy AI', 'Safety · Security · Privacy'),
     'core': ('AI Core Algorithms', 'Transfer Learning · Fairness · Optimization'),
-    'application': ('AI Applications', 'Geospatial · Finance · Society'),
+    'application': ('AI Applications', 'Geospatial · Finance · Sports · Science'),
 }
 
 KNOWN_MAP_LABELS = {
@@ -38,8 +38,8 @@ def slug(text):
 def classify(p):
     text = ' '.join([p.get('title', ''), *p.get('keywords', []), p.get('abstract', '')]).lower()
     apps = ('geospatial', 'groundwater', 'radon', 'environment', 'finance', 'financial', 'online review', 'golf', 'swing', 'patent', 'impact factor', 'journal evaluation', 'material', 'hydrogen', 'cryptocurrenc', 'fault diagnosis', 'shale gas')
-    if any(x in text for x in apps): return 'application'
     if any(x in text for x in ('robust', 'adversarial', 'security', 'jailbreak', 'privacy', 'homomorphic', 'unlearning', 'vulnerability')): return 'trust'
+    if any(x in text for x in apps): return 'application'
     return 'core'
 
 def subfield(p):
@@ -50,6 +50,7 @@ def subfield(p):
         if 'fairness' in text: return 'Fairness'
         if any(x in text for x in ('transfer', 'domain adaptation')): return 'Transfer Learning'
         return 'Optimization' if any(x in text for x in ('optimization', 'sharpness')) else 'Representation'
+    if any(x in text for x in ('golf', 'swing', 'sports', 'athlete')): return 'Sports Analytics'
     return 'Geospatial & Environment' if any(x in text for x in ('geospatial', 'groundwater', 'radon', 'environment')) else ('Finance & Society' if any(x in text for x in ('finance', 'financial', 'review', 'cryptocurrenc')) else 'Science & Technology')
 
 def normalize(raw):
