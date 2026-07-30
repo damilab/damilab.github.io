@@ -875,14 +875,14 @@ document.querySelectorAll('.rfigwrap').forEach(function(wrap){
 var MD={a1:{'2020':2,'2021':3,'2023':4,'2024':2,'2025':2,'2026':3},
         a2:{'2018':1,'2019':1,'2020':1,'2021':1,'2022':3,'2024':2,'2025':2},
         a3:{'2024':3,'2025':8,'2026':5}};
-var miniBuilt={};
+var miniBuilt={}, miniC={}, miniAt={};
 function buildMini(k){
   if(typeof Chart==='undefined'||miniBuilt[k]) return;
   var el=document.getElementById('mini-'+k); if(!el) return;
   miniBuilt[k]=true;
   var ys=Object.keys(MD[k]).sort();
   var STEP=RM?0:170, DUR=RM?0:560;
-  new Chart(el.getContext('2d'),{type:'bar',
+  miniC[k]=new Chart(el.getContext('2d'),{type:'bar',
     data:{labels:ys,datasets:[{data:ys.map(function(y){return MD[k][y]}),
       backgroundColor:'rgba(255,255,255,.94)',hoverBackgroundColor:'#fff',
       borderRadius:4,barPercentage:.62,categoryPercentage:.9}]},
@@ -898,11 +898,22 @@ function buildMini(k){
                  ticks:{color:'rgba(255,255,255,.92)',font:{size:10.5,weight:'800'},maxRotation:0}}}}
   });
 }
+/* 처음 한 번만이 아니라, 다시 보이거나 마우스를 올릴 때마다 막대를 다시 그린다 */
+function playMini(k){
+  if(!miniBuilt[k]){ buildMini(k); miniAt[k]=Date.now(); return; }
+  if(RM||!miniC[k]) return;
+  var now=Date.now();
+  if(miniAt[k]&&now-miniAt[k]<1100) return;   /* 애니메이션 도는 중이면 무시 */
+  miniAt[k]=now;
+  miniC[k].reset(); miniC[k].update();
+}
 ['a1','a2','a3'].forEach(function(k){
   var el=document.getElementById('mini-'+k); if(!el) return;
-  new IntersectionObserver(function(es,o){
-    es.forEach(function(e){ if(e.isIntersecting){ buildMini(k); o.unobserve(e.target);} });
+  new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) playMini(k); });
   },{threshold:.35}).observe(el);
+  var hot=el.closest('.traj')||el;
+  hot.addEventListener('mouseenter',function(){ playMini(k); });
 });
 
 /* figure 크게 보기 */
