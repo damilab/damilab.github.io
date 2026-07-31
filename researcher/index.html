@@ -3424,11 +3424,13 @@ html, body, * {
         display: grid;
         grid-template-rows: subgrid;
         grid-row: span 5;
+        row-gap: 0;              /* 부모 grid 의 24px gap 이 줄 사이로 상속되는 것을 막는다 */
       }
       #tab-researchers .people-grid > article > div:nth-child(3) {
         display: grid;
         grid-template-rows: subgrid;
         grid-row: span 3;
+        row-gap: 0;
         align-content: start;
       }
       #tab-researchers .people-grid > article > div:nth-child(3) > div {
