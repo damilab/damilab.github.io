@@ -12,10 +12,10 @@
 <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
-<title itemprop="name"> Domestic Publications | DAMI LAB 
+<title itemprop="name">Other Publications | DAMI LAB
 </title>
 <meta name="description" content="Presentations at Korean domestic conferences" />
-<meta property="og:title" content="Domestic Publications | DAMI LAB" />
+<meta property="og:title" content="Other Publications | DAMI LAB" />
 <meta name="twitter:title" content="Publications | DAMI LAB" />
 <meta itemprop="name" content="Publications | DAMI LAB" />
 <meta name="application-name" content="Publications | DAMI LAB" />
@@ -173,7 +173,7 @@ html, body, * {
                         
                         <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 hover:text-white focus:text-white hover:bg-primary-600 focus:bg-primary-600 focus:outline-none focus:shadow-outline" href="https://damilab.github.io/publication/preprint/">Preprints &amp; Under Review</a>
                         
-                        <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 hover:text-white focus:text-white hover:bg-primary-600 focus:bg-primary-600 focus:outline-none focus:shadow-outline" href="https://damilab.github.io/publication/domestic/">Domestic Publications</a>
+                        <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 hover:text-white focus:text-white hover:bg-primary-600 focus:bg-primary-600 focus:outline-none focus:shadow-outline" href="https://damilab.github.io/publication/domestic/">Other Publications</a>
                         
                         <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 hover:text-white focus:text-white hover:bg-primary-600 focus:bg-primary-600 focus:outline-none focus:shadow-outline" href="https://damilab.github.io/publication/patents/">Patents &amp; Software</a>
                         
@@ -203,7 +203,7 @@ html, body, * {
         <header class="mb-4 bg-primary-50">
             <span class="py-96">
                 <h1 class="py-16 text-5xl font-black text-center text-black capitalize">
-                    Domestic Publications
+                    Other Publications
                 </h1>
             </span>
         </header>
@@ -212,9 +212,31 @@ html, body, * {
                 <p style="margin:0 0 26px; font-size:0.9rem;">
                     <a href="/publication/" style="font-weight:700; color:#1d4ed8; text-decoration:underline;">&larr; Back to Publications</a>
                 </p>
-                <p style="margin:0 0 30px; font-size:1rem; color:#374151; line-height:1.7;">
-                    국내 학술대회 발표 10건입니다. 국내 학술지 게재분은 아직 없습니다.
+                <p style="margin:0 0 22px; font-size:1rem; color:#374151; line-height:1.7;">
+                    Selected international conferences, domestic conferences, and other academic outputs.
                 </p>
+                <style>
+                    .other-publication-tab { border:1px solid #cbd5e1; background:#fff; color:#334155; padding:8px 14px; border-radius:8px; font-size:.9rem; font-weight:700; cursor:pointer; }
+                    .other-publication-tab[aria-selected="true"] { background:#0b284f; border-color:#0b284f; color:#fff; }
+                    .other-publication-panel[hidden] { display:none; }
+                </style>
+                <div role="tablist" aria-label="Other publication categories" style="display:flex; flex-wrap:wrap; gap:8px; margin:0 0 18px;">
+                    <button id="other-international-tab" type="button" class="other-publication-tab" role="tab" aria-controls="other-international-panel" aria-selected="true" onclick="switchOtherPublicationTab('international')">International Conferences</button>
+                    <button id="other-domestic-tab" type="button" class="other-publication-tab" role="tab" aria-controls="other-domestic-panel" aria-selected="false" onclick="switchOtherPublicationTab('domestic')">Domestic Publications</button>
+                </div>
+                <section id="other-international-panel" class="other-publication-panel" role="tabpanel" aria-labelledby="other-international-tab">
+                    <div style="padding:13px 18px; margin-bottom:9px; background-color:#f9fafb; border:1px solid #c7c7cc; border-radius:8px;">
+                        <div style="margin-bottom:6px;">
+                            <span style="display:inline-block; margin-right:7px; background-color:#0b284f; color:white; padding:2px 9px; border-radius:5px; font-size:0.7rem; font-weight:700;">ICMLSC 2025</span>
+                            <span style="display:inline-block; margin-right:7px; background-color:#27272a; color:white; padding:2px 9px; border-radius:5px; font-size:0.7rem; font-weight:700;">Oral Presentation</span>
+                            <span style="font-size:0.78rem; color:#4b5563;">2025. 1. 25</span>
+                        </div>
+                        <h3 style="margin:0 0 5px; font-size:1.02rem; font-weight:800; color:#111827; line-height:1.4;">BAL-CLIP: Unified Loss Framework for Long-Tailed Multi-Label Image Classification</h3>
+                        <p style="margin:0; font-size:0.82rem; color:#4b5563;">Christoph Timmermann, Seunghyeon Jung, Miso Kim, Hyeonjin Kim, Georu Lee, Woojin Lee</p>
+                        <p style="margin:6px 0 0; font-size:0.78rem; color:#4b5563;">The 9th International Conference on Machine Learning and Soft Computing (ICMLSC 2025) · Chuo University</p>
+                    </div>
+                </section>
+                <section id="other-domestic-panel" class="other-publication-panel" role="tabpanel" aria-labelledby="other-domestic-tab" hidden>
                 <div style="padding:13px 18px; margin-bottom:9px; background-color:#f9fafb; border:1px solid #c7c7cc; border-radius:8px;">
                     <div style="margin-bottom:6px;">
                         <span style="display:inline-block; margin-right:7px; background-color:#b45309; color:white; padding:2px 9px; border-radius:5px; font-size:0.7rem; font-weight:700;">ACK 2025</span>
@@ -305,10 +327,21 @@ html, body, * {
                     <h3 style="margin:0 0 5px; font-size:1.02rem; font-weight:800; color:#111827; line-height:1.4;">노이즈 레이블에 강건한 분류를 위한 데이터셋 정제 기반 다단계 앙상블</h3>
                     <p style="margin:0; font-size:0.82rem; color:#4b5563;">최치현, 이우진, 손영두</p>
                 </div>
+                </section>
             </div>
         </div>
     </article>
 </main>
+
+<script>
+function switchOtherPublicationTab(kind) {
+    const international = kind === 'international';
+    document.getElementById('other-international-panel').hidden = !international;
+    document.getElementById('other-domestic-panel').hidden = international;
+    document.getElementById('other-international-tab').setAttribute('aria-selected', String(international));
+    document.getElementById('other-domestic-tab').setAttribute('aria-selected', String(!international));
+}
+</script>
 
     <footer class="bg-gray-900 text-gray-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

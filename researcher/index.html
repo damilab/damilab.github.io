@@ -120,7 +120,7 @@ html, body, * {
                         
                         <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 hover:text-white focus:text-white hover:bg-primary-600 focus:bg-primary-600 focus:outline-none focus:shadow-outline" href="https://damilab.github.io/publication/preprint/">Preprints &amp; Under Review</a>
                         
-                        <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 hover:text-white focus:text-white hover:bg-primary-600 focus:bg-primary-600 focus:outline-none focus:shadow-outline" href="https://damilab.github.io/publication/domestic/">Domestic Publications</a>
+                        <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 hover:text-white focus:text-white hover:bg-primary-600 focus:bg-primary-600 focus:outline-none focus:shadow-outline" href="https://damilab.github.io/publication/domestic/">Other Publications</a>
                         
                         <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 hover:text-white focus:text-white hover:bg-primary-600 focus:bg-primary-600 focus:outline-none focus:shadow-outline" href="https://damilab.github.io/publication/patents/">Patents &amp; Software</a>
                         
@@ -3624,6 +3624,42 @@ html, body, * {
 
     </div>
 </footer>
+<script>
+(() => {
+  const title = 'BAL-CLIP: Unified Loss Framework for Long-Tailed Multi-Label Image Classification';
+  const badge = '<span style="display:inline-block; margin-right:6px; padding:2px 8px; border-radius:5px; background-color:#475569; color:#fff; font-size:11.5px; font-weight:700; vertical-align:2px; white-space:nowrap;">ICMLSC 2025</span>';
+  const paperLine = `<div style="margin-top:5px; font-size:13px; line-height:1.5; color:#111827;">${badge}${title}</div>`;
+
+  function addToProfileCard(slug) {
+    const link = document.querySelector(`a[href$="/researcher/${slug}/"]`);
+    const card = link && link.closest('article');
+    const details = card && card.querySelector('details');
+    if (!details || details.querySelector('[data-other-publication="bal-clip"]')) return;
+
+    const summary = details.querySelector('summary');
+    const count = summary && summary.querySelector('span[style*="font-variant-numeric"]');
+    const breakdown = summary && Array.from(summary.querySelectorAll('span')).find((span) => span.style.clear === 'both');
+    const list = details.querySelector('div[style*="border-top"]');
+    const domestic = list && Array.from(list.children).find((child) => /^DOMESTIC/.test(child.textContent.trim()));
+    if (!summary || !count || !breakdown || !list || !domestic) return;
+
+    count.textContent = String((Number.parseInt(count.textContent, 10) || 0) + 1);
+    breakdown.innerHTML = breakdown.innerHTML.replace(/International\s+\d+/, (match) => `${match}&nbsp;·&nbsp; Other Intl 1`);
+    const group = document.createElement('div');
+    group.dataset.otherPublication = 'bal-clip';
+    group.innerHTML = `<div style="margin-top:11px; font-size:11px; font-weight:900; letter-spacing:.08em; color:#475569;">OTHER INTERNATIONAL · 1</div>${paperLine}`;
+    list.insertBefore(group, domestic);
+  }
+
+  ['georu', 'hyeonjin', 'miso', 'seunghyun'].forEach(addToProfileCard);
+
+  const christoph = Array.from(document.querySelectorAll('#tab-alumni article')).find((card) => card.textContent.includes('Christoph Timmermann'));
+  const divider = christoph && christoph.querySelector('div[style*="height: 1px"]');
+  if (divider && !christoph.querySelector('[data-other-publication="bal-clip"]')) {
+    divider.insertAdjacentHTML('beforebegin', `<div data-other-publication="bal-clip" style="margin-top:12px; font-size:14px; line-height:1.55;"><strong>📄 Papers</strong><div style="margin-top:5px;">${badge}${title}</div><div style="margin-top:2px; color:#4B5563; font-size:12.5px;">ICMLSC 2025 · Oral Presentation</div></div>`);
+  }
+})();
+</script>
 </body>
 
 </html>
