@@ -58,6 +58,32 @@
   }
 
   if (location.pathname === '/researcher/') {
+    const compactTitle = (title) => title.length > 62 ? `${title.slice(0, 59)}…` : title;
+    const cards = Array.from(document.querySelectorAll('article'));
+    Object.entries(people).forEach(([slug, person]) => {
+      cards.filter((card) => Array.from(card.querySelectorAll('a')).some((link) => link.href.includes(`/researcher/${slug}/`))).forEach((card) => {
+        const details = card.querySelector('details');
+        const summary = details?.querySelector('summary');
+        const list = details?.querySelector('summary + div');
+        if (!details || !summary || !list || list.querySelector('[data-audit-card-results]')) return;
+
+        const count = Array.from(summary.querySelectorAll('span')).find((item) => /^\d+$/.test(item.textContent.trim()));
+        if (count) count.textContent = String((Number.parseInt(count.textContent, 10) || 0) + person.papers.length);
+
+        const breakdown = Array.from(summary.querySelectorAll('span')).find((item) => /International|Domestic|Under Review/.test(item.textContent));
+        if (breakdown) {
+          const parts = [];
+          if (person.papers.length) parts.push(`Other Pub ${person.papers.length}`);
+          if (person.awards.length) parts.push(`Awards ${person.awards.length}`);
+          breakdown.insertAdjacentHTML('beforeend', `&nbsp;·&nbsp; ${parts.join('&nbsp;·&nbsp; ')}`);
+        }
+
+        const paperLines = person.papers.map(([venue, date, title]) => `<div style="margin-top:5px; font-size:13px; line-height:1.5; color:#111827;"><span style="display:inline-block; margin-right:6px; padding:2px 8px; border-radius:5px; background-color:#B45309; color:#fff; font-size:11.5px; font-weight:700; vertical-align:2px; white-space:nowrap;">${venue}</span>${compactTitle(title)} <span style="color:#6B7280; font-size:12px;">· ${date}</span></div>`).join('');
+        const awardLines = person.awards.map(([date, award, title]) => `<div style="margin-top:5px; font-size:13px; line-height:1.5; color:#111827;"><span style="display:inline-block; margin-right:6px; padding:2px 8px; border-radius:5px; background-color:#7C2D12; color:#fff; font-size:11.5px; font-weight:700; vertical-align:2px; white-space:nowrap;">${award}</span>${compactTitle(title)} <span style="color:#6B7280; font-size:12px;">· ${date}</span></div>`).join('');
+        list.insertAdjacentHTML('beforeend', `<div data-audit-card-results>${person.papers.length ? `<div style="margin-top:11px; font-size:11px; font-weight:900; letter-spacing:.08em; color:#B45309;">OTHER PUBLICATIONS · ${person.papers.length}</div>${paperLines}` : ''}${person.awards.length ? `<div style="margin-top:11px; font-size:11px; font-weight:900; letter-spacing:.08em; color:#7C2D12;">AWARDS · ${person.awards.length}</div>${awardLines}` : ''}</div>`);
+      });
+    });
+
     const christoph = Array.from(document.querySelectorAll('#tab-alumni article')).find((card) => card.textContent.includes('Christoph Timmermann'));
     const divider = christoph && christoph.querySelector('div[style*="height: 1px"]');
     if (divider && !christoph.querySelector('[data-audit-christoph-award]')) {
