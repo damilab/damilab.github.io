@@ -60,6 +60,13 @@
   if (location.pathname === '/researcher/') {
     const compactTitle = (title) => title.length > 62 ? `${title.slice(0, 59)}…` : title;
     const cards = Array.from(document.querySelectorAll('article'));
+    Array.from(document.querySelectorAll('#tab-alumni article')).forEach((card) => {
+      const currentLabel = Array.from(card.querySelectorAll('div')).find((item) => item.textContent.trim() === '🏢 Current');
+      const currentRow = currentLabel?.parentElement;
+      const info = currentRow?.parentElement;
+      const firstRow = info && Array.from(info.children).find((item) => item !== currentRow && /🎓 Degree|💡 Interest|📄 Papers/.test(item.textContent.trim()));
+      if (currentRow && info && firstRow) info.insertBefore(currentRow, firstRow);
+    });
     Object.entries(people).forEach(([slug, person]) => {
       cards.filter((card) => Array.from(card.querySelectorAll('a')).some((link) => link.href.includes(`/researcher/${slug}/`))).forEach((card) => {
         const details = card.querySelector('details');
@@ -94,9 +101,19 @@
     });
 
     const christoph = Array.from(document.querySelectorAll('#tab-alumni article')).find((card) => card.textContent.includes('Christoph Timmermann'));
-    const divider = christoph && christoph.querySelector('div[style*="height: 1px"]');
-    if (divider && !christoph.querySelector('[data-audit-christoph-award]')) {
-      divider.insertAdjacentHTML('beforebegin', `<div data-audit-christoph-award style="margin-top:10px; font-size:13px; line-height:1.5;"><strong>🏅 Award</strong><div style="margin-top:4px;"><span style="display:inline-block; margin-right:6px; padding:2px 8px; border-radius:5px; background-color:#7C2D12; color:#fff; font-size:11.5px; font-weight:700;">최우수논문상</span>Efficient Few-shot Adaptation of CLIP by Addressing Intra-modal Misalignment</div><div style="margin-top:2px; color:#4B5563; font-size:12.5px;">2025. 8. 29 · 공동 연구 논문 수상</div></div>`);
+    const details = christoph?.querySelector('details');
+    const summary = details?.querySelector('summary');
+    const list = details?.querySelector('summary + div');
+    if (christoph && details && summary && list && !list.querySelector('[data-audit-christoph-card]')) {
+      const count = Array.from(summary.querySelectorAll('span')).find((item) => /^\d+$/.test(item.textContent.trim()));
+      if (count) count.textContent = String((Number.parseInt(count.textContent, 10) || 0) + 1);
+      const breakdown = Array.from(summary.querySelectorAll('span')).find((item) => /International|Domestic|Under Review/.test(item.textContent));
+      if (breakdown) breakdown.insertAdjacentHTML('beforeend', '&nbsp;·&nbsp; Other Intl 1&nbsp;·&nbsp; Awards 1');
+      const internationalHeading = Array.from(list.children).find((item) => /^INTERNATIONAL/.test(item.textContent.trim()));
+      if (internationalHeading) {
+        internationalHeading.insertAdjacentHTML('afterend', `<div data-audit-christoph-card style="margin-top:5px; font-size:13px; line-height:1.5; color:#111827;"><span style="display:inline-block; margin-right:6px; padding:2px 8px; border-radius:5px; background-color:#475569; color:#fff; font-size:11.5px; font-weight:700; vertical-align:2px; white-space:nowrap;">ICMLSC 2025</span>BAL-CLIP: Unified Loss Framework for Long-Tailed Multi-Label Image Classification <span style="color:#6B7280; font-size:12px;">· 2025. 1. 25</span></div>`);
+      }
+      list.insertAdjacentHTML('beforeend', `<div data-audit-christoph-card style="margin-top:11px;"><div style="font-size:11px; font-weight:900; letter-spacing:.08em; color:#7C2D12;">AWARDS · 1</div><div style="margin-top:5px; font-size:13px; line-height:1.5; color:#111827;"><span style="display:inline-block; margin-right:6px; padding:2px 8px; border-radius:5px; background-color:#7C2D12; color:#fff; font-size:11.5px; font-weight:700; vertical-align:2px; white-space:nowrap;">최우수논문상</span>Efficient Few-shot Adaptation of CLIP by Addressing Intra-modal Misalignment <span style="color:#6B7280; font-size:12px;">· 2025. 8. 29</span></div></div>`);
     }
     return;
   }

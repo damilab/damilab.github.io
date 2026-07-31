@@ -3653,11 +3653,6 @@ html, body, * {
 
   ['georu', 'hyeonjin', 'miso', 'seunghyun'].forEach(addToProfileCard);
 
-  const christoph = Array.from(document.querySelectorAll('#tab-alumni article')).find((card) => card.textContent.includes('Christoph Timmermann'));
-  const divider = christoph && christoph.querySelector('div[style*="height: 1px"]');
-  if (divider && !christoph.querySelector('[data-other-publication="bal-clip"]')) {
-    divider.insertAdjacentHTML('beforebegin', `<div data-other-publication="bal-clip" style="margin-top:12px; font-size:14px; line-height:1.55;"><strong>📄 Papers</strong><div style="margin-top:5px;">${badge}${title}</div><div style="margin-top:2px; color:#4B5563; font-size:12.5px;">ICMLSC 2025 · Oral Presentation</div></div>`);
-  }
 })();
 </script>
 <script src="/publication/profile-publication-awards.js"></script>
