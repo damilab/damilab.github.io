@@ -73,14 +73,23 @@
         const breakdown = Array.from(summary.querySelectorAll('span')).find((item) => /International|Domestic|Under Review/.test(item.textContent));
         if (breakdown) {
           const parts = [];
-          if (person.papers.length) parts.push(`Other Pub ${person.papers.length}`);
+          if (person.papers.length) {
+            breakdown.innerHTML = breakdown.innerHTML.replace(/Domestic\s+(\d+)/, (_, count) => `Domestic ${Number.parseInt(count, 10) + person.papers.length}`);
+          }
           if (person.awards.length) parts.push(`Awards ${person.awards.length}`);
-          breakdown.insertAdjacentHTML('beforeend', `&nbsp;·&nbsp; ${parts.join('&nbsp;·&nbsp; ')}`);
+          if (parts.length) breakdown.insertAdjacentHTML('beforeend', `&nbsp;·&nbsp; ${parts.join('&nbsp;·&nbsp; ')}`);
         }
 
         const paperLines = person.papers.map(([venue, date, title]) => `<div style="margin-top:5px; font-size:13px; line-height:1.5; color:#111827;"><span style="display:inline-block; margin-right:6px; padding:2px 8px; border-radius:5px; background-color:#B45309; color:#fff; font-size:11.5px; font-weight:700; vertical-align:2px; white-space:nowrap;">${venue}</span>${compactTitle(title)} <span style="color:#6B7280; font-size:12px;">· ${date}</span></div>`).join('');
         const awardLines = person.awards.map(([date, award, title]) => `<div style="margin-top:5px; font-size:13px; line-height:1.5; color:#111827;"><span style="display:inline-block; margin-right:6px; padding:2px 8px; border-radius:5px; background-color:#7C2D12; color:#fff; font-size:11.5px; font-weight:700; vertical-align:2px; white-space:nowrap;">${award}</span>${compactTitle(title)} <span style="color:#6B7280; font-size:12px;">· ${date}</span></div>`).join('');
-        list.insertAdjacentHTML('beforeend', `<div data-audit-card-results>${person.papers.length ? `<div style="margin-top:11px; font-size:11px; font-weight:900; letter-spacing:.08em; color:#B45309;">OTHER PUBLICATIONS · ${person.papers.length}</div>${paperLines}` : ''}${person.awards.length ? `<div style="margin-top:11px; font-size:11px; font-weight:900; letter-spacing:.08em; color:#7C2D12;">AWARDS · ${person.awards.length}</div>${awardLines}` : ''}</div>`);
+        const domesticHeading = Array.from(list.children).find((item) => /^DOMESTIC/.test(item.textContent.trim()));
+        if (person.papers.length && domesticHeading) {
+          domesticHeading.textContent = domesticHeading.textContent.replace(/(DOMESTIC\s*·\s*)(\d+)/, (_, prefix, count) => `${prefix}${Number.parseInt(count, 10) + person.papers.length}`);
+          domesticHeading.insertAdjacentHTML('afterend', `<div data-audit-card-results="papers">${paperLines}</div>`);
+        }
+        if (person.awards.length) {
+          list.insertAdjacentHTML('beforeend', `<div data-audit-card-results="awards"><div style="margin-top:11px; font-size:11px; font-weight:900; letter-spacing:.08em; color:#7C2D12;">AWARDS · ${person.awards.length}</div>${awardLines}</div>`);
+        }
       });
     });
 
