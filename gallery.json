@@ -2299,23 +2299,6 @@
    "place": "Jeju, Korea",
    "id": "90f7adb136204c089815ef04ec63ea09",
    "ord": 3
-  },
-  {
-   "id": "6d70bb86b344410c92b1c003f0591adc",
-   "thumb": "/images/gallery/g_6bd602cdb0c1498c.jpg",
-   "full": "/images/gallery/g_6bd602cdb0c1498c.jpg",
-   "w": 1400,
-   "h": 1050,
-   "ratio": 1.3333,
-   "cap": "테스트 사진 곧 삭제합니다",
-   "cat": "Lab life",
-   "date": "2026.08",
-   "link": "",
-   "desc": "",
-   "fx": 49.2,
-   "fy": 49.1,
-   "place": "",
-   "ord": 0
   }
  ]
 }
