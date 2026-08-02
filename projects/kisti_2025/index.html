@@ -233,6 +233,8 @@ html, body, * {
 .pj-chips .c.now{background:#FBBF24;border-color:#FBBF24;color:#3B2606}
 .pj-dhero h1{margin:13px 0 0;font-size:36px;font-weight:900;letter-spacing:-.035em;
   line-height:1.2;max-width:960px}
+.pj-fulltitle{margin:11px 0 0;font-size:13.5px;font-weight:700;line-height:1.6;
+  color:rgba(255,255,255,.82);max-width:900px}
 .pj-pills{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:26px 0 0}
 .pj-pills>div{background:rgba(255,255,255,.13);border:2px solid rgba(255,255,255,.4);
   border-radius:11px;padding:12px 15px}
@@ -292,6 +294,14 @@ html, body, * {
 .pj-cardbox dt{font-size:11px;font-weight:900;letter-spacing:.08em;color:#5A6478}
 .pj-cardbox dd{margin:6px 0 0;font-size:14px;font-weight:800;line-height:1.6;color:var(--ink)}
 .pj-cardbox dd .nt{display:block;margin-top:4px;font-size:11.5px;font-weight:800;color:#B45309}
+.pj-cardbox dd .nt2{display:block;margin-top:4px;font-size:13px;font-weight:700;color:#5A6478}
+.pj-mem{display:flex;gap:7px;flex-wrap:wrap;list-style:none;margin:0;padding:0}
+.pj-mem li{display:inline-flex;align-items:center;gap:5px;font-size:13.5px;font-weight:800;
+  color:var(--ink);background:#EDF0F6;border:1.5px solid #CBD3E3;border-radius:7px;padding:5px 10px}
+.pj-mem li a{border-bottom:1.5px solid #A9B4CA}
+.pj-mem li a:hover{border-bottom-color:var(--navy);color:var(--navy)}
+.pj-mem li b{font-size:10.5px;font-weight:900;letter-spacing:.04em;color:#fff;background:var(--navy);
+  border-radius:4px;padding:2px 6px}
 .pj-kws{display:flex;gap:7px;flex-wrap:wrap}
 .pj-kws span{font-size:12px;font-weight:800;padding:5px 11px;border-radius:6px;background:#EDF0F6;
   border:1.5px solid #CBD3E3;color:var(--ink-2)}
@@ -353,7 +363,7 @@ html, body, * {
 <div class="pj">
   <div class="pj-dhero k2"><div class="in">
     <nav class="pj-crumb" aria-label="현재 위치">
-      <a class="back" href="/projects/">목록으로</a><span class="sl" aria-hidden="true">/</span>
+      <a class="back" href="/projects/">프로젝트 목록으로</a><span class="sl" aria-hidden="true">/</span>
       <a href="/projects/">Projects</a><span class="sl" aria-hidden="true">/</span>
       <a href="/research/representation-learning/">Representation Learning</a><span class="sl" aria-hidden="true">/</span>
       <span>Data Curation</span>
@@ -361,7 +371,6 @@ html, body, * {
     <div class="pj-chips">
       <span class="c">완료</span>
       <span class="c">한국과학기술정보연구원</span>
-      <span class="c">AREA 02 · Representation Learning</span>
       <span class="c">Data Curation</span>
     </div>
     <h1>지능형 데이터 큐레이션 및 통합 구축 기술 개발</h1>
@@ -369,7 +378,7 @@ html, body, * {
       <div><dt>지원 기관</dt><dd>한국과학기술정보연구원</dd></div>
       <div><dt>연구 기간</dt><dd>2025.04 – 2025.09<small>6개월</small></dd></div>
       <div><dt>상태</dt><dd>완료</dd></div>
-      <div><dt>연구 축</dt><dd>Representation Learning<small>Data Curation</small></dd></div>
+      <div><dt>연구 분야</dt><dd>Representation Learning<small>Data Curation</small></dd></div>
     </dl>
   </div></div>
 
@@ -377,61 +386,57 @@ html, body, * {
     <div class="pj-split">
       <article>
         <div class="pj-cards"><div class="pj-card n0"><div class="t">문제</div><h3>사람이 다 검수할 수 없는 양</h3><p>식별자 부여를 넘어선 내용 정합성 검증 필요, 방대한 연구성과물의 물리적 검수 한계</p></div><div class="pj-card n1"><div class="t">접근</div><h3>구조적 지표 + 의미적 지표 이원화</h3><p>결측·형식 오류는 규칙 기반, 맥락 위배·전제 불일치는 LLM과 RAG 기반 판단. 5대 핵심 지표 정의</p></div><div class="pj-card n2"><div class="t">검증</div><h3>국산 LLM KONI 파인튜닝</h3><p>선별한 고품질 서브셋을 국산 LLM KONI 파인튜닝에 투입, 모델 성능 변화로 효과 검증</p></div></div>
-        <section class="pj-blk"><h2>연구 목표</h2><div class="pj-long folded"><div class="txt" id="pj-goal"><p style="margin-top:0">본 연구는 KISTI 데이터 품질 가이드라인을 준거로 하여 규칙 기반의 구조적 지표와 거대언어모델(LLM) 기반의 의미적 지표를 결합한 ‘연구성과물 자동 품질관리 프레임워크’를 확립하고, 실증을 통해 그 효용성을 검증하는 것을 목표로 함. 기존의 연구성과물(논문, 데이터, 연구자 정보 등) 관리는 단순 식별자 부여를 넘어 내용적 정합성 검증이 요구되나, 방대한 데이터에 대한 물리적 검수의 한계로 인해 자동화된 고도화 체계가 필요한 실정임. 이에 따라 본 연구에서는 결측·형식 오류 등을 탐지하는 ‘구조적 지표’와 LLM 및 RAG(검색 증강 생성) 기술을 활용하여 맥락 위배·전제 불일치 등을 판단하는 ‘의미적 지표’로 이원화된 평가 체계를 설계할 예정임. 이를 위해 완전성·유일성·정확성·적정성·다양성의 5대 핵심 지표를 정의하고, 수집부터 가공에 이르는 전 주기에 걸쳐 자동 진단·보고·검수 라우팅이 가능한 자동화 파이프라인을 구현할 계획임. 해당 시스템은 리스크 리포트, 체크리스트, 변경 인덱스 등 표준화된 산출물을 자동으로 생성하여 운영의 투명성과 설명 가능성을 확보하도록 설계될 예정임. 나아가 구축된 프레임워크를 KISTI 실제 데이터셋에 적용하여 고품질 서브셋(Subset)을 선별하고, 이를 국산 LLM인 ‘KONI’의 파인튜닝(Fine-tuning) 학습 데이터로 투입하여 모델 성능 변화를 측정함으로써 프레임워크의 실질적 효과와 확장성을 검증할 방침임. 최종적으로는 이러한 품질관리 체계를 통해 국제 식별자 시스템(DOI, ORCID)과 연계된 국내 연구 데이터의 신뢰성을 확보하고, 국가 연구데이터 플랫폼의 인프라 고도화에 기여할 계획임.</p></div><button type="button" class="more" aria-expanded="false" aria-controls="pj-goal" data-open="전체 보기 (819자)">전체 보기 (819자)</button></div></section>
+        <section class="pj-blk"><h2>연구 목표</h2><div class="pj-long folded"><div class="txt" id="pj-goal"><p style="margin-top:0">본 연구는 KISTI 데이터 품질 가이드라인을 준거로 하여 규칙 기반의 구조적 지표와 거대언어모델(LLM) 기반의 의미적 지표를 결합한 ‘연구성과물 자동 품질관리 프레임워크’를 확립하고, 실증을 통해 그 효용성을 검증하는 것을 목표로 수행함. 기존의 연구성과물(논문, 데이터, 연구자 정보 등) 관리는 단순 식별자 부여를 넘어 내용적 정합성 검증이 요구되나, 방대한 데이터에 대한 물리적 검수의 한계로 인해 자동화된 고도화 체계가 필요한 실정임. 이에 따라 본 연구에서는 결측·형식 오류 등을 탐지하는 ‘구조적 지표’와 LLM 및 RAG(검색 증강 생성) 기술을 활용하여 맥락 위배·전제 불일치 등을 판단하는 ‘의미적 지표’로 이원화된 평가 체계를 설계함. 이를 위해 완전성·유일성·정확성·적정성·다양성의 5대 핵심 지표를 정의하고, 수집부터 가공에 이르는 전 주기에 걸쳐 자동 진단·보고·검수 라우팅이 가능한 자동화 파이프라인을 구현함. 해당 시스템은 리스크 리포트, 체크리스트, 변경 인덱스 등 표준화된 산출물을 자동으로 생성하여 운영의 투명성과 설명 가능성을 확보하도록 설계됨. 나아가 구축된 프레임워크를 KISTI 실제 데이터셋에 적용하여 고품질 서브셋(Subset)을 선별하고, 이를 국산 LLM인 ‘KONI’의 파인튜닝(Fine-tuning) 학습 데이터로 투입하여 모델 성능 변화를 측정함으로써 프레임워크의 실질적 효과와 확장성을 검증할 방침임. 최종적으로는 이러한 품질관리 체계를 통해 국제 식별자 시스템(DOI, ORCID)과 연계된 국내 연구 데이터의 신뢰성을 확보하고, 국가 연구데이터 플랫폼의 인프라 고도화에 기여함.</p></div><button type="button" class="more" aria-expanded="false" aria-controls="pj-goal" data-open="연구 목표 전체 보기">연구 목표 전체 보기</button></div></section>
         
         <section class="pj-blk"><h2>연구 그림</h2><div class="pj-figs">
           <figure class="pj-fig">
-          <figcaption class="fh"><span>FIGURE 1</span><em>클릭하면 확대</em></figcaption>
-          <button type="button" class="fb" data-label="FIGURE 1"
-                  aria-label="지능형 데이터 큐레이션 및 통합 구축 기술 개발 연구 그림 1 크게 보기">
-            <img src="/images/projects/kisti_2025/01_hu_992bc78010befb02.png" alt="지능형 데이터 큐레이션 및 통합 구축 기술 개발 연구 그림 1" loading="lazy" decoding="async">
+          <figcaption class="fh"><span>학습 데이터 구축, 고품질 데이터 선별, KONI 파인튜닝, 평가로 이어지는 흐름</span><em>그림 확대 보기</em></figcaption>
+          <button type="button" class="fb" data-label="학습 데이터 구축, 고품질 데이터 선별, KONI 파인튜닝, 평가로 이어지는 흐름"
+                  aria-label="학습 데이터 구축, 고품질 데이터 선별, KONI 파인튜닝, 평가로 이어지는 흐름 확대 보기">
+            <img src="/images/projects/kisti_2025/01_hu_992bc78010befb02.png" alt="학습 데이터 구축, 고품질 데이터 선별, KONI 파인튜닝, 평가로 이어지는 흐름" loading="lazy" decoding="async">
           </button>
         </figure><figure class="pj-fig">
-          <figcaption class="fh"><span>FIGURE 2</span><em>클릭하면 확대</em></figcaption>
-          <button type="button" class="fb" data-label="FIGURE 2"
-                  aria-label="지능형 데이터 큐레이션 및 통합 구축 기술 개발 연구 그림 2 크게 보기">
-            <img src="/images/projects/kisti_2025/kisti_2025-2_hu_e95824dd4a51fd7a.png" alt="지능형 데이터 큐레이션 및 통합 구축 기술 개발 연구 그림 2" loading="lazy" decoding="async">
+          <figcaption class="fh"><span>Discover·Define·Develop·Deliver 4단계 연구 추진 절차</span><em>그림 확대 보기</em></figcaption>
+          <button type="button" class="fb" data-label="Discover·Define·Develop·Deliver 4단계 연구 추진 절차"
+                  aria-label="Discover·Define·Develop·Deliver 4단계 연구 추진 절차 확대 보기">
+            <img src="/images/projects/kisti_2025/kisti_2025-2_hu_e95824dd4a51fd7a.png" alt="Discover·Define·Develop·Deliver 4단계 연구 추진 절차" loading="lazy" decoding="async">
           </button>
         </figure><figure class="pj-fig">
-          <figcaption class="fh"><span>FIGURE 3</span><em>클릭하면 확대</em></figcaption>
-          <button type="button" class="fb" data-label="FIGURE 3"
-                  aria-label="지능형 데이터 큐레이션 및 통합 구축 기술 개발 연구 그림 3 크게 보기">
-            <img src="/images/projects/kisti_2025/kisti_2025-4_hu_62c52057322db19c.png" alt="지능형 데이터 큐레이션 및 통합 구축 기술 개발 연구 그림 3" loading="lazy" decoding="async">
+          <figcaption class="fh"><span>오류 유형 정의부터 LLM 기반 분류 모델과 품질 평가·개선까지의 목표 구조</span><em>그림 확대 보기</em></figcaption>
+          <button type="button" class="fb" data-label="오류 유형 정의부터 LLM 기반 분류 모델과 품질 평가·개선까지의 목표 구조"
+                  aria-label="오류 유형 정의부터 LLM 기반 분류 모델과 품질 평가·개선까지의 목표 구조 확대 보기">
+            <img src="/images/projects/kisti_2025/kisti_2025-4_hu_62c52057322db19c.png" alt="오류 유형 정의부터 LLM 기반 분류 모델과 품질 평가·개선까지의 목표 구조" loading="lazy" decoding="async">
           </button>
         </figure>
         </div></section>
       </article>
 
       <aside class="pj-side" aria-label="과제 정보">
-        <div class="pj-cardbox"><div class="ch">과제 개요</div><div class="cb"><dl>
-          <div><dt>연구 기간</dt><dd>2025.04 – 2025.09
-            </dd></div>
-          <div><dt>상태</dt><dd><span class="pj-tag done">완료</span></dd></div>
-          <div><dt>연구 축</dt><dd>AREA 02 · Representation Learning</dd></div>
-          <div><dt>세부 분야</dt><dd>Data Curation<span class="nt">research 페이지에 대응 세부 분야가 아직 없음</span></dd></div>
-        </dl></div></div>
+        <div class="pj-cardbox"><div class="ch">참여 연구자</div><div class="cb">
+          <ul class="pj-mem"><li><a href="/researcher/hyeonjin/">김현진</a><b>팀장</b></li><li><a href="/researcher/miso/">김미소</a></li><li><a href="/researcher/seungwon/">정승원</a></li><li><a href="/researcher/jiwoo/">정지우</a></li></ul>
+        </div></div>
 
-        <div class="pj-cardbox"><div class="ch">Keywords</div><div class="cb"><div class="pj-kws">
+        <div class="pj-cardbox"><div class="ch">핵심어</div><div class="cb"><div class="pj-kws">
           <span>Data Quality</span><span>Quality Management Automation</span><span>Large Language Model</span><span>Quality Improvement</span><span>Data Reliability</span>
         </div></div></div>
 
-        <div class="pj-cardbox"><div class="ch">이어서 보기</div>
+        <div class="pj-cardbox"><div class="ch">관련 연구와 과제</div>
           <a class="pj-lnk" href="/research/representation-learning/"><span class="s">연구 분야</span>Representation Learning 전체 보기</a>
-          <a class="pj-lnk" href="/projects/iot_2024/"><span class="s">같은 축의 과제 · 사물인터넷 혁신융합대학사업</span>예외 상황과 일반 상황의 분포 차이 최소화 적응 기법 개발</a>
+          <a class="pj-lnk" href="/projects/iot_2024/"><span class="s">같은 분야의 과제 · 사물인터넷 혁신융합대학사업</span>예외 상황과 일반 상황의 분포 차이 최소화 적응 기법 개발</a>
         </div>
 
-        <a class="pj-back" href="/projects/">목록으로 돌아가기</a>
+        <a class="pj-back" href="/projects/">프로젝트 목록으로</a>
       </aside>
     </div>
 
     <nav class="pj-pager" aria-label="다른 과제">
-      <a href="/projects/kimcaddie_2025/"><div class="s">이전 과제</div><h2>골프 클럽과 관절 정보를 활용한 골프 스윙 분석</h2></a>
-      <a class="nx" href="/projects/iot_2024/"><div class="s">다음 과제</div><h2>예외 상황과 일반 상황의 분포 차이 최소화 적응 기법 개발</h2></a>
+      <a href="/projects/kimcaddie_2025/"><div class="s">더 최근에 시작한 과제</div><h2>골프 클럽과 관절 정보를 활용한 골프 스윙 분석</h2></a>
+      <a class="nx" href="/projects/iot_2024/"><div class="s">더 이전에 시작한 과제</div><h2>예외 상황과 일반 상황의 분포 차이 최소화 적응 기법 개발</h2></a>
     </nav>
   </div></div>
 
   <dialog class="pj-dlg" id="pj-figdlg" aria-label="연구 그림 확대">
-    <div class="dt"><span>FIGURE</span>
+    <div class="dt"><span>연구 그림</span>
       <button type="button" aria-label="닫기" onclick="this.closest('dialog').close()">&times;</button></div>
     <div class="di"><img src="" alt=""></div>
   </dialog>

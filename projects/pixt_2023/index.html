@@ -233,6 +233,8 @@ html, body, * {
 .pj-chips .c.now{background:#FBBF24;border-color:#FBBF24;color:#3B2606}
 .pj-dhero h1{margin:13px 0 0;font-size:36px;font-weight:900;letter-spacing:-.035em;
   line-height:1.2;max-width:960px}
+.pj-fulltitle{margin:11px 0 0;font-size:13.5px;font-weight:700;line-height:1.6;
+  color:rgba(255,255,255,.82);max-width:900px}
 .pj-pills{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:26px 0 0}
 .pj-pills>div{background:rgba(255,255,255,.13);border:2px solid rgba(255,255,255,.4);
   border-radius:11px;padding:12px 15px}
@@ -292,6 +294,14 @@ html, body, * {
 .pj-cardbox dt{font-size:11px;font-weight:900;letter-spacing:.08em;color:#5A6478}
 .pj-cardbox dd{margin:6px 0 0;font-size:14px;font-weight:800;line-height:1.6;color:var(--ink)}
 .pj-cardbox dd .nt{display:block;margin-top:4px;font-size:11.5px;font-weight:800;color:#B45309}
+.pj-cardbox dd .nt2{display:block;margin-top:4px;font-size:13px;font-weight:700;color:#5A6478}
+.pj-mem{display:flex;gap:7px;flex-wrap:wrap;list-style:none;margin:0;padding:0}
+.pj-mem li{display:inline-flex;align-items:center;gap:5px;font-size:13.5px;font-weight:800;
+  color:var(--ink);background:#EDF0F6;border:1.5px solid #CBD3E3;border-radius:7px;padding:5px 10px}
+.pj-mem li a{border-bottom:1.5px solid #A9B4CA}
+.pj-mem li a:hover{border-bottom-color:var(--navy);color:var(--navy)}
+.pj-mem li b{font-size:10.5px;font-weight:900;letter-spacing:.04em;color:#fff;background:var(--navy);
+  border-radius:4px;padding:2px 6px}
 .pj-kws{display:flex;gap:7px;flex-wrap:wrap}
 .pj-kws span{font-size:12px;font-weight:800;padding:5px 11px;border-radius:6px;background:#EDF0F6;
   border:1.5px solid #CBD3E3;color:var(--ink-2)}
@@ -353,23 +363,22 @@ html, body, * {
 <div class="pj">
   <div class="pj-dhero k3"><div class="in">
     <nav class="pj-crumb" aria-label="현재 위치">
-      <a class="back" href="/projects/">목록으로</a><span class="sl" aria-hidden="true">/</span>
+      <a class="back" href="/projects/">프로젝트 목록으로</a><span class="sl" aria-hidden="true">/</span>
       <a href="/projects/">Projects</a><span class="sl" aria-hidden="true">/</span>
       <a href="/research/ai-applications/">AI Applications</a><span class="sl" aria-hidden="true">/</span>
       <span>Video &amp; Multimodal</span>
     </nav>
     <div class="pj-chips">
       <span class="c">완료</span>
-      <span class="c">PIXT</span>
-      <span class="c">AREA 03 · AI Applications</span>
+      <span class="c">Pixt</span>
       <span class="c">Video &amp; Multimodal</span>
     </div>
     <h1>한국어 전용 동영상 캡션 AI 모델 개발</h1>
     <dl class="pj-pills">
-      <div><dt>지원 기관</dt><dd>PIXT</dd></div>
+      <div><dt>지원 기관</dt><dd>Pixt</dd></div>
       <div><dt>연구 기간</dt><dd>2023.05 – 2024.04<small>1년</small></dd></div>
       <div><dt>상태</dt><dd>완료</dd></div>
-      <div><dt>연구 축</dt><dd>AI Applications<small>Video &amp; Multimodal</small></dd></div>
+      <div><dt>연구 분야</dt><dd>AI Applications<small>Video &amp; Multimodal</small></dd></div>
     </dl>
   </div></div>
 
@@ -377,49 +386,45 @@ html, body, * {
     <div class="pj-split">
       <article>
         <div class="pj-cards"><div class="pj-card n0"><div class="t">문제</div><h3>영어 편중과 싱글 모달의 한계</h3><p>국내 연구는 CNN·RNN·LSTM 싱글 모달에 국한, CLIP은 영어 편중 및 ZSL 구조로 전이학습에 부적합</p></div><div class="pj-card n1"><div class="t">접근</div><h3>트랜스포머 기반 전이학습</h3><p>다국어 동영상 캡션 모델의 전이학습을 통한 한국어 전용 캡션 모델 확보</p></div><div class="pj-card n2"><div class="t">목표치</div><h3>재현도 75% 이상</h3><p>영어 사용이 어려운 국내 이용자 대상 한국어 TTV 애플리케이션의 선행 기술 확보</p></div></div>
-        <section class="pj-blk"><h2>연구 목표</h2><div class="pj-long folded"><div class="txt" id="pj-goal"><p style="margin-top:0">글로벌 시장에서는 문장을 동영상으로 변환하는 TTV(Text-to-Video) 기술이 급속도로 성장 중이며 현재 2022-2027 TTV 시장 전망은 CAGR 37.1%의 빠른 성장률을 보이고 있음. 이러한 기술의 발전은 동영상 캡셔닝 AI 기술 발전에 영향을 받는데, 특히 최근 Open AI에서도 선보인 T2I(text-to-image) 기반 CLIP 모델은 트랜스포머를 이용한 모델임. 현재 국내에서도 CNN, RNN, LSTM을 사용한 AI모델에 대한 개발이 이루어져 왔으나, 트랜스포머 기반 모델 대한 연구는 수행되지 않았음. 그간 국내에서 수행된 연구는 싱글 모달(single-modal) 모델로, 넓은 범위의 분류가 어려움. 또한 OPEN AI社 CLIP 모델은 기존 학습언어인 영어에 대한 성능은 뛰어나나, ZSL(zero-shot learning) 모델로 새로운 데이터 학습에 취약해 전이학습에는 적합하지 않음. ㈜스톡폴리오는 영어를 완벽하게 구사하지 못하는 국내 이용자들이 손쉽게 사용할 수 있는 한국어 전용 TTV(Text-to-Video) 어플리케이션을 개발하기 위해 트랜스포머 기반 다국어 동영상 캡션 AI모델의 전이학습을 통한 재현도 75%이상급 한국어 전용 동영상 캡션 AI모델을 선행기술로 개발하고자 함.</p></div><button type="button" class="more" aria-expanded="false" aria-controls="pj-goal" data-open="전체 보기 (634자)">전체 보기 (634자)</button></div></section>
+        <section class="pj-blk"><h2>연구 목표</h2><div class="pj-long folded"><div class="txt" id="pj-goal"><p style="margin-top:0">글로벌 시장에서는 문장을 동영상으로 변환하는 TTV(Text-to-Video) 기술이 급속도로 성장 중이며 현재 2022-2027 TTV 시장 전망은 CAGR 37.1%의 빠른 성장률을 보이고 있음. 이러한 기술의 발전은 동영상 캡셔닝 AI 기술 발전에 영향을 받는데, 특히 최근 Open AI에서도 선보인 T2I(text-to-image) 기반 CLIP 모델은 트랜스포머를 이용한 모델임. 현재 국내에서도 CNN, RNN, LSTM을 사용한 AI 모델에 대한 개발이 이루어져 왔으나, 트랜스포머 기반 모델 대한 연구는 수행되지 않았음. 그간 국내에서 수행된 연구는 싱글 모달(single-modal) 모델로, 넓은 범위의 분류가 어려움. 또한 OPEN AI社 CLIP 모델은 기존 학습언어인 영어에 대한 성능은 뛰어나나, ZSL(zero-shot learning) 모델로 새로운 데이터 학습에 취약해 전이학습에는 적합하지 않음. ㈜스톡폴리오는 영어를 완벽하게 구사하지 못하는 국내 이용자들이 손쉽게 사용할 수 있는 한국어 전용 TTV(Text-to-Video) 어플리케이션을 개발하기 위해 트랜스포머 기반 다국어 동영상 캡션 AI 모델의 전이학습을 통한 재현도 75%이상급 한국어 전용 동영상 캡션 AI 모델을 선행기술로 개발함.</p></div><button type="button" class="more" aria-expanded="false" aria-controls="pj-goal" data-open="연구 목표 전체 보기">연구 목표 전체 보기</button></div></section>
         
         <section class="pj-blk"><h2>연구 그림</h2><div class="pj-figs">
           <figure class="pj-fig">
-          <figcaption class="fh"><span>FIGURE 1</span><em>클릭하면 확대</em></figcaption>
-          <button type="button" class="fb" data-label="FIGURE 1"
-                  aria-label="한국어 전용 동영상 캡션 AI 모델 개발 연구 그림 1 크게 보기">
-            <img src="/images/projects/pixt_2023/01_hu_a66416593b666cda.png" alt="한국어 전용 동영상 캡션 AI 모델 개발 연구 그림 1" loading="lazy" decoding="async">
+          <figcaption class="fh"><span>한국어 캡션 분류, 동영상 캡션 생성, 동영상 제작 애플리케이션으로 이어지는 개발 구성</span><em>그림 확대 보기</em></figcaption>
+          <button type="button" class="fb" data-label="한국어 캡션 분류, 동영상 캡션 생성, 동영상 제작 애플리케이션으로 이어지는 개발 구성"
+                  aria-label="한국어 캡션 분류, 동영상 캡션 생성, 동영상 제작 애플리케이션으로 이어지는 개발 구성 확대 보기">
+            <img src="/images/projects/pixt_2023/01_hu_a66416593b666cda.png" alt="한국어 캡션 분류, 동영상 캡션 생성, 동영상 제작 애플리케이션으로 이어지는 개발 구성" loading="lazy" decoding="async">
           </button>
         </figure>
         </div></section>
       </article>
 
       <aside class="pj-side" aria-label="과제 정보">
-        <div class="pj-cardbox"><div class="ch">과제 개요</div><div class="cb"><dl>
-          <div><dt>연구 기간</dt><dd>2023.05 – 2024.04
-            </dd></div>
-          <div><dt>상태</dt><dd><span class="pj-tag done">완료</span></dd></div>
-          <div><dt>연구 축</dt><dd>AREA 03 · AI Applications</dd></div>
-          <div><dt>세부 분야</dt><dd>Video &amp; Multimodal</dd></div>
-        </dl></div></div>
+        <div class="pj-cardbox"><div class="ch">참여 연구자</div><div class="cb">
+          <ul class="pj-mem"><li><span>크리스</span><b>팀장</b></li><li><span>김창우</span></li><li><a href="/researcher/seunghyun/">정승현</a></li></ul>
+        </div></div>
 
-        <div class="pj-cardbox"><div class="ch">Keywords</div><div class="cb"><div class="pj-kws">
+        <div class="pj-cardbox"><div class="ch">핵심어</div><div class="cb"><div class="pj-kws">
           <span>Multimodal</span><span>Long-tailed</span><span>Deep Learning</span>
         </div></div></div>
 
-        <div class="pj-cardbox"><div class="ch">이어서 보기</div>
+        <div class="pj-cardbox"><div class="ch">관련 연구와 과제</div>
           <a class="pj-lnk" href="/research/ai-applications/"><span class="s">연구 분야</span>AI Applications 전체 보기</a>
-          <a class="pj-lnk" href="/projects/cma_2025/"><span class="s">같은 축의 과제 · 기상청</span>전천(All-sky) 기후자료 산출 및 초해상화 인공지능 모델 개발</a><a class="pj-lnk" href="/projects/kimcaddie_2025/"><span class="s">같은 축의 과제 · 김캐디</span>골프 클럽과 관절 정보를 활용한 골프 스윙 분석</a>
+          <a class="pj-lnk" href="/projects/cma_2025/"><span class="s">같은 분야의 과제 · 기상청</span>전천(All-sky) 기후자료 산출 및 초해상화 인공지능 모델 개발</a><a class="pj-lnk" href="/projects/kimcaddie_2025/"><span class="s">같은 분야의 과제 · 김캐디</span>골프 클럽과 관절 정보를 활용한 골프 스윙 분석</a>
         </div>
 
-        <a class="pj-back" href="/projects/">목록으로 돌아가기</a>
+        <a class="pj-back" href="/projects/">프로젝트 목록으로</a>
       </aside>
     </div>
 
     <nav class="pj-pager" aria-label="다른 과제">
-      <a href="/projects/kimcaddie_2024/"><div class="s">이전 과제</div><h2>XAI를 활용한 골프 스윙 피드백 모델 개발</h2></a>
-      <a class="nx" href="/projects/nrf_2022/"><div class="s">다음 과제</div><h2>인공지능 시스템의 실용화를 위한 딥러닝 안정성 알고리즘 개발</h2></a>
+      <a href="/projects/kimcaddie_2024/"><div class="s">더 최근에 시작한 과제</div><h2>XAI를 활용한 골프 스윙 피드백 모델 개발</h2></a>
+      <a class="nx" href="/projects/nrf_2022/"><div class="s">더 이전에 시작한 과제</div><h2>인공지능 시스템의 실용화를 위한 딥러닝 안정성 알고리즘 개발</h2></a>
     </nav>
   </div></div>
 
   <dialog class="pj-dlg" id="pj-figdlg" aria-label="연구 그림 확대">
-    <div class="dt"><span>FIGURE</span>
+    <div class="dt"><span>연구 그림</span>
       <button type="button" aria-label="닫기" onclick="this.closest('dialog').close()">&times;</button></div>
     <div class="di"><img src="" alt=""></div>
   </dialog>

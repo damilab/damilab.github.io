@@ -233,6 +233,8 @@ html, body, * {
 .pj-chips .c.now{background:#FBBF24;border-color:#FBBF24;color:#3B2606}
 .pj-dhero h1{margin:13px 0 0;font-size:36px;font-weight:900;letter-spacing:-.035em;
   line-height:1.2;max-width:960px}
+.pj-fulltitle{margin:11px 0 0;font-size:13.5px;font-weight:700;line-height:1.6;
+  color:rgba(255,255,255,.82);max-width:900px}
 .pj-pills{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:26px 0 0}
 .pj-pills>div{background:rgba(255,255,255,.13);border:2px solid rgba(255,255,255,.4);
   border-radius:11px;padding:12px 15px}
@@ -292,6 +294,14 @@ html, body, * {
 .pj-cardbox dt{font-size:11px;font-weight:900;letter-spacing:.08em;color:#5A6478}
 .pj-cardbox dd{margin:6px 0 0;font-size:14px;font-weight:800;line-height:1.6;color:var(--ink)}
 .pj-cardbox dd .nt{display:block;margin-top:4px;font-size:11.5px;font-weight:800;color:#B45309}
+.pj-cardbox dd .nt2{display:block;margin-top:4px;font-size:13px;font-weight:700;color:#5A6478}
+.pj-mem{display:flex;gap:7px;flex-wrap:wrap;list-style:none;margin:0;padding:0}
+.pj-mem li{display:inline-flex;align-items:center;gap:5px;font-size:13.5px;font-weight:800;
+  color:var(--ink);background:#EDF0F6;border:1.5px solid #CBD3E3;border-radius:7px;padding:5px 10px}
+.pj-mem li a{border-bottom:1.5px solid #A9B4CA}
+.pj-mem li a:hover{border-bottom-color:var(--navy);color:var(--navy)}
+.pj-mem li b{font-size:10.5px;font-weight:900;letter-spacing:.04em;color:#fff;background:var(--navy);
+  border-radius:4px;padding:2px 6px}
 .pj-kws{display:flex;gap:7px;flex-wrap:wrap}
 .pj-kws span{font-size:12px;font-weight:800;padding:5px 11px;border-radius:6px;background:#EDF0F6;
   border:1.5px solid #CBD3E3;color:var(--ink-2)}
@@ -353,23 +363,22 @@ html, body, * {
 <div class="pj">
   <div class="pj-dhero k1"><div class="in">
     <nav class="pj-crumb" aria-label="현재 위치">
-      <a class="back" href="/projects/">목록으로</a><span class="sl" aria-hidden="true">/</span>
+      <a class="back" href="/projects/">프로젝트 목록으로</a><span class="sl" aria-hidden="true">/</span>
       <a href="/projects/">Projects</a><span class="sl" aria-hidden="true">/</span>
       <a href="/research/trustworthy-ai/">Trustworthy AI</a><span class="sl" aria-hidden="true">/</span>
       <span>LLM &amp; Agent Safety</span>
     </nav>
     <div class="pj-chips">
       <span class="c now">진행 중</span>
-      <span class="c">한국연구재단 우수신진연구</span>
-      <span class="c">AREA 01 · Trustworthy AI</span>
+      <span class="c">한국연구재단</span>
       <span class="c">LLM &amp; Agent Safety</span>
     </div>
-    <h1>문맥 기반 방어(가드레일)와 퍼플팀 접근을 통해 다국어 LLM의 탈옥 취약점을 탐지하고 차단하는 연구</h1>
+    <h1>다국어 LLM 탈옥 취약점 탐지·방어 연구</h1><p class="pj-fulltitle">과제 공식 명칭 · 문맥 기반 방어(가드레일)와 퍼플팀 접근을 통해 다국어 LLM의 탈옥 취약점을 탐지하고 차단하는 연구</p>
     <dl class="pj-pills">
-      <div><dt>지원 기관</dt><dd>한국연구재단 우수신진연구</dd></div>
+      <div><dt>지원 기관</dt><dd>한국연구재단<small>우수신진연구 사업</small></dd></div>
       <div><dt>연구 기간</dt><dd>2025.03 – 2028.02<small>3년</small></dd></div>
-      <div><dt>진행률</dt><dd>50%<small>2026.08 기준</small><div class="pj-pbar"><i style="width:50%"></i></div></dd></div>
-      <div><dt>연구 축</dt><dd>Trustworthy AI<small>LLM &amp; Agent Safety</small></dd></div>
+      <div><dt>기간 경과</dt><dd>50%<small>2026.08 기준</small><div class="pj-pbar"><i style="width:50%"></i></div></dd></div>
+      <div><dt>연구 분야</dt><dd>Trustworthy AI<small>LLM &amp; Agent Safety</small></dd></div>
     </dl>
   </div></div>
 
@@ -377,49 +386,45 @@ html, body, * {
     <div class="pj-split">
       <article>
         
-        <section class="pj-blk"><h2>연구 목표</h2><p>본 연구는 윤리적인 다국어 LLM을 위한 문맥 기반 탈옥 가드레일 구축을 목표로 함. 보안 취약점을 탐지하는 레드팀과 방어 프로세스를 설계하는 블루팀의 협력을 기반으로 한 퍼플팀 체계를 중심으로 연구를 진행할 예정임. 다국어 유해-무해 데이터셋을 구축하고, LLM 유해 응답 평가, 공격, 방어 알고리즘을 개발하여 다양한 탈옥 공격에 효과적으로 대응할 수 있는 방어 시스템을 설계하고자함. 이를 통해 보안 취약점을 발견하고 대응 프로세스를 강화하여 LLM 유해 응답 생성을 사전에 차단함. 세계 최초로 다국어의 언어적 특징을 고려한 유해응답 데이터셋을 자동으로 구축하는 알고리즘 개발 및 문맥 적합성을 고려한 다국어 응답 평가 지표를 설계함. LLM의 토크나이저 작동 방식에 따른 다국어 토큰의 다중 바이트 문제를 최초로 규명하고, 이를 극복하는 최적화 알고리즘을 통해, 불가능하다고 여겨졌던 다국어 LLM 모델의 탈옥 공격 해법을 제시함. 입력 프롬프트와 응답 간의 일관성을 고려하여 다국어 환경에서 탈옥 공격을 효과적으로 막아내는 혁신적인 방법론을 제시함.</p></section>
+        <section class="pj-blk"><h2>연구 목표</h2><p>본 연구는 윤리적인 다국어 LLM을 위한 문맥 기반 탈옥 가드레일 구축을 목표로 함. 보안 취약점을 탐지하는 레드팀과 방어 프로세스를 설계하는 블루팀의 협력을 기반으로 한 퍼플팀 체계를 중심으로 연구를 진행할 예정임. 다국어 유해-무해 데이터셋을 구축하고, LLM 유해 응답 평가, 공격, 방어 알고리즘을 개발하여 다양한 탈옥 공격에 효과적으로 대응할 수 있는 방어 시스템을 설계하고자 함. 이를 통해 보안 취약점을 발견하고 대응 프로세스를 강화하여 LLM 유해 응답 생성을 사전에 차단함. 다국어의 언어적 특징을 고려한 유해 응답 데이터셋을 자동으로 구축하는 알고리즘 개발 및 문맥 적합성을 고려한 다국어 응답 평가 지표를 설계함. LLM의 토크나이저 작동 방식에 따른 다국어 토큰의 다중 바이트 문제를 규명하고, 이를 극복하는 최적화 알고리즘을 통해 다국어 LLM 모델의 탈옥 공격 해법을 제시함. 입력 프롬프트와 응답 간의 일관성을 고려하여 다국어 환경에서 탈옥 공격을 막아내는 방법론을 제시함.</p></section>
         
         <section class="pj-blk"><h2>연구 그림</h2><div class="pj-figs">
           <figure class="pj-fig">
-          <figcaption class="fh"><span>FIGURE 1</span><em>클릭하면 확대</em></figcaption>
-          <button type="button" class="fb" data-label="FIGURE 1"
-                  aria-label="문맥 기반 방어(가드레일)와 퍼플팀 접근을 통해 다국어 LLM의 탈옥 취약점을 탐지하고 차단하는 연구 연구 그림 1 크게 보기">
-            <img src="/images/projects/nrf_2025/01_hu_8bf6b02f96d3bc3e.png" alt="문맥 기반 방어(가드레일)와 퍼플팀 접근을 통해 다국어 LLM의 탈옥 취약점을 탐지하고 차단하는 연구 연구 그림 1" loading="lazy" decoding="async">
+          <figcaption class="fh"><span>레드팀·블루팀·퍼플팀 협력 체계와 연차별 연구 구성</span><em>그림 확대 보기</em></figcaption>
+          <button type="button" class="fb" data-label="레드팀·블루팀·퍼플팀 협력 체계와 연차별 연구 구성"
+                  aria-label="레드팀·블루팀·퍼플팀 협력 체계와 연차별 연구 구성 확대 보기">
+            <img src="/images/projects/nrf_2025/01_hu_8bf6b02f96d3bc3e.png" alt="레드팀·블루팀·퍼플팀 협력 체계와 연차별 연구 구성" loading="lazy" decoding="async">
           </button>
         </figure>
         </div></section>
       </article>
 
       <aside class="pj-side" aria-label="과제 정보">
-        <div class="pj-cardbox"><div class="ch">과제 개요</div><div class="cb"><dl>
-          <div><dt>연구 기간</dt><dd>2025.03 – 2028.02
-            </dd></div>
-          <div><dt>상태</dt><dd><span class="pj-tag live">진행 중</span></dd></div>
-          <div><dt>연구 축</dt><dd>AREA 01 · Trustworthy AI</dd></div>
-          <div><dt>세부 분야</dt><dd>LLM &amp; Agent Safety</dd></div>
-        </dl></div></div>
+        <div class="pj-cardbox"><div class="ch">참여 연구자</div><div class="cb">
+          <ul class="pj-mem"><li><a href="/researcher/seunghyun/">정승현</a><b>팀장</b></li><li><a href="/researcher/georu/">이거루</a></li><li><a href="/researcher/jiwoo/">정지우</a></li><li><a href="/researcher/seungwon/">정승원</a></li><li><a href="/researcher/miso/">김미소</a></li><li><a href="/researcher/hyeonjin/">김현진</a></li><li><span>크리스</span></li><li><a href="/researcher/minseok/">김민석</a></li><li><a href="/researcher/yunji/">김윤지</a></li><li><a href="/researcher/yunseok/">이윤석</a></li><li><a href="/researcher/hyunse/">이현세</a></li><li><a href="/researcher/haneul/">이하늘</a></li></ul>
+        </div></div>
 
-        <div class="pj-cardbox"><div class="ch">Keywords</div><div class="cb"><div class="pj-kws">
+        <div class="pj-cardbox"><div class="ch">핵심어</div><div class="cb"><div class="pj-kws">
           <span>Large Language Model</span><span>Jailbreaking</span><span>Guardrail</span>
         </div></div></div>
 
-        <div class="pj-cardbox"><div class="ch">이어서 보기</div>
+        <div class="pj-cardbox"><div class="ch">관련 연구와 과제</div>
           <a class="pj-lnk" href="/research/trustworthy-ai/"><span class="s">연구 분야</span>Trustworthy AI 전체 보기</a>
-          <a class="pj-lnk" href="/projects/nrf_2022/"><span class="s">같은 축의 과제 · 한국연구재단</span>인공지능 시스템의 실용화를 위한 딥러닝 안정성 알고리즘 개발</a><a class="pj-lnk" href="/projects/genesislab_2022/"><span class="s">같은 축의 과제 · 제네시스랩</span>공정한 인공지능 면접 모델 알고리즘 개발</a>
+          <a class="pj-lnk" href="/projects/nrf_2022/"><span class="s">같은 분야의 과제 · 한국연구재단</span>인공지능 시스템의 실용화를 위한 딥러닝 안정성 알고리즘 개발</a><a class="pj-lnk" href="/projects/genesislab_2022/"><span class="s">같은 분야의 과제 · 제네시스랩</span>공정한 인공지능 면접 모델 알고리즘 개발</a>
         </div>
 
-        <a class="pj-back" href="/projects/">목록으로 돌아가기</a>
+        <a class="pj-back" href="/projects/">프로젝트 목록으로</a>
       </aside>
     </div>
 
     <nav class="pj-pager" aria-label="다른 과제">
-      <a href="/projects/cma_2025/"><div class="s">이전 과제</div><h2>전천(All-sky) 기후자료 산출 및 초해상화 인공지능 모델 개발</h2></a>
-      <a class="nx" href="/projects/kimcaddie_2025/"><div class="s">다음 과제</div><h2>골프 클럽과 관절 정보를 활용한 골프 스윙 분석</h2></a>
+      <a href="/projects/cma_2025/"><div class="s">더 최근에 시작한 과제</div><h2>전천(All-sky) 기후자료 산출 및 초해상화 인공지능 모델 개발</h2></a>
+      <a class="nx" href="/projects/kimcaddie_2025/"><div class="s">더 이전에 시작한 과제</div><h2>골프 클럽과 관절 정보를 활용한 골프 스윙 분석</h2></a>
     </nav>
   </div></div>
 
   <dialog class="pj-dlg" id="pj-figdlg" aria-label="연구 그림 확대">
-    <div class="dt"><span>FIGURE</span>
+    <div class="dt"><span>연구 그림</span>
       <button type="button" aria-label="닫기" onclick="this.closest('dialog').close()">&times;</button></div>
     <div class="di"><img src="" alt=""></div>
   </dialog>

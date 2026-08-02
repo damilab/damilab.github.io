@@ -233,6 +233,8 @@ html, body, * {
 .pj-chips .c.now{background:#FBBF24;border-color:#FBBF24;color:#3B2606}
 .pj-dhero h1{margin:13px 0 0;font-size:36px;font-weight:900;letter-spacing:-.035em;
   line-height:1.2;max-width:960px}
+.pj-fulltitle{margin:11px 0 0;font-size:13.5px;font-weight:700;line-height:1.6;
+  color:rgba(255,255,255,.82);max-width:900px}
 .pj-pills{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:26px 0 0}
 .pj-pills>div{background:rgba(255,255,255,.13);border:2px solid rgba(255,255,255,.4);
   border-radius:11px;padding:12px 15px}
@@ -292,6 +294,14 @@ html, body, * {
 .pj-cardbox dt{font-size:11px;font-weight:900;letter-spacing:.08em;color:#5A6478}
 .pj-cardbox dd{margin:6px 0 0;font-size:14px;font-weight:800;line-height:1.6;color:var(--ink)}
 .pj-cardbox dd .nt{display:block;margin-top:4px;font-size:11.5px;font-weight:800;color:#B45309}
+.pj-cardbox dd .nt2{display:block;margin-top:4px;font-size:13px;font-weight:700;color:#5A6478}
+.pj-mem{display:flex;gap:7px;flex-wrap:wrap;list-style:none;margin:0;padding:0}
+.pj-mem li{display:inline-flex;align-items:center;gap:5px;font-size:13.5px;font-weight:800;
+  color:var(--ink);background:#EDF0F6;border:1.5px solid #CBD3E3;border-radius:7px;padding:5px 10px}
+.pj-mem li a{border-bottom:1.5px solid #A9B4CA}
+.pj-mem li a:hover{border-bottom-color:var(--navy);color:var(--navy)}
+.pj-mem li b{font-size:10.5px;font-weight:900;letter-spacing:.04em;color:#fff;background:var(--navy);
+  border-radius:4px;padding:2px 6px}
 .pj-kws{display:flex;gap:7px;flex-wrap:wrap}
 .pj-kws span{font-size:12px;font-weight:800;padding:5px 11px;border-radius:6px;background:#EDF0F6;
   border:1.5px solid #CBD3E3;color:var(--ink-2)}
@@ -353,23 +363,22 @@ html, body, * {
 <div class="pj">
   <div class="pj-dhero k1"><div class="in">
     <nav class="pj-crumb" aria-label="현재 위치">
-      <a class="back" href="/projects/">목록으로</a><span class="sl" aria-hidden="true">/</span>
+      <a class="back" href="/projects/">프로젝트 목록으로</a><span class="sl" aria-hidden="true">/</span>
       <a href="/projects/">Projects</a><span class="sl" aria-hidden="true">/</span>
       <a href="/research/trustworthy-ai/">Trustworthy AI</a><span class="sl" aria-hidden="true">/</span>
       <span>Fairness</span>
     </nav>
     <div class="pj-chips">
       <span class="c">완료</span>
-      <span class="c">제네시스랩 (Genesis Lab)</span>
-      <span class="c">AREA 01 · Trustworthy AI</span>
+      <span class="c">제네시스랩</span>
       <span class="c">Fairness</span>
     </div>
     <h1>공정한 인공지능 면접 모델 알고리즘 개발</h1>
     <dl class="pj-pills">
-      <div><dt>지원 기관</dt><dd>제네시스랩 (Genesis Lab)</dd></div>
+      <div><dt>지원 기관</dt><dd>제네시스랩</dd></div>
       <div><dt>연구 기간</dt><dd>2022.07 – 2022.12<small>6개월</small></dd></div>
       <div><dt>상태</dt><dd>완료</dd></div>
-      <div><dt>연구 축</dt><dd>Trustworthy AI<small>Fairness</small></dd></div>
+      <div><dt>연구 분야</dt><dd>Trustworthy AI<small>Fairness</small></dd></div>
     </dl>
   </div></div>
 
@@ -377,61 +386,57 @@ html, body, * {
     <div class="pj-split">
       <article>
         
-        <section class="pj-blk"><h2>연구 목표</h2><p>본 연구에서는 인공지능 면접에서 공정성 확보를 위해, 지금 현재 상용화되고 있는 인공지능 면접 시스템의 공정성 현황을 분석 하는 것을 목표로 함. 또한 이를 바탕으로 공정성 지표를 향상 시킬 수 있는 인공지능 면접 학습 알고리즘을 제시할 계획임.</p></section>
+        <section class="pj-blk"><h2>연구 목표</h2><p>본 연구에서는 인공지능 면접에서 공정성 확보를 위해, 당시 상용화된 인공지능 면접 시스템의 공정성 현황을 분석하는 것을 목표로 수행함. 또한 이를 바탕으로 공정성 지표를 향상시킬 수 있는 인공지능 면접 학습 알고리즘을 제시함.</p></section>
         
         <section class="pj-blk"><h2>연구 그림</h2><div class="pj-figs">
           <figure class="pj-fig">
-          <figcaption class="fh"><span>FIGURE 1</span><em>클릭하면 확대</em></figcaption>
-          <button type="button" class="fb" data-label="FIGURE 1"
-                  aria-label="공정한 인공지능 면접 모델 알고리즘 개발 연구 그림 1 크게 보기">
-            <img src="/images/projects/genesislab_2022/01_hu_1f329a017c807da.png" alt="공정한 인공지능 면접 모델 알고리즘 개발 연구 그림 1" loading="lazy" decoding="async">
+          <figcaption class="fh"><span>인공지능 면접 공정성 현황 분석과 공정성 확보 알고리즘 개발 구성</span><em>그림 확대 보기</em></figcaption>
+          <button type="button" class="fb" data-label="인공지능 면접 공정성 현황 분석과 공정성 확보 알고리즘 개발 구성"
+                  aria-label="인공지능 면접 공정성 현황 분석과 공정성 확보 알고리즘 개발 구성 확대 보기">
+            <img src="/images/projects/genesislab_2022/01_hu_1f329a017c807da.png" alt="인공지능 면접 공정성 현황 분석과 공정성 확보 알고리즘 개발 구성" loading="lazy" decoding="async">
           </button>
         </figure><figure class="pj-fig">
-          <figcaption class="fh"><span>FIGURE 2</span><em>클릭하면 확대</em></figcaption>
-          <button type="button" class="fb" data-label="FIGURE 2"
-                  aria-label="공정한 인공지능 면접 모델 알고리즘 개발 연구 그림 2 크게 보기">
-            <img src="/images/projects/genesislab_2022/genesislab_2022-2_hu_418aabf9ed0468ff.png" alt="공정한 인공지능 면접 모델 알고리즘 개발 연구 그림 2" loading="lazy" decoding="async">
+          <figcaption class="fh"><span>민감 변수 예측 모델과 Wasserstein 거리 기반 공정 표현 학습 구조</span><em>그림 확대 보기</em></figcaption>
+          <button type="button" class="fb" data-label="민감 변수 예측 모델과 Wasserstein 거리 기반 공정 표현 학습 구조"
+                  aria-label="민감 변수 예측 모델과 Wasserstein 거리 기반 공정 표현 학습 구조 확대 보기">
+            <img src="/images/projects/genesislab_2022/genesislab_2022-2_hu_418aabf9ed0468ff.png" alt="민감 변수 예측 모델과 Wasserstein 거리 기반 공정 표현 학습 구조" loading="lazy" decoding="async">
           </button>
         </figure><figure class="pj-fig">
-          <figcaption class="fh"><span>FIGURE 3</span><em>클릭하면 확대</em></figcaption>
-          <button type="button" class="fb" data-label="FIGURE 3"
-                  aria-label="공정한 인공지능 면접 모델 알고리즘 개발 연구 그림 3 크게 보기">
-            <img src="/images/projects/genesislab_2022/genesislab_2022-3_hu_2b03882661312a65.png" alt="공정한 인공지능 면접 모델 알고리즘 개발 연구 그림 3" loading="lazy" decoding="async">
+          <figcaption class="fh"><span>멀티모달 면접 평가 모델의 다중 라벨 예측과 성별 예측 경로</span><em>그림 확대 보기</em></figcaption>
+          <button type="button" class="fb" data-label="멀티모달 면접 평가 모델의 다중 라벨 예측과 성별 예측 경로"
+                  aria-label="멀티모달 면접 평가 모델의 다중 라벨 예측과 성별 예측 경로 확대 보기">
+            <img src="/images/projects/genesislab_2022/genesislab_2022-3_hu_2b03882661312a65.png" alt="멀티모달 면접 평가 모델의 다중 라벨 예측과 성별 예측 경로" loading="lazy" decoding="async">
           </button>
         </figure>
         </div></section>
       </article>
 
       <aside class="pj-side" aria-label="과제 정보">
-        <div class="pj-cardbox"><div class="ch">과제 개요</div><div class="cb"><dl>
-          <div><dt>연구 기간</dt><dd>2022.07 – 2022.12
-            </dd></div>
-          <div><dt>상태</dt><dd><span class="pj-tag done">완료</span></dd></div>
-          <div><dt>연구 축</dt><dd>AREA 01 · Trustworthy AI</dd></div>
-          <div><dt>세부 분야</dt><dd>Fairness</dd></div>
-        </dl></div></div>
+        <div class="pj-cardbox"><div class="ch">참여 연구자</div><div class="cb">
+          <ul class="pj-mem"><li><span>김창우</span><b>팀장</b></li><li><span>윤종연</span></li><li><a href="/researcher/seunghyun/">정승현</a></li><li><a href="/researcher/georu/">이거루</a></li></ul>
+        </div></div>
 
-        <div class="pj-cardbox"><div class="ch">Keywords</div><div class="cb"><div class="pj-kws">
+        <div class="pj-cardbox"><div class="ch">핵심어</div><div class="cb"><div class="pj-kws">
           <span>Fairness</span><span>Multimodal</span><span>Deep Learning</span><span>Domain Adaptation</span>
         </div></div></div>
 
-        <div class="pj-cardbox"><div class="ch">이어서 보기</div>
+        <div class="pj-cardbox"><div class="ch">관련 연구와 과제</div>
           <a class="pj-lnk" href="/research/trustworthy-ai/"><span class="s">연구 분야</span>Trustworthy AI 전체 보기</a>
-          <a class="pj-lnk" href="/projects/nrf_2025/"><span class="s">같은 축의 과제 · 한국연구재단</span>문맥 기반 방어(가드레일)와 퍼플팀 접근을 통해 다국어 LLM의 탈옥 취약점을 탐지하고 차단하는 연구</a><a class="pj-lnk" href="/projects/nrf_2022/"><span class="s">같은 축의 과제 · 한국연구재단</span>인공지능 시스템의 실용화를 위한 딥러닝 안정성 알고리즘 개발</a>
+          <a class="pj-lnk" href="/projects/nrf_2025/"><span class="s">같은 분야의 과제 · 한국연구재단</span>다국어 LLM 탈옥 취약점 탐지·방어 연구</a><a class="pj-lnk" href="/projects/nrf_2022/"><span class="s">같은 분야의 과제 · 한국연구재단</span>인공지능 시스템의 실용화를 위한 딥러닝 안정성 알고리즘 개발</a>
         </div>
 
-        <a class="pj-back" href="/projects/">목록으로 돌아가기</a>
+        <a class="pj-back" href="/projects/">프로젝트 목록으로</a>
       </aside>
     </div>
 
     <nav class="pj-pager" aria-label="다른 과제">
-      <a href="/projects/nrf_2022/"><div class="s">이전 과제</div><h2>인공지능 시스템의 실용화를 위한 딥러닝 안정성 알고리즘 개발</h2></a>
-      <a class="nx" href="/projects/cma_2025/"><div class="s">다음 과제</div><h2>전천(All-sky) 기후자료 산출 및 초해상화 인공지능 모델 개발</h2></a>
+      <a href="/projects/nrf_2022/"><div class="s">더 최근에 시작한 과제</div><h2>인공지능 시스템의 실용화를 위한 딥러닝 안정성 알고리즘 개발</h2></a>
+      <a class="nx" href="/projects/cma_2025/"><div class="s">더 이전에 시작한 과제</div><h2>전천(All-sky) 기후자료 산출 및 초해상화 인공지능 모델 개발</h2></a>
     </nav>
   </div></div>
 
   <dialog class="pj-dlg" id="pj-figdlg" aria-label="연구 그림 확대">
-    <div class="dt"><span>FIGURE</span>
+    <div class="dt"><span>연구 그림</span>
       <button type="button" aria-label="닫기" onclick="this.closest('dialog').close()">&times;</button></div>
     <div class="di"><img src="" alt=""></div>
   </dialog>

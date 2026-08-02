@@ -233,6 +233,8 @@ html, body, * {
 .pj-chips .c.now{background:#FBBF24;border-color:#FBBF24;color:#3B2606}
 .pj-dhero h1{margin:13px 0 0;font-size:36px;font-weight:900;letter-spacing:-.035em;
   line-height:1.2;max-width:960px}
+.pj-fulltitle{margin:11px 0 0;font-size:13.5px;font-weight:700;line-height:1.6;
+  color:rgba(255,255,255,.82);max-width:900px}
 .pj-pills{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:26px 0 0}
 .pj-pills>div{background:rgba(255,255,255,.13);border:2px solid rgba(255,255,255,.4);
   border-radius:11px;padding:12px 15px}
@@ -292,6 +294,14 @@ html, body, * {
 .pj-cardbox dt{font-size:11px;font-weight:900;letter-spacing:.08em;color:#5A6478}
 .pj-cardbox dd{margin:6px 0 0;font-size:14px;font-weight:800;line-height:1.6;color:var(--ink)}
 .pj-cardbox dd .nt{display:block;margin-top:4px;font-size:11.5px;font-weight:800;color:#B45309}
+.pj-cardbox dd .nt2{display:block;margin-top:4px;font-size:13px;font-weight:700;color:#5A6478}
+.pj-mem{display:flex;gap:7px;flex-wrap:wrap;list-style:none;margin:0;padding:0}
+.pj-mem li{display:inline-flex;align-items:center;gap:5px;font-size:13.5px;font-weight:800;
+  color:var(--ink);background:#EDF0F6;border:1.5px solid #CBD3E3;border-radius:7px;padding:5px 10px}
+.pj-mem li a{border-bottom:1.5px solid #A9B4CA}
+.pj-mem li a:hover{border-bottom-color:var(--navy);color:var(--navy)}
+.pj-mem li b{font-size:10.5px;font-weight:900;letter-spacing:.04em;color:#fff;background:var(--navy);
+  border-radius:4px;padding:2px 6px}
 .pj-kws{display:flex;gap:7px;flex-wrap:wrap}
 .pj-kws span{font-size:12px;font-weight:800;padding:5px 11px;border-radius:6px;background:#EDF0F6;
   border:1.5px solid #CBD3E3;color:var(--ink-2)}
@@ -353,7 +363,7 @@ html, body, * {
 <div class="pj">
   <div class="pj-dhero k2"><div class="in">
     <nav class="pj-crumb" aria-label="현재 위치">
-      <a class="back" href="/projects/">목록으로</a><span class="sl" aria-hidden="true">/</span>
+      <a class="back" href="/projects/">프로젝트 목록으로</a><span class="sl" aria-hidden="true">/</span>
       <a href="/projects/">Projects</a><span class="sl" aria-hidden="true">/</span>
       <a href="/research/representation-learning/">Representation Learning</a><span class="sl" aria-hidden="true">/</span>
       <span>Domain Adaptation</span>
@@ -361,7 +371,6 @@ html, body, * {
     <div class="pj-chips">
       <span class="c">완료</span>
       <span class="c">사물인터넷 혁신융합대학사업</span>
-      <span class="c">AREA 02 · Representation Learning</span>
       <span class="c">Domain Adaptation</span>
     </div>
     <h1>예외 상황과 일반 상황의 분포 차이 최소화 적응 기법 개발</h1>
@@ -369,7 +378,7 @@ html, body, * {
       <div><dt>지원 기관</dt><dd>사물인터넷 혁신융합대학사업</dd></div>
       <div><dt>연구 기간</dt><dd>2024.09 – 2025.01<small>5개월</small></dd></div>
       <div><dt>상태</dt><dd>완료</dd></div>
-      <div><dt>연구 축</dt><dd>Representation Learning<small>Domain Adaptation</small></dd></div>
+      <div><dt>연구 분야</dt><dd>Representation Learning<small>Domain Adaptation</small></dd></div>
     </dl>
   </div></div>
 
@@ -377,49 +386,45 @@ html, body, * {
     <div class="pj-split">
       <article>
         
-        <section class="pj-blk"><h2>연구 목표</h2><p>이 연구는 예외 상황과 일반 상황 간 데이터 분포 차이를 최소화하는 적응 기법을 개발하는 연구임. IoT와 AI 기술을 결합하여 예외 상황에서도 안정적으로 작동할 수 있는 인공지능 모델을 구축하고, 소량의 예외 데이터에서도 강건한 학습을 가능하게 함. 이를 통해 다양한 도메인에서 발생하는 예외적 상황에 대응할 수 있는 시스템을 개발하는 것을 목표로 함.</p></section>
+        <section class="pj-blk"><h2>연구 목표</h2><p>이 연구는 예외 상황과 일반 상황 간 데이터 분포 차이를 최소화하는 적응 기법을 개발하는 연구임. IoT와 AI 기술을 결합하여 예외 상황에서도 안정적으로 작동할 수 있는 인공지능 모델을 구축하고, 소량의 예외 데이터에서도 강건한 학습을 가능하게 함. 이를 통해 다양한 도메인에서 발생하는 예외적 상황에 대응할 수 있는 시스템을 개발하는 것을 목표로 수행함.</p></section>
         
         <section class="pj-blk"><h2>연구 그림</h2><div class="pj-figs">
           <figure class="pj-fig">
-          <figcaption class="fh"><span>FIGURE 1</span><em>클릭하면 확대</em></figcaption>
-          <button type="button" class="fb" data-label="FIGURE 1"
-                  aria-label="예외 상황과 일반 상황의 분포 차이 최소화 적응 기법 개발 연구 그림 1 크게 보기">
-            <img src="/images/projects/iot_2024/01_hu_f6ee32033e50f5be.png" alt="예외 상황과 일반 상황의 분포 차이 최소화 적응 기법 개발 연구 그림 1" loading="lazy" decoding="async">
+          <figcaption class="fh"><span>예외 상황 데이터의 분리 표현과 Mixup 증강, 역그람 행렬 기반 도메인 적응 알고리즘</span><em>그림 확대 보기</em></figcaption>
+          <button type="button" class="fb" data-label="예외 상황 데이터의 분리 표현과 Mixup 증강, 역그람 행렬 기반 도메인 적응 알고리즘"
+                  aria-label="예외 상황 데이터의 분리 표현과 Mixup 증강, 역그람 행렬 기반 도메인 적응 알고리즘 확대 보기">
+            <img src="/images/projects/iot_2024/01_hu_f6ee32033e50f5be.png" alt="예외 상황 데이터의 분리 표현과 Mixup 증강, 역그람 행렬 기반 도메인 적응 알고리즘" loading="lazy" decoding="async">
           </button>
         </figure>
         </div></section>
       </article>
 
       <aside class="pj-side" aria-label="과제 정보">
-        <div class="pj-cardbox"><div class="ch">과제 개요</div><div class="cb"><dl>
-          <div><dt>연구 기간</dt><dd>2024.09 – 2025.01
-            </dd></div>
-          <div><dt>상태</dt><dd><span class="pj-tag done">완료</span></dd></div>
-          <div><dt>연구 축</dt><dd>AREA 02 · Representation Learning</dd></div>
-          <div><dt>세부 분야</dt><dd>Domain Adaptation</dd></div>
-        </dl></div></div>
+        <div class="pj-cardbox"><div class="ch">참여 연구자</div><div class="cb">
+          <ul class="pj-mem"><li><a href="/researcher/hyeonjin/">김현진</a><b>팀장</b></li><li><a href="/researcher/miso/">김미소</a></li><li><span>크리스</span></li><li><a href="/researcher/georu/">이거루</a></li><li><a href="/researcher/seunghyun/">정승현</a></li></ul>
+        </div></div>
 
-        <div class="pj-cardbox"><div class="ch">Keywords</div><div class="cb"><div class="pj-kws">
+        <div class="pj-cardbox"><div class="ch">핵심어</div><div class="cb"><div class="pj-kws">
           <span>AIoT</span><span>Robust Learning</span><span>Anomaly Detection</span><span>Domain Adaptation</span>
         </div></div></div>
 
-        <div class="pj-cardbox"><div class="ch">이어서 보기</div>
+        <div class="pj-cardbox"><div class="ch">관련 연구와 과제</div>
           <a class="pj-lnk" href="/research/representation-learning/"><span class="s">연구 분야</span>Representation Learning 전체 보기</a>
-          <a class="pj-lnk" href="/projects/kisti_2025/"><span class="s">같은 축의 과제 · 한국과학기술정보연구원</span>지능형 데이터 큐레이션 및 통합 구축 기술 개발</a>
+          <a class="pj-lnk" href="/projects/kisti_2025/"><span class="s">같은 분야의 과제 · 한국과학기술정보연구원</span>지능형 데이터 큐레이션 및 통합 구축 기술 개발</a>
         </div>
 
-        <a class="pj-back" href="/projects/">목록으로 돌아가기</a>
+        <a class="pj-back" href="/projects/">프로젝트 목록으로</a>
       </aside>
     </div>
 
     <nav class="pj-pager" aria-label="다른 과제">
-      <a href="/projects/kisti_2025/"><div class="s">이전 과제</div><h2>지능형 데이터 큐레이션 및 통합 구축 기술 개발</h2></a>
-      <a class="nx" href="/projects/kimcaddie_2024/"><div class="s">다음 과제</div><h2>XAI를 활용한 골프 스윙 피드백 모델 개발</h2></a>
+      <a href="/projects/kisti_2025/"><div class="s">더 최근에 시작한 과제</div><h2>지능형 데이터 큐레이션 및 통합 구축 기술 개발</h2></a>
+      <a class="nx" href="/projects/kimcaddie_2024/"><div class="s">더 이전에 시작한 과제</div><h2>XAI를 활용한 골프 스윙 피드백 모델 개발</h2></a>
     </nav>
   </div></div>
 
   <dialog class="pj-dlg" id="pj-figdlg" aria-label="연구 그림 확대">
-    <div class="dt"><span>FIGURE</span>
+    <div class="dt"><span>연구 그림</span>
       <button type="button" aria-label="닫기" onclick="this.closest('dialog').close()">&times;</button></div>
     <div class="di"><img src="" alt=""></div>
   </dialog>

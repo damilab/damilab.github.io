@@ -233,6 +233,8 @@ html, body, * {
 .pj-chips .c.now{background:#FBBF24;border-color:#FBBF24;color:#3B2606}
 .pj-dhero h1{margin:13px 0 0;font-size:36px;font-weight:900;letter-spacing:-.035em;
   line-height:1.2;max-width:960px}
+.pj-fulltitle{margin:11px 0 0;font-size:13.5px;font-weight:700;line-height:1.6;
+  color:rgba(255,255,255,.82);max-width:900px}
 .pj-pills{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:26px 0 0}
 .pj-pills>div{background:rgba(255,255,255,.13);border:2px solid rgba(255,255,255,.4);
   border-radius:11px;padding:12px 15px}
@@ -292,6 +294,14 @@ html, body, * {
 .pj-cardbox dt{font-size:11px;font-weight:900;letter-spacing:.08em;color:#5A6478}
 .pj-cardbox dd{margin:6px 0 0;font-size:14px;font-weight:800;line-height:1.6;color:var(--ink)}
 .pj-cardbox dd .nt{display:block;margin-top:4px;font-size:11.5px;font-weight:800;color:#B45309}
+.pj-cardbox dd .nt2{display:block;margin-top:4px;font-size:13px;font-weight:700;color:#5A6478}
+.pj-mem{display:flex;gap:7px;flex-wrap:wrap;list-style:none;margin:0;padding:0}
+.pj-mem li{display:inline-flex;align-items:center;gap:5px;font-size:13.5px;font-weight:800;
+  color:var(--ink);background:#EDF0F6;border:1.5px solid #CBD3E3;border-radius:7px;padding:5px 10px}
+.pj-mem li a{border-bottom:1.5px solid #A9B4CA}
+.pj-mem li a:hover{border-bottom-color:var(--navy);color:var(--navy)}
+.pj-mem li b{font-size:10.5px;font-weight:900;letter-spacing:.04em;color:#fff;background:var(--navy);
+  border-radius:4px;padding:2px 6px}
 .pj-kws{display:flex;gap:7px;flex-wrap:wrap}
 .pj-kws span{font-size:12px;font-weight:800;padding:5px 11px;border-radius:6px;background:#EDF0F6;
   border:1.5px solid #CBD3E3;color:var(--ink-2)}
@@ -361,7 +371,7 @@ html, body, * {
     </div>
 
     <div class="pj-ledger">
-      <div class="pj-lhd" aria-hidden="true"><span>FIGURE</span><span>과제명</span>
+      <div class="pj-lhd" aria-hidden="true"><span>대표 그림</span><span>과제명</span>
         <span>수행 기간</span><span class="r">상태</span></div>
       <ul class="pj-list">
       <li data-status="live" data-axis="3">
@@ -382,7 +392,7 @@ html, body, * {
         <a class="pj-row" href="/projects/nrf_2025/">
           <span class="th"><img src="/images/projects/nrf_2025/01_hu_8bf6b02f96d3bc3e.png" alt="" loading="lazy" decoding="async"></span>
           <span>
-            <h3>문맥 기반 방어(가드레일)와 퍼플팀 접근을 통해 다국어 LLM의 탈옥 취약점을 탐지하고 차단하는 연구</h3>
+            <h3>다국어 LLM 탈옥 취약점 탐지·방어 연구</h3>
             <span class="meta"><span class="pj-tag fund">한국연구재단</span>
               <span class="pj-tag ax1">Trustworthy AI</span>
               <span class="who">LLM &amp; Agent Safety</span></span>

@@ -233,6 +233,8 @@ html, body, * {
 .pj-chips .c.now{background:#FBBF24;border-color:#FBBF24;color:#3B2606}
 .pj-dhero h1{margin:13px 0 0;font-size:36px;font-weight:900;letter-spacing:-.035em;
   line-height:1.2;max-width:960px}
+.pj-fulltitle{margin:11px 0 0;font-size:13.5px;font-weight:700;line-height:1.6;
+  color:rgba(255,255,255,.82);max-width:900px}
 .pj-pills{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:26px 0 0}
 .pj-pills>div{background:rgba(255,255,255,.13);border:2px solid rgba(255,255,255,.4);
   border-radius:11px;padding:12px 15px}
@@ -292,6 +294,14 @@ html, body, * {
 .pj-cardbox dt{font-size:11px;font-weight:900;letter-spacing:.08em;color:#5A6478}
 .pj-cardbox dd{margin:6px 0 0;font-size:14px;font-weight:800;line-height:1.6;color:var(--ink)}
 .pj-cardbox dd .nt{display:block;margin-top:4px;font-size:11.5px;font-weight:800;color:#B45309}
+.pj-cardbox dd .nt2{display:block;margin-top:4px;font-size:13px;font-weight:700;color:#5A6478}
+.pj-mem{display:flex;gap:7px;flex-wrap:wrap;list-style:none;margin:0;padding:0}
+.pj-mem li{display:inline-flex;align-items:center;gap:5px;font-size:13.5px;font-weight:800;
+  color:var(--ink);background:#EDF0F6;border:1.5px solid #CBD3E3;border-radius:7px;padding:5px 10px}
+.pj-mem li a{border-bottom:1.5px solid #A9B4CA}
+.pj-mem li a:hover{border-bottom-color:var(--navy);color:var(--navy)}
+.pj-mem li b{font-size:10.5px;font-weight:900;letter-spacing:.04em;color:#fff;background:var(--navy);
+  border-radius:4px;padding:2px 6px}
 .pj-kws{display:flex;gap:7px;flex-wrap:wrap}
 .pj-kws span{font-size:12px;font-weight:800;padding:5px 11px;border-radius:6px;background:#EDF0F6;
   border:1.5px solid #CBD3E3;color:var(--ink-2)}
@@ -353,23 +363,22 @@ html, body, * {
 <div class="pj">
   <div class="pj-dhero k3"><div class="in">
     <nav class="pj-crumb" aria-label="현재 위치">
-      <a class="back" href="/projects/">목록으로</a><span class="sl" aria-hidden="true">/</span>
+      <a class="back" href="/projects/">프로젝트 목록으로</a><span class="sl" aria-hidden="true">/</span>
       <a href="/projects/">Projects</a><span class="sl" aria-hidden="true">/</span>
       <a href="/research/ai-applications/">AI Applications</a><span class="sl" aria-hidden="true">/</span>
       <span>Climate &amp; Satellite</span>
     </nav>
     <div class="pj-chips">
       <span class="c now">진행 중</span>
-      <span class="c">기상청 (한국기상산업기술원)</span>
-      <span class="c">AREA 03 · AI Applications</span>
+      <span class="c">기상청</span>
       <span class="c">Climate &amp; Satellite</span>
     </div>
     <h1>전천(All-sky) 기후자료 산출 및 초해상화 인공지능 모델 개발</h1>
     <dl class="pj-pills">
-      <div><dt>지원 기관</dt><dd>기상청 (한국기상산업기술원)</dd></div>
+      <div><dt>지원 기관</dt><dd>기상청<small>전문기관 한국기상산업기술원</small></dd></div>
       <div><dt>연구 기간</dt><dd>2025.04 – 2027.12<small>2년 9개월</small></dd></div>
-      <div><dt>진행률</dt><dd>52%<small>2026.08 기준</small><div class="pj-pbar"><i style="width:52%"></i></div></dd></div>
-      <div><dt>연구 축</dt><dd>AI Applications<small>Climate &amp; Satellite</small></dd></div>
+      <div><dt>기간 경과</dt><dd>52%<small>2026.08 기준</small><div class="pj-pbar"><i style="width:52%"></i></div></dd></div>
+      <div><dt>연구 분야</dt><dd>AI Applications<small>Climate &amp; Satellite</small></dd></div>
     </dl>
   </div></div>
 
@@ -377,55 +386,51 @@ html, body, * {
     <div class="pj-split">
       <article>
         <div class="pj-cards"><div class="pj-card n0"><div class="t">문제</div><h3>고해상도와 실시간의 상충</h3><p>LANDSAT은 250m 고해상도이나 촬영 주기가 길고, 천리안은 10분 간격이나 2km로 뭉개지는 현상 발생</p></div><div class="pj-card n1"><div class="t">접근</div><h3>가이드 초해상화 + 결측 보간</h3><p>천리안 2B 가시채널을 가이드로 2A 영상을 250m로 복원, 구름에 가린 결측은 시공간 이웃으로 보간</p></div><div class="pj-card n2"><div class="t">검증</div><h3>전국 96개 관측소 실측 대조</h3><p>RMSE, MAE, R², SSIM, PSNR, AUROC 기반 정량 평가 및 실무 적용을 위한 모듈화 구축</p></div></div>
-        <section class="pj-blk"><h2>연구 목표</h2><div class="pj-long folded"><div class="txt" id="pj-goal"><p style="margin-top:0">본 연구는 천리안 2A/2B호와 LANDSAT 위성 데이터를 활용하여 지표면 온도(LST), 해수면 온도(SST), 자외선 지수(UV Index)를 고해상도(250m)로 초해상화하고 정밀 예측하는 인공지능 기반 기후변수 산출 프레임워크를 개발할 예정임. 현재 위성 기반 고해상도 LST/SST/UV 정보를 실시간으로 확보하는 데에는 해상도 및 시간 해상도의 제약이 있으며, 특히 LANDSAT 데이터는 고해상도임에도 불구하고 촬영 주기가 길어 실시간 활용에 한계가 있음. 이에 따라 본 연구에서는 천리안 위성의 10분 간격 관측 데이터를 바탕으로 고해상도 및 고시간해상도의 기후 데이터를 생산할 수 있는 딥러닝 기반 프레임워크를 구축할 계획임. 초해상화 모델은 2km 해상도의 천리안 2A 영상과 250m 해상도의 천리안 2B 가시채널을 입력으로 활용하고, LANDSAT 기반 고해상도 데이터를 정답으로 사용하는 방식으로 설계할 예정임. 학습용 데이터는 구름 비율이 낮은 지역에서 수집한 LANDSAT 패치를 중심으로 구성하고, 보조 입력으로는 지형고도(DEM) 및 지표 타입 데이터를 활용할 예정임. 지표면·해수면 온도 예측 모델은 CNN 및 RNN 기반 딥러닝 구조로 설계하고, 픽셀 단위 예측을 통해 시공간적 온도 변화를 정밀하게 추정할 수 있도록 구현할 계획임. 자외선 지수 예측 모델은 천리안 2A호의 16개 채널, 태양·위성 천정각, 인공지능 기반 일사량(AI-DSR), 대기 외 복사량(ESR), 총 오존량(TOZ), 지면 타입 등 다양한 입력 인자를 활용하여 일 최대 자외선 지수를 예측하고, 예측 결과를 초해상화함으로써 고해상도 지수 데이터를 확보할 예정임. 또한, 여러 예측 모델을 앙상블 기법으로 결합하여 자외선 지수 예측의 신뢰성과 정확도를 향상시킬 방침임. 아울러, 구름 등에 의해 발생하는 온도 결측치 문제를 해결하기 위해, 결측 주변의 시공간적 온도 데이터를 입력으로 활용한 딥러닝 기반 보간 모델을 설계할 예정이며, 전국 96개 기상관측소의 정밀 관측 데이터를 기반으로 정답 레이블을 구성하고 예측 성능을 검증할 계획임. 모든 예측 모델은 RMSE, MAE, R², SSIM, PSNR, AUROC 등 다양한 평가지표를 활용하여 정량적으로 성능을 평가할 예정이며, 전체 프레임워크는 실무 적용과 유지보수가 용이하도록 모듈화하여 구현할 계획임.</p></div><button type="button" class="more" aria-expanded="false" aria-controls="pj-goal" data-open="전체 보기 (1,159자)">전체 보기 (1,159자)</button></div></section>
+        <section class="pj-blk"><h2>연구 목표</h2><div class="pj-long folded"><div class="txt" id="pj-goal"><p style="margin-top:0">본 연구는 천리안 2A/2B호와 LANDSAT 위성 데이터를 활용하여 지표면 온도(LST), 해수면 온도(SST), 자외선 지수(UV Index)를 고해상도(250m)로 초해상화하고 정밀 예측하는 인공지능 기반 기후변수 산출 프레임워크를 개발할 예정임. 현재 위성 기반 고해상도 LST/SST/UV 정보를 실시간으로 확보하는 데에는 해상도 및 시간 해상도의 제약이 있으며, 특히 LANDSAT 데이터는 고해상도임에도 불구하고 촬영 주기가 길어 실시간 활용에 한계가 있음. 이에 따라 본 연구에서는 천리안 위성의 10분 간격 관측 데이터를 바탕으로 고해상도 및 고시간해상도의 기후 데이터를 생산할 수 있는 딥러닝 기반 프레임워크를 구축할 계획임. 초해상화 모델은 2km 해상도의 천리안 2A 영상과 250m 해상도의 천리안 2B 가시채널을 입력으로 활용하고, LANDSAT 기반 고해상도 데이터를 정답으로 사용하는 방식으로 설계할 예정임. 학습용 데이터는 구름 비율이 낮은 지역에서 수집한 LANDSAT 패치를 중심으로 구성하고, 보조 입력으로는 지형고도(DEM) 및 지표 타입 데이터를 활용할 예정임. 지표면·해수면 온도 예측 모델은 CNN 및 RNN 기반 딥러닝 구조로 설계하고, 픽셀 단위 예측을 통해 시공간적 온도 변화를 정밀하게 추정할 수 있도록 구현할 계획임. 자외선 지수 예측 모델은 천리안 2A호의 16개 채널, 태양·위성 천정각, 인공지능 기반 일사량(AI-DSR), 대기 외 복사량(ESR), 총 오존량(TOZ), 지면 타입 등 다양한 입력 인자를 활용하여 일 최대 자외선 지수를 예측하고, 예측 결과를 초해상화함으로써 고해상도 지수 데이터를 확보할 예정임. 또한, 여러 예측 모델을 앙상블 기법으로 결합하여 자외선 지수 예측의 신뢰성과 정확도를 향상시킬 방침임. 아울러, 구름 등에 의해 발생하는 온도 결측치 문제를 해결하기 위해, 결측 주변의 시공간적 온도 데이터를 입력으로 활용한 딥러닝 기반 보간 모델을 설계할 예정이며, 전국 96개 기상관측소의 정밀 관측 데이터를 기반으로 정답 레이블을 구성하고 예측 성능을 검증할 계획임. 모든 예측 모델은 RMSE, MAE, R², SSIM, PSNR, AUROC 등 다양한 평가지표를 활용하여 정량적으로 성능을 평가할 예정이며, 전체 프레임워크는 실무 적용과 유지보수가 용이하도록 모듈화하여 구현할 계획임.</p></div><button type="button" class="more" aria-expanded="false" aria-controls="pj-goal" data-open="연구 목표 전체 보기">연구 목표 전체 보기</button></div></section>
         
         <section class="pj-blk"><h2>연구 그림</h2><div class="pj-figs">
           <figure class="pj-fig">
-          <figcaption class="fh"><span>FIGURE 1</span><em>클릭하면 확대</em></figcaption>
-          <button type="button" class="fb" data-label="FIGURE 1"
-                  aria-label="전천(All-sky) 기후자료 산출 및 초해상화 인공지능 모델 개발 연구 그림 1 크게 보기">
-            <img src="/images/projects/cma_2025/01_hu_3f3339ff7dd3e266.png" alt="전천(All-sky) 기후자료 산출 및 초해상화 인공지능 모델 개발 연구 그림 1" loading="lazy" decoding="async">
+          <figcaption class="fh"><span>가이드 초해상화 학습·추론과 지상 관측망 대조 검증까지의 전체 흐름</span><em>그림 확대 보기</em></figcaption>
+          <button type="button" class="fb" data-label="가이드 초해상화 학습·추론과 지상 관측망 대조 검증까지의 전체 흐름"
+                  aria-label="가이드 초해상화 학습·추론과 지상 관측망 대조 검증까지의 전체 흐름 확대 보기">
+            <img src="/images/projects/cma_2025/01_hu_3f3339ff7dd3e266.png" alt="가이드 초해상화 학습·추론과 지상 관측망 대조 검증까지의 전체 흐름" loading="lazy" decoding="async">
           </button>
         </figure><figure class="pj-fig">
-          <figcaption class="fh"><span>FIGURE 2</span><em>클릭하면 확대</em></figcaption>
-          <button type="button" class="fb" data-label="FIGURE 2"
-                  aria-label="전천(All-sky) 기후자료 산출 및 초해상화 인공지능 모델 개발 연구 그림 2 크게 보기">
-            <img src="/images/projects/cma_2025/cma_02_hu_153b4d8499b64acb.png" alt="전천(All-sky) 기후자료 산출 및 초해상화 인공지능 모델 개발 연구 그림 2" loading="lazy" decoding="async">
+          <figcaption class="fh"><span>연차별 연구 목표와 성능·성과 평가지표</span><em>그림 확대 보기</em></figcaption>
+          <button type="button" class="fb" data-label="연차별 연구 목표와 성능·성과 평가지표"
+                  aria-label="연차별 연구 목표와 성능·성과 평가지표 확대 보기">
+            <img src="/images/projects/cma_2025/cma_02_hu_153b4d8499b64acb.png" alt="연차별 연구 목표와 성능·성과 평가지표" loading="lazy" decoding="async">
           </button>
         </figure>
         </div></section>
       </article>
 
       <aside class="pj-side" aria-label="과제 정보">
-        <div class="pj-cardbox"><div class="ch">과제 개요</div><div class="cb"><dl>
-          <div><dt>연구 기간</dt><dd>2025.04 – 2027.12
-            </dd></div>
-          <div><dt>상태</dt><dd><span class="pj-tag live">진행 중</span></dd></div>
-          <div><dt>연구 축</dt><dd>AREA 03 · AI Applications</dd></div>
-          <div><dt>세부 분야</dt><dd>Climate &amp; Satellite</dd></div>
-        </dl></div></div>
+        <div class="pj-cardbox"><div class="ch">참여 연구자</div><div class="cb">
+          <ul class="pj-mem"><li><a href="/researcher/georu/">이거루</a><b>팀장</b></li><li><a href="/researcher/yunseok/">이윤석</a></li></ul>
+        </div></div>
 
-        <div class="pj-cardbox"><div class="ch">Keywords</div><div class="cb"><div class="pj-kws">
+        <div class="pj-cardbox"><div class="ch">핵심어</div><div class="cb"><div class="pj-kws">
           <span>Guided Depth Super-Resolution</span><span>Spatial Interpolation</span><span>Deep Learning</span>
         </div></div></div>
 
-        <div class="pj-cardbox"><div class="ch">이어서 보기</div>
+        <div class="pj-cardbox"><div class="ch">관련 연구와 과제</div>
           <a class="pj-lnk" href="/research/ai-applications/"><span class="s">연구 분야</span>AI Applications 전체 보기</a>
-          <a class="pj-lnk" href="/projects/kimcaddie_2025/"><span class="s">같은 축의 과제 · 김캐디</span>골프 클럽과 관절 정보를 활용한 골프 스윙 분석</a><a class="pj-lnk" href="/projects/kimcaddie_2024/"><span class="s">같은 축의 과제 · 김캐디</span>XAI를 활용한 골프 스윙 피드백 모델 개발</a>
+          <a class="pj-lnk" href="/projects/kimcaddie_2025/"><span class="s">같은 분야의 과제 · 김캐디</span>골프 클럽과 관절 정보를 활용한 골프 스윙 분석</a><a class="pj-lnk" href="/projects/kimcaddie_2024/"><span class="s">같은 분야의 과제 · 김캐디</span>XAI를 활용한 골프 스윙 피드백 모델 개발</a>
         </div>
 
-        <a class="pj-back" href="/projects/">목록으로 돌아가기</a>
+        <a class="pj-back" href="/projects/">프로젝트 목록으로</a>
       </aside>
     </div>
 
     <nav class="pj-pager" aria-label="다른 과제">
-      <a href="/projects/genesislab_2022/"><div class="s">이전 과제</div><h2>공정한 인공지능 면접 모델 알고리즘 개발</h2></a>
-      <a class="nx" href="/projects/nrf_2025/"><div class="s">다음 과제</div><h2>문맥 기반 방어(가드레일)와 퍼플팀 접근을 통해 다국어 LLM의 탈옥 취약점을 탐지하고 차단하는 연구</h2></a>
+      <a href="/projects/genesislab_2022/"><div class="s">더 최근에 시작한 과제</div><h2>공정한 인공지능 면접 모델 알고리즘 개발</h2></a>
+      <a class="nx" href="/projects/nrf_2025/"><div class="s">더 이전에 시작한 과제</div><h2>다국어 LLM 탈옥 취약점 탐지·방어 연구</h2></a>
     </nav>
   </div></div>
 
   <dialog class="pj-dlg" id="pj-figdlg" aria-label="연구 그림 확대">
-    <div class="dt"><span>FIGURE</span>
+    <div class="dt"><span>연구 그림</span>
       <button type="button" aria-label="닫기" onclick="this.closest('dialog').close()">&times;</button></div>
     <div class="di"><img src="" alt=""></div>
   </dialog>
