@@ -628,6 +628,53 @@ document.addEventListener('DOMContentLoaded', function() {
   </div>
 </div>
 
+<style>
+  /* 홈 History 타임라인. 사이트 다른 부분과 섞이지 않게 .dami-tl 아래로만 스코프한다. */
+  .dami-tl{--ink:#111;--sub:#6b6b6b;--line:#e2e2e2;--line2:#d0d0d0;--soft:#f2f2f2;
+    --k-accept:#1D4ED8;--k-journal:#0E7490;--k-award:#B91C1C;
+    --k-career:#B45309;--k-join:#6D28D9;--k-project:#15803D;--k-etc:#374151;
+    color:var(--ink);max-width:1080px}
+  .dami-tl *{box-sizing:border-box}
+  .dami-tl .k-accept{--k:var(--k-accept)} .dami-tl .k-journal{--k:var(--k-journal)}
+  .dami-tl .k-award{--k:var(--k-award)}  .dami-tl .k-career{--k:var(--k-career)}
+  .dami-tl .k-join{--k:var(--k-join)}    .dami-tl .k-project{--k:var(--k-project)}
+  .dami-tl .k-etc{--k:var(--k-etc)}
+
+  .dami-tl .tl-filters{display:flex;gap:7px;flex-wrap:wrap;align-items:center;margin-top:18px}
+  .dami-tl .tl-filters .sep{width:1px;align-self:stretch;background:var(--line2);margin:2px 6px}
+  .dami-tl .kind-filter{border:0;background:var(--soft);color:var(--ink);padding:8px 15px;
+    border-radius:999px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;
+    transition:background .14s ease,color .14s ease}
+  .dami-tl .kind-filter:hover{background:#e4e4e4}
+  .dami-tl .kind-filter[aria-pressed="true"]{background:#111;color:#fff}
+
+  .dami-tl .tl-yr{margin-top:26px}
+  .dami-tl .tl-yr:first-of-type{margin-top:22px}
+  .dami-tl .tl-yr > h3{margin:0 0 10px;font-size:15px;font-weight:900;letter-spacing:.04em;
+    color:var(--sub);display:flex;align-items:center;gap:10px}
+  .dami-tl .tl-yr > h3::after{content:"";flex:1;height:2px;background:var(--line)}
+  .dami-tl .tl-rows{position:relative;padding-left:104px}
+  .dami-tl .tl-rows::before{content:"";position:absolute;left:92px;top:6px;bottom:6px;
+    width:2px;background:var(--line)}
+  .dami-tl .history-item{position:relative;padding:7px 0 7px 18px}
+  .dami-tl .history-item .tl-dt{position:absolute;left:-104px;top:8px;width:76px;text-align:right;
+    font-size:12.5px;font-weight:800;color:var(--sub);font-variant-numeric:tabular-nums}
+  .dami-tl .history-item .tl-dot{position:absolute;left:-16px;top:12px;width:11px;height:11px;
+    border-radius:50%;background:var(--k);box-shadow:0 0 0 3px #fff}
+  .dami-tl .history-item h4{margin:0;font-size:15.5px;font-weight:800;line-height:1.45;
+    letter-spacing:-.02em;color:var(--ink)}
+  .dami-tl .history-item p{margin:3px 0 0;font-size:13px;line-height:1.5;color:var(--sub)}
+  .dami-tl .history-item .tl-meta{margin-top:2px;font-size:11.5px;color:#8a8a8a}
+  .dami-tl .tl-empty{padding:44px 0;text-align:center;color:var(--sub);font-weight:700}
+
+  @media (max-width:720px){
+    .dami-tl .tl-rows{padding-left:22px}
+    .dami-tl .tl-rows::before{left:10px}
+    .dami-tl .history-item .tl-dt{position:static;width:auto;text-align:left;display:block;
+      margin-bottom:2px}
+    .dami-tl .history-item .tl-dot{left:-17px;top:10px}
+  }
+</style>
   <section class="py-16 bg-white dark:bg-gray-900">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div>
@@ -716,1020 +763,370 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 
     
-    <div class="mt-8 flex flex-wrap gap-2">
-      <button onclick="filterHistory('all')" class="year-filter px-4 py-2 rounded-lg text-sm font-medium transition-colors" data-year="all" style="background-color: #e5e7eb; color: #374151;">
-        ALL
-      </button>
-      <button onclick="filterHistory('2026')" class="year-filter active px-4 py-2 rounded-lg text-sm font-medium transition-colors" data-year="2026" style="background-color: #333333; color: white;">
-        2026
-      </button>
-      <button onclick="filterHistory('2025')" class="year-filter px-4 py-2 rounded-lg text-sm font-medium transition-colors" data-year="2025" style="background-color: #e5e7eb; color: #374151;">
-        2025
-      </button>
-      <button onclick="filterHistory('2024')" class="year-filter px-4 py-2 rounded-lg text-sm font-medium transition-colors" data-year="2024" style="background-color: #e5e7eb; color: #374151;">
-        2024
-      </button>
-      <button onclick="filterHistory('2023')" class="year-filter px-4 py-2 rounded-lg text-sm font-medium transition-colors" data-year="2023" style="background-color: #e5e7eb; color: #374151;">
-        2023
-      </button>
-      <button onclick="filterHistory('2022')" class="year-filter px-4 py-2 rounded-lg text-sm font-medium transition-colors" data-year="2022" style="background-color: #e5e7eb; color: #374151;">
-        2022
-      </button>
-      <button onclick="filterHistory('2021')" class="year-filter px-4 py-2 rounded-lg text-sm font-medium transition-colors" data-year="2021" style="background-color: #e5e7eb; color: #374151;">
-        2021
-      </button>
-    </div>
+    <div class="dami-tl">
+      <div class="tl-filters mt-8">
+      <button onclick="filterHistory('all')" class="year-filter px-4 py-2 rounded-lg text-sm font-medium transition-colors" data-year="all" style="background-color: #e5e7eb; color: #374151;">ALL</button>
+      <button onclick="filterHistory('2026')" class="year-filter px-4 py-2 rounded-lg text-sm font-medium transition-colors" data-year="2026" style="background-color: #e5e7eb; color: #374151;">2026</button>
+      <button onclick="filterHistory('2025')" class="year-filter px-4 py-2 rounded-lg text-sm font-medium transition-colors" data-year="2025" style="background-color: #e5e7eb; color: #374151;">2025</button>
+      <button onclick="filterHistory('2024')" class="year-filter px-4 py-2 rounded-lg text-sm font-medium transition-colors" data-year="2024" style="background-color: #e5e7eb; color: #374151;">2024</button>
+      <button onclick="filterHistory('2023')" class="year-filter px-4 py-2 rounded-lg text-sm font-medium transition-colors" data-year="2023" style="background-color: #e5e7eb; color: #374151;">2023</button>
+      <button onclick="filterHistory('2022')" class="year-filter px-4 py-2 rounded-lg text-sm font-medium transition-colors" data-year="2022" style="background-color: #e5e7eb; color: #374151;">2022</button>
+      <button onclick="filterHistory('2021')" class="year-filter px-4 py-2 rounded-lg text-sm font-medium transition-colors" data-year="2021" style="background-color: #e5e7eb; color: #374151;">2021</button>
+        <span class="sep"></span>
+      <button type="button" onclick="filterHistoryKind('accept')" class="kind-filter" data-kind="accept" aria-pressed="false">논문 채택</button>
+      <button type="button" onclick="filterHistoryKind('journal')" class="kind-filter" data-kind="journal" aria-pressed="false">논문 게재</button>
+      <button type="button" onclick="filterHistoryKind('award')" class="kind-filter" data-kind="award" aria-pressed="false">수상</button>
+      <button type="button" onclick="filterHistoryKind('career')" class="kind-filter" data-kind="career" aria-pressed="false">진로</button>
+      <button type="button" onclick="filterHistoryKind('join')" class="kind-filter" data-kind="join" aria-pressed="false">입학</button>
+      <button type="button" onclick="filterHistoryKind('project')" class="kind-filter" data-kind="project" aria-pressed="false">과제</button>
+      </div>
 
-    <div class="mt-12 relative" style="padding-left: 40px;">
-      
-      
-      
-      
-      <div style="position: absolute; left: 16px; top: 0; bottom: 0; width: 2px; background-color: #333333;"></div>
-      
-      <div class="space-y-8" id="history-container">
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2026">
-
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-
-
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2026.07.29
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              연구실 김민준, 장윤영, 조찬웅 학생 입학
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              
-            학석사연계과정 김민준·장윤영, 인턴 조찬웅</p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2026">
-
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-
-
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2026.07.28
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              연구실 김미소 연구원, 네이버 클라우드 인턴 합격
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2026">
-
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-
-
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2026.07.06
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              연구실 김현진 연구원, HD한국조선해양 생성형 언어모델 연구직 합격
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2026">
-
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-
-
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2026.05.27
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              연구실 논문 “What Did You Do Behind My Back?! Covert Indirect Prompt Injection on Tool-Using LLM Agents”
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              FAGEN@ICML 2026 Accept
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2026">
-
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-
-
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2026.05.22
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              연구실 논문 “Exploring the Effect of Multi-Step Ascent in Sharpness-Aware Minimization”
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              IEEE Access 게재
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2026">
-          
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-          
-          
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2026.04.14
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              연구실 논문 “Explainable Graph-Based Golf Swing Analysis Integrating Club and Body Keypoints for Ball Flight Outcome Prediction”
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              Applied Sciences(SCIE, JCR Q2, IF: 2.5) 게재
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2026">
-
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-
-
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2026.02.02
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              연구실 논문 “Disconfirmation Dynamics in Service Recovery: Insights from Online Customer Reviews”
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              Journal of Theoretical and Applied Electronic Commerce Research 게재
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2026">
-          
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-          
-          
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2026.01.26
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              연구실 논문 “Co-occurring Associated REtained concepts in Diffusion Unlearning”
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              The 14th International Conference on Learning Representations(ICLR 2026) Accept
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2026">
-          
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-          
-          
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2026.01.25
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              연구실 논문 “SlotGCG: Exploiting the Positional Vulnerability in LLMs for Jailbreak Attacks”
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              The 14th International Conference on Learning Representations(ICLR 2026) Accept
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2025">
-          
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-          
-          
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2025.12.24
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              연구실 논문 “Large Language Models as Financial Analysts: Sector-Aware Reasoning for Investment Decisions”
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              Computational Economics(SCIE, JCR Q2, IF: 2.2) 게재
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2025">
-          
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-          
-          
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2025.11.26
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              연구실 졸업생 Christoph Timmermann 학생, Technical University of Munich × Audi 박사과정 합격
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2025">
-          
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-          
-          
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2025.11.08
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              연구실 정승현 학생, 한국정보처리학회 ACK 2025 산학연협동우수상 수상
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2025">
-          
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-          
-          
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2025.09.01
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              김캐디 산학 과제 수행
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              골프 클럽과 관절 정보를 활용한 골프 스윙 분석 (2025.09 - 2026.01)
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2025">
-          
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-          
-          
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2025.08.28
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              연구실 이현세 학생, 한국데이터마이닝학회 2025 하계학술대회 최우수 논문상 수상
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2025">
-          
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-          
-          
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2025.08.21
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              연구실 논문 “Deep learning-enhanced geospatial modeling for indoor radon mapping in Jeollabuk-do, South Korea”
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              Geomatics, Natural Hazards and Risk(SCIE, JCR Q1, IF: 4.4) 게재
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2025">
-          
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-          
-          
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2025.06.12
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              연구실 논문 “CaddieSet: A Golf Swing Dataset with Human Joint Features and Ball Information”
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              11th International Workshop on Computer Vision in Sports (CVsports) at CVPR 2025 게재
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2025">
-          
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-          
-          
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2025.04.23
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              연구실 논문 “Towards undetectable adversarial attack on time series classification”
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              Information Sciences(SCIE, JCR Q1, IF: 8.2) 게재
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2025">
-          
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-          
-          
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2025.04.16
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              연구실 논문 “LM-CLIP: Adapting Positive Asymmetric Loss for Long-Tailed Multi-Label Classification”
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              IEEE Access(SCIE, JCR Q2, IF: 3.6) 게재
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2025">
-          
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-          
-          
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2025.04.10
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              연구실 논문 “Interconnected dynamics of sustainable cryptocurrencies: Insights from transfer entropy analysis”
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              Finance Research Letters(SSCI, JCR Q1, IF: 7.4, JCR Top 1%) 게재
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2025">
-          
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-          
-          
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2025.04.01
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              한국연구재단 우수신진연구 선정
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              윤리적인 다국어 LLM 활용을 위한 문맥 기반 탈옥 가드레일 구축 (2025.03 - 2027.02)
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2025">
-          
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-          
-          
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2025.04.01
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              한국과학기술정보연구원 산학 과제 수행
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              지능형 데이터 큐레이션 및 통합 구축 기술 개발 (2025.04 - 2025.09)
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2025">
-          
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-          
-          
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2025.04.01
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              기상청 산학 과제 수행
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              전천(All sky) 기후자료 산출 및 초해상화 인공지능 모델 개발 (2025.04 - 2027.12)
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2025">
-          
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-          
-          
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2025.03.01
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              연구실 논문 “Black-box adversarial examples via frequency distortion against fault diagnosis systems”
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              Applied Soft Computing(SCIE, JCR Q1, IF: 7.2, JCR Top 10%) 게재
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2025">
-          
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-          
-          
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2025.02.07
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              연구실 논문 “AI-Driven Geospatial Analysis of Indoor Radon Levels: A Case Study in Chungcheongbuk-do, South Korea”
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              Earth Systems and Environment(ESCI, JCR Q1, IF: 5.3, JCR Top 10%) 게재
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2024">
-          
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-          
-          
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2024.12.01
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              연구실 논문 “Multi-stage ensemble with refinement for noisy labeled data classification”
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              Expert Systems with Applications(SCIE, JCR Q1, IF: 7.5, JCR Top 10%) 게재
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2024">
-          
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-          
-          
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2024.09.01
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              사물인터넷 혁신융합대학사업 산학 과제 수행
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              예외 상황과 일반 상황의 분포 차이 최소화 적응 기법 개발 (2024.09 - 2025.01)
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2024">
-          
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-          
-          
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2024.07.01
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              연구실 논문 Flood susceptibility mapping of Cheongju, South Korea based on the integration of environmental factors using various machine learning approaches
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              Journal of Environmental Management(SCIE, JCR Q1, IF: 8.0, JCR Top 10%) 게재
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2024">
-          
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-          
-          
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2024.05.05
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              연구실 논문 “Sliced Wasserstein adversarial training for improving adversarial robustness”
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              Journal of Ambient Intelligence and Humanized Computing(SCIE, JCR Q1, IF: 7.104, JCR Top 10%) 게재
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2024">
-          
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-          
-          
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2024.05.01
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              연구실 논문 “Graph contrastive learning with consistency regularization”
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              Pattern Recognition Letters(SCIE, JCR Q2, IF: 3.9) 게재
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2024">
-          
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-          
-          
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2024.03.01
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              연구실 논문 “Evaluating practical adversarial robustness of fault diagnosis systems via spectrogram-aware ensemble method”
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              Engineering Applications of Artificial Intelligence(SCIE, JCR Q1, IF: 7.5, JCR Top 2%) 게재
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2024">
-          
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-          
-          
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2024.01.01
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              김캐디 산학 과제 수행
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              XAI를 활용한 골프 스윙 피드백 모델 개발 (2024.01 -
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2023">
-          
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-          
-          
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2023.10.19
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              연구실 논문 “Fairness-Aware Multimodal Learning in Automatic Video Interview Assessment”
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              IEEE Access(SCIE, JCR Q2, IF: 3.9) 게재
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2023">
-          
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-          
-          
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2023.10.01
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              연구실 논문 “Bridged adversarial training”
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              Neural Networks(SCIE, JCR Q1, IF: 6.6, JCR Top 11%) 게재
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2023">
-          
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-          
-          
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2023.09.01
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              연구실 논문 “Fast sharpness-aware training for periodic time series classification and forecasting”
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              Applied Soft Computing(SCIE, JCR Q1, IF: 7.2, JCR Top 10%) 게재
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2023">
-          
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-          
-          
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2023.08.05
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              연구실 논문 “Genetic descriptor search algorithm for predicting hydrogen adsorption free energy of 2D material”
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              Scientific Reports(SCIE, JCR Q2, IF: 4.6) 게재
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2023">
-          
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-          
-          
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2023.05.01
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              Pixt 산학 과제 수행
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              한국어 전용 동영상 캡션 AI 모델 개발 (2023.05 - 2024.04)
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2022">
-          
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-          
-          
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2022.09.01
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              연구실 논문 “Variational cycle-consistent imputation adversarial networks for general missing patterns”
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              Pattern Recognition(SCIE, JCR Q1, IF: 7.5, JCR Top 7%) 게재.
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2022">
-          
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-          
-          
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2022.07.01
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              제네시스랩 산학 과제 수행
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              공정한 인공지능 면접 모델 알고리즘 개발 (2022.07 - 2022.12)
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2022">
-          
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-          
-          
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2022.06.01
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              한국연구재단 산학 과제 수행
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              인공지능 시스템의 실용화를 위한 딥러닝 안정성 알고리즘 개발 (2022.06 - 2025.02)
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2021">
-          
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-          
-          
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2021.12.06
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              연구실 논문 “Towards Better Understanding of Training Certifiably Robust Models against Adversarial Examples”
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              Advances in Neural Information Processing Systems 게재
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2021">
-          
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-          
-          
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2021.12.06
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              연구실 논문 “Parameter-free HE-friendly Logistic Regression”
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              Advances in Neural Information Processing Systems 게재
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2021">
-          
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-          
-          
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2021.12.01
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              연구실 논문 “Fair clustering with fair correspondence distribution”
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              Information Sciences(SCIE, JCR Q1, IF: 8.233, JCR Top 10%) 게재
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative history-item" style="display: flex; align-items: flex-start; margin-left: -39px;" data-year="2021">
-          
-          <div style="flex-shrink: 0; position: relative; z-index: 10; margin-right: 39px;">
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background-color: #333333; border: 4px solid white;">
-              <div style="width: 8px; height: 8px; border-radius: 50%; background-color: white;"></div>
-            </div>
-          </div>
-          
-          
-          <div style="flex: 1; padding-bottom: 32px;">
-            <p class="text-sm font-medium mb-1" style="color: #333333;">
-              2021.04.01
-            </p>
-            <p class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              연구실 논문 “Compact class-conditional domain invariant learning for multi-class domain adaptation”
-            </p>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              Pattern Recognition(SCIE, JCR Q1, IF: 7.5, JCR Top 7%) 게재
-            </p>
-          </div>
-        </div>
-        
+      <div id="history-container">
+        <section class="tl-yr">
+          <h3>2026 <span style="font-weight:800">9</span></h3>
+          <div class="tl-rows">
+          <div class="history-item k-join" data-year="2026" data-kind="join">
+            <span class="tl-dt">2026.07.29</span>
+            <span class="tl-dot"></span>
+            <h4>김민준, 장윤영, 조찬웅 학생 입학</h4>
+            <p>학석사연계과정 김민준·장윤영, 인턴 조찬웅</p>
+          </div>
+          <div class="history-item k-career" data-year="2026" data-kind="career">
+            <span class="tl-dt">2026.07.28</span>
+            <span class="tl-dot"></span>
+            <h4>김미소 연구원, 네이버 클라우드 인턴 합격</h4>
+          </div>
+          <div class="history-item k-career" data-year="2026" data-kind="career">
+            <span class="tl-dt">2026.07.06</span>
+            <span class="tl-dot"></span>
+            <h4>김현진 연구원, HD한국조선해양 생성형 언어모델 연구직 합격</h4>
+          </div>
+          <div class="history-item k-accept" data-year="2026" data-kind="accept">
+            <span class="tl-dt">2026.05.27</span>
+            <span class="tl-dot"></span>
+            <h4>ICML 2026 워크샵 논문 채택</h4>
+            <p>What Did You Do Behind My Back?! Covert Indirect Prompt Injection on Tool-Using LLM Agents (FAGEN@ICML 2026)</p>
+          </div>
+          <div class="history-item k-journal" data-year="2026" data-kind="journal">
+            <span class="tl-dt">2026.05.22</span>
+            <span class="tl-dot"></span>
+            <h4>IEEE Access 논문 게재</h4>
+            <p>Exploring the Effect of Multi-Step Ascent in Sharpness-Aware Minimization</p>
+          </div>
+          <div class="history-item k-journal" data-year="2026" data-kind="journal">
+            <span class="tl-dt">2026.04.14</span>
+            <span class="tl-dot"></span>
+            <h4>Applied Sciences 논문 게재</h4>
+            <p>Explainable Graph-Based Golf Swing Analysis Integrating Club and Body Keypoints for Ball Flight Outcome Prediction</p>
+            <p class="tl-meta">SCIE, JCR Q2, IF: 2.5</p>
+          </div>
+          <div class="history-item k-journal" data-year="2026" data-kind="journal">
+            <span class="tl-dt">2026.02.02</span>
+            <span class="tl-dot"></span>
+            <h4>Journal of Theoretical and Applied Electronic Commerce Research 논문 게재</h4>
+            <p>Disconfirmation Dynamics in Service Recovery: Insights from Online Customer Reviews</p>
+          </div>
+          <div class="history-item k-accept" data-year="2026" data-kind="accept">
+            <span class="tl-dt">2026.01.26</span>
+            <span class="tl-dot"></span>
+            <h4>ICLR 2026 논문 채택</h4>
+            <p>Co-occurring Associated REtained concepts in Diffusion Unlearning</p>
+          </div>
+          <div class="history-item k-accept" data-year="2026" data-kind="accept">
+            <span class="tl-dt">2026.01.25</span>
+            <span class="tl-dot"></span>
+            <h4>ICLR 2026 논문 채택</h4>
+            <p>SlotGCG: Exploiting the Positional Vulnerability in LLMs for Jailbreak Attacks</p>
+          </div>
+          </div>
+        </section>
+        <section class="tl-yr">
+          <h3>2025 <span style="font-weight:800">15</span></h3>
+          <div class="tl-rows">
+          <div class="history-item k-journal" data-year="2025" data-kind="journal">
+            <span class="tl-dt">2025.12.24</span>
+            <span class="tl-dot"></span>
+            <h4>Computational Economics 논문 게재</h4>
+            <p>Large Language Models as Financial Analysts: Sector-Aware Reasoning for Investment Decisions</p>
+            <p class="tl-meta">SCIE, JCR Q2, IF: 2.2</p>
+          </div>
+          <div class="history-item k-career" data-year="2025" data-kind="career">
+            <span class="tl-dt">2025.11.26</span>
+            <span class="tl-dot"></span>
+            <h4>졸업생 Christoph Timmermann 학생, Technical University of Munich × Audi 박사과정 합격</h4>
+          </div>
+          <div class="history-item k-award" data-year="2025" data-kind="award">
+            <span class="tl-dt">2025.11.08</span>
+            <span class="tl-dot"></span>
+            <h4>정승현 학생, 한국정보처리학회 ACK 2025 산학연협동우수상 수상</h4>
+          </div>
+          <div class="history-item k-project" data-year="2025" data-kind="project">
+            <span class="tl-dt">2025.09.01</span>
+            <span class="tl-dot"></span>
+            <h4>김캐디 산학 과제 수행</h4>
+            <p>골프 클럽과 관절 정보를 활용한 골프 스윙 분석 (2025.09 - 2026.01)</p>
+          </div>
+          <div class="history-item k-award" data-year="2025" data-kind="award">
+            <span class="tl-dt">2025.08.28</span>
+            <span class="tl-dot"></span>
+            <h4>이현세 학생, 한국데이터마이닝학회 2025 하계학술대회 최우수 논문상 수상</h4>
+          </div>
+          <div class="history-item k-journal" data-year="2025" data-kind="journal">
+            <span class="tl-dt">2025.08.21</span>
+            <span class="tl-dot"></span>
+            <h4>Geomatics, Natural Hazards and Risk 논문 게재</h4>
+            <p>Deep learning-enhanced geospatial modeling for indoor radon mapping in Jeollabuk-do, South Korea</p>
+            <p class="tl-meta">SCIE, JCR Q1, IF: 4.4</p>
+          </div>
+          <div class="history-item k-journal" data-year="2025" data-kind="journal">
+            <span class="tl-dt">2025.06.12</span>
+            <span class="tl-dot"></span>
+            <h4>CVsports at CVPR 2025 논문 게재</h4>
+            <p>CaddieSet: A Golf Swing Dataset with Human Joint Features and Ball Information</p>
+          </div>
+          <div class="history-item k-journal" data-year="2025" data-kind="journal">
+            <span class="tl-dt">2025.04.23</span>
+            <span class="tl-dot"></span>
+            <h4>Information Sciences 논문 게재</h4>
+            <p>Towards undetectable adversarial attack on time series classification</p>
+            <p class="tl-meta">SCIE, JCR Q1, IF: 8.2</p>
+          </div>
+          <div class="history-item k-journal" data-year="2025" data-kind="journal">
+            <span class="tl-dt">2025.04.16</span>
+            <span class="tl-dot"></span>
+            <h4>IEEE Access 논문 게재</h4>
+            <p>LM-CLIP: Adapting Positive Asymmetric Loss for Long-Tailed Multi-Label Classification</p>
+            <p class="tl-meta">SCIE, JCR Q2, IF: 3.6</p>
+          </div>
+          <div class="history-item k-journal" data-year="2025" data-kind="journal">
+            <span class="tl-dt">2025.04.10</span>
+            <span class="tl-dot"></span>
+            <h4>Finance Research Letters 논문 게재</h4>
+            <p>Interconnected dynamics of sustainable cryptocurrencies: Insights from transfer entropy analysis</p>
+            <p class="tl-meta">SSCI, JCR Q1, IF: 7.4, JCR Top 1%</p>
+          </div>
+          <div class="history-item k-project" data-year="2025" data-kind="project">
+            <span class="tl-dt">2025.04.01</span>
+            <span class="tl-dot"></span>
+            <h4>기상청 산학 과제 수행</h4>
+            <p>전천(All sky) 기후자료 산출 및 초해상화 인공지능 모델 개발 (2025.04 - 2027.12)</p>
+          </div>
+          <div class="history-item k-project" data-year="2025" data-kind="project">
+            <span class="tl-dt">2025.04.01</span>
+            <span class="tl-dot"></span>
+            <h4>한국과학기술정보연구원 산학 과제 수행</h4>
+            <p>지능형 데이터 큐레이션 및 통합 구축 기술 개발 (2025.04 - 2025.09)</p>
+          </div>
+          <div class="history-item k-award" data-year="2025" data-kind="award">
+            <span class="tl-dt">2025.04.01</span>
+            <span class="tl-dot"></span>
+            <h4>한국연구재단 우수신진연구 선정</h4>
+            <p>윤리적인 다국어 LLM 활용을 위한 문맥 기반 탈옥 가드레일 구축 (2025.03 - 2027.02)</p>
+          </div>
+          <div class="history-item k-journal" data-year="2025" data-kind="journal">
+            <span class="tl-dt">2025.03.01</span>
+            <span class="tl-dot"></span>
+            <h4>Applied Soft Computing 논문 게재</h4>
+            <p>Black-box adversarial examples via frequency distortion against fault diagnosis systems</p>
+            <p class="tl-meta">SCIE, JCR Q1, IF: 7.2, JCR Top 10%</p>
+          </div>
+          <div class="history-item k-journal" data-year="2025" data-kind="journal">
+            <span class="tl-dt">2025.02.07</span>
+            <span class="tl-dot"></span>
+            <h4>Earth Systems and Environment 논문 게재</h4>
+            <p>AI-Driven Geospatial Analysis of Indoor Radon Levels: A Case Study in Chungcheongbuk-do, South Korea</p>
+            <p class="tl-meta">ESCI, JCR Q1, IF: 5.3, JCR Top 10%</p>
+          </div>
+          </div>
+        </section>
+        <section class="tl-yr">
+          <h3>2024 <span style="font-weight:800">7</span></h3>
+          <div class="tl-rows">
+          <div class="history-item k-journal" data-year="2024" data-kind="journal">
+            <span class="tl-dt">2024.12.01</span>
+            <span class="tl-dot"></span>
+            <h4>Expert Systems with Applications 논문 게재</h4>
+            <p>Multi-stage ensemble with refinement for noisy labeled data classification</p>
+            <p class="tl-meta">SCIE, JCR Q1, IF: 7.5, JCR Top 10%</p>
+          </div>
+          <div class="history-item k-project" data-year="2024" data-kind="project">
+            <span class="tl-dt">2024.09.01</span>
+            <span class="tl-dot"></span>
+            <h4>사물인터넷 혁신융합대학사업 산학 과제 수행</h4>
+            <p>예외 상황과 일반 상황의 분포 차이 최소화 적응 기법 개발 (2024.09 - 2025.01)</p>
+          </div>
+          <div class="history-item k-journal" data-year="2024" data-kind="journal">
+            <span class="tl-dt">2024.07.01</span>
+            <span class="tl-dot"></span>
+            <h4>Journal of Environmental Management 논문 게재</h4>
+            <p>Flood susceptibility mapping of Cheongju, South Korea based on the integration of environmental factors using various machine learning approaches</p>
+            <p class="tl-meta">SCIE, JCR Q1, IF: 8.0, JCR Top 10%</p>
+          </div>
+          <div class="history-item k-journal" data-year="2024" data-kind="journal">
+            <span class="tl-dt">2024.05.05</span>
+            <span class="tl-dot"></span>
+            <h4>Journal of Ambient Intelligence and Humanized Computing 논문 게재</h4>
+            <p>Sliced Wasserstein adversarial training for improving adversarial robustness</p>
+            <p class="tl-meta">SCIE, JCR Q1, IF: 7.104, JCR Top 10%</p>
+          </div>
+          <div class="history-item k-journal" data-year="2024" data-kind="journal">
+            <span class="tl-dt">2024.05.01</span>
+            <span class="tl-dot"></span>
+            <h4>Pattern Recognition Letters 논문 게재</h4>
+            <p>Graph contrastive learning with consistency regularization</p>
+            <p class="tl-meta">SCIE, JCR Q2, IF: 3.9</p>
+          </div>
+          <div class="history-item k-journal" data-year="2024" data-kind="journal">
+            <span class="tl-dt">2024.03.01</span>
+            <span class="tl-dot"></span>
+            <h4>Engineering Applications of Artificial Intelligence 논문 게재</h4>
+            <p>Evaluating practical adversarial robustness of fault diagnosis systems via spectrogram-aware ensemble method</p>
+            <p class="tl-meta">SCIE, JCR Q1, IF: 7.5, JCR Top 2%</p>
+          </div>
+          <div class="history-item k-project" data-year="2024" data-kind="project">
+            <span class="tl-dt">2024.01.01</span>
+            <span class="tl-dot"></span>
+            <h4>김캐디 산학 과제 수행</h4>
+            <p>XAI를 활용한 골프 스윙 피드백 모델 개발 (2024.01 -</p>
+          </div>
+          </div>
+        </section>
+        <section class="tl-yr">
+          <h3>2023 <span style="font-weight:800">5</span></h3>
+          <div class="tl-rows">
+          <div class="history-item k-journal" data-year="2023" data-kind="journal">
+            <span class="tl-dt">2023.10.19</span>
+            <span class="tl-dot"></span>
+            <h4>IEEE Access 논문 게재</h4>
+            <p>Fairness-Aware Multimodal Learning in Automatic Video Interview Assessment</p>
+            <p class="tl-meta">SCIE, JCR Q2, IF: 3.9</p>
+          </div>
+          <div class="history-item k-journal" data-year="2023" data-kind="journal">
+            <span class="tl-dt">2023.10.01</span>
+            <span class="tl-dot"></span>
+            <h4>Neural Networks 논문 게재</h4>
+            <p>Bridged adversarial training</p>
+            <p class="tl-meta">SCIE, JCR Q1, IF: 6.6, JCR Top 11%</p>
+          </div>
+          <div class="history-item k-journal" data-year="2023" data-kind="journal">
+            <span class="tl-dt">2023.09.01</span>
+            <span class="tl-dot"></span>
+            <h4>Applied Soft Computing 논문 게재</h4>
+            <p>Fast sharpness-aware training for periodic time series classification and forecasting</p>
+            <p class="tl-meta">SCIE, JCR Q1, IF: 7.2, JCR Top 10%</p>
+          </div>
+          <div class="history-item k-journal" data-year="2023" data-kind="journal">
+            <span class="tl-dt">2023.08.05</span>
+            <span class="tl-dot"></span>
+            <h4>Scientific Reports 논문 게재</h4>
+            <p>Genetic descriptor search algorithm for predicting hydrogen adsorption free energy of 2D material</p>
+            <p class="tl-meta">SCIE, JCR Q2, IF: 4.6</p>
+          </div>
+          <div class="history-item k-project" data-year="2023" data-kind="project">
+            <span class="tl-dt">2023.05.01</span>
+            <span class="tl-dot"></span>
+            <h4>Pixt 산학 과제 수행</h4>
+            <p>한국어 전용 동영상 캡션 AI 모델 개발 (2023.05 - 2024.04)</p>
+          </div>
+          </div>
+        </section>
+        <section class="tl-yr">
+          <h3>2022 <span style="font-weight:800">3</span></h3>
+          <div class="tl-rows">
+          <div class="history-item k-journal" data-year="2022" data-kind="journal">
+            <span class="tl-dt">2022.09.01</span>
+            <span class="tl-dot"></span>
+            <h4>Pattern Recognition 논문 게재</h4>
+            <p>Variational cycle-consistent imputation adversarial networks for general missing patterns</p>
+            <p class="tl-meta">SCIE, JCR Q1, IF: 7.5, JCR Top 7%</p>
+          </div>
+          <div class="history-item k-project" data-year="2022" data-kind="project">
+            <span class="tl-dt">2022.07.01</span>
+            <span class="tl-dot"></span>
+            <h4>제네시스랩 산학 과제 수행</h4>
+            <p>공정한 인공지능 면접 모델 알고리즘 개발 (2022.07 - 2022.12)</p>
+          </div>
+          <div class="history-item k-project" data-year="2022" data-kind="project">
+            <span class="tl-dt">2022.06.01</span>
+            <span class="tl-dot"></span>
+            <h4>한국연구재단 산학 과제 수행</h4>
+            <p>인공지능 시스템의 실용화를 위한 딥러닝 안정성 알고리즘 개발 (2022.06 - 2025.02)</p>
+          </div>
+          </div>
+        </section>
+        <section class="tl-yr">
+          <h3>2021 <span style="font-weight:800">4</span></h3>
+          <div class="tl-rows">
+          <div class="history-item k-journal" data-year="2021" data-kind="journal">
+            <span class="tl-dt">2021.12.06</span>
+            <span class="tl-dot"></span>
+            <h4>NeurIPS 논문 게재</h4>
+            <p>Parameter-free HE-friendly Logistic Regression</p>
+          </div>
+          <div class="history-item k-journal" data-year="2021" data-kind="journal">
+            <span class="tl-dt">2021.12.06</span>
+            <span class="tl-dot"></span>
+            <h4>NeurIPS 논문 게재</h4>
+            <p>Towards Better Understanding of Training Certifiably Robust Models against Adversarial Examples</p>
+          </div>
+          <div class="history-item k-journal" data-year="2021" data-kind="journal">
+            <span class="tl-dt">2021.12.01</span>
+            <span class="tl-dot"></span>
+            <h4>Information Sciences 논문 게재</h4>
+            <p>Fair clustering with fair correspondence distribution</p>
+            <p class="tl-meta">SCIE, JCR Q1, IF: 8.233, JCR Top 10%</p>
+          </div>
+          <div class="history-item k-journal" data-year="2021" data-kind="journal">
+            <span class="tl-dt">2021.04.01</span>
+            <span class="tl-dot"></span>
+            <h4>Pattern Recognition 논문 게재</h4>
+            <p>Compact class-conditional domain invariant learning for multi-class domain adaptation</p>
+            <p class="tl-meta">SCIE, JCR Q1, IF: 7.5, JCR Top 7%</p>
+          </div>
+          </div>
+        </section>
+        <p class="tl-empty" id="tl-empty" style="display:none">해당 조건의 기록이 없습니다.</p>
       </div>
     </div>
+
+
+
+
   </div>
 
   <script>
-    function filterHistory(year) {
-      
-      document.querySelectorAll('.year-filter').forEach(btn => {
-        btn.classList.remove('active');
-        btn.style.backgroundColor = '#e5e7eb';
-        btn.style.color = '#374151';
-      });
+    /* 연도·종류 두 축으로 거른다. 연도 머리글은 남는 항목이 없으면 같이 숨긴다. */
+    var tlYear = '2026', tlKind = null;
 
-      
-      const activeBtn = document.querySelector(`[data-year="${year}"]`);
-      activeBtn.classList.add('active');
-      activeBtn.style.backgroundColor = '#333333';
-      activeBtn.style.color = 'white';
-
-      
-      const historyItems = document.querySelectorAll('.history-item');
-      historyItems.forEach(item => {
-        const itemYear = item.getAttribute('data-year');
-        if (year === 'all' || itemYear === year) {
-          item.style.display = 'flex';
-        } else {
-          item.style.display = 'none';
-        }
+    function tlApply() {
+      document.querySelectorAll('.year-filter').forEach(function (b) {
+        var on = b.dataset.year === tlYear;
+        b.classList.toggle('active', on);
+        b.style.backgroundColor = on ? '#333333' : '#e5e7eb';
+        b.style.color = on ? 'white' : '#374151';
       });
+      document.querySelectorAll('.kind-filter').forEach(function (b) {
+        b.setAttribute('aria-pressed', String(b.dataset.kind === tlKind));
+      });
+      document.querySelectorAll('.dami-tl .history-item').forEach(function (it) {
+        var ok = (tlYear === 'all' || it.dataset.year === tlYear)
+              && (!tlKind || it.dataset.kind === tlKind);
+        it.style.display = ok ? '' : 'none';
+      });
+      var shown = 0;
+      document.querySelectorAll('.dami-tl .tl-yr').forEach(function (sec) {
+        var n = sec.querySelectorAll('.history-item:not([style*="none"])').length;
+        sec.style.display = n ? '' : 'none';
+        shown += n;
+      });
+      var empty = document.getElementById('tl-empty');
+      if (empty) empty.style.display = shown ? 'none' : '';
     }
 
-    
-    document.addEventListener('DOMContentLoaded', function() {
-      filterHistory('2026');
-    });
+    function filterHistory(year) { tlYear = year; tlApply(); }
+    function filterHistoryKind(kind) { tlKind = (tlKind === kind) ? null : kind; tlApply(); }
+
+    document.addEventListener('DOMContentLoaded', tlApply);
   </script>
 </section>
 
