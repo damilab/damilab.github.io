@@ -151,523 +151,627 @@ html, body, * {
     </div>
 </div>
     
+<style>
+  /* News 목록. 기존 Tailwind 헤더/푸터와 섞이지 않게 .newspage 아래로만 스코프한다. */
+  .newspage{
+    --ink:#111111; --sub:#6b6b6b; --line:#d9d9d9; --soft:#efefef;
+    --primary:#3034EC; --topH:112px;
+    background:#fff; color:var(--ink);
+    font-family:'Pretendard',system-ui,-apple-system,sans-serif;
+  }
+  .newspage, .newspage *{box-sizing:border-box}
+  .newspage a{color:inherit;text-decoration:none}
+  .newspage img{display:block;max-width:100%}
+  .newspage :focus-visible{outline:3px solid var(--primary);outline-offset:3px}
+  .newspage .sr{position:absolute;width:1px;height:1px;overflow:hidden;
+    clip:rect(0 0 0 0);white-space:nowrap}
+
+  .newspage .top{position:sticky;top:0;z-index:40;background:#fff;padding:16px 24px 12px}
+  .newspage .top-row{max-width:1280px;margin:0 auto;display:flex;align-items:baseline;gap:14px}
+  .newspage .top-title{font-size:22px;font-weight:900;letter-spacing:-.02em}
+  .newspage .top-sub{font-size:14px;color:var(--sub)}
+  .newspage .chips{max-width:1280px;margin:12px auto 0;display:flex;gap:8px;flex-wrap:wrap}
+  .newspage .chip{border:0;background:var(--soft);color:var(--ink);padding:9px 18px;
+    border-radius:999px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit}
+  .newspage .chip:hover{background:#dedede}
+  .newspage .chip[aria-pressed="true"]{background:var(--ink);color:#fff}
+  .newspage .chip b{font-weight:900;opacity:.5;margin-left:6px}
+  .newspage .chip[aria-pressed="true"] b{opacity:.65}
+
+  .newspage .wrap{max-width:1280px;margin:0 auto;padding:16px 24px 72px;
+    display:grid;grid-template-columns:112px 1fr;gap:26px;align-items:start}
+  .newspage .rail{position:sticky;top:calc(var(--topH) + 12px);align-self:start;
+    display:flex;flex-direction:column;align-items:flex-start;gap:4px}
+  .newspage .rl{border:0;background:transparent;font-family:inherit;cursor:pointer;
+    text-align:left;border-radius:8px;color:var(--ink);font-size:19px;font-weight:900;padding:7px 12px}
+  .newspage .rl:hover{background:var(--soft)}
+  .newspage .rl.is-here{background:var(--ink);color:#fff}
+
+  /* 분류 색 */
+  .newspage .k-paper{--k:#1D4ED8}
+  .newspage .k-award{--k:#B91C1C}
+  .newspage .k-conf{--k:#15803D}
+  .newspage .k-people{--k:#6D28D9}
+  .newspage .k-notice{--k:#B45309}
+  .newspage .cat{display:inline-flex;align-items:center;background:var(--k,var(--ink));color:#fff;
+    font-size:11.5px;font-weight:900;letter-spacing:.04em;padding:5px 11px;border-radius:999px}
+  .newspage .dt{font-size:12.5px;font-weight:700;color:var(--sub)}
+
+  /* 대표 소식 */
+  .newspage .feat{position:relative;display:block;border-radius:16px;overflow:hidden;
+    background:#111;aspect-ratio:21/9;margin-bottom:34px}
+  .newspage .feat img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    object-position:center 38%;transition:transform .5s ease}
+  .newspage .feat:hover img{transform:scale(1.03)}
+  .newspage .feat .ov{position:absolute;inset:0;
+    background:linear-gradient(0deg,rgba(0,0,0,.86) 6%,rgba(0,0,0,.42) 46%,rgba(0,0,0,.02) 100%)}
+  .newspage .feat .fx{position:absolute;left:0;right:0;bottom:0;padding:30px 32px 28px}
+  .newspage .feat .row{display:flex;align-items:center;gap:11px;flex-wrap:wrap}
+  .newspage .feat .row .dt{color:#e6e6e6}
+  .newspage .feat h2{margin:12px 0 0;font-size:clamp(23px,3vw,34px);font-weight:900;
+    letter-spacing:-.035em;line-height:1.18;color:#fff;max-width:820px}
+  .newspage .feat p{margin:9px 0 0;font-size:14.5px;line-height:1.65;color:#dcdcdc;max-width:640px}
+  .newspage .feat .nocov,.newspage .card .nocov{position:absolute;inset:0;
+    background:linear-gradient(125deg,#111 0%,var(--k,#333) 135%);
+    display:flex;align-items:center;justify-content:center}
+  .newspage .nocov span{font-size:26px;font-weight:900;letter-spacing:.22em;color:rgba(255,255,255,.34)}
+  .newspage .feat .nocov span{font-size:44px}
+
+  /* 연도 섹션 */
+  .newspage .yr{margin-top:38px}
+  .newspage .yr:first-of-type{margin-top:0}
+  .newspage .yr > h2{margin:0 0 14px;font-size:26px;font-weight:900;letter-spacing:-.03em;
+    display:flex;align-items:baseline;gap:10px}
+  .newspage .yr > h2 span{font-size:13px;font-weight:800;color:var(--sub);
+    background:var(--soft);border-radius:999px;padding:3px 10px}
+  .newspage .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+
+  /* 카드: 사진 + 흰 본문 */
+  .newspage .card{display:flex;flex-direction:column;border:1.5px solid var(--line);
+    border-radius:14px;overflow:hidden;background:#fff;
+    transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease}
+  .newspage .card:hover{transform:translateY(-4px);box-shadow:0 12px 26px rgba(0,0,0,.13);
+    border-color:var(--k,var(--ink))}
+  .newspage .card .ph{position:relative;aspect-ratio:16/9;background:#f2f2f2;overflow:hidden}
+  .newspage .card .ph img{width:100%;height:100%;object-fit:cover;object-position:center 38%;
+    transition:transform .35s ease}
+  .newspage .card:hover .ph img{transform:scale(1.05)}
+  .newspage .card .ph .cat{position:absolute;left:12px;top:12px;
+    box-shadow:0 2px 8px rgba(0,0,0,.32)}
+  .newspage .card .cb{padding:15px 17px 18px;display:flex;flex-direction:column;flex:1}
+  .newspage .card h3{margin:8px 0 0;font-size:16.5px;font-weight:900;letter-spacing:-.025em;
+    line-height:1.38}
+  .newspage .card p{margin:8px 0 0;font-size:13px;line-height:1.6;color:var(--sub);
+    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+  .newspage .is-off{display:none}
+  .newspage .empty{padding:70px 0;text-align:center;font-size:15px;font-weight:700;color:var(--sub)}
+
+  @media (max-width:1000px){
+    .newspage .grid{grid-template-columns:repeat(2,1fr)}
+    .newspage .wrap{grid-template-columns:1fr;gap:14px}
+    .newspage .rail{position:static;flex-direction:row;flex-wrap:wrap}
+    .newspage .feat{aspect-ratio:16/9}
+  }
+  @media (max-width:640px){
+    .newspage .grid{grid-template-columns:1fr}
+    .newspage .feat{aspect-ratio:4/3}
+    .newspage .feat .fx{padding:20px 20px 18px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .newspage .card,.newspage .card .ph img,.newspage .feat img{transition:none}
+    .newspage .card:hover{transform:none}
+    .newspage .card:hover .ph img,.newspage .feat:hover img{transform:none}
+  }
+</style>
+<style>
+  /* News 목록. 기존 Tailwind 헤더/푸터와 섞이지 않게 .newspage 아래로만 스코프한다. */
+  .newspage{
+    --ink:#111111; --sub:#6b6b6b; --line:#d9d9d9; --soft:#efefef;
+    --primary:#3034EC; --topH:112px;
+    background:#fff; color:var(--ink);
+    font-family:'Pretendard',system-ui,-apple-system,sans-serif;
+  }
+  .newspage, .newspage *{box-sizing:border-box}
+  .newspage a{color:inherit;text-decoration:none}
+  .newspage img{display:block;max-width:100%}
+  .newspage :focus-visible{outline:3px solid var(--primary);outline-offset:3px}
+  .newspage .sr{position:absolute;width:1px;height:1px;overflow:hidden;
+    clip:rect(0 0 0 0);white-space:nowrap}
+
+  .newspage .top{position:sticky;top:0;z-index:40;background:#fff;padding:16px 24px 12px}
+  .newspage .top-row{max-width:1280px;margin:0 auto;display:flex;align-items:baseline;gap:14px}
+  .newspage .top-title{font-size:22px;font-weight:900;letter-spacing:-.02em}
+  .newspage .top-sub{font-size:14px;color:var(--sub)}
+  .newspage .chips{max-width:1280px;margin:12px auto 0;display:flex;gap:8px;flex-wrap:wrap}
+  .newspage .chip{border:0;background:var(--soft);color:var(--ink);padding:9px 18px;
+    border-radius:999px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit}
+  .newspage .chip:hover{background:#dedede}
+  .newspage .chip[aria-pressed="true"]{background:var(--ink);color:#fff}
+  .newspage .chip b{font-weight:900;opacity:.5;margin-left:6px}
+  .newspage .chip[aria-pressed="true"] b{opacity:.65}
+
+  .newspage .wrap{max-width:1280px;margin:0 auto;padding:16px 24px 72px;
+    display:grid;grid-template-columns:112px 1fr;gap:26px;align-items:start}
+  .newspage .rail{position:sticky;top:calc(var(--topH) + 12px);align-self:start;
+    display:flex;flex-direction:column;align-items:flex-start;gap:4px}
+  .newspage .rl{border:0;background:transparent;font-family:inherit;cursor:pointer;
+    text-align:left;border-radius:8px;color:var(--ink);font-size:19px;font-weight:900;padding:7px 12px}
+  .newspage .rl:hover{background:var(--soft)}
+  .newspage .rl.is-here{background:var(--ink);color:#fff}
+
+  /* 분류 색 */
+  .newspage .k-paper{--k:#1D4ED8}
+  .newspage .k-award{--k:#B91C1C}
+  .newspage .k-conf{--k:#15803D}
+  .newspage .k-people{--k:#6D28D9}
+  .newspage .k-notice{--k:#B45309}
+  .newspage .cat{display:inline-flex;align-items:center;background:var(--k,var(--ink));color:#fff;
+    font-size:11.5px;font-weight:900;letter-spacing:.04em;padding:5px 11px;border-radius:999px}
+  .newspage .dt{font-size:12.5px;font-weight:700;color:var(--sub)}
+
+  /* 대표 소식 */
+  .newspage .feat{position:relative;display:block;border-radius:16px;overflow:hidden;
+    background:#111;aspect-ratio:21/9;margin-bottom:34px}
+  .newspage .feat img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    object-position:center 38%;transition:transform .5s ease}
+  .newspage .feat:hover img{transform:scale(1.03)}
+  .newspage .feat .ov{position:absolute;inset:0;
+    background:linear-gradient(0deg,rgba(0,0,0,.86) 6%,rgba(0,0,0,.42) 46%,rgba(0,0,0,.02) 100%)}
+  .newspage .feat .fx{position:absolute;left:0;right:0;bottom:0;padding:30px 32px 28px}
+  .newspage .feat .row{display:flex;align-items:center;gap:11px;flex-wrap:wrap}
+  .newspage .feat .row .dt{color:#e6e6e6}
+  .newspage .feat h2{margin:12px 0 0;font-size:clamp(23px,3vw,34px);font-weight:900;
+    letter-spacing:-.035em;line-height:1.18;color:#fff;max-width:820px}
+  .newspage .feat p{margin:9px 0 0;font-size:14.5px;line-height:1.65;color:#dcdcdc;max-width:640px}
+  .newspage .feat .nocov,.newspage .card .nocov{position:absolute;inset:0;
+    background:linear-gradient(125deg,#111 0%,var(--k,#333) 135%);
+    display:flex;align-items:center;justify-content:center}
+  .newspage .nocov span{font-size:26px;font-weight:900;letter-spacing:.22em;color:rgba(255,255,255,.34)}
+  .newspage .feat .nocov span{font-size:44px}
+
+  /* 연도 섹션 */
+  .newspage .yr{margin-top:38px}
+  .newspage .yr:first-of-type{margin-top:0}
+  .newspage .yr > h2{margin:0 0 14px;font-size:26px;font-weight:900;letter-spacing:-.03em;
+    display:flex;align-items:baseline;gap:10px}
+  .newspage .yr > h2 span{font-size:13px;font-weight:800;color:var(--sub);
+    background:var(--soft);border-radius:999px;padding:3px 10px}
+  .newspage .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+
+  /* 카드: 사진 + 흰 본문 */
+  .newspage .card{display:flex;flex-direction:column;border:1.5px solid var(--line);
+    border-radius:14px;overflow:hidden;background:#fff;
+    transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease}
+  .newspage .card:hover{transform:translateY(-4px);box-shadow:0 12px 26px rgba(0,0,0,.13);
+    border-color:var(--k,var(--ink))}
+  .newspage .card .ph{position:relative;aspect-ratio:16/9;background:#f2f2f2;overflow:hidden}
+  .newspage .card .ph img{width:100%;height:100%;object-fit:cover;object-position:center 38%;
+    transition:transform .35s ease}
+  .newspage .card:hover .ph img{transform:scale(1.05)}
+  .newspage .card .ph .cat{position:absolute;left:12px;top:12px;
+    box-shadow:0 2px 8px rgba(0,0,0,.32)}
+  .newspage .card .cb{padding:15px 17px 18px;display:flex;flex-direction:column;flex:1}
+  .newspage .card h3{margin:8px 0 0;font-size:16.5px;font-weight:900;letter-spacing:-.025em;
+    line-height:1.38}
+  .newspage .card p{margin:8px 0 0;font-size:13px;line-height:1.6;color:var(--sub);
+    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+  .newspage .is-off{display:none}
+  .newspage .empty{padding:70px 0;text-align:center;font-size:15px;font-weight:700;color:var(--sub)}
+
+  @media (max-width:1000px){
+    .newspage .grid{grid-template-columns:repeat(2,1fr)}
+    .newspage .wrap{grid-template-columns:1fr;gap:14px}
+    .newspage .rail{position:static;flex-direction:row;flex-wrap:wrap}
+    .newspage .feat{aspect-ratio:16/9}
+  }
+  @media (max-width:640px){
+    .newspage .grid{grid-template-columns:1fr}
+    .newspage .feat{aspect-ratio:4/3}
+    .newspage .feat .fx{padding:20px 20px 18px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .newspage .card,.newspage .card .ph img,.newspage .feat img{transition:none}
+    .newspage .card:hover{transform:none}
+    .newspage .card:hover .ph img,.newspage .feat:hover img{transform:none}
+  }
+</style>
+<style>
+  /* News 목록. 기존 Tailwind 헤더/푸터와 섞이지 않게 .newspage 아래로만 스코프한다. */
+  .newspage{
+    --ink:#111111; --sub:#6b6b6b; --line:#d9d9d9; --soft:#efefef;
+    --primary:#3034EC; --topH:112px;
+    background:#fff; color:var(--ink);
+    font-family:'Pretendard',system-ui,-apple-system,sans-serif;
+  }
+  .newspage, .newspage *{box-sizing:border-box}
+  .newspage a{color:inherit;text-decoration:none}
+  .newspage img{display:block;max-width:100%}
+  .newspage :focus-visible{outline:3px solid var(--primary);outline-offset:3px}
+  .newspage .sr{position:absolute;width:1px;height:1px;overflow:hidden;
+    clip:rect(0 0 0 0);white-space:nowrap}
+
+  .newspage .top{position:sticky;top:0;z-index:40;background:#fff;padding:16px 24px 12px}
+  .newspage .top-row{max-width:1280px;margin:0 auto;display:flex;align-items:baseline;gap:14px}
+  .newspage .top-title{font-size:22px;font-weight:900;letter-spacing:-.02em}
+  .newspage .top-sub{font-size:14px;color:var(--sub)}
+  .newspage .chips{max-width:1280px;margin:12px auto 0;display:flex;gap:8px;flex-wrap:wrap}
+  .newspage .chip{border:0;background:var(--soft);color:var(--ink);padding:9px 18px;
+    border-radius:999px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit}
+  .newspage .chip:hover{background:#dedede}
+  .newspage .chip[aria-pressed="true"]{background:var(--ink);color:#fff}
+  .newspage .chip b{font-weight:900;opacity:.5;margin-left:6px}
+  .newspage .chip[aria-pressed="true"] b{opacity:.65}
+
+  .newspage .wrap{max-width:1280px;margin:0 auto;padding:16px 24px 72px;
+    display:grid;grid-template-columns:112px 1fr;gap:26px;align-items:start}
+  .newspage .rail{position:sticky;top:calc(var(--topH) + 12px);align-self:start;
+    display:flex;flex-direction:column;align-items:flex-start;gap:4px}
+  .newspage .rl{border:0;background:transparent;font-family:inherit;cursor:pointer;
+    text-align:left;border-radius:8px;color:var(--ink);font-size:19px;font-weight:900;padding:7px 12px}
+  .newspage .rl:hover{background:var(--soft)}
+  .newspage .rl.is-here{background:var(--ink);color:#fff}
+
+  /* 분류 색 */
+  .newspage .k-paper{--k:#1D4ED8}
+  .newspage .k-award{--k:#B91C1C}
+  .newspage .k-conf{--k:#15803D}
+  .newspage .k-people{--k:#6D28D9}
+  .newspage .k-notice{--k:#B45309}
+  .newspage .cat{display:inline-flex;align-items:center;background:var(--k,var(--ink));color:#fff;
+    font-size:11.5px;font-weight:900;letter-spacing:.04em;padding:5px 11px;border-radius:999px}
+  .newspage .dt{font-size:12.5px;font-weight:700;color:var(--sub)}
+
+  /* 대표 소식 */
+  .newspage .feat{position:relative;display:block;border-radius:16px;overflow:hidden;
+    background:#111;aspect-ratio:21/9;margin-bottom:34px}
+  .newspage .feat img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    object-position:center 38%;transition:transform .5s ease}
+  .newspage .feat:hover img{transform:scale(1.03)}
+  .newspage .feat .ov{position:absolute;inset:0;
+    background:linear-gradient(0deg,rgba(0,0,0,.86) 6%,rgba(0,0,0,.42) 46%,rgba(0,0,0,.02) 100%)}
+  .newspage .feat .fx{position:absolute;left:0;right:0;bottom:0;padding:30px 32px 28px}
+  .newspage .feat .row{display:flex;align-items:center;gap:11px;flex-wrap:wrap}
+  .newspage .feat .row .dt{color:#e6e6e6}
+  .newspage .feat h2{margin:12px 0 0;font-size:clamp(23px,3vw,34px);font-weight:900;
+    letter-spacing:-.035em;line-height:1.18;color:#fff;max-width:820px}
+  .newspage .feat p{margin:9px 0 0;font-size:14.5px;line-height:1.65;color:#dcdcdc;max-width:640px}
+  .newspage .feat .nocov,.newspage .card .nocov{position:absolute;inset:0;
+    background:linear-gradient(125deg,#111 0%,var(--k,#333) 135%);
+    display:flex;align-items:center;justify-content:center}
+  .newspage .nocov span{font-size:26px;font-weight:900;letter-spacing:.22em;color:rgba(255,255,255,.34)}
+  .newspage .feat .nocov span{font-size:44px}
+
+  /* 연도 섹션 */
+  .newspage .yr{margin-top:38px}
+  .newspage .yr:first-of-type{margin-top:0}
+  .newspage .yr > h2{margin:0 0 14px;font-size:26px;font-weight:900;letter-spacing:-.03em;
+    display:flex;align-items:baseline;gap:10px}
+  .newspage .yr > h2 span{font-size:13px;font-weight:800;color:var(--sub);
+    background:var(--soft);border-radius:999px;padding:3px 10px}
+  .newspage .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+
+  /* 카드: 사진 + 흰 본문 */
+  .newspage .card{display:flex;flex-direction:column;border:1.5px solid var(--line);
+    border-radius:14px;overflow:hidden;background:#fff;
+    transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease}
+  .newspage .card:hover{transform:translateY(-4px);box-shadow:0 12px 26px rgba(0,0,0,.13);
+    border-color:var(--k,var(--ink))}
+  .newspage .card .ph{position:relative;aspect-ratio:16/9;background:#f2f2f2;overflow:hidden}
+  .newspage .card .ph img{width:100%;height:100%;object-fit:cover;object-position:center 38%;
+    transition:transform .35s ease}
+  .newspage .card:hover .ph img{transform:scale(1.05)}
+  .newspage .card .ph .cat{position:absolute;left:12px;top:12px;
+    box-shadow:0 2px 8px rgba(0,0,0,.32)}
+  .newspage .card .cb{padding:15px 17px 18px;display:flex;flex-direction:column;flex:1}
+  .newspage .card h3{margin:8px 0 0;font-size:16.5px;font-weight:900;letter-spacing:-.025em;
+    line-height:1.38}
+  .newspage .card p{margin:8px 0 0;font-size:13px;line-height:1.6;color:var(--sub);
+    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+  .newspage .is-off{display:none}
+  .newspage .empty{padding:70px 0;text-align:center;font-size:15px;font-weight:700;color:var(--sub)}
+
+  @media (max-width:1000px){
+    .newspage .grid{grid-template-columns:repeat(2,1fr)}
+    .newspage .wrap{grid-template-columns:1fr;gap:14px}
+    .newspage .rail{position:static;flex-direction:row;flex-wrap:wrap}
+    .newspage .feat{aspect-ratio:16/9}
+  }
+  @media (max-width:640px){
+    .newspage .grid{grid-template-columns:1fr}
+    .newspage .feat{aspect-ratio:4/3}
+    .newspage .feat .fx{padding:20px 20px 18px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .newspage .card,.newspage .card .ph img,.newspage .feat img{transition:none}
+    .newspage .card:hover{transform:none}
+    .newspage .card:hover .ph img,.newspage .feat:hover img{transform:none}
+  }
+</style>
 <main>
-    <article>
-        <header class="mb-4 bg-primary-50">
-            <span class="py-96">
-                <h1 class="py-16 text-5xl font-black text-center text-black capitalize">
-                    News
-                </h1>
-            </span>
-        </header>
-        
-        <div class="mx-auto text-gray-900 max-w-7xl dark:text-gray-50">
-    <div class="px-4 not-prose">
-        <div class="grid gap-4 mx-auto mt-12 mb-4 lg:max-w-none md:grid-cols-3">
-            
-            <div class="flex flex-col overflow-hidden rounded-lg shadow-lg bg-gray-50 dark:bg-gray-900">
-                <a href="https://damilab.github.io/news/52/">
-                    
-                </a>
-                <div class="flex flex-col justify-between flex-1 p-6">
-                    <div class="flex-1">
-                        <a href="https://damilab.github.io/news/52/"
-                           class="block mt-2 text-2xl font-black text-gray-900 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-500 hover:underline">
-                            DAMI 연구실 학석사연계과정 학생 모집 (~2026.6.21)
-                        </a>
-                        <p class="mt-3 text-base text-gray-900 dark:text-gray-300">
-                            저희 DAMI연구실에서 미래의 인공지능 연구를 함께 선도할 학석사연계과정 학생을 모집합니다.
-                        </p>
-                    </div>
-                    
-                    <div class="flex items-center mt-6">
-                        <div class="flex-shrink-0">
-                          
-                        </div>
-                        <div class="ml-3">
-                          <p class="text-sm font-medium text-gray-900 dark:text-white"></p>
-                          <div class="flex space-x-1 text-sm text-gray-500 dark:text-gray-400">
-                            <time datetime="2026-06-08T10:00:00&#43;09:00">2026-06-08</time>
-                          </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="flex flex-col overflow-hidden rounded-lg shadow-lg bg-gray-50 dark:bg-gray-900">
-                <a href="https://damilab.github.io/news/51/">
-                    
-                      
-                      
-                      
-                       
-                         
-
-                      
-                      
-
-                      
-                        
-                          
-                          
-                          
-                                      
-                          
-
-                          
-                          
-                            
-                          
-                          
-                          
-
-                          
-                          
-                            
-                            
-                            
-                          
-                            
-                            
-                            
-                          
-                            
-                            
-                            
-                          
-
-                          <div style="aspect-ratio: 1500 / 917;" class="w-full overflow-hidden rounded-t-lg bg-gray-100 dark:bg-gray-800">
-                            <img
-                              src="/images/posts/51/%EC%8A%A4%EC%8A%B9%EC%9D%98%EB%82%A01_hu_8f295f3785c0e120.webp"
-                              srcset="/images/posts/51/%EC%8A%A4%EC%8A%B9%EC%9D%98%EB%82%A01_hu_b478e15deb4ffc36.webp 400w, /images/posts/51/%EC%8A%A4%EC%8A%B9%EC%9D%98%EB%82%A01_hu_8f295f3785c0e120.webp 600w, /images/posts/51/%EC%8A%A4%EC%8A%B9%EC%9D%98%EB%82%A01_hu_b63c187f47f05a9f.webp 800w"
-                              sizes="(min-width: 1024px) 33vw, 100vw"
-                              alt="News"
-                              class="w-full h-full object-cover"
-                              loading="lazy" decoding="async"
-                            />
-                          </div>
-                        
-                      
-                    
-                </a>
-                <div class="flex flex-col justify-between flex-1 p-6">
-                    <div class="flex-1">
-                        <a href="https://damilab.github.io/news/51/"
-                           class="block mt-2 text-2xl font-black text-gray-900 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-500 hover:underline">
-                            스승의날
-                        </a>
-                        <p class="mt-3 text-base text-gray-900 dark:text-gray-300">
-                            2026년 5월 15일 스승의날을 맞아 DAMI Lab 학생들이 이우진 교수님께 감사의 마음을 전했습니다.
-                        </p>
-                    </div>
-                    
-                    <div class="flex items-center mt-6">
-                        <div class="flex-shrink-0">
-                          
-                        </div>
-                        <div class="ml-3">
-                          <p class="text-sm font-medium text-gray-900 dark:text-white"></p>
-                          <div class="flex space-x-1 text-sm text-gray-500 dark:text-gray-400">
-                            <time datetime="2026-05-15T12:00:00&#43;09:00">2026-05-15</time>
-                          </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="flex flex-col overflow-hidden rounded-lg shadow-lg bg-gray-50 dark:bg-gray-900">
-                <a href="https://damilab.github.io/news/49/">
-                    
-                      
-                      
-                      
-                       
-                         
-
-                      
-                      
-
-                      
-                        
-                          
-                          
-                          
-                                      
-                          
-
-                          
-                          
-                            
-                          
-                          
-                          
-
-                          
-                          
-                            
-                            
-                            
-                          
-                            
-                            
-                            
-                          
-                            
-                            
-                            
-                          
-
-                          <div style="aspect-ratio: 1500 / 917;" class="w-full overflow-hidden rounded-t-lg bg-gray-100 dark:bg-gray-800">
-                            <img
-                              src="/images/posts/49/ICLR1_hu_f733f417102f8725.webp"
-                              srcset="/images/posts/49/ICLR1_hu_c8693094a102988a.webp 400w, /images/posts/49/ICLR1_hu_f733f417102f8725.webp 600w, /images/posts/49/ICLR1_hu_20da9c9ac527cd9a.webp 800w"
-                              sizes="(min-width: 1024px) 33vw, 100vw"
-                              alt="News"
-                              class="w-full h-full object-cover"
-                              loading="lazy" decoding="async"
-                            />
-                          </div>
-                        
-                      
-                    
-                </a>
-                <div class="flex flex-col justify-between flex-1 p-6">
-                    <div class="flex-1">
-                        <a href="https://damilab.github.io/news/49/"
-                           class="block mt-2 text-2xl font-black text-gray-900 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-500 hover:underline">
-                            ICLR 2026
-                        </a>
-                        <p class="mt-3 text-base text-gray-900 dark:text-gray-300">
-                            정승원, 이거루 학생이 2026년 4월 23일~27일 브라질 리우데자네이루에서 열린 ICLR 2026에 참여하였습니다.
-                        </p>
-                    </div>
-                    
-                    <div class="flex items-center mt-6">
-                        <div class="flex-shrink-0">
-                          
-                        </div>
-                        <div class="ml-3">
-                          <p class="text-sm font-medium text-gray-900 dark:text-white"></p>
-                          <div class="flex space-x-1 text-sm text-gray-500 dark:text-gray-400">
-                            <time datetime="2026-04-23T10:00:00&#43;09:00">2026-04-23</time>
-                          </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="flex flex-col overflow-hidden rounded-lg shadow-lg bg-gray-50 dark:bg-gray-900">
-                <a href="https://damilab.github.io/news/50/">
-                    
-                      
-                      
-                      
-                       
-                         
-
-                      
-                      
-
-                      
-                        
-                          
-                          
-                          
-                                      
-                          
-
-                          
-                          
-                            
-                          
-                          
-                          
-
-                          
-                          
-                            
-                            
-                            
-                          
-                            
-                            
-                            
-                          
-                            
-                            
-                            
-                          
-
-                          <div style="aspect-ratio: 1500 / 917;" class="w-full overflow-hidden rounded-t-lg bg-gray-100 dark:bg-gray-800">
-                            <img
-                              src="/images/posts/50/it_hu_12e1084ccd045873.webp"
-                              srcset="/images/posts/50/it_hu_fe41abddb6b7c519.webp 400w, /images/posts/50/it_hu_12e1084ccd045873.webp 600w, /images/posts/50/it_hu_cf24c2af39d84505.webp 800w"
-                              sizes="(min-width: 1024px) 33vw, 100vw"
-                              alt="News"
-                              class="w-full h-full object-cover"
-                              loading="lazy" decoding="async"
-                            />
-                          </div>
-                        
-                      
-                    
-                </a>
-                <div class="flex flex-col justify-between flex-1 p-6">
-                    <div class="flex-1">
-                        <a href="https://damilab.github.io/news/50/"
-                           class="block mt-2 text-2xl font-black text-gray-900 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-500 hover:underline">
-                            ITRC 인재양성대전 2026
-                        </a>
-                        <p class="mt-3 text-base text-gray-900 dark:text-gray-300">
-                            정승현, 이윤석, 김민석, 정지우, 김윤지, 이현세 학생이 2026년 4월 22일~24일 서울 코엑스에서 열린 ITRC 인재양성대전 2026에 참여하였습니다.
-                        </p>
-                    </div>
-                    
-                    <div class="flex items-center mt-6">
-                        <div class="flex-shrink-0">
-                          
-                        </div>
-                        <div class="ml-3">
-                          <p class="text-sm font-medium text-gray-900 dark:text-white"></p>
-                          <div class="flex space-x-1 text-sm text-gray-500 dark:text-gray-400">
-                            <time datetime="2026-04-22T10:00:00&#43;09:00">2026-04-22</time>
-                          </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="flex flex-col overflow-hidden rounded-lg shadow-lg bg-gray-50 dark:bg-gray-900">
-                <a href="https://damilab.github.io/news/48/">
-                    
-                      
-                      
-                      
-                       
-                         
-
-                      
-                      
-
-                      
-                        
-                          
-                          
-                          
-                                      
-                          
-
-                          
-                          
-                            
-                          
-                          
-                          
-
-                          
-                          
-                            
-                            
-                            
-                          
-                            
-                            
-                            
-                          
-                            
-                            
-                            
-                          
-
-                          <div style="aspect-ratio: 1500 / 917;" class="w-full overflow-hidden rounded-t-lg bg-gray-100 dark:bg-gray-800">
-                            <img
-                              src="/images/posts/48/1000042430_hu_61a1cd66e59614fc.webp"
-                              srcset="/images/posts/48/1000042430_hu_8490b06a9170892a.webp 400w, /images/posts/48/1000042430_hu_61a1cd66e59614fc.webp 600w, /images/posts/48/1000042430_hu_78c7d02188f1024b.webp 800w"
-                              sizes="(min-width: 1024px) 33vw, 100vw"
-                              alt="News"
-                              class="w-full h-full object-cover"
-                              loading="lazy" decoding="async"
-                            />
-                          </div>
-                        
-                      
-                    
-                </a>
-                <div class="flex flex-col justify-between flex-1 p-6">
-                    <div class="flex-1">
-                        <a href="https://damilab.github.io/news/48/"
-                           class="block mt-2 text-2xl font-black text-gray-900 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-500 hover:underline">
-                            연구실 워크샵
-                        </a>
-                        <p class="mt-3 text-base text-gray-900 dark:text-gray-300">
-                            2026년 4월 10일, DAMI 연구실 워크샵을 진행했습니다.
-                        </p>
-                    </div>
-                    
-                    <div class="flex items-center mt-6">
-                        <div class="flex-shrink-0">
-                          
-                        </div>
-                        <div class="ml-3">
-                          <p class="text-sm font-medium text-gray-900 dark:text-white"></p>
-                          <div class="flex space-x-1 text-sm text-gray-500 dark:text-gray-400">
-                            <time datetime="2026-04-10T12:00:00&#43;09:00">2026-04-10</time>
-                          </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="flex flex-col overflow-hidden rounded-lg shadow-lg bg-gray-50 dark:bg-gray-900">
-                <a href="https://damilab.github.io/news/47/">
-                    
-                      
-                      
-                      
-                       
-                         
-
-                      
-                      
-
-                      
-                        
-                          
-                          
-                          
-                                      
-                          
-
-                          
-                          
-                            
-                          
-                          
-                          
-
-                          
-                          
-                            
-                            
-                            
-                          
-                            
-                            
-                            
-                          
-                            
-                            
-                            
-                          
-
-                          <div style="aspect-ratio: 1500 / 917;" class="w-full overflow-hidden rounded-t-lg bg-gray-100 dark:bg-gray-800">
-                            <img
-                              src="/images/posts/47/parksa_hu_9c7617da8d48d4ef.webp"
-                              srcset="/images/posts/47/parksa_hu_8767bbcf7a501b98.webp 400w, /images/posts/47/parksa_hu_9c7617da8d48d4ef.webp 600w, /images/posts/47/parksa_hu_5b4d3cf50e490c6f.webp 800w"
-                              sizes="(min-width: 1024px) 33vw, 100vw"
-                              alt="News"
-                              class="w-full h-full object-cover"
-                              loading="lazy" decoding="async"
-                            />
-                          </div>
-                        
-                      
-                    
-                </a>
-                <div class="flex flex-col justify-between flex-1 p-6">
-                    <div class="flex-1">
-                        <a href="https://damilab.github.io/news/47/"
-                           class="block mt-2 text-2xl font-black text-gray-900 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-500 hover:underline">
-                            2026년도 2월 졸업식
-                        </a>
-                        <p class="mt-3 text-base text-gray-900 dark:text-gray-300">
-                            연구실 정승현 학생이 석사과정을 졸업하였습니다. 동시에 박사과정에 입학하였습니다.
-                        </p>
-                    </div>
-                    
-                    <div class="flex items-center mt-6">
-                        <div class="flex-shrink-0">
-                          
-                        </div>
-                        <div class="ml-3">
-                          <p class="text-sm font-medium text-gray-900 dark:text-white"></p>
-                          <div class="flex space-x-1 text-sm text-gray-500 dark:text-gray-400">
-                            <time datetime="2026-02-12T12:00:00&#43;09:00">2026-02-12</time>
-                          </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
+<div class="newspage">
+  <div class="top">
+    <div class="top-row">
+      <span class="top-title">News</span>
+      <span class="top-sub">연구실의 논문, 수상, 학회 참가와 구성원 소식</span>
     </div>
+    <div class="chips"><button class="chip" type="button" data-cat="all" aria-pressed="true">All<b>31</b></button><button class="chip" type="button" data-cat="paper" aria-pressed="false">Paper<b>2</b></button><button class="chip" type="button" data-cat="award" aria-pressed="false">Award<b>4</b></button><button class="chip" type="button" data-cat="conf" aria-pressed="false">Conference<b>17</b></button><button class="chip" type="button" data-cat="people" aria-pressed="false">People<b>7</b></button><button class="chip" type="button" data-cat="notice" aria-pressed="false">Notice<b>1</b></button></div>
+  </div>
+
+  <div class="wrap">
+    <aside class="rail" aria-label="연도 이동"><button class="rl is-here" type="button" data-year="2026">2026</button><button class="rl" type="button" data-year="2025">2025</button><button class="rl" type="button" data-year="2024">2024</button><button class="rl" type="button" data-year="2023">2023</button></aside>
+    <div class="feed">
+      <a class="feat k-conf" href="/news/49/">
+        <img src="/images/posts/49/ICLR1_hu_bfa4d6e120a567d2.webp" alt="" fetchpriority="high" decoding="async"><div class="ov"></div>
+        <div class="fx">
+          <div class="row"><span class="cat">Conference</span><span class="dt">2026.04.23</span></div>
+          <h2>ICLR 2026</h2>
+          <p>정승원, 이거루 학생이 2026년 4월 23일~27일 브라질 리우데자네이루에서 열린 ICLR 2026에 참여하였습니다.</p>
+        </div>
+      </a>
+        <section class="yr" data-year="2026">
+          <h2>2026 <span>5</span></h2>
+          <div class="grid">
+          <a class="card k-notice" href="/news/52/" data-cat="notice">
+            <div class="ph"><div class="nocov"><span>DAMI LAB</span></div><span class="cat">Notice</span></div>
+            <div class="cb"><span class="dt">2026.06.08</span>
+              <h3>DAMI 연구실 학석사연계과정 학생 모집 (~2026.6.21)</h3>
+              <p>저희 DAMI연구실에서 미래의 인공지능 연구를 함께 선도할 학석사연계과정 학생을 모집합니다.</p></div>
+          </a>
+          <a class="card k-conf" href="/news/50/" data-cat="conf">
+            <div class="ph"><img src="/images/posts/50/it_hu_3df336f76cf33a98.webp" alt="" loading="lazy" decoding="async"><span class="cat">Conference</span></div>
+            <div class="cb"><span class="dt">2026.04.22</span>
+              <h3>ITRC 인재양성대전 2026</h3>
+              <p>정승현, 이윤석, 김민석, 정지우, 김윤지, 이현세 학생이 2026년 4월 22일~24일 서울 코엑스에서 열린 ITRC 인재양성대전 2026에 참여하였습니다.</p></div>
+          </a>
+          <a class="card k-people" href="/news/47/" data-cat="people">
+            <div class="ph"><img src="/images/posts/47/parksa_hu_743b5b38161ae2b4.webp" alt="" loading="lazy" decoding="async"><span class="cat">People</span></div>
+            <div class="cb"><span class="dt">2026.02.12</span>
+              <h3>2026년도 2월 졸업식</h3>
+              <p>연구실 정승현 학생이 석사과정을 졸업하였습니다. 동시에 박사과정에 입학하였습니다.</p></div>
+          </a>
+          <a class="card k-paper" href="/news/46/" data-cat="paper">
+            <div class="ph"><img src="/images/posts/46/recare_hu_49912d9cbd6652a4.webp" alt="" loading="lazy" decoding="async"><span class="cat">Paper</span></div>
+            <div class="cb"><span class="dt">2026.01.26</span>
+              <h3>연구실 논문 ICLR 2026 Accept</h3>
+              <p>연구실 논문 &quot;Co-occurring Associated REtained concepts in Diffusion Unlearning&quot;이 ICLR 2026에 Accept 되었습니다.</p></div>
+          </a>
+          <a class="card k-paper" href="/news/45/" data-cat="paper">
+            <div class="ph"><img src="/images/posts/45/slotgcg_hu_837ca6f3d9927001.webp" alt="" loading="lazy" decoding="async"><span class="cat">Paper</span></div>
+            <div class="cb"><span class="dt">2026.01.26</span>
+              <h3>연구실 논문 ICLR 2026 Accept</h3>
+              <p>연구실 논문 &quot;SlotGCG, Exploiting the Positional Vulnerability in LLMs for Jailbreak Attacks&quot;이 ICLR 2026에 Accept 되었습</p></div>
+          </a>
+          </div>
+        </section>
+        <section class="yr" data-year="2025">
+          <h2>2025 <span>14</span></h2>
+          <div class="grid">
+          <a class="card k-award" href="/news/42/" data-cat="award">
+            <div class="ph"><img src="/images/posts/42/%ED%81%AC%EB%A6%AC%EC%8A%A41_hu_cea7e7d2f30c7d5a.webp" alt="" loading="lazy" decoding="async"><span class="cat">Award</span></div>
+            <div class="cb"><span class="dt">2025.11.26</span>
+              <h3>Christoph Timmermann 학생 TUM × Audi 박사과정 합격</h3>
+              <p>연구실 졸업생 Christoph Timmermann 학생이 Technical University of Munich 와 Audi가 협동하여 운영하는 박사과정에 합격했습니다.</p></div>
+          </a>
+          <a class="card k-award" href="/news/40/" data-cat="award">
+            <div class="ph"><img src="/images/posts/40/ack1_hu_f64fd82066a71b3c.webp" alt="" loading="lazy" decoding="async"><span class="cat">Award</span></div>
+            <div class="cb"><span class="dt">2025.11.08</span>
+              <h3>한국정보처리학회 ACK 2025 산학연협동우수상 수상</h3>
+              <p>정승현, 김현진, 김윤지 학생이 2025년 11월 6일~8일 동국대학교에서 열린 한국정보처리학회 ACK 2025에 참여하였으며, 정승현 학생이 산학연협동우수상을 수상하였습니다.</p></div>
+          </a>
+          <a class="card k-conf" href="/news/39/" data-cat="conf">
+            <div class="ph"><img src="/images/posts/39/emnlp1_hu_f9db95efd7a5503f.webp" alt="" loading="lazy" decoding="async"><span class="cat">Conference</span></div>
+            <div class="cb"><span class="dt">2025.11.07</span>
+              <h3>EMNLP 2025</h3>
+              <p>김민석, 정지우, 정승원, 김윤지 학생이 2025년 11월 3일~7일 중국 쑤저우에서 열린 EMNLP 2025에 참여하였습니다.</p></div>
+          </a>
+          <a class="card k-conf" href="/news/38/" data-cat="conf">
+            <div class="ph"><img src="/images/posts/38/sk1_hu_8affbe14a21bfcd.webp" alt="" loading="lazy" decoding="async"><span class="cat">Conference</span></div>
+            <div class="cb"><span class="dt">2025.11.04</span>
+              <h3>SK AI SUMMIT 2025</h3>
+              <p>정승현, 이윤석, 이거루, 김현진, 김미소 학생이 2025년 11월 3일~4일 서울 코엑스에서 열린 SK AI SUMMIT 2025에 참여하였습니다.</p></div>
+          </a>
+          <a class="card k-award" href="/news/34/" data-cat="award">
+            <div class="ph"><img src="/images/posts/34/%ED%95%9C%EA%B5%AD%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A7%88%EC%9D%B4%EB%8B%9D%ED%95%99%ED%9A%8C1_hu_378a3d1396c04fb7.webp" alt="" loading="lazy" decoding="async"><span class="cat">Award</span></div>
+            <div class="cb"><span class="dt">2025.08.28</span>
+              <h3>한국데이터마이닝학회 2025 하계학술대회 최우수 논문상 수상</h3>
+              <p>이현세, 정지우, 이윤석, 김윤지 학생이 2025년 8월 28일~30일 평창 알펜시아 컨벤션센터에서 열린 한국데이터마이닝학회 2025 하계학술대회에 참여하였으며, 이현세 학생이 최우수 논문상을 수상</p></div>
+          </a>
+          <a class="card k-people" href="/news/33/" data-cat="people">
+            <div class="ph"><img src="/images/posts/33/%EC%A1%B8%EC%97%85%EC%8B%9D1_hu_dbf1f986564e902d.webp" alt="" loading="lazy" decoding="async"><span class="cat">People</span></div>
+            <div class="cb"><span class="dt">2025.08.20</span>
+              <h3>2025학년도 8월 졸업식</h3>
+              <p>티머만크리스토프 학생이 석사 과정을 성공적으로 마쳤습니다. 또한, 정지우, 정승원, 이윤석, 김윤지 학생이 학사 과정을 졸업하였습니다.</p></div>
+          </a>
+          <a class="card k-conf" href="/news/32/" data-cat="conf">
+            <div class="ph"><img src="/images/posts/32/AIKOREA1_hu_eeec85287b18e706.webp" alt="" loading="lazy" decoding="async"><span class="cat">Conference</span></div>
+            <div class="cb"><span class="dt">2025.08.12</span>
+              <h3>The AI KOREA 2025</h3>
+              <p>이현세, 정지우, 김윤지 학생이 2025년 8월 12일~13일 한양대학교에서 열린 The AI KOREA 2025에 참여하였습니다.</p></div>
+          </a>
+          <a class="card k-conf" href="/news/31/" data-cat="conf">
+            <div class="ph"><img src="/images/posts/31/%ED%95%9C%EA%B5%AD%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%ED%95%99%ED%9A%8C%EC%9B%8C%ED%81%AC%EC%83%B51_hu_a4afa8ef3a13d49b.webp" alt="" loading="lazy" decoding="async"><span class="cat">Conference</span></div>
+            <div class="cb"><span class="dt">2025.07.17</span>
+              <h3>2025 한국정보처리학회 AI시스템연구회 제2회 워크샵</h3>
+              <p>정승현, 김현진, 김미소, 김민석, 정승원 학생이 2025년 7월 17일~19일 평창 휘닉스 파크에서 열린 2025년 한국정보처리학회에 참여하였습니다.</p></div>
+          </a>
+          <a class="card k-conf" href="/news/30/" data-cat="conf">
+            <div class="ph"><img src="/images/posts/30/%EC%82%B0%EC%97%85%EA%B3%B5%ED%95%99%ED%9A%8C1_hu_4ee7ba604ad8dd3d.webp" alt="" loading="lazy" decoding="async"><span class="cat">Conference</span></div>
+            <div class="cb"><span class="dt">2025.06.18</span>
+              <h3>대한산업공학회 2025년 춘계공동학술대회</h3>
+              <p>DAMI Lab 전원이 2025년 6월 18일 ~ 21일 제주 해비치 호텔에서 열린 대한산업공학회 2025년 춘계공동학술대회에 참여하였습니다.</p></div>
+          </a>
+          <a class="card k-conf" href="/news/29/" data-cat="conf">
+            <div class="ph"><img src="/images/posts/29/CVPR1_hu_66c9ff303bede79d.webp" alt="" loading="lazy" decoding="async"><span class="cat">Conference</span></div>
+            <div class="cb"><span class="dt">2025.06.11</span>
+              <h3>CVPR 2025</h3>
+              <p>정승현, 이거루 학생이 2025년 6월 11일~15일 미국 내슈빌 뮤직 센터에서 열린 CVPR 2025에 참여하였습니다.</p></div>
+          </a>
+          <a class="card k-award" href="/news/27/" data-cat="award">
+            <div class="ph"><img src="/images/posts/27/%ED%95%9C%EA%B5%AD%EC%97%B0%EA%B5%AC%EC%9E%AC%EB%8B%A8_hu_bf1e87848e7a806c.webp" alt="" loading="lazy" decoding="async"><span class="cat">Award</span></div>
+            <div class="cb"><span class="dt">2025.04.10</span>
+              <h3>한국연구재단 우수신진연구 선정</h3>
+              <p>2025 한국연구재단에서 지원하는 우수신진연구에 선정되었습니다. “다국어 환경에서 거대언어모델의 보안을 위한 탈옥 및 가드레일 프레임워크 개발”의 주제로 앞으로 3년간(2025-2027) 7억 30</p></div>
+          </a>
+          <a class="card k-conf" href="/news/23/" data-cat="conf">
+            <div class="ph"><img src="/images/posts/23/ICML_hu_44fe78e8b9b82d02.webp" alt="" loading="lazy" decoding="async"><span class="cat">Conference</span></div>
+            <div class="cb"><span class="dt">2025.02.24</span>
+              <h3>ICMLSC 2025</h3>
+              <p>티머만크리스토프, 정승현, 이거루, 김미소, 김현진 학생이 2025년 2월 24일~26일 도쿄 주오대학에서 열린 ICMLSC 2025(The 9th International Conference on</p></div>
+          </a>
+          <a class="card k-people" href="/news/24/" data-cat="people">
+            <div class="ph"><img src="/images/posts/24/%EB%AF%BC%EC%84%9D%EC%9D%B4%EC%A1%B8%EC%97%85_hu_250682719832024f.webp" alt="" loading="lazy" decoding="async"><span class="cat">People</span></div>
+            <div class="cb"><span class="dt">2025.02.20</span>
+              <h3>2025학년도 2월 졸업식</h3>
+              <p>김민석 학생이 학사 과정을 졸업하였습니다.</p></div>
+          </a>
+          <a class="card k-conf" href="/news/25/" data-cat="conf">
+            <div class="ph"><img src="/images/posts/25/%EB%A1%9C%EB%B4%87%ED%95%99%ED%9A%8C1_hu_70890e9015ac6362.webp" alt="" loading="lazy" decoding="async"><span class="cat">Conference</span></div>
+            <div class="cb"><span class="dt">2025.02.14</span>
+              <h3>제20회 한국로봇종합학술대회</h3>
+              <p>DAMI Lab 전원이 2025년 2월 11일~14일 평창 알펜시아 리조트에서 열린 제20회 한국로봇종합학술대회에 참여하였습니다.</p></div>
+          </a>
+          </div>
+        </section>
+        <section class="yr" data-year="2024">
+          <h2>2024 <span>10</span></h2>
+          <div class="grid">
+          <a class="card k-conf" href="/news/21/" data-cat="conf">
+            <div class="ph"><img src="/images/posts/21/%ED%8F%AC%EC%8A%A4%ED%84%B0%ED%8E%98%EC%96%B4_hu_c993900dcf54184.webp" alt="" loading="lazy" decoding="async"><span class="cat">Conference</span></div>
+            <div class="cb"><span class="dt">2024.12.05</span>
+              <h3>컴퓨터·AI학과 대학원 포스터 페어</h3>
+              <p>티머만크리스토프, 김미소, 정승현 학생이 2024 컴퓨터·AI학과 대학원 포스터 페어에 참여하였습니다.</p></div>
+          </a>
+          <a class="card k-conf" href="/news/20/" data-cat="conf">
+            <div class="ph"><img src="/images/posts/20/24%EB%85%84%EB%8D%B0%EB%A7%881_hu_def0655bc07e3a9d.webp" alt="" loading="lazy" decoding="async"><span class="cat">Conference</span></div>
+            <div class="cb"><span class="dt">2024.11.23</span>
+              <h3>한국데이터마이닝학회 2024 추계학술대회</h3>
+              <p>김미소, 김현진, 정승원, 정지우 학생이 2024년 11월 22일~23일 경주화백컨벤션센터에서 열린 한국데이터마이닝학회 2024 추계공동학술대회에 참여하였습니다.</p></div>
+          </a>
+          <a class="card k-people" href="/news/16/" data-cat="people">
+            <div class="ph"><img src="/images/posts/16/24%EB%85%848%EC%9B%94%EC%A1%B8%EC%97%851_hu_ae16d35763db7442.webp" alt="" loading="lazy" decoding="async"><span class="cat">People</span></div>
+            <div class="cb"><span class="dt">2024.08.20</span>
+              <h3>2024학년도 8월 졸업식</h3>
+              <p>DAMI Lab의 첫 졸업생인 김창우 학생이 석사 과정을 성공적으로 마쳤습니다. 또한, 김미소 학생과 김현진 학생이 학사 과정을 졸업하였습니다.</p></div>
+          </a>
+          <a class="card k-people" href="/news/15/" data-cat="people">
+            <div class="ph"><img src="/images/posts/15/%EB%AF%B8%EC%86%8CCMU1_hu_c54e1271142fe254.webp" alt="" loading="lazy" decoding="async"><span class="cat">People</span></div>
+            <div class="cb"><span class="dt">2024.07.08</span>
+              <h3>CMU(Carnegie Mellon University) 파견 연구</h3>
+              <p>김미소 학생이 Carnegie Mellon University의 Robotics Institute에서 두 달간(2024.07~08) 파견 연구를 마쳤습니다.</p></div>
+          </a>
+          <a class="card k-conf" href="/news/12/" data-cat="conf">
+            <div class="ph"><img src="/images/posts/12/24%EC%82%B0%EC%97%85%EA%B3%B5%ED%95%99%ED%9A%8C0_hu_e631dbf3f83f56de.webp" alt="" loading="lazy" decoding="async"><span class="cat">Conference</span></div>
+            <div class="cb"><span class="dt">2024.05.04</span>
+              <h3>대한산업공학회 2024 춘계공동학술대회</h3>
+              <p>DAMI Lab 전원이 2024년 5월 2일~4일 여수엑스포컨벤션센터에서 열린 대한산업공학회 2024 춘계공동학술대회에 참여하였습니다.</p></div>
+          </a>
+          <a class="card k-conf" href="/news/10/" data-cat="conf">
+            <div class="ph"><img src="/images/posts/10/%EC%9D%B8%EC%9E%AC%EC%96%91%EC%84%B1%EB%8C%80%EC%A0%84_hu_37f3d7206ee7b312.webp" alt="" loading="lazy" decoding="async"><span class="cat">Conference</span></div>
+            <div class="cb"><span class="dt">2024.04.20</span>
+              <h3>ITRC 인재양성대전 2024</h3>
+              <p>김창우, 정승현, 티머만크리스토프, 이거루 학생이 2024년 4월 17일~19일 서울 코엑스에서 열린 ITRC 인재양성대전 2024에 참여하였습니다.</p></div>
+          </a>
+          <a class="card k-conf" href="/news/7/" data-cat="conf">
+            <div class="ph"><img src="/images/posts/7/%EB%A1%9C%EB%B4%87%ED%95%99%ED%9A%8C_hu_42a1e8f6fb99a2c8.webp" alt="" loading="lazy" decoding="async"><span class="cat">Conference</span></div>
+            <div class="cb"><span class="dt">2024.02.24</span>
+              <h3>제19회 한국로봇종합학술대회</h3>
+              <p>김창우, 티머만크리스토프, 이거루 학생이 2024년 2월 22일~24일 휘닉스 평창에서 열린 제19회 한국로봇종합학술대회에 참여하였습니다.</p></div>
+          </a>
+          <a class="card k-people" href="/news/6/" data-cat="people">
+            <div class="ph"><img src="/images/posts/6/%EC%A0%95%EC%8A%B9%ED%98%84_%EC%A1%B8%EC%97%851_hu_1e00455f709c03b2.webp" alt="" loading="lazy" decoding="async"><span class="cat">People</span></div>
+            <div class="cb"><span class="dt">2024.02.18</span>
+              <h3>2024학년도 2월 졸업식</h3>
+              <p></p></div>
+          </a>
+          <a class="card k-people" href="/news/5/" data-cat="people">
+            <div class="ph"><img src="/images/posts/5/%EA%B9%80%ED%98%84%EC%A7%84_%EB%AF%B8%EA%B5%AD1_hu_e5caf3eb2fa3e1de.webp" alt="" loading="lazy" decoding="async"><span class="cat">People</span></div>
+            <div class="cb"><span class="dt">2024.02.01</span>
+              <h3>마이크로소프트 본사 기업탐방 연수</h3>
+              <p>김현진 학생이 2023 초광역 GPT-AI 활용 창업경진대회에서 대상을 수상하여 마이크로소프트 본사 기업탐방에 참여하였습니다.</p></div>
+          </a>
+          <a class="card k-conf" href="/news/4/" data-cat="conf">
+            <div class="ph"><img src="/images/posts/4/%EC%9E%90%EB%A3%8C%EB%B6%84%EC%84%9D%ED%95%99%ED%9A%8C1_hu_2856b459393eab6c.webp" alt="" loading="lazy" decoding="async"><span class="cat">Conference</span></div>
+            <div class="cb"><span class="dt">2024.01.27</span>
+              <h3>2023년도 한국자료분석학회 동계 학술논문발표대회</h3>
+              <p>정승현, 티머만크리스토프 학생이 2024년 1월 25일~26일 국립부경대학교에서 열린 2023년 한국자료분석학회 동계 학술논문발표대회에 참여하였습니다.</p></div>
+          </a>
+          </div>
+        </section>
+        <section class="yr" data-year="2023">
+          <h2>2023 <span>1</span></h2>
+          <div class="grid">
+          <a class="card k-conf" href="/news/3/" data-cat="conf">
+            <div class="ph"><img src="/images/posts/3/23%EC%82%B0%EC%97%85%EA%B3%B5%ED%95%99%ED%9A%8C1_hu_976bcc93f5628fe1.webp" alt="" loading="lazy" decoding="async"><span class="cat">Conference</span></div>
+            <div class="cb"><span class="dt">2023.06.03</span>
+              <h3>대한산업공학회 2023 춘계공동학술대회</h3>
+              <p>김창우, 윤종연, 정승현, 김정혜 학생이 2023년 5월 31일~6월 3일 제주 신화월드에서 열린 대한산업공학회 2023 춘계공동학술대회에 참여하였습니다.</p></div>
+          </a>
+          </div>
+        </section>
+      <p class="empty is-off">해당 분류의 소식이 아직 없습니다.</p>
+      <p class="sr" id="newsLive" role="status" aria-live="polite"></p>
+    </div>
+  </div>
 </div>
+<script>
+(function () {
+  var page = document.querySelector('.newspage');
+  if (!page) return;
+  var chips = page.querySelectorAll('.chip');
+  var cards = page.querySelectorAll('.card');
+  var years = page.querySelectorAll('.yr');
+  var empty = page.querySelector('.empty');
+  var feat = page.querySelector('.feat');
+  var live = page.querySelector('#newsLive');
 
-    </article>
-    <div class="max-w-xl mx-auto my-16">
-        
+  /* 필터는 미리 그려진 카드를 숨겼다 보였다 할 뿐이다. JS 가 없으면 전체가 그대로 보인다. */
+  function apply(cat) {
+    var shown = 0;
+    cards.forEach(function (c) {
+      var on = cat === 'all' || c.dataset.cat === cat;
+      c.classList.toggle('is-off', !on);
+      if (on) shown++;
+    });
+    years.forEach(function (y) {
+      var n = y.querySelectorAll('.card:not(.is-off)').length;
+      y.classList.toggle('is-off', n === 0);
+      var badge = y.querySelector('h2 span');
+      if (badge) badge.textContent = n;
+    });
+    /* 대표 카드는 전체 보기일 때만. 분류를 고르면 그 분류가 아닌 대표가 남아 어긋난다. */
+    if (feat) feat.classList.toggle('is-off', cat !== 'all');
+    empty.classList.toggle('is-off', shown > 0);
+    if (live) live.textContent = shown + '건';
+  }
 
+  chips.forEach(function (b) {
+    b.addEventListener('click', function () {
+      chips.forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+      apply(b.dataset.cat);
+    });
+  });
 
-
-<nav class="flex items-center justify-center px-4 sm:px-0">
-    <div class="flex flex-1 w-0">
-        <div class="mx-auto border-t-2 border-primary-300">
-            
-            
-
-            
-
-            
-            
-            
-            <span class="inline-flex items-center px-4 pt-4 text-lg font-black text-primary-600 dark:text-primary-400">1</span>
-            
-            
-            
-            
-            
-            <a href="/news/page/2/" class="inline-flex items-center px-4 pt-4 text-lg font-medium text-primary-600 dark:text-primary-400">2</a>
-            
-            
-            
-            
-            
-            <a href="/news/page/3/" class="inline-flex items-center px-4 pt-4 text-lg font-medium text-primary-600 dark:text-primary-400">3</a>
-            
-            
-            
-            
-            
-            <span class="inline-flex items-center px-4 pt-4 text-lg font-medium text-primary-600 dark:text-primary-400">...</span>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-
-            
-            <a class="page-item"><a href="/news/page/2/" rel="next"
-                    class="inline-flex items-center px-4 pt-4 text-lg font-black text-primary-600 dark:text-primary-400">Next
-                    ›</a></a>
-            
-
-            
-            
-            <a class="page-item"><a href="/news/page/9/" rel="last"
-                    class="inline-flex items-center px-4 pt-4 text-lg font-black text-primary-600 dark:text-primary-400">Last
-                    »</a></a>
-            
-        </div>
-</nav>
-
-    </div>
+  /* 연도 레일: 클릭하면 그 해로 이동하고, 스크롤하면 현재 연도를 표시한다. */
+  var rls = page.querySelectorAll('.rl');
+  rls.forEach(function (r) {
+    r.addEventListener('click', function () {
+      var t = page.querySelector('.yr[data-year="' + r.dataset.year + '"]');
+      if (t) window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 130 });
+    });
+  });
+  window.addEventListener('scroll', function () {
+    var here = null;
+    years.forEach(function (y) {
+      if (!y.classList.contains('is-off') &&
+          y.getBoundingClientRect().top - 160 <= 0) here = y.dataset.year;
+    });
+    rls.forEach(function (r) { r.classList.toggle('is-here', r.dataset.year === here); });
+  }, { passive: true });
+})();
+</script>
 </main>
 
     <footer class="bg-gray-900 text-gray-300">
