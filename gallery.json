@@ -327,20 +327,6 @@
    "desc": ""
   },
   {
-   "thumb": "/images/posts/43/인턴2_hu_d7d094fb304c2bc.jpg",
-   "full": "/images/posts/43/인턴2_hu_e14088d2554aad6e.jpg",
-   "w": 1024,
-   "h": 768,
-   "ratio": 1.3333,
-   "cap": "인턴 환영회",
-   "cat": "Lab life",
-   "date": "2025.12",
-   "link": "/news/43/",
-   "fx": 39.6,
-   "fy": 47.8,
-   "desc": ""
-  },
-  {
    "thumb": "/images/posts/41/11월생일1_hu_8ee667233de4a67d.jpg",
    "full": "/images/posts/41/11월생일1_hu_d1d42fcbdd3093dc.jpg",
    "w": 1024,
@@ -881,21 +867,6 @@
    "link": "/news/23/",
    "fx": 46.3,
    "fy": 60.4,
-   "desc": "",
-   "place": "일본 도쿄"
-  },
-  {
-   "thumb": "/images/posts/23/ICML3_hu_fab220cbb59fc33a.png",
-   "full": "/images/posts/23/ICML3_hu_fab220cbb59fc33a.png",
-   "w": 1024,
-   "h": 643,
-   "ratio": 1.5925,
-   "cap": "ICMLSC 2025",
-   "cat": "Conference",
-   "date": "2025.02",
-   "link": "/news/23/",
-   "fx": 50.9,
-   "fy": 38.1,
    "desc": "",
    "place": "일본 도쿄"
   },
@@ -1672,36 +1643,6 @@
    "place": "여수"
   },
   {
-   "thumb": "/images/gallery/insta_17977128632549394.jpg",
-   "full": "/images/gallery/insta_17977128632549394.jpg",
-   "w": 1400,
-   "h": 1305,
-   "ratio": 1.0728,
-   "cap": "대한산업공학회 2024 춘계학술대회",
-   "cat": "Conference",
-   "date": "2024.05",
-   "link": "",
-   "fx": 51.1,
-   "fy": 53.0,
-   "desc": "",
-   "place": "여수"
-  },
-  {
-   "thumb": "/images/gallery/insta_17996731046625441.jpg",
-   "full": "/images/gallery/insta_17996731046625441.jpg",
-   "w": 1400,
-   "h": 1177,
-   "ratio": 1.1895,
-   "cap": "대한산업공학회 2024 춘계학술대회",
-   "cat": "Conference",
-   "date": "2024.05",
-   "link": "",
-   "fx": 42.3,
-   "fy": 35.8,
-   "desc": "",
-   "place": "여수"
-  },
-  {
    "thumb": "/images/gallery/insta_18015747509249724.jpg",
    "full": "/images/gallery/insta_18015747509249724.jpg",
    "w": 1400,
@@ -1775,20 +1716,6 @@
    "fy": 80.0,
    "desc": "",
    "place": "여수"
-  },
-  {
-   "thumb": "/images/gallery/insta_18098845066410191.jpg",
-   "full": "/images/gallery/insta_18098845066410191.jpg",
-   "w": 1400,
-   "h": 1049,
-   "ratio": 1.3346,
-   "cap": "",
-   "cat": "Lab life",
-   "date": "2024.05",
-   "link": "",
-   "fx": 76.1,
-   "fy": 49.4,
-   "desc": ""
   },
   {
    "thumb": "/images/gallery/insta_18101903116394949.jpg",
