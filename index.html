@@ -772,18 +772,11 @@ document.addEventListener('DOMContentLoaded', function() {
       <button onclick="filterHistory('2023')" class="year-filter px-4 py-2 rounded-lg text-sm font-medium transition-colors" data-year="2023" style="background-color: #e5e7eb; color: #374151;">2023</button>
       <button onclick="filterHistory('2022')" class="year-filter px-4 py-2 rounded-lg text-sm font-medium transition-colors" data-year="2022" style="background-color: #e5e7eb; color: #374151;">2022</button>
       <button onclick="filterHistory('2021')" class="year-filter px-4 py-2 rounded-lg text-sm font-medium transition-colors" data-year="2021" style="background-color: #e5e7eb; color: #374151;">2021</button>
-        <span class="sep"></span>
-      <button type="button" onclick="filterHistoryKind('accept')" class="kind-filter" data-kind="accept" aria-pressed="false">논문 채택</button>
-      <button type="button" onclick="filterHistoryKind('journal')" class="kind-filter" data-kind="journal" aria-pressed="false">논문 게재</button>
-      <button type="button" onclick="filterHistoryKind('award')" class="kind-filter" data-kind="award" aria-pressed="false">수상</button>
-      <button type="button" onclick="filterHistoryKind('career')" class="kind-filter" data-kind="career" aria-pressed="false">진로</button>
-      <button type="button" onclick="filterHistoryKind('join')" class="kind-filter" data-kind="join" aria-pressed="false">입학</button>
-      <button type="button" onclick="filterHistoryKind('project')" class="kind-filter" data-kind="project" aria-pressed="false">과제</button>
       </div>
 
       <div id="history-container">
         <section class="tl-yr">
-          <h3>2026 <span style="font-weight:800">9</span></h3>
+          <h3>2026 <span style="font-weight:800">11</span></h3>
           <div class="tl-rows">
           <div class="history-item k-join" data-year="2026" data-kind="join">
             <span class="tl-dt">2026.07.29</span>
@@ -796,10 +789,22 @@ document.addEventListener('DOMContentLoaded', function() {
             <span class="tl-dot"></span>
             <h4>김미소 연구원, 네이버 클라우드 인턴 합격</h4>
           </div>
+          <div class="history-item k-journal" data-year="2026" data-kind="journal">
+            <span class="tl-dt">2026.07.08</span>
+            <span class="tl-dot"></span>
+            <h4>Journal of Hazardous Materials Advances 논문 게재</h4>
+            <p>Sampling-bias-aware machine-learning mapping of geogenic indoor radon hazard in Jeollanam-do, Korea using measured-low negatives</p>
+          </div>
           <div class="history-item k-career" data-year="2026" data-kind="career">
             <span class="tl-dt">2026.07.06</span>
             <span class="tl-dot"></span>
             <h4>김현진 연구원, HD한국조선해양 생성형 언어모델 연구직 합격</h4>
+          </div>
+          <div class="history-item k-journal" data-year="2026" data-kind="journal">
+            <span class="tl-dt">2026.06.11</span>
+            <span class="tl-dot"></span>
+            <h4>Geosciences Journal 논문 게재</h4>
+            <p>Groundwater potential mapping using a frequency ratio-LSTM hybrid model in the Andijan Region, Uzbekistan</p>
           </div>
           <div class="history-item k-accept" data-year="2026" data-kind="accept">
             <span class="tl-dt">2026.05.27</span>
@@ -1092,11 +1097,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+
+
   </div>
 
   <script>
     /* 연도·종류 두 축으로 거른다. 연도 머리글은 남는 항목이 없으면 같이 숨긴다. */
-    var tlYear = '2026', tlKind = null;
+    var tlYear = '2026';
 
     function tlApply() {
       document.querySelectorAll('.year-filter').forEach(function (b) {
@@ -1105,12 +1112,8 @@ document.addEventListener('DOMContentLoaded', function() {
         b.style.backgroundColor = on ? '#333333' : '#e5e7eb';
         b.style.color = on ? 'white' : '#374151';
       });
-      document.querySelectorAll('.kind-filter').forEach(function (b) {
-        b.setAttribute('aria-pressed', String(b.dataset.kind === tlKind));
-      });
       document.querySelectorAll('.dami-tl .history-item').forEach(function (it) {
-        var ok = (tlYear === 'all' || it.dataset.year === tlYear)
-              && (!tlKind || it.dataset.kind === tlKind);
+        var ok = (tlYear === 'all' || it.dataset.year === tlYear);
         it.style.display = ok ? '' : 'none';
       });
       var shown = 0;
@@ -1124,7 +1127,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function filterHistory(year) { tlYear = year; tlApply(); }
-    function filterHistoryKind(kind) { tlKind = (tlKind === kind) ? null : kind; tlApply(); }
 
     document.addEventListener('DOMContentLoaded', tlApply);
   </script>
