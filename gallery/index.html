@@ -499,7 +499,7 @@ html, body, * {
                  '<span class="ph-img"><img src="' + esc(p.thumb) + '" alt="' + esc(p.cap) +
                  '" loading="lazy" decoding="async" width="' + p.w + '" height="' + p.h + '">' +
                  '<span class="ph-veil"></span></span>' +
-                 '<figcaption>' + esc(p.cap) + '</figcaption></button>';
+                 (p.cap ? '<figcaption>' + esc(p.cap) + '</figcaption>' : '') + '</button>';
         }).join('');
       return '<section class="sec" id="sec-' + y + '" data-year="' + y + '">' +
              '<h3 class="sec-h"><b>' + y + '</b><span></span></h3>' +
