@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="apple-touch-icon" sizes="180x180" href="/favicon/dami_logo_b.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon/dami_logo_b.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon/dami_logo_b.png">
@@ -146,650 +146,393 @@ html, body, * {
 </div>
     
 <main class="mt-10">
-  
-  
-  <section class="py-16">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="text-center">
-        <h1 class="text-5xl font-black tracking-tight text-gray-900 dark:text-white">
-          Projects
-        </h1>
-        <div class="mt-3 h-1 w-24 bg-orange-500 mx-auto"></div>
-        <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
-          연구실의 주요 프로젝트와 협력 연구를 소개합니다.
-        </p>
-      </div>
 
-      
-      <div class="mt-12 grid gap-4 mx-auto mb-4 md:grid-cols-3">
-        
-        
-        
-          
-        
-          
-            
-            
-              
-              
-                
-              
-            
-            
-          
-        
-          
-            
-            
-              
-              
-                
-              
-            
-            
-          
-        
-          
-            
-            
-              
-              
-                
-              
-            
-            
-          
-        
-          
-            
-            
-              
-              
-                
-              
-            
-            
-          
-        
-          
-            
-            
-              
-              
-                
-              
-            
-            
-          
-        
-          
-            
-            
-              
-              
-                
-              
-            
-            
-          
-        
-          
-            
-            
-              
-              
-                
-              
-            
-            
-          
-        
-          
-            
-            
-              
-              
-                
-              
-            
-            
-          
-        
-          
-            
-            
-              
-              
-                
-              
-            
-            
-          
-        
-        
-          
-            <a href="/projects/cma_2025/" class="block group relative overflow-hidden rounded-lg bg-white shadow-md border border-gray-200 transition-all duration-300 hover:shadow-lg flex flex-col cursor-pointer">
-              
-              
-              
-              
-                
-                
-                
-                  
-                    
-                    
-                  
-                
-              
-              
-              
-                <div class="w-full bg-white flex-shrink-0 overflow-hidden flex items-center justify-center p-4" style="height: 280px;">
-                  
-                  
-                    <img src="/images/projects/cma_2025/01.png" alt="전천(All sky) 기후자료 산출 및 초해상화 인공지능 모델 개발" class="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-300">
-                  
-                </div>
-              
+<style>
+/* ---------- Projects 목록·상세 (research 페이지와 같은 디자인 언어) ---------- */
+.pj{--navy:#001456;--ink:#0F172A;--ink-2:#3F4A60;--line:#C9D0DE;
+  --a1:#B91C1C;--a2:#1D4ED8;--a3:#15803D;
+  background:#E8ECF4;font-family:'Pretendard',system-ui,-apple-system,sans-serif;color:#0F172A}
+.pj *{box-sizing:border-box}
+.pj img{display:block;max-width:100%}
+.pj a{color:inherit;text-decoration:none}
+.pj ul{list-style:none;margin:0;padding:0}
+.pj-wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.pj :focus-visible{outline:3px solid #FBBF24;outline-offset:2px}
 
-              
-              <div class="p-4 flex-grow flex flex-col">
-                
-                <h3 class="mb-2 text-lg font-bold text-gray-900 leading-tight group-hover:text-blue-600 transition-colors">
-                  전천(All sky) 기후자료 산출 및 초해상화 인공지능 모델 개발
-                </h3>
+.pj-hero{background:linear-gradient(115deg,#000B2E 0%,#001456 45%,#123A9E 100%);color:#fff}
+.pj-hero .in{max-width:1180px;margin:0 auto;padding:56px 24px 60px}
+.pj-hero h1{font-size:46px;font-weight:900;letter-spacing:-.035em;line-height:1.06;margin:0}
+.pj-hero p{margin-top:14px;font-size:16.5px;line-height:1.8;color:#DBEAFE;max-width:880px}
+.pj-hero .stats{display:flex;gap:10px;margin-top:26px;flex-wrap:wrap}
+.pj-hero .st{background:rgba(255,255,255,.14);border:2px solid rgba(255,255,255,.42);
+  border-radius:10px;padding:10px 15px;font-size:13.5px;font-weight:800}
+.pj-hero .st b{font-size:19px;margin-right:6px}
+.pj-hero .asof{margin-top:14px;font-size:12.5px;font-weight:700;color:#B7CDF5}
 
-                
-                
-                  <p class="text-base text-gray-600 mb-3 leading-relaxed flex-grow">
-                    기상청
-                  </p>
-                
+.pj-tag{font-size:11.5px;font-weight:900;padding:4px 10px;border-radius:5px;white-space:nowrap;
+  display:inline-block}
+.pj-tag.live{background:#15803D;color:#fff}
+.pj-tag.done{background:#6B7280;color:#fff}
+.pj-tag.unknown{background:#B45309;color:#fff}
+.pj-tag.fund{background:var(--navy);color:#fff}
+.pj-tag.ax1{background:#fff;border:2px solid var(--a1);color:var(--a1)}
+.pj-tag.ax2{background:#fff;border:2px solid var(--a2);color:var(--a2)}
+.pj-tag.ax3{background:#fff;border:2px solid var(--a3);color:var(--a3)}
 
-                
-                
-                  <p class="text-xs text-gray-500 mb-3">
-                    2025.04 - 2027.12
-                  </p>
-                
-              </div>
-            </a>
-        
-          
-            <a href="/projects/kimcaddie_2025/" class="block group relative overflow-hidden rounded-lg bg-white shadow-md border border-gray-200 transition-all duration-300 hover:shadow-lg flex flex-col cursor-pointer">
-              
-              
-              
-              
-                
-                
-                
-                  
-                    
-                    
-                  
-                
-              
-              
-              
-                <div class="w-full bg-white flex-shrink-0 overflow-hidden flex items-center justify-center p-4" style="height: 280px;">
-                  
-                  
-                    <img src="/images/projects/kimcaddie_2025/01.png" alt="골프 클럽과 관절 정보를 활용한 골프 스윙 분석" class="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-300">
-                  
-                </div>
-              
+/* ---------- 목록 ---------- */
+.pj-list-sec{padding:34px 0 74px}
+.pj-filter{display:flex;align-items:center;gap:9px;flex-wrap:wrap;background:#fff;
+  border:2px solid var(--line);border-radius:12px;padding:13px 16px}
+.pj-filter .lb{font-size:11.5px;font-weight:900;letter-spacing:.1em;color:#5A6478;margin-right:4px}
+.pj-filter button{font-family:inherit;font-size:13px;font-weight:800;padding:8px 14px;
+  border-radius:8px;border:2px solid #CBD3E3;background:#fff;color:#33405C;cursor:pointer}
+.pj-filter button:hover{background:#F1F4FA}
+.pj-filter button[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.pj-filter .vb{width:2px;height:24px;background:#E3E7F0;margin:0 5px}
 
-              
-              <div class="p-4 flex-grow flex flex-col">
-                
-                <h3 class="mb-2 text-lg font-bold text-gray-900 leading-tight group-hover:text-blue-600 transition-colors">
-                  골프 클럽과 관절 정보를 활용한 골프 스윙 분석
-                </h3>
+.pj-ledger{border:2px solid var(--line);border-radius:14px;overflow:hidden;margin-top:18px;background:#fff}
+.pj-lhd,.pj-row{display:grid;grid-template-columns:118px 1fr 214px 172px;gap:20px;align-items:center}
+.pj-lhd{padding:12px 20px;background:#111827;color:#fff;font-size:11.5px;font-weight:900;
+  letter-spacing:.1em}
+.pj-lhd .r{text-align:right}
+.pj-row{padding:16px 20px;border-top:1.5px solid #E9EDF4;transition:background .15s ease}
+.pj-row:hover{background:#F1F5FF}
+.pj-list li:first-child .pj-row{border-top:none}
+.pj-row .th{height:74px;border:1.5px solid #E2E6EF;border-radius:8px;background:#fff;
+  display:flex;align-items:center;justify-content:center;padding:5px;overflow:hidden}
+.pj-row .th img{max-height:100%;width:auto;object-fit:contain}
+.pj-row h3{font-size:16px;font-weight:800;letter-spacing:-.02em;line-height:1.42;margin:0;color:var(--ink)}
+.pj-row .meta{margin-top:8px;display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.pj-row .who{font-size:13px;font-weight:800;color:#33405C}
+.pj-row .per{font-size:13px;font-weight:800;color:#5A6478;font-variant-numeric:tabular-nums}
+.pj-row .pnote{margin-top:6px;font-size:11.5px;font-weight:800;color:#B45309}
+.pj-row .prog{margin-top:8px;display:flex;align-items:center;gap:9px}
+.pj-row .bar{flex:1;height:7px;background:#EDF0F6;border:1px solid #DDE3ED;border-radius:4px;overflow:hidden}
+.pj-row .bar i{display:block;height:100%;background:var(--a3)}
+.pj-row .bar.gy i{background:#7B8598}
+.pj-row .pct{font-size:12px;font-weight:900;color:#5A6478;font-variant-numeric:tabular-nums}
+.pj-row .rt{display:flex;align-items:center;justify-content:flex-end;gap:8px}
+.pj-row .go{font-size:13px;font-weight:900;color:var(--navy);border-bottom:2px solid var(--navy);
+  padding-bottom:1px}
+.pj-empty{padding:26px 20px;font-size:14.5px;font-weight:700;color:#5A6478}
 
-                
-                
-                  <p class="text-base text-gray-600 mb-3 leading-relaxed flex-grow">
-                    김캐디
-                  </p>
-                
+/* ---------- 상세 ---------- */
+.pj-dhero{color:#fff}
+.pj-dhero.k1{background:linear-gradient(115deg,#3D0A11 0%,#7F1220 48%,#B91C1C 100%)}
+.pj-dhero.k2{background:linear-gradient(115deg,#0A1440 0%,#132A78 48%,#1D4ED8 100%)}
+.pj-dhero.k3{background:linear-gradient(115deg,#062B14 0%,#0A4A24 48%,#15803D 100%)}
+.pj-dhero .in{max-width:1180px;margin:0 auto;padding:22px 24px 36px}
+.pj-crumb{display:flex;align-items:center;gap:9px;font-size:12.5px;font-weight:800;
+  color:rgba(255,255,255,.86);margin-bottom:22px;flex-wrap:wrap}
+.pj-crumb a.back{background:rgba(255,255,255,.16);border:2px solid rgba(255,255,255,.45);color:#fff;
+  font-size:12.5px;font-weight:800;padding:7px 13px;border-radius:8px}
+.pj-crumb a.back:hover{background:rgba(255,255,255,.3)}
+.pj-crumb .sl{opacity:.6}
+.pj-chips{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.pj-chips .c{font-size:11.5px;font-weight:900;padding:5px 11px;border-radius:5px;
+  background:rgba(255,255,255,.17);border:1.8px solid rgba(255,255,255,.5)}
+.pj-chips .c.now{background:#FBBF24;border-color:#FBBF24;color:#3B2606}
+.pj-dhero h1{margin:13px 0 0;font-size:36px;font-weight:900;letter-spacing:-.035em;
+  line-height:1.2;max-width:960px}
+.pj-pills{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:26px 0 0}
+.pj-pills>div{background:rgba(255,255,255,.13);border:2px solid rgba(255,255,255,.4);
+  border-radius:11px;padding:12px 15px}
+.pj-pills dt{font-size:10.5px;font-weight:900;letter-spacing:.1em;color:rgba(255,255,255,.82)}
+.pj-pills dd{margin:6px 0 0;font-size:15.5px;font-weight:900;letter-spacing:-.02em}
+.pj-pills dd small{font-size:12px;font-weight:700;opacity:.85;margin-left:4px}
+.pj-pbar{margin-top:8px;height:7px;background:rgba(255,255,255,.25);border-radius:4px;overflow:hidden}
+.pj-pbar i{display:block;height:100%;background:#FBBF24}
 
-                
-                
-                  <p class="text-xs text-gray-500 mb-3">
-                    2025.09 - 2026.01
-                  </p>
-                
-              </div>
-            </a>
-        
-          
-            <a href="/projects/kisti_2025/" class="block group relative overflow-hidden rounded-lg bg-white shadow-md border border-gray-200 transition-all duration-300 hover:shadow-lg flex flex-col cursor-pointer">
-              
-              
-              
-              
-                
-                
-                
-                  
-                    
-                    
-                  
-                
-              
-              
-              
-                <div class="w-full bg-white flex-shrink-0 overflow-hidden flex items-center justify-center p-4" style="height: 280px;">
-                  
-                  
-                    <img src="/images/projects/kisti_2025/01.png" alt="지능형 데이터 큐레이션 및 통합 구축 기술 개발" class="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-300">
-                  
-                </div>
-              
+.pj-dbody{padding:34px 0 74px}
+.pj-split{display:grid;grid-template-columns:1fr 342px;gap:28px;align-items:start}
+.pj-blk{background:#fff;border:2px solid var(--line);border-radius:14px;padding:24px 26px;margin-bottom:20px}
+.pj-blk h2{font-size:22px;font-weight:900;letter-spacing:-.03em;color:var(--navy);margin:0;
+  padding-bottom:10px;border-bottom:2px solid #E3E7F0}
+.pj-blk p{font-size:15px;line-height:1.85;color:var(--ink-2);margin:16px 0 0}
 
-              
-              <div class="p-4 flex-grow flex flex-col">
-                
-                <h3 class="mb-2 text-lg font-bold text-gray-900 leading-tight group-hover:text-blue-600 transition-colors">
-                  지능형 데이터 큐레이션 및 통합 구축 기술 개발
-                </h3>
+.pj-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px}
+.pj-card{background:#fff;border:2px solid var(--line);border-top-width:7px;border-radius:12px;padding:17px 18px}
+.pj-card.n0{border-top-color:var(--a1)}
+.pj-card.n1{border-top-color:var(--navy)}
+.pj-card.n2{border-top-color:var(--a3)}
+.pj-card .t{font-size:11px;font-weight:900;letter-spacing:.1em;color:#5A6478}
+.pj-card h3{margin:7px 0 0;font-size:16px;font-weight:900;letter-spacing:-.02em;line-height:1.4}
+.pj-card p{margin:8px 0 0;font-size:13.5px;line-height:1.65;color:var(--ink-2)}
 
-                
-                
-                  <p class="text-base text-gray-600 mb-3 leading-relaxed flex-grow">
-                    한국과학기술정보연구원
-                  </p>
-                
+.pj-long{position:relative}
+.pj-long .txt{margin-top:16px}
+.pj-long.folded .txt{max-height:176px;overflow:hidden}
+.pj-long.folded::after{content:"";position:absolute;left:0;right:0;bottom:46px;height:76px;
+  background:linear-gradient(180deg,rgba(255,255,255,0),#fff);pointer-events:none}
+.pj-long .more{margin-top:14px;font-family:inherit;font-size:13px;font-weight:900;color:var(--navy);
+  background:#EDF0F6;border:2px solid #CBD3E3;border-radius:8px;padding:9px 15px;cursor:pointer;
+  position:relative;z-index:2}
+.pj-long .more:hover{background:#E1E7F2}
 
-                
-                
-                  <p class="text-xs text-gray-500 mb-3">
-                    2025.04 - 2025.09
-                  </p>
-                
-              </div>
-            </a>
-        
-          
-            <a href="/projects/nrf_2025/" class="block group relative overflow-hidden rounded-lg bg-white shadow-md border border-gray-200 transition-all duration-300 hover:shadow-lg flex flex-col cursor-pointer">
-              
-              
-              
-              
-                
-                
-                
-                  
-                    
-                    
-                  
-                
-              
-              
-              
-                <div class="w-full bg-white flex-shrink-0 overflow-hidden flex items-center justify-center p-4" style="height: 280px;">
-                  
-                  
-                    <img src="/images/projects/nrf_2025/01.png" alt="문맥 기반 방어(가드레일)와 퍼플팀(레드·블루 협업) 접근을 통해 다국어 LLM의 탈옥(jailbreak) 취약점을 탐지하고 차단하는 연구" class="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-300">
-                  
-                </div>
-              
+.pj-figs{display:grid;gap:16px;margin-top:16px}
+.pj-fig{border:2px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+.pj-fig .fh{padding:10px 16px;background:#111827;color:#fff;font-size:11.5px;font-weight:900;
+  letter-spacing:.08em;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.pj-fig .fh em{font-style:normal;font-size:11px;color:#9CA3AF}
+.pj-fig .fb{display:block;width:100%;border:none;background:#fff;padding:16px;cursor:zoom-in;
+  font-family:inherit;position:relative}
+.pj-fig .fb img{max-height:400px;width:auto;margin:0 auto;object-fit:contain}
+.pj-fig .fb::after{content:"크게 보기";opacity:0;position:absolute;right:14px;bottom:14px;
+  background:var(--navy);color:#fff;padding:6px 10px;border-radius:6px;font-size:11.5px;
+  font-weight:900;transition:opacity .16s ease}
+.pj-fig .fb:hover::after,.pj-fig .fb:focus-visible::after{opacity:1}
 
-              
-              <div class="p-4 flex-grow flex flex-col">
-                
-                <h3 class="mb-2 text-lg font-bold text-gray-900 leading-tight group-hover:text-blue-600 transition-colors">
-                  문맥 기반 방어(가드레일)와 퍼플팀(레드·블루 협업) 접근을 통해 다국어 LLM의 탈옥(jailbreak) 취약점을 탐지하고 차단하는 연구
-                </h3>
+.pj-side{position:sticky;top:24px;display:grid;gap:16px}
+.pj-cardbox{background:#fff;border:2px solid var(--line);border-radius:14px;overflow:hidden}
+.pj-cardbox .ch{padding:11px 18px;background:#111827;color:#fff;font-size:11.5px;font-weight:900;
+  letter-spacing:.1em}
+.pj-cardbox .cb{padding:16px 18px}
+.pj-cardbox dl{margin:0}
+.pj-cardbox dl>div{padding:11px 0;border-top:1.5px solid #EEF1F7}
+.pj-cardbox dl>div:first-child{border-top:none;padding-top:0}
+.pj-cardbox dt{font-size:11px;font-weight:900;letter-spacing:.08em;color:#5A6478}
+.pj-cardbox dd{margin:6px 0 0;font-size:14px;font-weight:800;line-height:1.6;color:var(--ink)}
+.pj-cardbox dd .nt{display:block;margin-top:4px;font-size:11.5px;font-weight:800;color:#B45309}
+.pj-kws{display:flex;gap:7px;flex-wrap:wrap}
+.pj-kws span{font-size:12px;font-weight:800;padding:5px 11px;border-radius:6px;background:#EDF0F6;
+  border:1.5px solid #CBD3E3;color:var(--ink-2)}
+.pj-lnk{display:block;padding:13px 16px;border-top:1.5px solid #EEF1F7;font-size:13.5px;font-weight:800}
+.pj-cardbox .pj-lnk:first-of-type{border-top:none}
+.pj-lnk:hover{background:#F4F6FB}
+.pj-lnk .s{display:block;font-size:11px;font-weight:900;letter-spacing:.08em;color:#5A6478;margin-bottom:5px}
+.pj-back{display:block;text-align:center;background:var(--navy);color:#fff;font-weight:900;
+  font-size:14px;padding:14px;border-radius:11px}
+.pj-back:hover{background:#00206E}
 
-                
-                
-                  <p class="text-base text-gray-600 mb-3 leading-relaxed flex-grow">
-                    한국연구재단
-                  </p>
-                
+.pj-pager{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+.pj-pager a{background:#fff;border:2px solid var(--line);border-radius:13px;padding:17px 20px}
+.pj-pager a:hover{background:#F4F6FB}
+.pj-pager .s{font-size:11px;font-weight:900;letter-spacing:.1em;color:#5A6478}
+.pj-pager h2{margin:7px 0 0;font-size:15.5px;font-weight:800;line-height:1.45;letter-spacing:-.02em}
+.pj-pager a.nx{text-align:right}
 
-                
-                
-                  <p class="text-xs text-gray-500 mb-3">
-                    2025.03 – 2027.02
-                  </p>
-                
-              </div>
-            </a>
-        
-          
-            <a href="/projects/iot_2024/" class="block group relative overflow-hidden rounded-lg bg-white shadow-md border border-gray-200 transition-all duration-300 hover:shadow-lg flex flex-col cursor-pointer">
-              
-              
-              
-              
-                
-                
-                
-                  
-                    
-                    
-                  
-                
-              
-              
-              
-                <div class="w-full bg-white flex-shrink-0 overflow-hidden flex items-center justify-center p-4" style="height: 280px;">
-                  
-                  
-                    <img src="/images/projects/iot_2024/01.png" alt="예외 상황과 일반 상황의 분포 차이 최소화 적응 기법 개발" class="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-300">
-                  
-                </div>
-              
+.pj-dlg{border:none;border-radius:16px;padding:0;max-width:1040px;width:88vw;
+  box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.pj-dlg::backdrop{background:rgba(6,10,25,.74)}
+.pj-dlg .dt{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px;
+  background:#111827;color:#fff;font-size:13px;font-weight:900}
+.pj-dlg .dt button{font-family:inherit;font-size:22px;font-weight:900;background:none;border:none;
+  color:#fff;cursor:pointer;line-height:1}
+.pj-dlg .di{padding:20px;display:flex;justify-content:center;background:#fff}
+.pj-dlg .di img{max-height:68vh;width:auto;object-fit:contain}
 
-              
-              <div class="p-4 flex-grow flex flex-col">
-                
-                <h3 class="mb-2 text-lg font-bold text-gray-900 leading-tight group-hover:text-blue-600 transition-colors">
-                  예외 상황과 일반 상황의 분포 차이 최소화 적응 기법 개발
-                </h3>
+/* ---------- 반응형 ---------- */
+@media (max-width:1023px){
+  .pj-split{grid-template-columns:1fr}
+  .pj-side{position:static}
+  .pj-pills{grid-template-columns:repeat(2,1fr)}
+  .pj-lhd,.pj-row{grid-template-columns:96px 1fr 190px 150px;gap:14px}
+}
+@media (max-width:767px){
+  .pj-hero .in{padding:38px 20px 42px}
+  .pj-hero h1{font-size:32px}
+  .pj-wrap{padding:0 18px}
+  .pj-dhero .in{padding:18px 20px 28px}
+  .pj-dhero h1{font-size:26px}
+  .pj-pills{grid-template-columns:1fr}
+  .pj-cards{grid-template-columns:1fr}
+  .pj-lhd{display:none}
+  .pj-row{grid-template-columns:76px 1fr;gap:14px;row-gap:12px;padding:16px}
+  .pj-row .th{height:60px}
+  .pj-row .when,.pj-row .rt{grid-column:1 / -1}
+  .pj-row .rt{justify-content:flex-start}
+  .pj-blk{padding:20px 18px}
+  .pj-pager{grid-template-columns:1fr}
+  .pj-pager a.nx{text-align:left}
+  .pj-fig .fb img{max-height:260px}
+}
+@media (prefers-reduced-motion:reduce){
+  .pj *,.pj *::before,.pj *::after{transition-duration:.01ms !important}
+}
+</style>
 
-                
-                
-                  <p class="text-base text-gray-600 mb-3 leading-relaxed flex-grow">
-                    사물인터넷 혁신융합대학사업
-                  </p>
-                
-
-                
-                
-                  <p class="text-xs text-gray-500 mb-3">
-                    2024.09 - 2025.01
-                  </p>
-                
-              </div>
-            </a>
-        
-          
-            <a href="/projects/kimcaddie_2024/" class="block group relative overflow-hidden rounded-lg bg-white shadow-md border border-gray-200 transition-all duration-300 hover:shadow-lg flex flex-col cursor-pointer">
-              
-              
-              
-              
-                
-                
-                
-                  
-                    
-                    
-                  
-                
-              
-              
-              
-                <div class="w-full bg-white flex-shrink-0 overflow-hidden flex items-center justify-center p-4" style="height: 280px;">
-                  
-                  
-                    <img src="/images/projects/kimcaddie_2024/01.png" alt="XAI를 활용한 골프 스윙 피드백 모델 개발" class="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-300">
-                  
-                </div>
-              
-
-              
-              <div class="p-4 flex-grow flex flex-col">
-                
-                <h3 class="mb-2 text-lg font-bold text-gray-900 leading-tight group-hover:text-blue-600 transition-colors">
-                  XAI를 활용한 골프 스윙 피드백 모델 개발
-                </h3>
-
-                
-                
-                  <p class="text-base text-gray-600 mb-3 leading-relaxed flex-grow">
-                    김캐디
-                  </p>
-                
-
-                
-                
-                  <p class="text-xs text-gray-500 mb-3">
-                    2024.01 ~
-                  </p>
-                
-              </div>
-            </a>
-        
-          
-            <a href="/projects/pixt_2023/" class="block group relative overflow-hidden rounded-lg bg-white shadow-md border border-gray-200 transition-all duration-300 hover:shadow-lg flex flex-col cursor-pointer">
-              
-              
-              
-              
-                
-                
-                
-                  
-                    
-                    
-                  
-                
-              
-              
-              
-                <div class="w-full bg-white flex-shrink-0 overflow-hidden flex items-center justify-center p-4" style="height: 280px;">
-                  
-                  
-                    <img src="/images/projects/pixt_2023/01.png" alt="한국어 전용 동영상 캡션 AI 모델 개발" class="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-300">
-                  
-                </div>
-              
-
-              
-              <div class="p-4 flex-grow flex flex-col">
-                
-                <h3 class="mb-2 text-lg font-bold text-gray-900 leading-tight group-hover:text-blue-600 transition-colors">
-                  한국어 전용 동영상 캡션 AI 모델 개발
-                </h3>
-
-                
-                
-                  <p class="text-base text-gray-600 mb-3 leading-relaxed flex-grow">
-                    Pixt
-                  </p>
-                
-
-                
-                
-                  <p class="text-xs text-gray-500 mb-3">
-                    2023.05 - 2024.04
-                  </p>
-                
-              </div>
-            </a>
-        
-          
-            <a href="/projects/genesislab_2022/" class="block group relative overflow-hidden rounded-lg bg-white shadow-md border border-gray-200 transition-all duration-300 hover:shadow-lg flex flex-col cursor-pointer">
-              
-              
-              
-              
-                
-                
-                
-                  
-                    
-                    
-                  
-                
-              
-              
-              
-                <div class="w-full bg-white flex-shrink-0 overflow-hidden flex items-center justify-center p-4" style="height: 280px;">
-                  
-                  
-                    <img src="/images/projects/genesislab_2022/01.png" alt="공정한 인공지능 면접 모델 알고리즘 개발" class="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-300">
-                  
-                </div>
-              
-
-              
-              <div class="p-4 flex-grow flex flex-col">
-                
-                <h3 class="mb-2 text-lg font-bold text-gray-900 leading-tight group-hover:text-blue-600 transition-colors">
-                  공정한 인공지능 면접 모델 알고리즘 개발
-                </h3>
-
-                
-                
-                  <p class="text-base text-gray-600 mb-3 leading-relaxed flex-grow">
-                    제네시스랩
-                  </p>
-                
-
-                
-                
-                  <p class="text-xs text-gray-500 mb-3">
-                    2022.07 - 2022.12
-                  </p>
-                
-              </div>
-            </a>
-        
-          
-            <a href="/projects/nrf_2022/" class="block group relative overflow-hidden rounded-lg bg-white shadow-md border border-gray-200 transition-all duration-300 hover:shadow-lg flex flex-col cursor-pointer">
-              
-              
-              
-              
-                
-                
-                
-                  
-                    
-                    
-                  
-                
-              
-              
-              
-                <div class="w-full bg-white flex-shrink-0 overflow-hidden flex items-center justify-center p-4" style="height: 280px;">
-                  
-                  
-                    <img src="/images/projects/nrf_2022/01.png" alt="인공지능 시스템의 실용화를 위한 딥러닝 안정성 알고리즘 개발" class="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-300">
-                  
-                </div>
-              
-
-              
-              <div class="p-4 flex-grow flex flex-col">
-                
-                <h3 class="mb-2 text-lg font-bold text-gray-900 leading-tight group-hover:text-blue-600 transition-colors">
-                  인공지능 시스템의 실용화를 위한 딥러닝 안정성 알고리즘 개발
-                </h3>
-
-                
-                
-                  <p class="text-base text-gray-600 mb-3 leading-relaxed flex-grow">
-                    한국연구재단
-                  </p>
-                
-
-                
-                
-                  <p class="text-xs text-gray-500 mb-3">
-                    2022.06 - 2025.02
-                  </p>
-                
-              </div>
-            </a>
-        
-      </div>
+<div class="pj">
+  <div class="pj-hero"><div class="in">
+    <h1>Projects</h1>
+    <p>연구실이 수행 중이거나 마무리한 국가과제와 산학 협력 과제입니다.
+       각 과제는 <a href="/research/" style="color:#fff;border-bottom:2px solid rgba(255,255,255,.6)">Research</a>
+       페이지의 세 연구 축과 연결됩니다.</p>
+    <div class="stats">
+      <span class="st"><b>9</b>건 전체</span>
+      <span class="st"><b>2</b>건 진행 중</span>
+      <span class="st"><b>2022-2027</b> 수행 기간</span>
+      <span class="st"><b>7</b>개 지원 기관</span>
     </div>
-  </section>
+    <p class="asof">진행 상태와 진행률은 2026.08 기준입니다.</p>
+  </div></div>
 
-  
-  <section class="py-16 dark:bg-gray-900">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="text-center">
-        <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-          Collaborators
-        </h2>
-
-        <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
-          공정성, 프라이버시, 안정성, 해석 가능성을 갖춘 인공지능 실현을 위해 다양한 파트너와 함께 협력하고 있습니다.
-        </p>
-      </div>
-      <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-        
-        <a href="https://home.genesislab.ai/" target="_blank" rel="noopener noreferrer" 
-           class="group flex items-center justify-center rounded-xl border border-gray-200 dark:border-gray-700 p-8 shadow-sm hover:shadow-lg transition-shadow duration-300"
-           style="background-color: #ffffff;">
-          <div class="h-32 w-48 flex items-center justify-center bg-white dark:bg-gray-900 overflow-hidden">
-            <img src="/images/collab/genesislab_main.svg" alt="Genesis Lab" 
-                 class="max-h-full max-w-full object-contain">
-          </div>
-        </a>
-        
-        <a href="https://www.weather.go.kr/w/index.do" target="_blank" rel="noopener noreferrer" 
-           class="group flex items-center justify-center rounded-xl border border-gray-200 dark:border-gray-700 p-8 shadow-sm hover:shadow-lg transition-shadow duration-300"
-           style="background-color: #ffffff;">
-          <div class="h-32 w-48 flex items-center justify-center bg-white dark:bg-gray-900 overflow-hidden">
-            <img src="/images/collab/cma.svg" alt="기상청" 
-                 class="max-h-full max-w-full object-contain">
-          </div>
-        </a>
-        
-        <a href="#" target="_blank" rel="noopener noreferrer" 
-           class="group flex items-center justify-center rounded-xl border border-gray-200 dark:border-gray-700 p-8 shadow-sm hover:shadow-lg transition-shadow duration-300"
-           style="background-color: #000000;">
-          <div class="h-32 w-48 flex items-center justify-center bg-white dark:bg-gray-900 overflow-hidden">
-            <img src="/images/collab/pixt_main.svg" alt="Pixt" 
-                 class="max-h-full max-w-full object-contain">
-          </div>
-        </a>
-        
-        <a href="https://www.nrf.re.kr/search/total_search" target="_blank" rel="noopener noreferrer" 
-           class="group flex items-center justify-center rounded-xl border border-gray-200 dark:border-gray-700 p-8 shadow-sm hover:shadow-lg transition-shadow duration-300"
-           style="background-color: #ffffff;">
-          <div class="h-32 w-48 flex items-center justify-center bg-white dark:bg-gray-900 overflow-hidden">
-            <img src="/images/collab/nrf.svg" alt="한국연구재단" 
-                 class="max-h-full max-w-full object-contain">
-          </div>
-        </a>
-        
-        <a href="https://kimcaddie.com/" target="_blank" rel="noopener noreferrer" 
-           class="group flex items-center justify-center rounded-xl border border-gray-200 dark:border-gray-700 p-8 shadow-sm hover:shadow-lg transition-shadow duration-300"
-           style="background-color: #3FC3B0;">
-          <div class="h-32 w-48 flex items-center justify-center bg-white dark:bg-gray-900 overflow-hidden">
-            <img src="/images/collab/kimcaddie.svg" alt="김캐디" 
-                 class="max-h-full max-w-full object-contain">
-          </div>
-        </a>
-        
-        <a href="https://www.snu.ac.kr/index.html" target="_blank" rel="noopener noreferrer" 
-           class="group flex items-center justify-center rounded-xl border border-gray-200 dark:border-gray-700 p-8 shadow-sm hover:shadow-lg transition-shadow duration-300"
-           style="background-color: #ffffff;">
-          <div class="h-32 w-48 flex items-center justify-center bg-white dark:bg-gray-900 overflow-hidden">
-            <img src="/images/collab/snu.svg" alt="서울대" 
-                 class="max-h-full max-w-full object-contain">
-          </div>
-        </a>
-        
-        <a href="https://www.cau.ac.kr/index.do" target="_blank" rel="noopener noreferrer" 
-           class="group flex items-center justify-center rounded-xl border border-gray-200 dark:border-gray-700 p-8 shadow-sm hover:shadow-lg transition-shadow duration-300"
-           style="background-color: #ffffff;">
-          <div class="h-32 w-48 flex items-center justify-center bg-white dark:bg-gray-900 overflow-hidden">
-            <img src="/images/collab/cau.svg" alt="중앙대" 
-                 class="max-h-full max-w-full object-contain">
-          </div>
-        </a>
-        
-      </div>
+  <div class="pj-list-sec"><div class="pj-wrap">
+    <div class="pj-filter">
+      <span class="pj-fgroup" data-kind="status" role="group" aria-label="상태로 거르기">
+        <span class="lb">상태</span><button type="button" data-v="all" aria-pressed="true">전체 9</button><button type="button" data-v="live" aria-pressed="false">진행 중 2</button><button type="button" data-v="done" aria-pressed="false">완료 6</button><button type="button" data-v="unknown" aria-pressed="false">기간 미기재 1</button></span>
+      <span class="vb" aria-hidden="true"></span>
+      <span class="pj-fgroup" data-kind="axis" role="group" aria-label="연구 축으로 거르기">
+        <span class="lb">연구 축</span><button type="button" data-v="all" aria-pressed="true">전체</button><button type="button" data-v="1" aria-pressed="false">Trustworthy AI</button><button type="button" data-v="2" aria-pressed="false">Representation</button><button type="button" data-v="3" aria-pressed="false">Applications</button></span>
     </div>
-  </section>
 
-  
-  
-  
-    
-    
-  
+    <div class="pj-ledger">
+      <div class="pj-lhd" aria-hidden="true"><span>FIGURE</span><span>과제명</span>
+        <span>수행 기간</span><span class="r">상태</span></div>
+      <ul class="pj-list">
+      <li data-status="live" data-axis="3">
+        <a class="pj-row" href="/projects/cma_2025/">
+          <span class="th"><img src="/images/projects/cma_2025/01_hu_3f3339ff7dd3e266.png" alt="" loading="lazy" decoding="async"></span>
+          <span>
+            <h3>전천(All-sky) 기후자료 산출 및 초해상화 인공지능 모델 개발</h3>
+            <span class="meta"><span class="pj-tag fund">기상청</span>
+              <span class="pj-tag ax3">AI Applications</span>
+              <span class="who">Climate &amp; Satellite</span></span>
+          </span>
+          <span class="when"><div class="per">2025.04 – 2027.12</div><div class="prog"><span class="bar"><i style="width:50%"></i></span><span class="pct">50%</span></div></span>
+          <span class="rt"><span class="pj-tag live">진행 중</span>
+            <span class="go">자세히</span></span>
+        </a>
+      </li>
+      <li data-status="live" data-axis="1">
+        <a class="pj-row" href="/projects/nrf_2025/">
+          <span class="th"><img src="/images/projects/nrf_2025/01_hu_8bf6b02f96d3bc3e.png" alt="" loading="lazy" decoding="async"></span>
+          <span>
+            <h3>문맥 기반 방어(가드레일)와 퍼플팀 접근을 통해 다국어 LLM의 탈옥 취약점을 탐지하고 차단하는 연구</h3>
+            <span class="meta"><span class="pj-tag fund">한국연구재단</span>
+              <span class="pj-tag ax1">Trustworthy AI</span>
+              <span class="who">LLM &amp; Agent Safety</span></span>
+          </span>
+          <span class="when"><div class="per">2025.03 – 2027.02</div><div class="prog"><span class="bar"><i style="width:74%"></i></span><span class="pct">74%</span></div></span>
+          <span class="rt"><span class="pj-tag live">진행 중</span>
+            <span class="go">자세히</span></span>
+        </a>
+      </li>
+      <li data-status="done" data-axis="3">
+        <a class="pj-row" href="/projects/kimcaddie_2025/">
+          <span class="th"><img src="/images/projects/kimcaddie_2025/01_hu_756947eba05272c7.png" alt="" loading="lazy" decoding="async"></span>
+          <span>
+            <h3>골프 클럽과 관절 정보를 활용한 골프 스윙 분석</h3>
+            <span class="meta"><span class="pj-tag fund">김캐디</span>
+              <span class="pj-tag ax3">AI Applications</span>
+              <span class="who">Sports Analytics</span></span>
+          </span>
+          <span class="when"><div class="per">2025.09 – 2026.01</div><div class="prog"><span class="bar gy"><i style="width:100%"></i></span><span class="pct">100%</span></div></span>
+          <span class="rt"><span class="pj-tag done">완료</span>
+            <span class="go">자세히</span></span>
+        </a>
+      </li>
+      <li data-status="done" data-axis="2">
+        <a class="pj-row" href="/projects/kisti_2025/">
+          <span class="th"><img src="/images/projects/kisti_2025/01_hu_992bc78010befb02.png" alt="" loading="lazy" decoding="async"></span>
+          <span>
+            <h3>지능형 데이터 큐레이션 및 통합 구축 기술 개발</h3>
+            <span class="meta"><span class="pj-tag fund">한국과학기술정보연구원</span>
+              <span class="pj-tag ax2">Representation Learning</span>
+              <span class="who">Data Curation</span></span>
+          </span>
+          <span class="when"><div class="per">2025.04 – 2025.09</div><div class="prog"><span class="bar gy"><i style="width:100%"></i></span><span class="pct">100%</span></div></span>
+          <span class="rt"><span class="pj-tag done">완료</span>
+            <span class="go">자세히</span></span>
+        </a>
+      </li>
+      <li data-status="done" data-axis="2">
+        <a class="pj-row" href="/projects/iot_2024/">
+          <span class="th"><img src="/images/projects/iot_2024/01_hu_f6ee32033e50f5be.png" alt="" loading="lazy" decoding="async"></span>
+          <span>
+            <h3>예외 상황과 일반 상황의 분포 차이 최소화 적응 기법 개발</h3>
+            <span class="meta"><span class="pj-tag fund">사물인터넷 혁신융합대학사업</span>
+              <span class="pj-tag ax2">Representation Learning</span>
+              <span class="who">Domain Adaptation</span></span>
+          </span>
+          <span class="when"><div class="per">2024.09 – 2025.01</div><div class="prog"><span class="bar gy"><i style="width:100%"></i></span><span class="pct">100%</span></div></span>
+          <span class="rt"><span class="pj-tag done">완료</span>
+            <span class="go">자세히</span></span>
+        </a>
+      </li>
+      <li data-status="unknown" data-axis="3">
+        <a class="pj-row" href="/projects/kimcaddie_2024/">
+          <span class="th"><img src="/images/projects/kimcaddie_2024/01_hu_971c8b2e9dfd5e71.png" alt="" loading="lazy" decoding="async"></span>
+          <span>
+            <h3>XAI를 활용한 골프 스윙 피드백 모델 개발</h3>
+            <span class="meta"><span class="pj-tag fund">김캐디</span>
+              <span class="pj-tag ax3">AI Applications</span>
+              <span class="who">Sports Analytics</span></span>
+          </span>
+          <span class="when"><div class="per">2024.01 ~</div><div class="pnote">종료일 미기재</div></span>
+          <span class="rt"><span class="pj-tag unknown">기간 미기재</span>
+            <span class="go">자세히</span></span>
+        </a>
+      </li>
+      <li data-status="done" data-axis="3">
+        <a class="pj-row" href="/projects/pixt_2023/">
+          <span class="th"><img src="/images/projects/pixt_2023/01_hu_a66416593b666cda.png" alt="" loading="lazy" decoding="async"></span>
+          <span>
+            <h3>한국어 전용 동영상 캡션 AI 모델 개발</h3>
+            <span class="meta"><span class="pj-tag fund">Pixt</span>
+              <span class="pj-tag ax3">AI Applications</span>
+              <span class="who">Video &amp; Multimodal</span></span>
+          </span>
+          <span class="when"><div class="per">2023.05 – 2024.04</div><div class="prog"><span class="bar gy"><i style="width:100%"></i></span><span class="pct">100%</span></div></span>
+          <span class="rt"><span class="pj-tag done">완료</span>
+            <span class="go">자세히</span></span>
+        </a>
+      </li>
+      <li data-status="done" data-axis="1">
+        <a class="pj-row" href="/projects/nrf_2022/">
+          <span class="th"><img src="/images/projects/nrf_2022/01_hu_9dca62ce6cf67600.png" alt="" loading="lazy" decoding="async"></span>
+          <span>
+            <h3>인공지능 시스템의 실용화를 위한 딥러닝 안정성 알고리즘 개발</h3>
+            <span class="meta"><span class="pj-tag fund">한국연구재단</span>
+              <span class="pj-tag ax1">Trustworthy AI</span>
+              <span class="who">Optimization Stability</span></span>
+          </span>
+          <span class="when"><div class="per">2022.06 – 2025.02</div><div class="prog"><span class="bar gy"><i style="width:100%"></i></span><span class="pct">100%</span></div></span>
+          <span class="rt"><span class="pj-tag done">완료</span>
+            <span class="go">자세히</span></span>
+        </a>
+      </li>
+      <li data-status="done" data-axis="1">
+        <a class="pj-row" href="/projects/genesislab_2022/">
+          <span class="th"><img src="/images/projects/genesislab_2022/01_hu_1f329a017c807da.png" alt="" loading="lazy" decoding="async"></span>
+          <span>
+            <h3>공정한 인공지능 면접 모델 알고리즘 개발</h3>
+            <span class="meta"><span class="pj-tag fund">제네시스랩</span>
+              <span class="pj-tag ax1">Trustworthy AI</span>
+              <span class="who">Fairness</span></span>
+          </span>
+          <span class="when"><div class="per">2022.07 – 2022.12</div><div class="prog"><span class="bar gy"><i style="width:100%"></i></span><span class="pct">100%</span></div></span>
+          <span class="rt"><span class="pj-tag done">완료</span>
+            <span class="go">자세히</span></span>
+        </a>
+      </li>
+      </ul>
+      <p class="pj-empty" hidden>조건에 맞는 과제가 없습니다.</p>
+    </div>
+  </div></div>
+</div>
+
+<script>
+(function(){
+  var rows = Array.prototype.slice.call(document.querySelectorAll('.pj-list > li'));
+  var empty = document.querySelector('.pj-empty');
+  document.querySelectorAll('.pj-filter button').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var group = btn.closest('.pj-fgroup');
+      group.querySelectorAll('button').forEach(function(b){b.setAttribute('aria-pressed','false');});
+      btn.setAttribute('aria-pressed','true');
+      var st = document.querySelector('.pj-fgroup[data-kind="status"] button[aria-pressed="true"]').dataset.v;
+      var ax = document.querySelector('.pj-fgroup[data-kind="axis"] button[aria-pressed="true"]').dataset.v;
+      var n = 0;
+      rows.forEach(function(li){
+        var ok = (st === 'all' || li.dataset.status === st) && (ax === 'all' || li.dataset.axis === ax);
+        li.hidden = !ok;
+        if(ok) n++;
+      });
+      empty.hidden = n > 0;
+    });
+  });
+})();
+</script>
 
 </main>
 

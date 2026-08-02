@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="apple-touch-icon" sizes="180x180" href="/favicon/dami_logo_b.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon/dami_logo_b.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon/dami_logo_b.png">
@@ -147,163 +147,311 @@ html, body, * {
     
 <main class="mt-10">
 
-  
-  <section class="border-b border-slate-200 dark:border-slate-800">
-    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-12 text-center">
-      <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-        문맥 기반 방어(가드레일)와 퍼플팀(레드·블루 협업) 접근을 통해 다국어 LLM의 탈옥(jailbreak) 취약점을 탐지하고 차단하는 연구
-      </h1>
+<style>
+/* ---------- Projects 목록·상세 (research 페이지와 같은 디자인 언어) ---------- */
+.pj{--navy:#001456;--ink:#0F172A;--ink-2:#3F4A60;--line:#C9D0DE;
+  --a1:#B91C1C;--a2:#1D4ED8;--a3:#15803D;
+  background:#E8ECF4;font-family:'Pretendard',system-ui,-apple-system,sans-serif;color:#0F172A}
+.pj *{box-sizing:border-box}
+.pj img{display:block;max-width:100%}
+.pj a{color:inherit;text-decoration:none}
+.pj ul{list-style:none;margin:0;padding:0}
+.pj-wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.pj :focus-visible{outline:3px solid #FBBF24;outline-offset:2px}
+
+.pj-hero{background:linear-gradient(115deg,#000B2E 0%,#001456 45%,#123A9E 100%);color:#fff}
+.pj-hero .in{max-width:1180px;margin:0 auto;padding:56px 24px 60px}
+.pj-hero h1{font-size:46px;font-weight:900;letter-spacing:-.035em;line-height:1.06;margin:0}
+.pj-hero p{margin-top:14px;font-size:16.5px;line-height:1.8;color:#DBEAFE;max-width:880px}
+.pj-hero .stats{display:flex;gap:10px;margin-top:26px;flex-wrap:wrap}
+.pj-hero .st{background:rgba(255,255,255,.14);border:2px solid rgba(255,255,255,.42);
+  border-radius:10px;padding:10px 15px;font-size:13.5px;font-weight:800}
+.pj-hero .st b{font-size:19px;margin-right:6px}
+.pj-hero .asof{margin-top:14px;font-size:12.5px;font-weight:700;color:#B7CDF5}
+
+.pj-tag{font-size:11.5px;font-weight:900;padding:4px 10px;border-radius:5px;white-space:nowrap;
+  display:inline-block}
+.pj-tag.live{background:#15803D;color:#fff}
+.pj-tag.done{background:#6B7280;color:#fff}
+.pj-tag.unknown{background:#B45309;color:#fff}
+.pj-tag.fund{background:var(--navy);color:#fff}
+.pj-tag.ax1{background:#fff;border:2px solid var(--a1);color:var(--a1)}
+.pj-tag.ax2{background:#fff;border:2px solid var(--a2);color:var(--a2)}
+.pj-tag.ax3{background:#fff;border:2px solid var(--a3);color:var(--a3)}
+
+/* ---------- 목록 ---------- */
+.pj-list-sec{padding:34px 0 74px}
+.pj-filter{display:flex;align-items:center;gap:9px;flex-wrap:wrap;background:#fff;
+  border:2px solid var(--line);border-radius:12px;padding:13px 16px}
+.pj-filter .lb{font-size:11.5px;font-weight:900;letter-spacing:.1em;color:#5A6478;margin-right:4px}
+.pj-filter button{font-family:inherit;font-size:13px;font-weight:800;padding:8px 14px;
+  border-radius:8px;border:2px solid #CBD3E3;background:#fff;color:#33405C;cursor:pointer}
+.pj-filter button:hover{background:#F1F4FA}
+.pj-filter button[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.pj-filter .vb{width:2px;height:24px;background:#E3E7F0;margin:0 5px}
+
+.pj-ledger{border:2px solid var(--line);border-radius:14px;overflow:hidden;margin-top:18px;background:#fff}
+.pj-lhd,.pj-row{display:grid;grid-template-columns:118px 1fr 214px 172px;gap:20px;align-items:center}
+.pj-lhd{padding:12px 20px;background:#111827;color:#fff;font-size:11.5px;font-weight:900;
+  letter-spacing:.1em}
+.pj-lhd .r{text-align:right}
+.pj-row{padding:16px 20px;border-top:1.5px solid #E9EDF4;transition:background .15s ease}
+.pj-row:hover{background:#F1F5FF}
+.pj-list li:first-child .pj-row{border-top:none}
+.pj-row .th{height:74px;border:1.5px solid #E2E6EF;border-radius:8px;background:#fff;
+  display:flex;align-items:center;justify-content:center;padding:5px;overflow:hidden}
+.pj-row .th img{max-height:100%;width:auto;object-fit:contain}
+.pj-row h3{font-size:16px;font-weight:800;letter-spacing:-.02em;line-height:1.42;margin:0;color:var(--ink)}
+.pj-row .meta{margin-top:8px;display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.pj-row .who{font-size:13px;font-weight:800;color:#33405C}
+.pj-row .per{font-size:13px;font-weight:800;color:#5A6478;font-variant-numeric:tabular-nums}
+.pj-row .pnote{margin-top:6px;font-size:11.5px;font-weight:800;color:#B45309}
+.pj-row .prog{margin-top:8px;display:flex;align-items:center;gap:9px}
+.pj-row .bar{flex:1;height:7px;background:#EDF0F6;border:1px solid #DDE3ED;border-radius:4px;overflow:hidden}
+.pj-row .bar i{display:block;height:100%;background:var(--a3)}
+.pj-row .bar.gy i{background:#7B8598}
+.pj-row .pct{font-size:12px;font-weight:900;color:#5A6478;font-variant-numeric:tabular-nums}
+.pj-row .rt{display:flex;align-items:center;justify-content:flex-end;gap:8px}
+.pj-row .go{font-size:13px;font-weight:900;color:var(--navy);border-bottom:2px solid var(--navy);
+  padding-bottom:1px}
+.pj-empty{padding:26px 20px;font-size:14.5px;font-weight:700;color:#5A6478}
+
+/* ---------- 상세 ---------- */
+.pj-dhero{color:#fff}
+.pj-dhero.k1{background:linear-gradient(115deg,#3D0A11 0%,#7F1220 48%,#B91C1C 100%)}
+.pj-dhero.k2{background:linear-gradient(115deg,#0A1440 0%,#132A78 48%,#1D4ED8 100%)}
+.pj-dhero.k3{background:linear-gradient(115deg,#062B14 0%,#0A4A24 48%,#15803D 100%)}
+.pj-dhero .in{max-width:1180px;margin:0 auto;padding:22px 24px 36px}
+.pj-crumb{display:flex;align-items:center;gap:9px;font-size:12.5px;font-weight:800;
+  color:rgba(255,255,255,.86);margin-bottom:22px;flex-wrap:wrap}
+.pj-crumb a.back{background:rgba(255,255,255,.16);border:2px solid rgba(255,255,255,.45);color:#fff;
+  font-size:12.5px;font-weight:800;padding:7px 13px;border-radius:8px}
+.pj-crumb a.back:hover{background:rgba(255,255,255,.3)}
+.pj-crumb .sl{opacity:.6}
+.pj-chips{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.pj-chips .c{font-size:11.5px;font-weight:900;padding:5px 11px;border-radius:5px;
+  background:rgba(255,255,255,.17);border:1.8px solid rgba(255,255,255,.5)}
+.pj-chips .c.now{background:#FBBF24;border-color:#FBBF24;color:#3B2606}
+.pj-dhero h1{margin:13px 0 0;font-size:36px;font-weight:900;letter-spacing:-.035em;
+  line-height:1.2;max-width:960px}
+.pj-pills{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:26px 0 0}
+.pj-pills>div{background:rgba(255,255,255,.13);border:2px solid rgba(255,255,255,.4);
+  border-radius:11px;padding:12px 15px}
+.pj-pills dt{font-size:10.5px;font-weight:900;letter-spacing:.1em;color:rgba(255,255,255,.82)}
+.pj-pills dd{margin:6px 0 0;font-size:15.5px;font-weight:900;letter-spacing:-.02em}
+.pj-pills dd small{font-size:12px;font-weight:700;opacity:.85;margin-left:4px}
+.pj-pbar{margin-top:8px;height:7px;background:rgba(255,255,255,.25);border-radius:4px;overflow:hidden}
+.pj-pbar i{display:block;height:100%;background:#FBBF24}
+
+.pj-dbody{padding:34px 0 74px}
+.pj-split{display:grid;grid-template-columns:1fr 342px;gap:28px;align-items:start}
+.pj-blk{background:#fff;border:2px solid var(--line);border-radius:14px;padding:24px 26px;margin-bottom:20px}
+.pj-blk h2{font-size:22px;font-weight:900;letter-spacing:-.03em;color:var(--navy);margin:0;
+  padding-bottom:10px;border-bottom:2px solid #E3E7F0}
+.pj-blk p{font-size:15px;line-height:1.85;color:var(--ink-2);margin:16px 0 0}
+
+.pj-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px}
+.pj-card{background:#fff;border:2px solid var(--line);border-top-width:7px;border-radius:12px;padding:17px 18px}
+.pj-card.n0{border-top-color:var(--a1)}
+.pj-card.n1{border-top-color:var(--navy)}
+.pj-card.n2{border-top-color:var(--a3)}
+.pj-card .t{font-size:11px;font-weight:900;letter-spacing:.1em;color:#5A6478}
+.pj-card h3{margin:7px 0 0;font-size:16px;font-weight:900;letter-spacing:-.02em;line-height:1.4}
+.pj-card p{margin:8px 0 0;font-size:13.5px;line-height:1.65;color:var(--ink-2)}
+
+.pj-long{position:relative}
+.pj-long .txt{margin-top:16px}
+.pj-long.folded .txt{max-height:176px;overflow:hidden}
+.pj-long.folded::after{content:"";position:absolute;left:0;right:0;bottom:46px;height:76px;
+  background:linear-gradient(180deg,rgba(255,255,255,0),#fff);pointer-events:none}
+.pj-long .more{margin-top:14px;font-family:inherit;font-size:13px;font-weight:900;color:var(--navy);
+  background:#EDF0F6;border:2px solid #CBD3E3;border-radius:8px;padding:9px 15px;cursor:pointer;
+  position:relative;z-index:2}
+.pj-long .more:hover{background:#E1E7F2}
+
+.pj-figs{display:grid;gap:16px;margin-top:16px}
+.pj-fig{border:2px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+.pj-fig .fh{padding:10px 16px;background:#111827;color:#fff;font-size:11.5px;font-weight:900;
+  letter-spacing:.08em;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.pj-fig .fh em{font-style:normal;font-size:11px;color:#9CA3AF}
+.pj-fig .fb{display:block;width:100%;border:none;background:#fff;padding:16px;cursor:zoom-in;
+  font-family:inherit;position:relative}
+.pj-fig .fb img{max-height:400px;width:auto;margin:0 auto;object-fit:contain}
+.pj-fig .fb::after{content:"크게 보기";opacity:0;position:absolute;right:14px;bottom:14px;
+  background:var(--navy);color:#fff;padding:6px 10px;border-radius:6px;font-size:11.5px;
+  font-weight:900;transition:opacity .16s ease}
+.pj-fig .fb:hover::after,.pj-fig .fb:focus-visible::after{opacity:1}
+
+.pj-side{position:sticky;top:24px;display:grid;gap:16px}
+.pj-cardbox{background:#fff;border:2px solid var(--line);border-radius:14px;overflow:hidden}
+.pj-cardbox .ch{padding:11px 18px;background:#111827;color:#fff;font-size:11.5px;font-weight:900;
+  letter-spacing:.1em}
+.pj-cardbox .cb{padding:16px 18px}
+.pj-cardbox dl{margin:0}
+.pj-cardbox dl>div{padding:11px 0;border-top:1.5px solid #EEF1F7}
+.pj-cardbox dl>div:first-child{border-top:none;padding-top:0}
+.pj-cardbox dt{font-size:11px;font-weight:900;letter-spacing:.08em;color:#5A6478}
+.pj-cardbox dd{margin:6px 0 0;font-size:14px;font-weight:800;line-height:1.6;color:var(--ink)}
+.pj-cardbox dd .nt{display:block;margin-top:4px;font-size:11.5px;font-weight:800;color:#B45309}
+.pj-kws{display:flex;gap:7px;flex-wrap:wrap}
+.pj-kws span{font-size:12px;font-weight:800;padding:5px 11px;border-radius:6px;background:#EDF0F6;
+  border:1.5px solid #CBD3E3;color:var(--ink-2)}
+.pj-lnk{display:block;padding:13px 16px;border-top:1.5px solid #EEF1F7;font-size:13.5px;font-weight:800}
+.pj-cardbox .pj-lnk:first-of-type{border-top:none}
+.pj-lnk:hover{background:#F4F6FB}
+.pj-lnk .s{display:block;font-size:11px;font-weight:900;letter-spacing:.08em;color:#5A6478;margin-bottom:5px}
+.pj-back{display:block;text-align:center;background:var(--navy);color:#fff;font-weight:900;
+  font-size:14px;padding:14px;border-radius:11px}
+.pj-back:hover{background:#00206E}
+
+.pj-pager{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+.pj-pager a{background:#fff;border:2px solid var(--line);border-radius:13px;padding:17px 20px}
+.pj-pager a:hover{background:#F4F6FB}
+.pj-pager .s{font-size:11px;font-weight:900;letter-spacing:.1em;color:#5A6478}
+.pj-pager h2{margin:7px 0 0;font-size:15.5px;font-weight:800;line-height:1.45;letter-spacing:-.02em}
+.pj-pager a.nx{text-align:right}
+
+.pj-dlg{border:none;border-radius:16px;padding:0;max-width:1040px;width:88vw;
+  box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.pj-dlg::backdrop{background:rgba(6,10,25,.74)}
+.pj-dlg .dt{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px;
+  background:#111827;color:#fff;font-size:13px;font-weight:900}
+.pj-dlg .dt button{font-family:inherit;font-size:22px;font-weight:900;background:none;border:none;
+  color:#fff;cursor:pointer;line-height:1}
+.pj-dlg .di{padding:20px;display:flex;justify-content:center;background:#fff}
+.pj-dlg .di img{max-height:68vh;width:auto;object-fit:contain}
+
+/* ---------- 반응형 ---------- */
+@media (max-width:1023px){
+  .pj-split{grid-template-columns:1fr}
+  .pj-side{position:static}
+  .pj-pills{grid-template-columns:repeat(2,1fr)}
+  .pj-lhd,.pj-row{grid-template-columns:96px 1fr 190px 150px;gap:14px}
+}
+@media (max-width:767px){
+  .pj-hero .in{padding:38px 20px 42px}
+  .pj-hero h1{font-size:32px}
+  .pj-wrap{padding:0 18px}
+  .pj-dhero .in{padding:18px 20px 28px}
+  .pj-dhero h1{font-size:26px}
+  .pj-pills{grid-template-columns:1fr}
+  .pj-cards{grid-template-columns:1fr}
+  .pj-lhd{display:none}
+  .pj-row{grid-template-columns:76px 1fr;gap:14px;row-gap:12px;padding:16px}
+  .pj-row .th{height:60px}
+  .pj-row .when,.pj-row .rt{grid-column:1 / -1}
+  .pj-row .rt{justify-content:flex-start}
+  .pj-blk{padding:20px 18px}
+  .pj-pager{grid-template-columns:1fr}
+  .pj-pager a.nx{text-align:left}
+  .pj-fig .fb img{max-height:260px}
+}
+@media (prefers-reduced-motion:reduce){
+  .pj *,.pj *::before,.pj *::after{transition-duration:.01ms !important}
+}
+</style>
+
+<div class="pj">
+  <div class="pj-dhero k1"><div class="in">
+    <nav class="pj-crumb" aria-label="현재 위치">
+      <a class="back" href="/projects/">목록으로</a><span class="sl" aria-hidden="true">/</span>
+      <a href="/projects/">Projects</a><span class="sl" aria-hidden="true">/</span>
+      <a href="/research/trustworthy-ai/">Trustworthy AI</a><span class="sl" aria-hidden="true">/</span>
+      <span>LLM &amp; Agent Safety</span>
+    </nav>
+    <div class="pj-chips">
+      <span class="c now">진행 중</span>
+      <span class="c">한국연구재단 우수신진연구</span>
+      <span class="c">AREA 01 · Trustworthy AI</span>
+      <span class="c">LLM &amp; Agent Safety</span>
     </div>
-  </section>
+    <h1>문맥 기반 방어(가드레일)와 퍼플팀 접근을 통해 다국어 LLM의 탈옥 취약점을 탐지하고 차단하는 연구</h1>
+    <dl class="pj-pills">
+      <div><dt>지원 기관</dt><dd>한국연구재단 우수신진연구</dd></div>
+      <div><dt>연구 기간</dt><dd>2025.03 – 2027.02<small>1년 11개월</small></dd></div>
+      <div><dt>진행률</dt><dd>74%<small>2026.08 기준</small><div class="pj-pbar"><i style="width:74%"></i></div></dd></div>
+      <div><dt>연구 축</dt><dd>Trustworthy AI<small>LLM &amp; Agent Safety</small></dd></div>
+    </dl>
+  </div></div>
 
-  
-  <section class="border-b border-slate-200 dark:border-slate-800">
-    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-1 text-center">
-      <div class="flex flex-col gap-y-1 text-lg text-slate-600">
+  <div class="pj-dbody"><div class="pj-wrap">
+    <div class="pj-split">
+      <article>
         
-          <div><span class="font-bold text-slate-800">연구 기간</span>: 2025.03 – 2027.02</div>
+        <section class="pj-blk"><h2>연구 목표</h2><p>본 연구는 윤리적인 다국어 LLM을 위한 문맥 기반 탈옥 가드레일 구축을 목표로 함. 보안 취약점을 탐지하는 레드팀과 방어 프로세스를 설계하는 블루팀의 협력을 기반으로 한 퍼플팀 체계를 중심으로 연구를 진행할 예정임. 다국어 유해-무해 데이터셋을 구축하고, LLM 유해 응답 평가, 공격, 방어 알고리즘을 개발하여 다양한 탈옥 공격에 효과적으로 대응할 수 있는 방어 시스템을 설계하고자함. 이를 통해 보안 취약점을 발견하고 대응 프로세스를 강화하여 LLM 유해 응답 생성을 사전에 차단함. 세계 최초로 다국어의 언어적 특징을 고려한 유해응답 데이터셋을 자동으로 구축하는 알고리즘 개발 및 문맥 적합성을 고려한 다국어 응답 평가 지표를 설계함. LLM의 토크나이저 작동 방식에 따른 다국어 토큰의 다중 바이트 문제를 최초로 규명하고, 이를 극복하는 최적화 알고리즘을 통해, 불가능하다고 여겨졌던 다국어 LLM 모델의 탈옥 공격 해법을 제시함. 입력 프롬프트와 응답 간의 일관성을 고려하여 다국어 환경에서 탈옥 공격을 효과적으로 막아내는 혁신적인 방법론을 제시함.</p></section>
         
-        
-          <div><span class="font-bold text-slate-800">지원/협력</span>: 한국연구재단</div>
-        
-      </div>
+        <section class="pj-blk"><h2>연구 그림</h2><div class="pj-figs">
+          <figure class="pj-fig">
+          <figcaption class="fh"><span>FIGURE 1</span><em>클릭하면 확대</em></figcaption>
+          <button type="button" class="fb" data-label="FIGURE 1"
+                  aria-label="문맥 기반 방어(가드레일)와 퍼플팀 접근을 통해 다국어 LLM의 탈옥 취약점을 탐지하고 차단하는 연구 연구 그림 1 크게 보기">
+            <img src="/images/projects/nrf_2025/01_hu_8bf6b02f96d3bc3e.png" alt="문맥 기반 방어(가드레일)와 퍼플팀 접근을 통해 다국어 LLM의 탈옥 취약점을 탐지하고 차단하는 연구 연구 그림 1" loading="lazy" decoding="async">
+          </button>
+        </figure>
+        </div></section>
+      </article>
+
+      <aside class="pj-side" aria-label="과제 정보">
+        <div class="pj-cardbox"><div class="ch">과제 개요</div><div class="cb"><dl>
+          <div><dt>연구 기간</dt><dd>2025.03 – 2027.02
+            </dd></div>
+          <div><dt>상태</dt><dd><span class="pj-tag live">진행 중</span></dd></div>
+          <div><dt>연구 축</dt><dd>AREA 01 · Trustworthy AI</dd></div>
+          <div><dt>세부 분야</dt><dd>LLM &amp; Agent Safety</dd></div>
+        </dl></div></div>
+
+        <div class="pj-cardbox"><div class="ch">Keywords</div><div class="cb"><div class="pj-kws">
+          <span>Large Language Model</span><span>Jailbreaking</span><span>Guardrail</span>
+        </div></div></div>
+
+        <div class="pj-cardbox"><div class="ch">이어서 보기</div>
+          <a class="pj-lnk" href="/research/trustworthy-ai/"><span class="s">연구 분야</span>Trustworthy AI 전체 보기</a>
+          <a class="pj-lnk" href="/projects/nrf_2022/"><span class="s">같은 축의 과제 · 한국연구재단</span>인공지능 시스템의 실용화를 위한 딥러닝 안정성 알고리즘 개발</a><a class="pj-lnk" href="/projects/genesislab_2022/"><span class="s">같은 축의 과제 · 제네시스랩</span>공정한 인공지능 면접 모델 알고리즘 개발</a>
+        </div>
+
+        <a class="pj-back" href="/projects/">목록으로 돌아가기</a>
+      </aside>
     </div>
-  </section>
 
-  
-  <section>
-    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-10">
-      <style>
-        .content-images img {
-          max-width: 900px !important;
-          width: auto !important;
-          height: auto !important;
-          margin-left: auto !important;
-          margin-right: auto !important;
-          display: block !important;
-          margin-bottom: 1.5rem !important;
-          margin-top: 1.5rem !important;
-        }
-      </style>
-      
-      
-      <div class="content-images max-w-5xl mx-auto px-6">
-        
-        
-        
-      </div>
-      
-      
-      <div class="max-w-4xl px-6 pt-6 pb-8 mx-auto prose prose-lg dark:prose-invert dark:text-white">
-        
-        
+    <nav class="pj-pager" aria-label="다른 과제">
+      <a href="/projects/cma_2025/"><div class="s">이전 과제</div><h2>전천(All-sky) 기후자료 산출 및 초해상화 인공지능 모델 개발</h2></a>
+      <a class="nx" href="/projects/kimcaddie_2025/"><div class="s">다음 과제</div><h2>골프 클럽과 관절 정보를 활용한 골프 스윙 분석</h2></a>
+    </nav>
+  </div></div>
 
-
-
-
-
- 
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-<div class="grid grid-cols-1 gap-2">
-  
-    
-    
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-    
-    
-
-    
-    
-    
-      
-    
-    
-
-    
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-
-    <figure class="relative w-full overflow-hidden rounded-lg shadow-md bg-gray-100 dark:bg-gray-800">
-      <div class="w-full flex items-center justify-center p-4" style="min-height: 300px;">
-        <img
-          src="/images/projects/nrf_2025/01_hu_8bf6b02f96d3bc3e.png"
-          srcset="/images/projects/nrf_2025/01_hu_fa6d1673246ef9f6.png 480w, /images/projects/nrf_2025/01_hu_b8bb29179d4acfb0.png 768w, /images/projects/nrf_2025/01_hu_8bf6b02f96d3bc3e.png 1024w, /images/projects/nrf_2025/01_hu_7886a8990c3032cc.png 1536w"
-          sizes="100vw"
-          alt="/images/projects/nrf_2025/01.png"
-          class="max-w-full max-h-full object-contain"
-          loading="lazy"
-          decoding="async"
-          fetchpriority="low"
-        />
-      </div>
-    </figure>
-  
+  <dialog class="pj-dlg" id="pj-figdlg" aria-label="연구 그림 확대">
+    <div class="dt"><span>FIGURE</span>
+      <button type="button" aria-label="닫기" onclick="this.closest('dialog').close()">&times;</button></div>
+    <div class="di"><img src="" alt=""></div>
+  </dialog>
 </div>
 
-
-<h2 id="-윤리적인-다국어-llm-활용을-위한-문맥-기반-탈옥-가드레일-구축">👷‍♂️ 윤리적인 다국어 LLM 활용을 위한 문맥 기반 탈옥 가드레일 구축</h2>
-<ul>
-<li><strong>주관:</strong> 한국연구재단 우수신진연구</li>
-<li><strong>연구 목표:</strong> 본 연구는 윤리적인 다국어 LLM을 위한 문맥 기반 탈옥 가드레일 구축을 목표로 함. 보안 취약점을 탐지하는 레드팀과 방어 프로세스를 설계하는 블루팀의 협력을 기반으로 한 퍼플팀 체계를 중심으로 연구를 진행할 예정임. 다국어 유해-무해 데이터셋을 구축하고, LLM 유해 응답 평가, 공격, 방어 알고리즘을 개발하여 다양한 탈옥 공격에 효과적으로 대응할 수 있는 방어 시스템을 설계하고자함. 이를 통해 보안 취약점을 발견하고 대응 프로세스를 강화하여 LLM 유해 응답 생성을 사전에 차단함. 세계 최초로 다국어의 언어적 특징을 고려한 유해응답 데이터셋을 자동으로 구축하는 알고리즘 개발 및 문맥 적합성을 고려한 다국어 응답 평가 지표를 설계함. LLM의 토크나이저 작동 방식에 따른 다국어 토큰의 다중 바이트 문제를 최초로 규명하고, 이를 극복하는 최적화 알고리즘을 통해, 불가능하다고 여겨졌던 다국어 LLM 모델의 탈옥 공격 해법을 제시함. 입력 프롬프트와 응답 간의 일관성을 고려하여 다국어 환경에서 탈옥 공격을 효과적으로 막아내는 혁신적인 방법론을 제시함.</li>
-<li><strong>Keywords:</strong> <em>Large Language Model</em>, <em>Jailbreaking</em>, <em>Guardrail</em></li>
-</ul>
-
-      </div>
-
-      
-
-      
-      <div class="max-w-4xl px-6 pb-16 mx-auto">
-        <div class="flex justify-start items-center pt-8 border-t border-gray-200 dark:border-gray-700">
-          <a href="/projects" class="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-primary-500 border border-transparent rounded-lg shadow-sm hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition duration-200 ease-in-out transform hover:scale-105" style="display: inline-flex !important;">
-            <span class="mr-2 text-lg" style="display: inline-block;"></span>
-            <span style="display: inline-block;">목록</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+<script>
+(function(){
+  var long = document.querySelector('.pj-long');
+  if(long){
+    var btn = long.querySelector('.more');
+    var txt = long.querySelector('.txt');
+    btn.addEventListener('click', function(){
+      var folded = long.classList.toggle('folded');
+      btn.setAttribute('aria-expanded', folded ? 'false' : 'true');
+      btn.textContent = folded ? btn.dataset.open : '접기';
+      if(folded) txt.scrollIntoView({block:'nearest'});
+    });
+  }
+  var dlg = document.getElementById('pj-figdlg');
+  if(!dlg) return;
+  var img = dlg.querySelector('img'), cap = dlg.querySelector('.dt span');
+  document.querySelectorAll('.pj-fig .fb').forEach(function(b){
+    b.addEventListener('click', function(){
+      img.src = b.querySelector('img').src;
+      img.alt = b.querySelector('img').alt;
+      cap.textContent = b.dataset.label;
+      if(dlg.showModal) dlg.showModal();
+    });
+  });
+})();
+</script>
 
 </main>
 
