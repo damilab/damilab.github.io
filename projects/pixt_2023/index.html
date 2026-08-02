@@ -300,9 +300,9 @@ html, body, * {
 .pj-cardbox .pj-lnk:first-of-type{border-top:none}
 .pj-lnk:hover{background:#F4F6FB}
 .pj-lnk .s{display:block;font-size:11px;font-weight:900;letter-spacing:.08em;color:#5A6478;margin-bottom:5px}
-.pj-back{display:block;text-align:center;background:var(--navy);color:#fff;font-weight:900;
+.pj a.pj-back{display:block;text-align:center;background:var(--navy);color:#fff;font-weight:900;
   font-size:14px;padding:14px;border-radius:11px}
-.pj-back:hover{background:#00206E}
+.pj a.pj-back:hover{background:#00206E}
 
 .pj-pager{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
 .pj-pager a{background:#fff;border:2px solid var(--line);border-radius:13px;padding:17px 20px}
@@ -377,7 +377,7 @@ html, body, * {
   <div class="pj-dbody"><div class="pj-wrap">
     <div class="pj-split">
       <article>
-        <div class="pj-cards"><div class="pj-card n0"><div class="t">문제</div><h3>영어 편중과 싱글 모달의 한계</h3><p>국내 연구는 CNN·RNN·LSTM 기반 싱글 모달에 머물렀고, CLIP은 영어에 강하지만 ZSL이라 전이학습에 부적합합니다.</p></div><div class="pj-card n1"><div class="t">접근</div><h3>트랜스포머 기반 전이학습</h3><p>다국어 동영상 캡션 모델을 한국어로 전이학습해 한국어 전용 캡션 모델을 확보합니다.</p></div><div class="pj-card n2"><div class="t">목표치</div><h3>재현도 75% 이상</h3><p>영어를 못 쓰는 국내 이용자가 바로 쓸 수 있는 한국어 TTV 애플리케이션의 선행 기술로 삼습니다.</p></div></div>
+        <div class="pj-cards"><div class="pj-card n0"><div class="t">문제</div><h3>영어 편중과 싱글 모달의 한계</h3><p>국내 연구는 CNN·RNN·LSTM 싱글 모달에 국한, CLIP은 영어 편중 및 ZSL 구조로 전이학습에 부적합</p></div><div class="pj-card n1"><div class="t">접근</div><h3>트랜스포머 기반 전이학습</h3><p>다국어 동영상 캡션 모델의 전이학습을 통한 한국어 전용 캡션 모델 확보</p></div><div class="pj-card n2"><div class="t">목표치</div><h3>재현도 75% 이상</h3><p>영어 사용이 어려운 국내 이용자 대상 한국어 TTV 애플리케이션의 선행 기술 확보</p></div></div>
         <section class="pj-blk"><h2>연구 목표</h2><div class="pj-long folded"><div class="txt" id="pj-goal"><p style="margin-top:0">글로벌 시장에서는 문장을 동영상으로 변환하는 TTV(Text-to-Video) 기술이 급속도로 성장 중이며 현재 2022-2027 TTV 시장 전망은 CAGR 37.1%의 빠른 성장률을 보이고 있음. 이러한 기술의 발전은 동영상 캡셔닝 AI 기술 발전에 영향을 받는데, 특히 최근 Open AI에서도 선보인 T2I(text-to-image) 기반 CLIP 모델은 트랜스포머를 이용한 모델임. 현재 국내에서도 CNN, RNN, LSTM을 사용한 AI모델에 대한 개발이 이루어져 왔으나, 트랜스포머 기반 모델 대한 연구는 수행되지 않았음. 그간 국내에서 수행된 연구는 싱글 모달(single-modal) 모델로, 넓은 범위의 분류가 어려움. 또한 OPEN AI社 CLIP 모델은 기존 학습언어인 영어에 대한 성능은 뛰어나나, ZSL(zero-shot learning) 모델로 새로운 데이터 학습에 취약해 전이학습에는 적합하지 않음. ㈜스톡폴리오는 영어를 완벽하게 구사하지 못하는 국내 이용자들이 손쉽게 사용할 수 있는 한국어 전용 TTV(Text-to-Video) 어플리케이션을 개발하기 위해 트랜스포머 기반 다국어 동영상 캡션 AI모델의 전이학습을 통한 재현도 75%이상급 한국어 전용 동영상 캡션 AI모델을 선행기술로 개발하고자 함.</p></div><button type="button" class="more" aria-expanded="false" aria-controls="pj-goal" data-open="전체 보기 (634자)">전체 보기 (634자)</button></div></section>
         
         <section class="pj-blk"><h2>연구 그림</h2><div class="pj-figs">

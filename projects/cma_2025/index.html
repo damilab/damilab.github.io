@@ -300,9 +300,9 @@ html, body, * {
 .pj-cardbox .pj-lnk:first-of-type{border-top:none}
 .pj-lnk:hover{background:#F4F6FB}
 .pj-lnk .s{display:block;font-size:11px;font-weight:900;letter-spacing:.08em;color:#5A6478;margin-bottom:5px}
-.pj-back{display:block;text-align:center;background:var(--navy);color:#fff;font-weight:900;
+.pj a.pj-back{display:block;text-align:center;background:var(--navy);color:#fff;font-weight:900;
   font-size:14px;padding:14px;border-radius:11px}
-.pj-back:hover{background:#00206E}
+.pj a.pj-back:hover{background:#00206E}
 
 .pj-pager{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
 .pj-pager a{background:#fff;border:2px solid var(--line);border-radius:13px;padding:17px 20px}
@@ -377,7 +377,7 @@ html, body, * {
   <div class="pj-dbody"><div class="pj-wrap">
     <div class="pj-split">
       <article>
-        <div class="pj-cards"><div class="pj-card n0"><div class="t">문제</div><h3>고해상도와 실시간의 상충</h3><p>LANDSAT은 250m로 선명하지만 촬영 주기가 길고, 천리안은 10분 간격이지만 2km로 뭉개집니다.</p></div><div class="pj-card n1"><div class="t">접근</div><h3>가이드 초해상화 + 결측 보간</h3><p>천리안 2B 가시채널을 가이드로 2A 영상을 250m로 복원하고, 구름에 가린 결측은 시공간 이웃으로 채웁니다.</p></div><div class="pj-card n2"><div class="t">검증</div><h3>전국 96개 관측소 실측 대조</h3><p>RMSE, MAE, R², SSIM, PSNR, AUROC로 정량 평가하고 실무 적용이 쉽도록 모듈화합니다.</p></div></div>
+        <div class="pj-cards"><div class="pj-card n0"><div class="t">문제</div><h3>고해상도와 실시간의 상충</h3><p>LANDSAT은 250m 고해상도이나 촬영 주기가 길고, 천리안은 10분 간격이나 2km로 뭉개지는 현상 발생</p></div><div class="pj-card n1"><div class="t">접근</div><h3>가이드 초해상화 + 결측 보간</h3><p>천리안 2B 가시채널을 가이드로 2A 영상을 250m로 복원, 구름에 가린 결측은 시공간 이웃으로 보간</p></div><div class="pj-card n2"><div class="t">검증</div><h3>전국 96개 관측소 실측 대조</h3><p>RMSE, MAE, R², SSIM, PSNR, AUROC 기반 정량 평가 및 실무 적용을 위한 모듈화 구축</p></div></div>
         <section class="pj-blk"><h2>연구 목표</h2><div class="pj-long folded"><div class="txt" id="pj-goal"><p style="margin-top:0">본 연구는 천리안 2A/2B호와 LANDSAT 위성 데이터를 활용하여 지표면 온도(LST), 해수면 온도(SST), 자외선 지수(UV Index)를 고해상도(250m)로 초해상화하고 정밀 예측하는 인공지능 기반 기후변수 산출 프레임워크를 개발할 예정임. 현재 위성 기반 고해상도 LST/SST/UV 정보를 실시간으로 확보하는 데에는 해상도 및 시간 해상도의 제약이 있으며, 특히 LANDSAT 데이터는 고해상도임에도 불구하고 촬영 주기가 길어 실시간 활용에 한계가 있음. 이에 따라 본 연구에서는 천리안 위성의 10분 간격 관측 데이터를 바탕으로 고해상도 및 고시간해상도의 기후 데이터를 생산할 수 있는 딥러닝 기반 프레임워크를 구축할 계획임. 초해상화 모델은 2km 해상도의 천리안 2A 영상과 250m 해상도의 천리안 2B 가시채널을 입력으로 활용하고, LANDSAT 기반 고해상도 데이터를 정답으로 사용하는 방식으로 설계할 예정임. 학습용 데이터는 구름 비율이 낮은 지역에서 수집한 LANDSAT 패치를 중심으로 구성하고, 보조 입력으로는 지형고도(DEM) 및 지표 타입 데이터를 활용할 예정임. 지표면·해수면 온도 예측 모델은 CNN 및 RNN 기반 딥러닝 구조로 설계하고, 픽셀 단위 예측을 통해 시공간적 온도 변화를 정밀하게 추정할 수 있도록 구현할 계획임. 자외선 지수 예측 모델은 천리안 2A호의 16개 채널, 태양·위성 천정각, 인공지능 기반 일사량(AI-DSR), 대기 외 복사량(ESR), 총 오존량(TOZ), 지면 타입 등 다양한 입력 인자를 활용하여 일 최대 자외선 지수를 예측하고, 예측 결과를 초해상화함으로써 고해상도 지수 데이터를 확보할 예정임. 또한, 여러 예측 모델을 앙상블 기법으로 결합하여 자외선 지수 예측의 신뢰성과 정확도를 향상시킬 방침임. 아울러, 구름 등에 의해 발생하는 온도 결측치 문제를 해결하기 위해, 결측 주변의 시공간적 온도 데이터를 입력으로 활용한 딥러닝 기반 보간 모델을 설계할 예정이며, 전국 96개 기상관측소의 정밀 관측 데이터를 기반으로 정답 레이블을 구성하고 예측 성능을 검증할 계획임. 모든 예측 모델은 RMSE, MAE, R², SSIM, PSNR, AUROC 등 다양한 평가지표를 활용하여 정량적으로 성능을 평가할 예정이며, 전체 프레임워크는 실무 적용과 유지보수가 용이하도록 모듈화하여 구현할 계획임.</p></div><button type="button" class="more" aria-expanded="false" aria-controls="pj-goal" data-open="전체 보기 (1,159자)">전체 보기 (1,159자)</button></div></section>
         
         <section class="pj-blk"><h2>연구 그림</h2><div class="pj-figs">
