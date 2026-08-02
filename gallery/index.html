@@ -229,10 +229,17 @@ html, body, * {
   .ph-veil { position: absolute; inset: 0; background: rgba(0,0,0,.45); opacity: 0; transition: opacity .15s; }
   @media (hover: hover) { .ph:hover .ph-veil { opacity: 1; } }
   .ph figcaption {
-    position: absolute; inset: auto 0 0 0; padding: 26px 12px 10px; color: #fff;
-    background: linear-gradient(to top, rgba(0,0,0,.85), rgba(0,0,0,0));
+    position: absolute; inset: auto 0 0 0; padding: 30px 12px 10px; color: #fff;
+    background: linear-gradient(to top, rgba(0,0,0,.88), rgba(0,0,0,0));
+    display: flex; flex-direction: column; gap: 1px;
+  }
+  .ph-cap {
     font-size: 13px; font-weight: 700; line-height: 1.35;
     overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;
+  }
+  .ph-place {
+    font-size: 11px; font-weight: 600; line-height: 1.3; color: #e5e7eb;
+    overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
   }
   .ph.is-off { display: none; }
 
@@ -519,7 +526,12 @@ html, body, * {
                  '<span class="ph-img"><img src="' + esc(p.thumb) + '" alt="' + esc(p.cap) +
                  '" loading="lazy" decoding="async" width="' + p.w + '" height="' + p.h + '">' +
                  '<span class="ph-veil"></span></span>' +
-                 (p.cap ? '<figcaption>' + esc(p.cap) + '</figcaption>' : '') + '</button>';
+                 ((p.cap || p.place)
+                   ? '<figcaption>' +
+                     (p.cap ? '<span class="ph-cap">' + esc(p.cap) + '</span>' : '') +
+                     (p.place ? '<span class="ph-place">' + esc(p.place) + '</span>' : '') +
+                     '</figcaption>'
+                   : '') + '</button>';
         }).join('');
       return '<section class="sec" id="sec-' + y + '" data-year="' + y + '">' +
              '<h3 class="sec-h"><b>' + y + '</b><span></span></h3>' +

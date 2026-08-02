@@ -13,7 +13,7 @@
    "fx": 45.0,
    "fy": 51.8,
    "desc": "",
-   "place": "서울 코엑스"
+   "place": "COEX, Seoul"
   },
   {
    "thumb": "/images/gallery/icml2026_IMG_2624.jpg",
@@ -28,7 +28,7 @@
    "fx": 51.1,
    "fy": 42.4,
    "desc": "",
-   "place": "서울 코엑스"
+   "place": "COEX, Seoul"
   },
   {
    "thumb": "/images/gallery/icml2026_IMG_0625.jpg",
@@ -43,7 +43,7 @@
    "fx": 69.8,
    "fy": 72.8,
    "desc": "",
-   "place": "서울 코엑스"
+   "place": "COEX, Seoul"
   },
   {
    "thumb": "/images/posts/51/IMG_1074_hu_d501aac57028e4d9.jpg",
@@ -128,7 +128,7 @@
    "fx": 70.0,
    "fy": 42.7,
    "desc": "",
-   "place": "브라질 리우데자네이루"
+   "place": "Rio de Janeiro, Brazil"
   },
   {
    "thumb": "/images/posts/49/ICLR2_hu_ae9731701e4ccbbc.jpg",
@@ -143,7 +143,7 @@
    "fx": 21.8,
    "fy": 42.0,
    "desc": "",
-   "place": "브라질 리우데자네이루"
+   "place": "Rio de Janeiro, Brazil"
   },
   {
    "thumb": "/images/posts/49/ICLR4_hu_37691ceeffc61989.jpg",
@@ -158,7 +158,7 @@
    "fx": 81.6,
    "fy": 71.7,
    "desc": "",
-   "place": "브라질 리우데자네이루"
+   "place": "Rio de Janeiro, Brazil"
   },
   {
    "thumb": "/images/posts/49/IMG_6574_hu_ee5153b1c713650b.jpg",
@@ -173,7 +173,7 @@
    "fx": 49.0,
    "fy": 43.1,
    "desc": "",
-   "place": "브라질 리우데자네이루"
+   "place": "Rio de Janeiro, Brazil"
   },
   {
    "thumb": "/images/posts/48/1000042430_hu_9cba592b22cf1d37.jpg",
@@ -454,7 +454,7 @@
    "fx": 51.4,
    "fy": 50.4,
    "desc": "",
-   "place": "중국 쑤저우"
+   "place": "Suzhou, China"
   },
   {
    "thumb": "/images/posts/39/emnlp2_hu_730f3481862c83fc.jpg",
@@ -469,7 +469,7 @@
    "fx": 49.3,
    "fy": 38.3,
    "desc": "",
-   "place": "중국 쑤저우"
+   "place": "Suzhou, China"
   },
   {
    "thumb": "/images/posts/39/emnlp4_hu_f97e1f87fb28c110.jpg",
@@ -484,7 +484,7 @@
    "fx": 75.2,
    "fy": 20.0,
    "desc": "",
-   "place": "중국 쑤저우"
+   "place": "Suzhou, China"
   },
   {
    "thumb": "/images/posts/39/emnlp5_hu_511e74957bb77bb1.jpg",
@@ -499,7 +499,7 @@
    "fx": 48.1,
    "fy": 48.8,
    "desc": "",
-   "place": "중국 쑤저우"
+   "place": "Suzhou, China"
   },
   {
    "thumb": "/images/posts/38/sk1_hu_c311b6d50a6ab6b2.jpg",
@@ -724,7 +724,7 @@
    "fx": 43.7,
    "fy": 63.7,
    "desc": "",
-   "place": "제주"
+   "place": "Jeju, Korea"
   },
   {
    "thumb": "/images/posts/30/산업공학회2_hu_ed5999e01d15d1ba.jpg",
@@ -739,7 +739,7 @@
    "fx": 45.4,
    "fy": 51.9,
    "desc": "",
-   "place": "제주"
+   "place": "Jeju, Korea"
   },
   {
    "thumb": "/images/posts/30/산업공학회3_hu_316e21ebf341643a.jpg",
@@ -754,7 +754,7 @@
    "fx": 34.2,
    "fy": 37.6,
    "desc": "",
-   "place": "제주"
+   "place": "Jeju, Korea"
   },
   {
    "thumb": "/images/posts/30/산업공학회4_hu_e986f23b45e50486.jpg",
@@ -769,7 +769,7 @@
    "fx": 48.5,
    "fy": 34.0,
    "desc": "",
-   "place": "제주"
+   "place": "Jeju, Korea"
   },
   {
    "thumb": "/images/posts/29/CVPR1_hu_aa92eda0870d97a0.jpg",
@@ -784,7 +784,7 @@
    "fx": 59.6,
    "fy": 60.2,
    "desc": "",
-   "place": "미국 내쉬빌"
+   "place": "Nashville, USA"
   },
   {
    "thumb": "/images/gallery/insta_18028991051487557.jpg",
@@ -799,7 +799,7 @@
    "fx": 42.2,
    "fy": 63.0,
    "desc": "",
-   "place": "제주"
+   "place": "Jeju, Korea"
   },
   {
    "thumb": "/images/gallery/insta_18069973154006206.jpg",
@@ -814,7 +814,7 @@
    "fx": 50.4,
    "fy": 42.0,
    "desc": "",
-   "place": "제주"
+   "place": "Jeju, Korea"
   },
   {
    "thumb": "/images/gallery/insta_18409117717104673.jpg",
@@ -913,7 +913,7 @@
    "fx": 46.3,
    "fy": 60.4,
    "desc": "",
-   "place": "일본 도쿄"
+   "place": "Tokyo, Japan"
   },
   {
    "thumb": "/images/gallery/insta_17863797912325014.jpg",
@@ -928,7 +928,7 @@
    "fx": 45.2,
    "fy": 54.1,
    "desc": "",
-   "place": "일본 도쿄"
+   "place": "Tokyo, Japan"
   },
   {
    "thumb": "/images/gallery/insta_17865165588322521.jpg",
@@ -943,7 +943,7 @@
    "fx": 47.5,
    "fy": 46.3,
    "desc": "",
-   "place": "일본 도쿄"
+   "place": "Tokyo, Japan"
   },
   {
    "thumb": "/images/gallery/insta_17898979902107926.jpg",
@@ -972,7 +972,7 @@
    "fx": 59.8,
    "fy": 47.1,
    "desc": "",
-   "place": "일본 도쿄"
+   "place": "Tokyo, Japan"
   },
   {
    "thumb": "/images/gallery/insta_17920309521021277.jpg",
@@ -1001,7 +1001,7 @@
    "fx": 33.7,
    "fy": 38.6,
    "desc": "",
-   "place": "일본 도쿄"
+   "place": "Tokyo, Japan"
   },
   {
    "thumb": "/images/gallery/insta_17945624831798615.jpg",
@@ -1030,7 +1030,7 @@
    "fx": 71.3,
    "fy": 50.5,
    "desc": "",
-   "place": "일본 도쿄"
+   "place": "Tokyo, Japan"
   },
   {
    "thumb": "/images/gallery/insta_17996796968591221.jpg",
@@ -1045,7 +1045,7 @@
    "fx": 42.0,
    "fy": 49.9,
    "desc": "",
-   "place": "일본 도쿄"
+   "place": "Tokyo, Japan"
   },
   {
    "thumb": "/images/gallery/insta_18022171760391743.jpg",
@@ -1060,7 +1060,7 @@
    "fx": 56.7,
    "fy": 35.8,
    "desc": "",
-   "place": "일본 도쿄"
+   "place": "Tokyo, Japan"
   },
   {
    "thumb": "/images/gallery/insta_18031288610268925.jpg",
@@ -1075,7 +1075,7 @@
    "fx": 56.9,
    "fy": 52.2,
    "desc": "",
-   "place": "일본 도쿄"
+   "place": "Tokyo, Japan"
   },
   {
    "thumb": "/images/gallery/insta_18042922379070482.jpg",
@@ -1104,7 +1104,7 @@
    "fx": 50.6,
    "fy": 59.7,
    "desc": "",
-   "place": "일본 도쿄"
+   "place": "Tokyo, Japan"
   },
   {
    "thumb": "/images/gallery/insta_18046916342228650.jpg",
@@ -1133,7 +1133,7 @@
    "fx": 85.0,
    "fy": 38.0,
    "desc": "",
-   "place": "일본 도쿄"
+   "place": "Tokyo, Japan"
   },
   {
    "thumb": "/images/gallery/insta_18053264426505806.jpg",
@@ -1148,7 +1148,7 @@
    "fx": 26.0,
    "fy": 49.8,
    "desc": "",
-   "place": "일본 도쿄"
+   "place": "Tokyo, Japan"
   },
   {
    "thumb": "/images/gallery/insta_18056175511989856.jpg",
@@ -1163,7 +1163,7 @@
    "fx": 51.2,
    "fy": 52.2,
    "desc": "",
-   "place": "일본 도쿄"
+   "place": "Tokyo, Japan"
   },
   {
    "thumb": "/images/gallery/insta_18058506619819532.jpg",
@@ -1178,7 +1178,7 @@
    "fx": 66.0,
    "fy": 55.6,
    "desc": "",
-   "place": "일본 도쿄"
+   "place": "Tokyo, Japan"
   },
   {
    "thumb": "/images/gallery/insta_18062677927911385.jpg",
@@ -1221,7 +1221,7 @@
    "fx": 48.3,
    "fy": 39.2,
    "desc": "",
-   "place": "일본 도쿄"
+   "place": "Tokyo, Japan"
   },
   {
    "thumb": "/images/gallery/insta_18070692472751914.jpg",
@@ -1250,7 +1250,7 @@
    "fx": 41.4,
    "fy": 49.0,
    "desc": "",
-   "place": "일본 도쿄"
+   "place": "Tokyo, Japan"
   },
   {
    "thumb": "/images/gallery/insta_18084986437583328.jpg",
@@ -1265,7 +1265,7 @@
    "fx": 22.0,
    "fy": 80.0,
    "desc": "",
-   "place": "일본 도쿄"
+   "place": "Tokyo, Japan"
   },
   {
    "thumb": "/images/gallery/insta_18096041407502992.jpg",
@@ -1280,7 +1280,7 @@
    "fx": 46.7,
    "fy": 42.1,
    "desc": "",
-   "place": "일본 도쿄"
+   "place": "Tokyo, Japan"
   },
   {
    "thumb": "/images/gallery/insta_18105531358466983.jpg",
@@ -1295,7 +1295,7 @@
    "fx": 50.0,
    "fy": 53.5,
    "desc": "",
-   "place": "일본 도쿄"
+   "place": "Tokyo, Japan"
   },
   {
    "thumb": "/images/gallery/insta_18114902392442108.jpg",
@@ -1310,7 +1310,7 @@
    "fx": 48.4,
    "fy": 61.4,
    "desc": "",
-   "place": "일본 도쿄"
+   "place": "Tokyo, Japan"
   },
   {
    "thumb": "/images/gallery/insta_18124481020372775.jpg",
@@ -1339,7 +1339,7 @@
    "fx": 71.6,
    "fy": 58.5,
    "desc": "",
-   "place": "일본 도쿄"
+   "place": "Tokyo, Japan"
   },
   {
    "thumb": "/images/gallery/insta_18312592870207419.jpg",
@@ -1368,7 +1368,7 @@
    "fx": 50.8,
    "fy": 56.2,
    "desc": "",
-   "place": "일본 도쿄"
+   "place": "Tokyo, Japan"
   },
   {
    "thumb": "/images/posts/22/연구실송년회_hu_e1ecb1cbe28bf476.png",
@@ -1551,7 +1551,7 @@
    "fx": 47.1,
    "fy": 45.7,
    "desc": "",
-   "place": "미국 피츠버그"
+   "place": "Pittsburgh, USA"
   },
   {
    "thumb": "/images/posts/14/연구실회식셋_hu_65b96112986f9c02.png",
@@ -1580,7 +1580,7 @@
    "fx": 50.9,
    "fy": 54.7,
    "desc": "",
-   "place": "여수"
+   "place": "Yeosu, Korea"
   },
   {
    "thumb": "/images/posts/12/24산업공학회1_hu_e198923cfd38f41e.jpg",
@@ -1595,7 +1595,7 @@
    "fx": 45.3,
    "fy": 47.3,
    "desc": "",
-   "place": "여수"
+   "place": "Yeosu, Korea"
   },
   {
    "thumb": "/images/posts/12/24산업공학회2_hu_26201c0391c029a2.jpg",
@@ -1610,7 +1610,7 @@
    "fx": 73.4,
    "fy": 48.8,
    "desc": "",
-   "place": "여수"
+   "place": "Yeosu, Korea"
   },
   {
    "thumb": "/images/posts/12/24산업공학회3_hu_9956afe495a29a29.jpg",
@@ -1625,7 +1625,7 @@
    "fx": 38.9,
    "fy": 34.8,
    "desc": "",
-   "place": "여수"
+   "place": "Yeosu, Korea"
   },
   {
    "thumb": "/images/gallery/insta_17851467435186665.jpg",
@@ -1640,7 +1640,7 @@
    "fx": 60.1,
    "fy": 53.8,
    "desc": "",
-   "place": "여수"
+   "place": "Yeosu, Korea"
   },
   {
    "thumb": "/images/gallery/insta_17883955319981427.jpg",
@@ -1655,7 +1655,7 @@
    "fx": 56.4,
    "fy": 80.0,
    "desc": "",
-   "place": "여수"
+   "place": "Yeosu, Korea"
   },
   {
    "thumb": "/images/gallery/insta_17916454319824439.jpg",
@@ -1670,7 +1670,7 @@
    "fx": 71.0,
    "fy": 20.0,
    "desc": "",
-   "place": "여수"
+   "place": "Yeosu, Korea"
   },
   {
    "thumb": "/images/gallery/insta_17958480815641876.jpg",
@@ -1685,7 +1685,7 @@
    "fx": 49.2,
    "fy": 56.3,
    "desc": "",
-   "place": "여수"
+   "place": "Yeosu, Korea"
   },
   {
    "thumb": "/images/gallery/insta_18015747509249724.jpg",
@@ -1700,7 +1700,7 @@
    "fx": 56.4,
    "fy": 65.8,
    "desc": "",
-   "place": "여수"
+   "place": "Yeosu, Korea"
   },
   {
    "thumb": "/images/gallery/insta_18018738953330702.jpg",
@@ -1715,7 +1715,7 @@
    "fx": 55.2,
    "fy": 66.0,
    "desc": "",
-   "place": "여수"
+   "place": "Yeosu, Korea"
   },
   {
    "thumb": "/images/gallery/insta_18022122385981292.jpg",
@@ -1730,7 +1730,7 @@
    "fx": 54.9,
    "fy": 58.4,
    "desc": "",
-   "place": "여수"
+   "place": "Yeosu, Korea"
   },
   {
    "thumb": "/images/gallery/insta_18038364289882898.jpg",
@@ -1745,7 +1745,7 @@
    "fx": 43.5,
    "fy": 77.6,
    "desc": "",
-   "place": "여수"
+   "place": "Yeosu, Korea"
   },
   {
    "thumb": "/images/gallery/insta_18054808771528214.jpg",
@@ -1760,7 +1760,7 @@
    "fx": 60.7,
    "fy": 80.0,
    "desc": "",
-   "place": "여수"
+   "place": "Yeosu, Korea"
   },
   {
    "thumb": "/images/gallery/insta_18101903116394949.jpg",
@@ -1775,7 +1775,7 @@
    "fx": 38.3,
    "fy": 41.4,
    "desc": "",
-   "place": "여수"
+   "place": "Yeosu, Korea"
   },
   {
    "thumb": "/images/gallery/insta_18258765667243296.jpg",
@@ -1804,7 +1804,7 @@
    "fx": 50.9,
    "fy": 49.9,
    "desc": "",
-   "place": "여수"
+   "place": "Yeosu, Korea"
   },
   {
    "thumb": "/images/gallery/insta_18319098757123005.jpg",
@@ -1819,7 +1819,7 @@
    "fx": 50.5,
    "fy": 78.1,
    "desc": "",
-   "place": "여수"
+   "place": "Yeosu, Korea"
   },
   {
    "thumb": "/images/posts/11/연구실회식첫_hu_6e814e9ebe3ed2d.png",
@@ -1932,7 +1932,7 @@
    "fx": 31.2,
    "fy": 63.1,
    "desc": "",
-   "place": "미국 레드먼드"
+   "place": "Redmond, USA"
   },
   {
    "thumb": "/images/posts/4/자료분석학회1_hu_e8466bac0a3589c3.jpg",
@@ -1961,7 +1961,7 @@
    "fx": 43.5,
    "fy": 39.2,
    "desc": "",
-   "place": "제주"
+   "place": "Jeju, Korea"
   },
   {
    "thumb": "/images/posts/3/23산업공학회2_hu_b73682675093c1d.jpg",
@@ -1976,7 +1976,7 @@
    "fx": 52.9,
    "fy": 65.2,
    "desc": "",
-   "place": "제주"
+   "place": "Jeju, Korea"
   },
   {
    "thumb": "/images/gallery/insta_17880126524821961.jpg",
@@ -1991,7 +1991,7 @@
    "fx": 39.9,
    "fy": 40.8,
    "desc": "",
-   "place": "제주"
+   "place": "Jeju, Korea"
   },
   {
    "thumb": "/images/gallery/insta_17958719252544816.jpg",
@@ -2006,7 +2006,7 @@
    "fx": 53.0,
    "fy": 62.4,
    "desc": "",
-   "place": "제주"
+   "place": "Jeju, Korea"
   }
  ]
 }
