@@ -166,14 +166,8 @@ html, body, * {
 .pj :focus-visible{outline:3px solid #FBBF24;outline-offset:2px}
 
 .pj-hero{background:linear-gradient(115deg,#000B2E 0%,#001456 45%,#123A9E 100%);color:#fff}
-.pj-hero .in{max-width:1180px;margin:0 auto;padding:56px 24px 60px}
+.pj-hero .in{max-width:1180px;margin:0 auto;padding:44px 24px 48px}
 .pj-hero h1{font-size:46px;font-weight:900;letter-spacing:-.035em;line-height:1.06;margin:0}
-.pj-hero p{margin-top:14px;font-size:16.5px;line-height:1.8;color:#DBEAFE;max-width:880px}
-.pj-hero .stats{display:flex;gap:10px;margin-top:26px;flex-wrap:wrap}
-.pj-hero .st{background:rgba(255,255,255,.14);border:2px solid rgba(255,255,255,.42);
-  border-radius:10px;padding:10px 15px;font-size:13.5px;font-weight:800}
-.pj-hero .st b{font-size:19px;margin-right:6px}
-.pj-hero .asof{margin-top:14px;font-size:12.5px;font-weight:700;color:#B7CDF5}
 
 .pj-tag{font-size:11.5px;font-weight:900;padding:4px 10px;border-radius:5px;white-space:nowrap;
   display:inline-block}
@@ -194,7 +188,6 @@ html, body, * {
   border-radius:8px;border:2px solid #CBD3E3;background:#fff;color:#33405C;cursor:pointer}
 .pj-filter button:hover{background:#F1F4FA}
 .pj-filter button[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
-.pj-filter .vb{width:2px;height:24px;background:#E3E7F0;margin:0 5px}
 
 .pj-ledger{border:2px solid var(--line);border-radius:14px;overflow:hidden;margin-top:18px;background:#fff}
 .pj-lhd,.pj-row{display:grid;grid-template-columns:118px 1fr 214px 172px;gap:20px;align-items:center}
@@ -360,25 +353,11 @@ html, body, * {
 <div class="pj">
   <div class="pj-hero"><div class="in">
     <h1>Projects</h1>
-    <p>연구실이 수행 중이거나 마무리한 국가과제 및 산학 협력 과제 목록.
-       각 과제는 <a href="/research/" style="color:#fff;border-bottom:2px solid rgba(255,255,255,.6)">Research</a>
-       페이지의 세 연구 축과 연결.</p>
-    <div class="stats">
-      <span class="st"><b>9</b>건 전체</span>
-      <span class="st"><b>2</b>건 진행 중</span>
-      <span class="st"><b>2022-2027</b> 수행 기간</span>
-      <span class="st"><b>7</b>개 지원 기관</span>
-    </div>
-    <p class="asof">진행 상태 및 진행률은 2026.08 기준.</p>
   </div></div>
 
   <div class="pj-list-sec"><div class="pj-wrap">
-    <div class="pj-filter">
-      <span class="pj-fgroup" data-kind="status" role="group" aria-label="상태로 거르기">
-        <span class="lb">상태</span><button type="button" data-v="all" aria-pressed="true">전체 9</button><button type="button" data-v="live" aria-pressed="false">진행 중 2</button><button type="button" data-v="done" aria-pressed="false">완료 7</button></span>
-      <span class="vb" aria-hidden="true"></span>
-      <span class="pj-fgroup" data-kind="axis" role="group" aria-label="연구 축으로 거르기">
-        <span class="lb">연구 축</span><button type="button" data-v="all" aria-pressed="true">전체</button><button type="button" data-v="1" aria-pressed="false">Trustworthy AI</button><button type="button" data-v="2" aria-pressed="false">Representation</button><button type="button" data-v="3" aria-pressed="false">Applications</button></span>
+    <div class="pj-filter" role="group" aria-label="상태로 거르기">
+      <span class="lb">상태</span><button type="button" data-v="all" aria-pressed="true">전체 9</button><button type="button" data-v="live" aria-pressed="false">진행 중 2</button><button type="button" data-v="done" aria-pressed="false">완료 7</button>
     </div>
 
     <div class="pj-ledger">
@@ -523,14 +502,11 @@ html, body, * {
   var empty = document.querySelector('.pj-empty');
   document.querySelectorAll('.pj-filter button').forEach(function(btn){
     btn.addEventListener('click', function(){
-      var group = btn.closest('.pj-fgroup');
-      group.querySelectorAll('button').forEach(function(b){b.setAttribute('aria-pressed','false');});
+      btn.parentNode.querySelectorAll('button').forEach(function(b){b.setAttribute('aria-pressed','false');});
       btn.setAttribute('aria-pressed','true');
-      var st = document.querySelector('.pj-fgroup[data-kind="status"] button[aria-pressed="true"]').dataset.v;
-      var ax = document.querySelector('.pj-fgroup[data-kind="axis"] button[aria-pressed="true"]').dataset.v;
-      var n = 0;
+      var st = btn.dataset.v, n = 0;
       rows.forEach(function(li){
-        var ok = (st === 'all' || li.dataset.status === st) && (ax === 'all' || li.dataset.axis === ax);
+        var ok = (st === 'all' || li.dataset.status === st);
         li.hidden = !ok;
         if(ok) n++;
       });
