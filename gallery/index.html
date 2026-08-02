@@ -287,14 +287,14 @@ html, body, * {
     outline: 3px solid var(--primary); outline-offset: 3px;
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 900px), (orientation: portrait) {
     .pin { padding: 0; }
     .pin-card { grid-template-columns: 1fr; grid-template-rows: auto 1fr;
       border-radius: 0; height: 100vh; overflow-y: auto; }
     /* 사진 칸이 사진 높이에 맞게 줄어들어야 아래에 검은 여백이 남지 않는다 */
     .pin-photo { position: static; height: auto; }
     .pin-photo img { position: static; width: 100%; height: auto;
-      max-height: 56vh; object-fit: contain; }
+      max-height: 70vh; object-fit: contain; }
     .pin-body { padding: 20px 18px 96px; }
     .pin-title { font-size: 23px; margin-top: 12px; }
     .pin-by { margin-top: 18px; padding-top: 14px; }
