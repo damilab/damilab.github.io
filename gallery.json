@@ -1,6 +1,51 @@
 {
  "items": [
   {
+   "thumb": "/images/gallery/icml2026_IMG_0643.jpg",
+   "full": "/images/gallery/icml2026_IMG_0643.jpg",
+   "w": 1400,
+   "h": 1050,
+   "ratio": 1.3333,
+   "cap": "FAGEN@ICML 2026 워크샵 포스터 발표",
+   "cat": "Conference",
+   "date": "2026.07",
+   "link": "/publication/",
+   "fx": 45.0,
+   "fy": 51.8,
+   "desc": "",
+   "place": "서울 코엑스"
+  },
+  {
+   "thumb": "/images/gallery/icml2026_IMG_2624.jpg",
+   "full": "/images/gallery/icml2026_IMG_2624.jpg",
+   "w": 1400,
+   "h": 788,
+   "ratio": 1.7766,
+   "cap": "FAGEN@ICML 2026 포스터 세션",
+   "cat": "Conference",
+   "date": "2026.07",
+   "link": "/publication/",
+   "fx": 51.1,
+   "fy": 42.4,
+   "desc": "",
+   "place": "서울 코엑스"
+  },
+  {
+   "thumb": "/images/gallery/icml2026_IMG_0625.jpg",
+   "full": "/images/gallery/icml2026_IMG_0625.jpg",
+   "w": 1400,
+   "h": 1867,
+   "ratio": 0.7499,
+   "cap": "ICML 2026, 코엑스",
+   "cat": "Conference",
+   "date": "2026.07",
+   "link": "/publication/",
+   "fx": 69.8,
+   "fy": 72.8,
+   "desc": "",
+   "place": "서울 코엑스"
+  },
+  {
    "thumb": "/images/posts/51/IMG_1074_hu_d501aac57028e4d9.jpg",
    "full": "/images/posts/51/IMG_1074_hu_b464817444464dc2.jpg",
    "w": 1024,
