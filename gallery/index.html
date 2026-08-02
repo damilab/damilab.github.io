@@ -239,11 +239,16 @@ html, body, * {
   .pin.is-open { display: flex; }
   .pin-card { background: #fff; border-radius: 24px; overflow: hidden;
     width: min(1760px, 100%); height: calc(100vh - 36px);
-    display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 380px); }
-  .pin-photo { background: #111827; display: grid; place-items: center; overflow: hidden; }
-  .pin-photo img { width: 100%; height: 100%; object-fit: contain; display: block; }
-  .pin-body { min-width: 0; }
-  .pin-body { padding: 34px 34px 30px; overflow-y: auto; display: flex; flex-direction: column; }
+    display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 380px);
+}
+  /* 사진 칸을 기준으로 삼고 그 안에 사진을 가둔다.
+     세로로 긴 사진이 칸을 밀어내 아래가 잘리는 것을 막는다. */
+  .pin-photo { background: #111827; position: relative; overflow: hidden;
+    min-width: 0; min-height: 0; }
+  .pin-photo img { position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: contain; display: block; }
+  .pin-body { padding: 34px 34px 30px; overflow-y: auto; display: flex; flex-direction: column;
+    min-width: 0; min-height: 0; }
   .pin-cat { align-self: flex-start; background: #efefef; color: var(--ink);
     border-radius: 999px; padding: 6px 14px; font-size: 12px; font-weight: 800;
     letter-spacing: .04em; text-transform: uppercase; }
@@ -284,7 +289,8 @@ html, body, * {
     .pin { padding: 0; }
     .pin-card { grid-template-columns: 1fr; grid-template-rows: auto auto;
       border-radius: 0; height: 100vh; overflow-y: auto; }
-    .pin-photo img { height: auto; max-height: 62vh; }
+    .pin-photo { position: static; }
+    .pin-photo img { position: static; height: auto; max-height: 62vh; object-fit: contain; }
     .pin-body { padding: 24px 20px 40px; }
     .pin-title { font-size: 24px; }
     .pin-nav { top: auto; bottom: 16px; transform: none; }
