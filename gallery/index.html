@@ -490,9 +490,22 @@ html, body, * {
   var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) {
     return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
 
+  function sortPins(list) {
+    return list.slice().sort(function (a, b) {
+      var ya = String(a.date || '').split('.')[0], yb = String(b.date || '').split('.')[0];
+      if (!ya !== !yb) return ya ? -1 : 1;              // 날짜 없는 것은 맨 뒤
+      if (ya !== yb) return yb.localeCompare(ya);       // 연도 내림차순
+      var na = Number(a.ord), nb = Number(b.ord);
+      var oa = 'ord' in a && !isNaN(na), ob = 'ord' in b && !isNaN(nb);   // ord 가 숫자가 아니면 없는 것으로 취급
+      if (oa && ob) return na - nb;                     // 같은 연도 안에서는 ord
+      if (oa !== ob) return oa ? -1 : 1;
+      return String(b.date || '').localeCompare(String(a.date || ''));
+    });
+  }
+
   fetch('/gallery.json', { cache: 'no-cache' })
     .then(function (r) { return r.json(); })
-    .then(function (d) { PINS = d.items || []; render(); })
+    .then(function (d) { PINS = sortPins(d.items || []); render(); })
     .catch(function () { empty.textContent = '사진을 불러오지 못했습니다.'; empty.classList.add('is-on'); });
 
   function render() {
@@ -522,7 +535,8 @@ html, body, * {
         .map(function (x) {
           var p = x[0], i = x[1];
           return '<button type="button" class="ph" data-cat="' + esc(p.cat) + '" data-idx="' + i +
-                 '" data-ratio="' + p.ratio + '" style="--fx:' + p.fx + '%; --fy:' + p.fy + '%">' +
+                 '" data-ratio="' + p.ratio + '" data-big="' + (p.size === 'big' ? '1' : '0') +
+                 '" style="--fx:' + p.fx + '%; --fy:' + p.fy + '%">' +
                  '<span class="ph-img"><img src="' + esc(p.thumb) + '" alt="' + esc(p.cap) +
                  '" loading="lazy" decoding="async" width="' + p.w + '" height="' + p.h + '">' +
                  '<span class="ph-veil"></span></span>' +
@@ -604,7 +618,13 @@ html, body, * {
           var want = wideLeft >= 3 ? 2 : 1, need = wideLeft >= 3 ? 3 : 5, picked = [];
           for (var n = 0; n < need; n++) {
             var wi = -1;
-            for (var m = 0; m < pool.length; m++) { if (pool[m].w === want) { wi = m; break; } }
+            // ★ 표시된 사진은 picked[0] 자리(실제로 큰 타일이 되는 자리)를 고를 때만 우선한다
+            if (n === 0) for (var m = 0; m < pool.length; m++) {
+              if (pool[m].w === want && pool[m].el.dataset.big === '1') { wi = m; break; }
+            }
+            if (wi < 0) for (var m2 = 0; m2 < pool.length; m2++) {
+              if (pool[m2].w === want) { wi = m2; break; }
+            }
             if (wi < 0) break;
             picked.push(pool.splice(wi, 1)[0]);
           }
