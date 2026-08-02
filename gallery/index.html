@@ -571,19 +571,26 @@ html, body, * {
         // 사진이 대부분 같은 비율이면 타일이 전부 같은 크기가 되어 밋밋해진다.
         // 세 블록마다 한 장을 두 배 크기로 키우고 그 옆을 보통 타일 두 장으로 채운다.
         // 4x4 한 장 + 2x2 두 장 = 6칸 x 4행 이라 빈칸은 생기지 않는다.
-        var wideLeft = pool.filter(function (x) { return x.w === 2; }).length;
-        if (C >= 6 && block % 3 === 0 && wideLeft >= 3) {
-          var picked = [];
-          for (var n = 0; n < 3; n++) {
+        var wideLeft = 0, tallLeft = 0;
+        pool.forEach(function (x) { if (x.w === 2) wideLeft++; else tallLeft++; });
+        if (C >= 6 && block % 3 === 0 && (wideLeft >= 3 || tallLeft >= 5)) {
+          // 가로 사진이 넉넉하면 가로 한 장을 두 배로 키우고 옆을 보통 두 장으로 채운다.
+          // 세로 사진밖에 없으면 세로 한 장을 두 배로 키우고 옆에 네 장을 쌓는다.
+          // 어느 쪽이든 6칸 x 4행이 정확히 차서 빈칸이 없다.
+          var want = wideLeft >= 3 ? 2 : 1, need = wideLeft >= 3 ? 3 : 5, picked = [];
+          for (var n = 0; n < need; n++) {
             var wi = -1;
-            for (var m = 0; m < pool.length; m++) { if (pool[m].w === 2) { wi = m; break; } }
+            for (var m = 0; m < pool.length; m++) { if (pool[m].w === want) { wi = m; break; } }
             if (wi < 0) break;
             picked.push(pool.splice(wi, 1)[0]);
           }
-          picked[0].w = 4; picked[0].r = 4;
-          laid = laid.concat(picked);
-          block++;
-          continue;
+          if (picked.length === need) {
+            picked[0].w = want * 2; picked[0].r = 4;
+            laid = laid.concat(picked);
+            block++;
+            continue;
+          }
+          pool = picked.concat(pool);   // 모자라면 원래대로 돌려놓고 보통 줄로 간다
         }
         var rem = C, row = [];
         while (rem > 0 && pool.length) {
