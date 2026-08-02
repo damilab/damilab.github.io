@@ -15,7 +15,7 @@
    "desc": "",
    "place": "COEX, Seoul",
    "id": "6a2048e1c51c4c33b9e8e337ffbce508",
-   "ord": 1
+   "ord": 0
   },
   {
    "thumb": "/images/gallery/icml2026_IMG_2624.jpg",
@@ -32,7 +32,7 @@
    "desc": "",
    "place": "COEX, Seoul",
    "id": "533ed2fbb5f44448b5b592c0d293d250",
-   "ord": 2
+   "ord": 1
   },
   {
    "thumb": "/images/gallery/icml2026_IMG_0625.jpg",
@@ -49,7 +49,7 @@
    "desc": "",
    "place": "COEX, Seoul",
    "id": "3e5c4ac480c94e30b5e14c7469e0b01c",
-   "ord": 3
+   "ord": 2
   },
   {
    "thumb": "/images/posts/51/IMG_1074_hu_d501aac57028e4d9.jpg",
@@ -65,7 +65,7 @@
    "fy": 29.9,
    "desc": "",
    "id": "3a54facc6fd944e7aaa549717c188f60",
-   "ord": 4
+   "ord": 3
   },
   {
    "thumb": "/images/posts/51/IMG_5211_hu_c350ca93abdada12.jpg",
@@ -81,7 +81,7 @@
    "fy": 44.3,
    "desc": "",
    "id": "0440dd5c94b2451e8fa10ab3699263ed",
-   "ord": 5
+   "ord": 4
   },
   {
    "thumb": "/images/posts/51/IMG_9896_hu_b7836b9bdd77ad3.jpg",
@@ -97,7 +97,7 @@
    "fy": 64.0,
    "desc": "",
    "id": "41f1a4c650ef4a3bbb468db857b6861a",
-   "ord": 6
+   "ord": 5
   },
   {
    "thumb": "/images/posts/50/it_hu_a42f747aedc61d4c.jpg",
@@ -114,7 +114,7 @@
    "desc": "",
    "place": "COEX, Seoul",
    "id": "719607fb8e4d4570b25a7d2eaa04083e",
-   "ord": 7
+   "ord": 6
   },
   {
    "thumb": "/images/posts/50/it2_hu_e32aa1ae8886a915.jpg",
@@ -131,7 +131,7 @@
    "desc": "",
    "place": "COEX, Seoul",
    "id": "cdbbfae4ddb14e29ad418097df50a460",
-   "ord": 8
+   "ord": 7
   },
   {
    "thumb": "/images/posts/49/ICLR1_hu_c8e37b7b513d92f3.jpg",
@@ -148,7 +148,7 @@
    "desc": "",
    "place": "Rio de Janeiro, Brazil",
    "id": "3508b63765b648bb9d717e74eb622bea",
-   "ord": 9
+   "ord": 8
   },
   {
    "thumb": "/images/posts/49/ICLR2_hu_ae9731701e4ccbbc.jpg",
@@ -165,7 +165,7 @@
    "desc": "",
    "place": "Rio de Janeiro, Brazil",
    "id": "85e8a9b1e4d64138a90d2e0e54e60795",
-   "ord": 10
+   "ord": 9
   },
   {
    "thumb": "/images/posts/49/ICLR4_hu_37691ceeffc61989.jpg",
@@ -182,7 +182,7 @@
    "desc": "",
    "place": "Rio de Janeiro, Brazil",
    "id": "f88bbb92200c4686acbd994965439fce",
-   "ord": 11
+   "ord": 10
   },
   {
    "thumb": "/images/posts/49/IMG_6574_hu_ee5153b1c713650b.jpg",
@@ -199,7 +199,7 @@
    "desc": "",
    "place": "Rio de Janeiro, Brazil",
    "id": "a30ac1701d2447dca09fd73d2e79827c",
-   "ord": 12
+   "ord": 11
   },
   {
    "thumb": "/images/posts/48/1000042430_hu_9cba592b22cf1d37.jpg",
@@ -215,7 +215,7 @@
    "fy": 54.8,
    "desc": "",
    "id": "9d0c5e96f9864cf981458a86b5c3a91b",
-   "ord": 13
+   "ord": 12
   },
   {
    "thumb": "/images/posts/48/1000042433_hu_fddada55f83b35af.jpg",
@@ -231,7 +231,7 @@
    "fy": 41.3,
    "desc": "",
    "id": "39ae95c7e3f147cfafa2bbde7c6e2bcc",
-   "ord": 14
+   "ord": 13
   },
   {
    "thumb": "/images/posts/48/20260410_183016_hu_f09fdde0de229dc0.jpg",
@@ -247,7 +247,7 @@
    "fy": 51.7,
    "desc": "",
    "id": "639553495bca4d2fa2a50faccafbcdb4",
-   "ord": 15
+   "ord": 14
   },
   {
    "thumb": "/images/posts/48/IMG_0276_hu_6a42ab7b6df94ddc.jpg",
@@ -263,7 +263,7 @@
    "fy": 47.6,
    "desc": "",
    "id": "a17d557be7b54cb489e4324b6b1048ec",
-   "ord": 16
+   "ord": 15
   },
   {
    "thumb": "/images/posts/48/IMG_3704_hu_f794e335dbe7a0b7.jpg",
@@ -279,7 +279,7 @@
    "fy": 59.0,
    "desc": "",
    "id": "8354d10b986043b48bbc4a0ce4a59917",
-   "ord": 17
+   "ord": 16
   },
   {
    "thumb": "/images/posts/48/IMG_3746_hu_da7d293fc746332f.jpg",
@@ -295,7 +295,7 @@
    "fy": 64.7,
    "desc": "",
    "id": "76c6a4da74c1417c80a0c10ba70269b7",
-   "ord": 18
+   "ord": 17
   },
   {
    "thumb": "/images/posts/48/IMG_9476_hu_cb09d873d9e0ceae.jpg",
@@ -311,7 +311,7 @@
    "fy": 62.9,
    "desc": "",
    "id": "df88ce31fa1247e7a1efc2e2b32c4e09",
-   "ord": 19
+   "ord": 18
   },
   {
    "thumb": "/images/posts/47/parksa_hu_cf40d9cce272eb93.jpg",
@@ -327,7 +327,7 @@
    "fy": 53.3,
    "desc": "",
    "id": "a2d5474b691d421f93abf37c65ec0c11",
-   "ord": 20
+   "ord": 19
   },
   {
    "thumb": "/images/posts/47/parksa2_hu_dd626fffafcd67b4.jpg",
@@ -343,7 +343,7 @@
    "fy": 48.6,
    "desc": "",
    "id": "013faebd70da4a818e0da884bd152de0",
-   "ord": 21
+   "ord": 20
   },
   {
    "thumb": "/images/posts/47/parksa3_hu_53e5b2c3b01ca5df.jpg",
@@ -359,7 +359,7 @@
    "fy": 53.3,
    "desc": "",
    "id": "68a0c05008af473b88b2cca91211e229",
-   "ord": 22
+   "ord": 21
   },
   {
    "thumb": "/images/posts/44/송년회1_hu_3a0c409b762757a8.jpg",
@@ -1466,7 +1466,8 @@
    "desc": "",
    "place": "Tokyo, Japan",
    "id": "28c9ff1c6fe6445f928e3ae663ae7707",
-   "ord": 66
+   "ord": 66,
+   "size": "big"
   },
   {
    "thumb": "/images/gallery/insta_18105531358466983.jpg",
@@ -2002,23 +2003,6 @@
    "ord": 25
   },
   {
-   "thumb": "/images/gallery/insta_18054808771528214.jpg",
-   "full": "/images/gallery/insta_18054808771528214.jpg",
-   "w": 1400,
-   "h": 1540,
-   "ratio": 0.9091,
-   "cap": "대한산업공학회 2024 춘계학술대회",
-   "cat": "Conference",
-   "date": "2024.05",
-   "link": "",
-   "fx": 60.7,
-   "fy": 80.0,
-   "desc": "",
-   "place": "Yeosu, Korea",
-   "id": "0816af68ab8641c99f050222db839fd7",
-   "ord": 26
-  },
-  {
    "thumb": "/images/gallery/insta_18101903116394949.jpg",
    "full": "/images/gallery/insta_18101903116394949.jpg",
    "w": 1400,
@@ -2049,7 +2033,8 @@
    "fy": 66.0,
    "desc": "",
    "id": "30f4f69661ac4c6f82626a8f0d0ccc1f",
-   "ord": 28
+   "ord": 28,
+   "size": "big"
   },
   {
    "thumb": "/images/gallery/insta_18265972054225831.jpg",
