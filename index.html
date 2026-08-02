@@ -648,7 +648,7 @@ document.addEventListener('DOMContentLoaded', function() {
   .dami-tl .tl-yr > h3{margin:0 0 10px;font-size:15px;font-weight:900;letter-spacing:.04em;
     color:var(--sub);display:flex;align-items:center;gap:10px}
   .dami-tl .tl-yr > h3::after{content:"";flex:1;height:2px;background:var(--line)}
-  .dami-tl .tl-rows{position:relative;padding-left:104px}
+  .dami-tl .tl-rows{position:relative;padding-left:104px;margin:0;list-style:none}
   .dami-tl .tl-rows::before{content:"";position:absolute;left:92px;top:6px;bottom:6px;
     width:2px;background:var(--line)}
   .dami-tl .history-item{position:relative;padding:7px 0 7px 18px}
@@ -664,6 +664,8 @@ document.addEventListener('DOMContentLoaded', function() {
   .dami-tl .history-item a:hover{color:var(--k);border-bottom-color:var(--k)}
   .dami-tl .history-item .tl-meta{margin-top:2px;font-size:11.5px;color:#8a8a8a}
   .dami-tl .tl-empty{padding:44px 0;text-align:center;color:var(--sub);font-weight:700}
+  .dami-tl .tl-sr{position:absolute;width:1px;height:1px;overflow:hidden;
+    clip:rect(0 0 0 0);white-space:nowrap}
 
   @media (max-width:720px){
     .dami-tl .tl-rows{padding-left:22px}
@@ -673,7 +675,7 @@ document.addEventListener('DOMContentLoaded', function() {
     .dami-tl .history-item .tl-dot{left:-17px;top:10px}
   }
 </style>
-  <section class="py-16 bg-white dark:bg-gray-900">
+  <section id="history" class="py-16 bg-white dark:bg-gray-900">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div>
       <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
@@ -762,389 +764,392 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
     <div class="dami-tl">
-      <div class="tl-filters mt-8">
-      <button onclick="filterHistory('all')" class="year-filter px-4 py-2 rounded-lg text-sm font-medium transition-colors" data-year="all" style="background-color: #e5e7eb; color: #374151;">ALL</button>
-      <button onclick="filterHistory('2026')" class="year-filter px-4 py-2 rounded-lg text-sm font-medium transition-colors" data-year="2026" style="background-color: #e5e7eb; color: #374151;">2026</button>
-      <button onclick="filterHistory('2025')" class="year-filter px-4 py-2 rounded-lg text-sm font-medium transition-colors" data-year="2025" style="background-color: #e5e7eb; color: #374151;">2025</button>
-      <button onclick="filterHistory('2024')" class="year-filter px-4 py-2 rounded-lg text-sm font-medium transition-colors" data-year="2024" style="background-color: #e5e7eb; color: #374151;">2024</button>
-      <button onclick="filterHistory('2023')" class="year-filter px-4 py-2 rounded-lg text-sm font-medium transition-colors" data-year="2023" style="background-color: #e5e7eb; color: #374151;">2023</button>
-      <button onclick="filterHistory('2022')" class="year-filter px-4 py-2 rounded-lg text-sm font-medium transition-colors" data-year="2022" style="background-color: #e5e7eb; color: #374151;">2022</button>
-      <button onclick="filterHistory('2021')" class="year-filter px-4 py-2 rounded-lg text-sm font-medium transition-colors" data-year="2021" style="background-color: #e5e7eb; color: #374151;">2021</button>
+      <div class="tl-filters mt-8" role="group" aria-label="연도별 보기">
+      <button onclick="filterHistory('all')" class="year-filter px-4 py-2 rounded-lg text-sm font-medium transition-colors" data-year="all" style="background-color: #e5e7eb; color: #374151;" aria-pressed="false">ALL</button>
+      <button onclick="filterHistory('2026')" class="year-filter px-4 py-2 rounded-lg text-sm font-medium transition-colors" data-year="2026" style="background-color: #e5e7eb; color: #374151;" aria-pressed="false">2026</button>
+      <button onclick="filterHistory('2025')" class="year-filter px-4 py-2 rounded-lg text-sm font-medium transition-colors" data-year="2025" style="background-color: #e5e7eb; color: #374151;" aria-pressed="false">2025</button>
+      <button onclick="filterHistory('2024')" class="year-filter px-4 py-2 rounded-lg text-sm font-medium transition-colors" data-year="2024" style="background-color: #e5e7eb; color: #374151;" aria-pressed="false">2024</button>
+      <button onclick="filterHistory('2023')" class="year-filter px-4 py-2 rounded-lg text-sm font-medium transition-colors" data-year="2023" style="background-color: #e5e7eb; color: #374151;" aria-pressed="false">2023</button>
+      <button onclick="filterHistory('2022')" class="year-filter px-4 py-2 rounded-lg text-sm font-medium transition-colors" data-year="2022" style="background-color: #e5e7eb; color: #374151;" aria-pressed="false">2022</button>
+      <button onclick="filterHistory('2021')" class="year-filter px-4 py-2 rounded-lg text-sm font-medium transition-colors" data-year="2021" style="background-color: #e5e7eb; color: #374151;" aria-pressed="false">2021</button>
       </div>
 
       <div id="history-container">
         <section class="tl-yr">
           <h3>2026 <span style="font-weight:800">11</span></h3>
-          <div class="tl-rows">
-          <div class="history-item k-join" data-year="2026" data-kind="join">
-            <span class="tl-dt">2026.07.29</span>
-            <span class="tl-dot"></span>
+          <ol class="tl-rows">
+          <li class="history-item k-join" data-year="2026" data-kind="join">
+            <time class="tl-dt" datetime="2026-07-29">2026.07.29</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4><a href="https://damilab.github.io/researcher/minjun/">김민준</a>, <a href="https://damilab.github.io/researcher/yunyeong/">장윤영</a>, <a href="https://damilab.github.io/researcher/jochanwoong/">조찬웅</a> 학생 입학</h4>
             <p>학석사연계과정 <a href="https://damilab.github.io/researcher/minjun/">김민준</a>·<a href="https://damilab.github.io/researcher/yunyeong/">장윤영</a>, 인턴 <a href="https://damilab.github.io/researcher/jochanwoong/">조찬웅</a></p>
-          </div>
-          <div class="history-item k-career" data-year="2026" data-kind="career">
-            <span class="tl-dt">2026.07.28</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-career" data-year="2026" data-kind="career">
+            <time class="tl-dt" datetime="2026-07-28">2026.07.28</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4><a href="https://damilab.github.io/researcher/miso/">김미소</a> 연구원, 네이버 클라우드 인턴 합격</h4>
-          </div>
-          <div class="history-item k-journal" data-year="2026" data-kind="journal">
-            <span class="tl-dt">2026.07.08</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-journal" data-year="2026" data-kind="journal">
+            <time class="tl-dt" datetime="2026-07-08">2026.07.08</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4>Journal of Hazardous Materials Advances 논문 게재</h4>
             <p>Sampling-bias-aware machine-learning mapping of geogenic indoor radon hazard in Jeollanam-do, Korea using measured-low negatives</p>
             <p class="tl-meta">SCIE, JCR Q1, IF: 9.1, JCR Top 9%</p>
-          </div>
-          <div class="history-item k-career" data-year="2026" data-kind="career">
-            <span class="tl-dt">2026.07.06</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-career" data-year="2026" data-kind="career">
+            <time class="tl-dt" datetime="2026-07-06">2026.07.06</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4><a href="https://damilab.github.io/researcher/hyeonjin/">김현진</a> 연구원, HD한국조선해양 생성형 언어모델 연구직 합격</h4>
-          </div>
-          <div class="history-item k-accept" data-year="2026" data-kind="accept">
-            <span class="tl-dt">2026.05.27</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-accept" data-year="2026" data-kind="accept">
+            <time class="tl-dt" datetime="2026-05-27">2026.05.27</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4>ICML 2026 워크샵 논문 채택</h4>
             <p>What Did You Do Behind My Back?! Covert Indirect Prompt Injection on Tool-Using LLM Agents (FAGEN@ICML 2026)</p>
-          </div>
-          <div class="history-item k-journal" data-year="2026" data-kind="journal">
-            <span class="tl-dt">2026.05.22</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-journal" data-year="2026" data-kind="journal">
+            <time class="tl-dt" datetime="2026-05-22">2026.05.22</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4>IEEE Access 논문 게재</h4>
             <p>Exploring the Effect of Multi-Step Ascent in Sharpness-Aware Minimization</p>
             <p class="tl-meta">SCIE, JCR Q2, IF: 3.6</p>
-          </div>
-          <div class="history-item k-journal" data-year="2026" data-kind="journal">
-            <span class="tl-dt">2026.04.14</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-journal" data-year="2026" data-kind="journal">
+            <time class="tl-dt" datetime="2026-04-14">2026.04.14</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4>Applied Sciences 논문 게재</h4>
             <p>Explainable Graph-Based Golf Swing Analysis Integrating Club and Body Keypoints for Ball Flight Outcome Prediction</p>
             <p class="tl-meta">SCIE, JCR Q2, IF: 2.5</p>
-          </div>
-          <div class="history-item k-join" data-year="2026" data-kind="join">
-            <span class="tl-dt">2026.03.01</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-join" data-year="2026" data-kind="join">
+            <time class="tl-dt" datetime="2026-03-01">2026.03.01</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4><a href="https://damilab.github.io/researcher/seunghyun/">정승현</a> 학생, 박사과정 입학</h4>
-          </div>
-          <div class="history-item k-journal" data-year="2026" data-kind="journal">
-            <span class="tl-dt">2026.02.02</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-journal" data-year="2026" data-kind="journal">
+            <time class="tl-dt" datetime="2026-02-02">2026.02.02</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4>Journal of Theoretical and Applied Electronic Commerce Research 논문 게재</h4>
             <p>Disconfirmation Dynamics in Service Recovery: Insights from Online Customer Reviews</p>
             <p class="tl-meta">SSCI, JCR Q1, IF: 4.5</p>
-          </div>
-          <div class="history-item k-accept" data-year="2026" data-kind="accept">
-            <span class="tl-dt">2026.01.26</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-accept" data-year="2026" data-kind="accept">
+            <time class="tl-dt" datetime="2026-01-26">2026.01.26</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4>ICLR 2026 논문 채택</h4>
             <p>Co-occurring Associated REtained concepts in Diffusion Unlearning</p>
-          </div>
-          <div class="history-item k-accept" data-year="2026" data-kind="accept">
-            <span class="tl-dt">2026.01.25</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-accept" data-year="2026" data-kind="accept">
+            <time class="tl-dt" datetime="2026-01-25">2026.01.25</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4>ICLR 2026 논문 채택</h4>
             <p>SlotGCG: Exploiting the Positional Vulnerability in LLMs for Jailbreak Attacks</p>
-          </div>
-          </div>
+          </li>
+          </ol>
         </section>
         <section class="tl-yr">
           <h3>2025 <span style="font-weight:800">19</span></h3>
-          <div class="tl-rows">
-          <div class="history-item k-journal" data-year="2025" data-kind="journal">
-            <span class="tl-dt">2025.12.24</span>
-            <span class="tl-dot"></span>
+          <ol class="tl-rows">
+          <li class="history-item k-journal" data-year="2025" data-kind="journal">
+            <time class="tl-dt" datetime="2025-12-24">2025.12.24</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4>Computational Economics 논문 게재</h4>
             <p>Large Language Models as Financial Analysts: Sector-Aware Reasoning for Investment Decisions</p>
             <p class="tl-meta">SCIE, JCR Q2, IF: 2.2</p>
-          </div>
-          <div class="history-item k-career" data-year="2025" data-kind="career">
-            <span class="tl-dt">2025.11.26</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-career" data-year="2025" data-kind="career">
+            <time class="tl-dt" datetime="2025-11-26">2025.11.26</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4>졸업생 <a href="https://damilab.github.io/researcher/christoph/">Christoph Timmermann</a> 학생, Technical University of Munich × Audi 박사과정 합격</h4>
-          </div>
-          <div class="history-item k-award" data-year="2025" data-kind="award">
-            <span class="tl-dt">2025.11.08</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-award" data-year="2025" data-kind="award">
+            <time class="tl-dt" datetime="2025-11-08">2025.11.08</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4><a href="https://damilab.github.io/researcher/seunghyun/">정승현</a> 학생, 한국정보처리학회 ACK 2025 산학연협동우수상 수상</h4>
-          </div>
-          <div class="history-item k-project" data-year="2025" data-kind="project">
-            <span class="tl-dt">2025.09.01</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-project" data-year="2025" data-kind="project">
+            <time class="tl-dt" datetime="2025-09-01">2025.09.01</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4>김캐디 산학 과제 수행</h4>
             <p>골프 클럽과 관절 정보를 활용한 골프 스윙 분석 (2025.09 - 2026.01)</p>
-          </div>
-          <div class="history-item k-join" data-year="2025" data-kind="join">
-            <span class="tl-dt">2025.09.01</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-join" data-year="2025" data-kind="join">
+            <time class="tl-dt" datetime="2025-09-01">2025.09.01</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4><a href="https://damilab.github.io/researcher/yunseok/">이윤석</a>, <a href="https://damilab.github.io/researcher/yunji/">김윤지</a>, <a href="https://damilab.github.io/researcher/seungwon/">정승원</a>, <a href="https://damilab.github.io/researcher/jiwoo/">정지우</a> 학생, 석사과정 입학</h4>
-          </div>
-          <div class="history-item k-award" data-year="2025" data-kind="award">
-            <span class="tl-dt">2025.08.28</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-award" data-year="2025" data-kind="award">
+            <time class="tl-dt" datetime="2025-08-28">2025.08.28</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4><a href="https://damilab.github.io/researcher/hyunse/">이현세</a> 학생, 한국데이터마이닝학회 2025 하계학술대회 최우수 논문상 수상</h4>
-          </div>
-          <div class="history-item k-journal" data-year="2025" data-kind="journal">
-            <span class="tl-dt">2025.08.21</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-journal" data-year="2025" data-kind="journal">
+            <time class="tl-dt" datetime="2025-08-21">2025.08.21</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4>Geomatics, Natural Hazards and Risk 논문 게재</h4>
             <p>Deep learning-enhanced geospatial modeling for indoor radon mapping in Jeollabuk-do, South Korea</p>
             <p class="tl-meta">SCIE, JCR Q1, IF: 4.4, JCR Top 15%</p>
-          </div>
-          <div class="history-item k-journal" data-year="2025" data-kind="journal">
-            <span class="tl-dt">2025.06.12</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-journal" data-year="2025" data-kind="journal">
+            <time class="tl-dt" datetime="2025-06-12">2025.06.12</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4>CVsports at CVPR 2025 논문 게재</h4>
             <p>CaddieSet: A Golf Swing Dataset with Human Joint Features and Ball Information</p>
-          </div>
-          <div class="history-item k-join" data-year="2025" data-kind="join">
-            <span class="tl-dt">2025.06.01</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-join" data-year="2025" data-kind="join">
+            <time class="tl-dt" datetime="2025-06-01">2025.06.01</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4><a href="https://damilab.github.io/researcher/yunji/">김윤지</a>, <a href="https://damilab.github.io/researcher/yunseok/">이윤석</a> 학생 입학</h4>
             <p>학석사연계과정 <a href="https://damilab.github.io/researcher/yunji/">김윤지</a>, 학부 인턴 <a href="https://damilab.github.io/researcher/yunseok/">이윤석</a></p>
-          </div>
-          <div class="history-item k-journal" data-year="2025" data-kind="journal">
-            <span class="tl-dt">2025.04.23</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-journal" data-year="2025" data-kind="journal">
+            <time class="tl-dt" datetime="2025-04-23">2025.04.23</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4>Information Sciences 논문 게재</h4>
             <p>Towards undetectable adversarial attack on time series classification</p>
             <p class="tl-meta">SCIE, JCR Q1, IF: 8.2, JCR Top 8%</p>
-          </div>
-          <div class="history-item k-journal" data-year="2025" data-kind="journal">
-            <span class="tl-dt">2025.04.16</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-journal" data-year="2025" data-kind="journal">
+            <time class="tl-dt" datetime="2025-04-16">2025.04.16</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4>IEEE Access 논문 게재</h4>
             <p>LM-CLIP: Adapting Positive Asymmetric Loss for Long-Tailed Multi-Label Classification</p>
             <p class="tl-meta">SCIE, JCR Q2, IF: 3.6</p>
-          </div>
-          <div class="history-item k-journal" data-year="2025" data-kind="journal">
-            <span class="tl-dt">2025.04.10</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-journal" data-year="2025" data-kind="journal">
+            <time class="tl-dt" datetime="2025-04-10">2025.04.10</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4>Finance Research Letters 논문 게재</h4>
             <p>Interconnected dynamics of sustainable cryptocurrencies: Insights from transfer entropy analysis</p>
             <p class="tl-meta">SSCI, JCR Q1, IF: 7.4, JCR Top 1%</p>
-          </div>
-          <div class="history-item k-project" data-year="2025" data-kind="project">
-            <span class="tl-dt">2025.04.01</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-project" data-year="2025" data-kind="project">
+            <time class="tl-dt" datetime="2025-04-01">2025.04.01</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4>기상청 산학 과제 수행</h4>
             <p>전천(All sky) 기후자료 산출 및 초해상화 인공지능 모델 개발 (2025.04 - 2027.12)</p>
-          </div>
-          <div class="history-item k-project" data-year="2025" data-kind="project">
-            <span class="tl-dt">2025.04.01</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-project" data-year="2025" data-kind="project">
+            <time class="tl-dt" datetime="2025-04-01">2025.04.01</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4>한국과학기술정보연구원 산학 과제 수행</h4>
             <p>지능형 데이터 큐레이션 및 통합 구축 기술 개발 (2025.04 - 2025.09)</p>
-          </div>
-          <div class="history-item k-award" data-year="2025" data-kind="award">
-            <span class="tl-dt">2025.04.01</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-award" data-year="2025" data-kind="award">
+            <time class="tl-dt" datetime="2025-04-01">2025.04.01</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4>한국연구재단 우수신진연구 선정</h4>
             <p>윤리적인 다국어 LLM 활용을 위한 문맥 기반 탈옥 가드레일 구축 (2025.03 - 2027.02)</p>
-          </div>
-          <div class="history-item k-join" data-year="2025" data-kind="join">
-            <span class="tl-dt">2025.04.01</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-join" data-year="2025" data-kind="join">
+            <time class="tl-dt" datetime="2025-04-01">2025.04.01</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4><a href="https://damilab.github.io/researcher/hyunse/">이현세</a> 학생, 석사과정 입학</h4>
-          </div>
-          <div class="history-item k-journal" data-year="2025" data-kind="journal">
-            <span class="tl-dt">2025.03.01</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-journal" data-year="2025" data-kind="journal">
+            <time class="tl-dt" datetime="2025-03-01">2025.03.01</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4>Applied Soft Computing 논문 게재</h4>
             <p>Black-box adversarial examples via frequency distortion against fault diagnosis systems</p>
             <p class="tl-meta">SCIE, JCR Q1, IF: 7.2, JCR Top 10%</p>
-          </div>
-          <div class="history-item k-join" data-year="2025" data-kind="join">
-            <span class="tl-dt">2025.03.01</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-join" data-year="2025" data-kind="join">
+            <time class="tl-dt" datetime="2025-03-01">2025.03.01</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4><a href="https://damilab.github.io/researcher/minseok/">김민석</a> 학생, 석사과정 입학</h4>
-          </div>
-          <div class="history-item k-journal" data-year="2025" data-kind="journal">
-            <span class="tl-dt">2025.02.07</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-journal" data-year="2025" data-kind="journal">
+            <time class="tl-dt" datetime="2025-02-07">2025.02.07</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4>Earth Systems and Environment 논문 게재</h4>
             <p>AI-Driven Geospatial Analysis of Indoor Radon Levels: A Case Study in Chungcheongbuk-do, South Korea</p>
             <p class="tl-meta">ESCI, JCR Q1, IF: 5.3, JCR Top 10%</p>
-          </div>
-          </div>
+          </li>
+          </ol>
         </section>
         <section class="tl-yr">
           <h3>2024 <span style="font-weight:800">10</span></h3>
-          <div class="tl-rows">
-          <div class="history-item k-journal" data-year="2024" data-kind="journal">
-            <span class="tl-dt">2024.12.01</span>
-            <span class="tl-dot"></span>
+          <ol class="tl-rows">
+          <li class="history-item k-journal" data-year="2024" data-kind="journal">
+            <time class="tl-dt" datetime="2024-12-01">2024.12.01</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4>Expert Systems with Applications 논문 게재</h4>
             <p>Multi-stage ensemble with refinement for noisy labeled data classification</p>
             <p class="tl-meta">SCIE, JCR Q1, IF: 7.5, JCR Top 10%</p>
-          </div>
-          <div class="history-item k-project" data-year="2024" data-kind="project">
-            <span class="tl-dt">2024.09.01</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-project" data-year="2024" data-kind="project">
+            <time class="tl-dt" datetime="2024-09-01">2024.09.01</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4>사물인터넷 혁신융합대학사업 산학 과제 수행</h4>
             <p>예외 상황과 일반 상황의 분포 차이 최소화 적응 기법 개발 (2024.09 - 2025.01)</p>
-          </div>
-          <div class="history-item k-join" data-year="2024" data-kind="join">
-            <span class="tl-dt">2024.09.01</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-join" data-year="2024" data-kind="join">
+            <time class="tl-dt" datetime="2024-09-01">2024.09.01</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4><a href="https://damilab.github.io/researcher/hyeonjin/">김현진</a>, <a href="https://damilab.github.io/researcher/miso/">김미소</a> 학생, 석사과정 입학</h4>
-          </div>
-          <div class="history-item k-join" data-year="2024" data-kind="join">
-            <span class="tl-dt">2024.08.01</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-join" data-year="2024" data-kind="join">
+            <time class="tl-dt" datetime="2024-08-01">2024.08.01</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4><a href="https://damilab.github.io/researcher/minseok/">김민석</a> 학생, 학석사연계과정 입학</h4>
-          </div>
-          <div class="history-item k-journal" data-year="2024" data-kind="journal">
-            <span class="tl-dt">2024.07.01</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-journal" data-year="2024" data-kind="journal">
+            <time class="tl-dt" datetime="2024-07-01">2024.07.01</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4>Journal of Environmental Management 논문 게재</h4>
             <p>Flood susceptibility mapping of Cheongju, South Korea based on the integration of environmental factors using various machine learning approaches</p>
             <p class="tl-meta">SCIE, JCR Q1, IF: 8.0, JCR Top 10%</p>
-          </div>
-          <div class="history-item k-journal" data-year="2024" data-kind="journal">
-            <span class="tl-dt">2024.05.05</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-journal" data-year="2024" data-kind="journal">
+            <time class="tl-dt" datetime="2024-05-05">2024.05.05</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4>Journal of Ambient Intelligence and Humanized Computing 논문 게재</h4>
             <p>Sliced Wasserstein adversarial training for improving adversarial robustness</p>
             <p class="tl-meta">SCIE, JCR Q1, IF: 7.104, JCR Top 10%</p>
-          </div>
-          <div class="history-item k-journal" data-year="2024" data-kind="journal">
-            <span class="tl-dt">2024.05.01</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-journal" data-year="2024" data-kind="journal">
+            <time class="tl-dt" datetime="2024-05-01">2024.05.01</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4>Pattern Recognition Letters 논문 게재</h4>
             <p>Graph contrastive learning with consistency regularization</p>
             <p class="tl-meta">SCIE, JCR Q2, IF: 3.9</p>
-          </div>
-          <div class="history-item k-journal" data-year="2024" data-kind="journal">
-            <span class="tl-dt">2024.03.01</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-journal" data-year="2024" data-kind="journal">
+            <time class="tl-dt" datetime="2024-03-01">2024.03.01</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4>Engineering Applications of Artificial Intelligence 논문 게재</h4>
             <p>Evaluating practical adversarial robustness of fault diagnosis systems via spectrogram-aware ensemble method</p>
             <p class="tl-meta">SCIE, JCR Q1, IF: 7.5, JCR Top 2%</p>
-          </div>
-          <div class="history-item k-join" data-year="2024" data-kind="join">
-            <span class="tl-dt">2024.03.01</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-join" data-year="2024" data-kind="join">
+            <time class="tl-dt" datetime="2024-03-01">2024.03.01</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4><a href="https://damilab.github.io/researcher/georu/">이거루</a>, <a href="https://damilab.github.io/researcher/seunghyun/">정승현</a> 학생 대학원 입학</h4>
             <p>석박사통합과정 <a href="https://damilab.github.io/researcher/georu/">이거루</a>, 석사과정 <a href="https://damilab.github.io/researcher/seunghyun/">정승현</a></p>
-          </div>
-          <div class="history-item k-project" data-year="2024" data-kind="project">
-            <span class="tl-dt">2024.01.01</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-project" data-year="2024" data-kind="project">
+            <time class="tl-dt" datetime="2024-01-01">2024.01.01</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4>김캐디 산학 과제 수행</h4>
             <p>XAI를 활용한 골프 스윙 피드백 모델 개발 (2024.01 -</p>
-          </div>
-          </div>
+          </li>
+          </ol>
         </section>
         <section class="tl-yr">
           <h3>2023 <span style="font-weight:800">7</span></h3>
-          <div class="tl-rows">
-          <div class="history-item k-journal" data-year="2023" data-kind="journal">
-            <span class="tl-dt">2023.10.19</span>
-            <span class="tl-dot"></span>
+          <ol class="tl-rows">
+          <li class="history-item k-journal" data-year="2023" data-kind="journal">
+            <time class="tl-dt" datetime="2023-10-19">2023.10.19</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4>IEEE Access 논문 게재</h4>
             <p>Fairness-Aware Multimodal Learning in Automatic Video Interview Assessment</p>
             <p class="tl-meta">SCIE, JCR Q2, IF: 3.9</p>
-          </div>
-          <div class="history-item k-journal" data-year="2023" data-kind="journal">
-            <span class="tl-dt">2023.10.01</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-journal" data-year="2023" data-kind="journal">
+            <time class="tl-dt" datetime="2023-10-01">2023.10.01</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4>Neural Networks 논문 게재</h4>
             <p>Bridged adversarial training</p>
             <p class="tl-meta">SCIE, JCR Q1, IF: 6.6, JCR Top 11%</p>
-          </div>
-          <div class="history-item k-journal" data-year="2023" data-kind="journal">
-            <span class="tl-dt">2023.09.01</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-journal" data-year="2023" data-kind="journal">
+            <time class="tl-dt" datetime="2023-09-01">2023.09.01</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4>Applied Soft Computing 논문 게재</h4>
             <p>Fast sharpness-aware training for periodic time series classification and forecasting</p>
             <p class="tl-meta">SCIE, JCR Q1, IF: 7.2, JCR Top 10%</p>
-          </div>
-          <div class="history-item k-join" data-year="2023" data-kind="join">
-            <span class="tl-dt">2023.09.01</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-join" data-year="2023" data-kind="join">
+            <time class="tl-dt" datetime="2023-09-01">2023.09.01</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4><a href="https://damilab.github.io/researcher/christoph/">Christoph Timmermann</a> 학생, 석사과정 입학</h4>
-          </div>
-          <div class="history-item k-journal" data-year="2023" data-kind="journal">
-            <span class="tl-dt">2023.08.05</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-journal" data-year="2023" data-kind="journal">
+            <time class="tl-dt" datetime="2023-08-05">2023.08.05</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4>Scientific Reports 논문 게재</h4>
             <p>Genetic descriptor search algorithm for predicting hydrogen adsorption free energy of 2D material</p>
             <p class="tl-meta">SCIE, JCR Q2, IF: 4.6</p>
-          </div>
-          <div class="history-item k-join" data-year="2023" data-kind="join">
-            <span class="tl-dt">2023.07.01</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-join" data-year="2023" data-kind="join">
+            <time class="tl-dt" datetime="2023-07-01">2023.07.01</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4><a href="https://damilab.github.io/researcher/seungwon/">정승원</a>, <a href="https://damilab.github.io/researcher/jiwoo/">정지우</a>, <a href="https://damilab.github.io/researcher/miso/">김미소</a>, <a href="https://damilab.github.io/researcher/hyeonjin/">김현진</a> 학생, 학석사연계과정 입학</h4>
-          </div>
-          <div class="history-item k-project" data-year="2023" data-kind="project">
-            <span class="tl-dt">2023.05.01</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-project" data-year="2023" data-kind="project">
+            <time class="tl-dt" datetime="2023-05-01">2023.05.01</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4>Pixt 산학 과제 수행</h4>
             <p>한국어 전용 동영상 캡션 AI 모델 개발 (2023.05 - 2024.04)</p>
-          </div>
-          </div>
+          </li>
+          </ol>
         </section>
         <section class="tl-yr">
           <h3>2022 <span style="font-weight:800">4</span></h3>
-          <div class="tl-rows">
-          <div class="history-item k-journal" data-year="2022" data-kind="journal">
-            <span class="tl-dt">2022.09.01</span>
-            <span class="tl-dot"></span>
+          <ol class="tl-rows">
+          <li class="history-item k-journal" data-year="2022" data-kind="journal">
+            <time class="tl-dt" datetime="2022-09-01">2022.09.01</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4>Pattern Recognition 논문 게재</h4>
             <p>Variational cycle-consistent imputation adversarial networks for general missing patterns</p>
             <p class="tl-meta">SCIE, JCR Q1, IF: 7.5, JCR Top 7%</p>
-          </div>
-          <div class="history-item k-join" data-year="2022" data-kind="join">
-            <span class="tl-dt">2022.08.01</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-join" data-year="2022" data-kind="join">
+            <time class="tl-dt" datetime="2022-08-01">2022.08.01</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4><a href="https://damilab.github.io/researcher/seunghyun/">정승현</a> 학생, 학석사연계과정 입학</h4>
-          </div>
-          <div class="history-item k-project" data-year="2022" data-kind="project">
-            <span class="tl-dt">2022.07.01</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-project" data-year="2022" data-kind="project">
+            <time class="tl-dt" datetime="2022-07-01">2022.07.01</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4>제네시스랩 산학 과제 수행</h4>
             <p>공정한 인공지능 면접 모델 알고리즘 개발 (2022.07 - 2022.12)</p>
-          </div>
-          <div class="history-item k-project" data-year="2022" data-kind="project">
-            <span class="tl-dt">2022.06.01</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-project" data-year="2022" data-kind="project">
+            <time class="tl-dt" datetime="2022-06-01">2022.06.01</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4>한국연구재단 산학 과제 수행</h4>
             <p>인공지능 시스템의 실용화를 위한 딥러닝 안정성 알고리즘 개발 (2022.06 - 2025.02)</p>
-          </div>
-          </div>
+          </li>
+          </ol>
         </section>
         <section class="tl-yr">
           <h3>2021 <span style="font-weight:800">4</span></h3>
-          <div class="tl-rows">
-          <div class="history-item k-journal" data-year="2021" data-kind="journal">
-            <span class="tl-dt">2021.12.06</span>
-            <span class="tl-dot"></span>
+          <ol class="tl-rows">
+          <li class="history-item k-journal" data-year="2021" data-kind="journal">
+            <time class="tl-dt" datetime="2021-12-06">2021.12.06</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4>NeurIPS 논문 게재</h4>
             <p>Parameter-free HE-friendly Logistic Regression</p>
-          </div>
-          <div class="history-item k-journal" data-year="2021" data-kind="journal">
-            <span class="tl-dt">2021.12.06</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-journal" data-year="2021" data-kind="journal">
+            <time class="tl-dt" datetime="2021-12-06">2021.12.06</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4>NeurIPS 논문 게재</h4>
             <p>Towards Better Understanding of Training Certifiably Robust Models against Adversarial Examples</p>
-          </div>
-          <div class="history-item k-journal" data-year="2021" data-kind="journal">
-            <span class="tl-dt">2021.12.01</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-journal" data-year="2021" data-kind="journal">
+            <time class="tl-dt" datetime="2021-12-01">2021.12.01</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4>Information Sciences 논문 게재</h4>
             <p>Fair clustering with fair correspondence distribution</p>
             <p class="tl-meta">SCIE, JCR Q1, IF: 8.233, JCR Top 10%</p>
-          </div>
-          <div class="history-item k-journal" data-year="2021" data-kind="journal">
-            <span class="tl-dt">2021.04.01</span>
-            <span class="tl-dot"></span>
+          </li>
+          <li class="history-item k-journal" data-year="2021" data-kind="journal">
+            <time class="tl-dt" datetime="2021-04-01">2021.04.01</time>
+            <span class="tl-dot" aria-hidden="true"></span>
             <h4>Pattern Recognition 논문 게재</h4>
             <p>Compact class-conditional domain invariant learning for multi-class domain adaptation</p>
             <p class="tl-meta">SCIE, JCR Q1, IF: 7.5, JCR Top 7%</p>
-          </div>
-          </div>
+          </li>
+          </ol>
         </section>
         <p class="tl-empty" id="tl-empty" style="display:none">해당 조건의 기록이 없습니다.</p>
+        <p class="tl-sr" id="tl-live" role="status" aria-live="polite"></p>
       </div>
     </div>
+
+
 
 
 
@@ -1166,19 +1171,19 @@ document.addEventListener('DOMContentLoaded', function() {
   </div>
 
   <script>
-    /* 연도·종류 두 축으로 거른다. 연도 머리글은 남는 항목이 없으면 같이 숨긴다. */
+    /* 연도 하나만 고르는 필터. 항목이 없는 연도 머리글은 같이 숨긴다. */
     var tlYear = '2026';
 
     function tlApply() {
       document.querySelectorAll('.year-filter').forEach(function (b) {
         var on = b.dataset.year === tlYear;
         b.classList.toggle('active', on);
+        b.setAttribute('aria-pressed', String(on));
         b.style.backgroundColor = on ? '#333333' : '#e5e7eb';
         b.style.color = on ? 'white' : '#374151';
       });
       document.querySelectorAll('.dami-tl .history-item').forEach(function (it) {
-        var ok = (tlYear === 'all' || it.dataset.year === tlYear);
-        it.style.display = ok ? '' : 'none';
+        it.style.display = (tlYear === 'all' || it.dataset.year === tlYear) ? '' : 'none';
       });
       var shown = 0;
       document.querySelectorAll('.dami-tl .tl-yr').forEach(function (sec) {
@@ -1188,6 +1193,8 @@ document.addEventListener('DOMContentLoaded', function() {
       });
       var empty = document.getElementById('tl-empty');
       if (empty) empty.style.display = shown ? 'none' : '';
+      var live = document.getElementById('tl-live');
+      if (live) live.textContent = (tlYear === 'all' ? '전체' : tlYear + '년') + ' 연혁 ' + shown + '건 표시';
     }
 
     function filterHistory(year) { tlYear = year; tlApply(); }

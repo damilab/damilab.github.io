@@ -1,0 +1,387 @@
+[
+ {
+  "date": "2026-07-29",
+  "title": "김민준, 장윤영, 조찬웅 학생 입학",
+  "sub": "학석사연계과정 김민준·장윤영, 인턴 조찬웅",
+  "meta": "",
+  "kind": "join"
+ },
+ {
+  "date": "2026-07-28",
+  "title": "김미소 연구원, 네이버 클라우드 인턴 합격",
+  "sub": "",
+  "meta": "",
+  "kind": "career"
+ },
+ {
+  "date": "2026-07-08",
+  "title": "Journal of Hazardous Materials Advances 논문 게재",
+  "sub": "Sampling-bias-aware machine-learning mapping of geogenic indoor radon hazard in Jeollanam-do, Korea using measured-low negatives",
+  "meta": "SCIE, JCR Q1, IF: 9.1, JCR Top 9%",
+  "kind": "journal"
+ },
+ {
+  "date": "2026-07-06",
+  "title": "김현진 연구원, HD한국조선해양 생성형 언어모델 연구직 합격",
+  "sub": "",
+  "meta": "",
+  "kind": "career"
+ },
+ {
+  "date": "2026-05-27",
+  "title": "ICML 2026 워크샵 논문 채택",
+  "sub": "What Did You Do Behind My Back?! Covert Indirect Prompt Injection on Tool-Using LLM Agents (FAGEN@ICML 2026)",
+  "meta": "",
+  "kind": "accept"
+ },
+ {
+  "date": "2026-05-22",
+  "title": "IEEE Access 논문 게재",
+  "sub": "Exploring the Effect of Multi-Step Ascent in Sharpness-Aware Minimization",
+  "meta": "SCIE, JCR Q2, IF: 3.6",
+  "kind": "journal"
+ },
+ {
+  "date": "2026-04-14",
+  "title": "Applied Sciences 논문 게재",
+  "sub": "Explainable Graph-Based Golf Swing Analysis Integrating Club and Body Keypoints for Ball Flight Outcome Prediction",
+  "meta": "SCIE, JCR Q2, IF: 2.5",
+  "kind": "journal"
+ },
+ {
+  "date": "2026-03-01",
+  "title": "정승현 학생, 박사과정 입학",
+  "sub": "",
+  "meta": "",
+  "kind": "join"
+ },
+ {
+  "date": "2026-02-02",
+  "title": "Journal of Theoretical and Applied Electronic Commerce Research 논문 게재",
+  "sub": "Disconfirmation Dynamics in Service Recovery: Insights from Online Customer Reviews",
+  "meta": "SSCI, JCR Q1, IF: 4.5",
+  "kind": "journal"
+ },
+ {
+  "date": "2026-01-26",
+  "title": "ICLR 2026 논문 채택",
+  "sub": "Co-occurring Associated REtained concepts in Diffusion Unlearning",
+  "meta": "",
+  "kind": "accept"
+ },
+ {
+  "date": "2026-01-25",
+  "title": "ICLR 2026 논문 채택",
+  "sub": "SlotGCG: Exploiting the Positional Vulnerability in LLMs for Jailbreak Attacks",
+  "meta": "",
+  "kind": "accept"
+ },
+ {
+  "date": "2025-12-24",
+  "title": "Computational Economics 논문 게재",
+  "sub": "Large Language Models as Financial Analysts: Sector-Aware Reasoning for Investment Decisions",
+  "meta": "SCIE, JCR Q2, IF: 2.2",
+  "kind": "journal"
+ },
+ {
+  "date": "2025-11-26",
+  "title": "졸업생 Christoph Timmermann 학생, Technical University of Munich × Audi 박사과정 합격",
+  "sub": "",
+  "meta": "",
+  "kind": "career"
+ },
+ {
+  "date": "2025-11-08",
+  "title": "정승현 학생, 한국정보처리학회 ACK 2025 산학연협동우수상 수상",
+  "sub": "",
+  "meta": "",
+  "kind": "award"
+ },
+ {
+  "date": "2025-09-01",
+  "title": "김캐디 산학 과제 수행",
+  "sub": "골프 클럽과 관절 정보를 활용한 골프 스윙 분석 (2025.09 - 2026.01)",
+  "meta": "",
+  "kind": "project"
+ },
+ {
+  "date": "2025-09-01",
+  "title": "이윤석, 김윤지, 정승원, 정지우 학생, 석사과정 입학",
+  "sub": "",
+  "meta": "",
+  "kind": "join"
+ },
+ {
+  "date": "2025-08-28",
+  "title": "이현세 학생, 한국데이터마이닝학회 2025 하계학술대회 최우수 논문상 수상",
+  "sub": "",
+  "meta": "",
+  "kind": "award"
+ },
+ {
+  "date": "2025-08-21",
+  "title": "Geomatics, Natural Hazards and Risk 논문 게재",
+  "sub": "Deep learning-enhanced geospatial modeling for indoor radon mapping in Jeollabuk-do, South Korea",
+  "meta": "SCIE, JCR Q1, IF: 4.4, JCR Top 15%",
+  "kind": "journal"
+ },
+ {
+  "date": "2025-06-12",
+  "title": "CVsports at CVPR 2025 논문 게재",
+  "sub": "CaddieSet: A Golf Swing Dataset with Human Joint Features and Ball Information",
+  "meta": "",
+  "kind": "journal"
+ },
+ {
+  "date": "2025-06-01",
+  "title": "김윤지, 이윤석 학생 입학",
+  "sub": "학석사연계과정 김윤지, 학부 인턴 이윤석",
+  "meta": "",
+  "kind": "join"
+ },
+ {
+  "date": "2025-04-23",
+  "title": "Information Sciences 논문 게재",
+  "sub": "Towards undetectable adversarial attack on time series classification",
+  "meta": "SCIE, JCR Q1, IF: 8.2, JCR Top 8%",
+  "kind": "journal"
+ },
+ {
+  "date": "2025-04-16",
+  "title": "IEEE Access 논문 게재",
+  "sub": "LM-CLIP: Adapting Positive Asymmetric Loss for Long-Tailed Multi-Label Classification",
+  "meta": "SCIE, JCR Q2, IF: 3.6",
+  "kind": "journal"
+ },
+ {
+  "date": "2025-04-10",
+  "title": "Finance Research Letters 논문 게재",
+  "sub": "Interconnected dynamics of sustainable cryptocurrencies: Insights from transfer entropy analysis",
+  "meta": "SSCI, JCR Q1, IF: 7.4, JCR Top 1%",
+  "kind": "journal"
+ },
+ {
+  "date": "2025-04-01",
+  "title": "기상청 산학 과제 수행",
+  "sub": "전천(All sky) 기후자료 산출 및 초해상화 인공지능 모델 개발 (2025.04 - 2027.12)",
+  "meta": "",
+  "kind": "project"
+ },
+ {
+  "date": "2025-04-01",
+  "title": "한국과학기술정보연구원 산학 과제 수행",
+  "sub": "지능형 데이터 큐레이션 및 통합 구축 기술 개발 (2025.04 - 2025.09)",
+  "meta": "",
+  "kind": "project"
+ },
+ {
+  "date": "2025-04-01",
+  "title": "한국연구재단 우수신진연구 선정",
+  "sub": "윤리적인 다국어 LLM 활용을 위한 문맥 기반 탈옥 가드레일 구축 (2025.03 - 2027.02)",
+  "meta": "",
+  "kind": "award"
+ },
+ {
+  "date": "2025-04-01",
+  "title": "이현세 학생, 석사과정 입학",
+  "sub": "",
+  "meta": "",
+  "kind": "join"
+ },
+ {
+  "date": "2025-03-01",
+  "title": "Applied Soft Computing 논문 게재",
+  "sub": "Black-box adversarial examples via frequency distortion against fault diagnosis systems",
+  "meta": "SCIE, JCR Q1, IF: 7.2, JCR Top 10%",
+  "kind": "journal"
+ },
+ {
+  "date": "2025-03-01",
+  "title": "김민석 학생, 석사과정 입학",
+  "sub": "",
+  "meta": "",
+  "kind": "join"
+ },
+ {
+  "date": "2025-02-07",
+  "title": "Earth Systems and Environment 논문 게재",
+  "sub": "AI-Driven Geospatial Analysis of Indoor Radon Levels: A Case Study in Chungcheongbuk-do, South Korea",
+  "meta": "ESCI, JCR Q1, IF: 5.3, JCR Top 10%",
+  "kind": "journal"
+ },
+ {
+  "date": "2024-12-01",
+  "title": "Expert Systems with Applications 논문 게재",
+  "sub": "Multi-stage ensemble with refinement for noisy labeled data classification",
+  "meta": "SCIE, JCR Q1, IF: 7.5, JCR Top 10%",
+  "kind": "journal"
+ },
+ {
+  "date": "2024-09-01",
+  "title": "사물인터넷 혁신융합대학사업 산학 과제 수행",
+  "sub": "예외 상황과 일반 상황의 분포 차이 최소화 적응 기법 개발 (2024.09 - 2025.01)",
+  "meta": "",
+  "kind": "project"
+ },
+ {
+  "date": "2024-09-01",
+  "title": "김현진, 김미소 학생, 석사과정 입학",
+  "sub": "",
+  "meta": "",
+  "kind": "join"
+ },
+ {
+  "date": "2024-08-01",
+  "title": "김민석 학생, 학석사연계과정 입학",
+  "sub": "",
+  "meta": "",
+  "kind": "join"
+ },
+ {
+  "date": "2024-07-01",
+  "title": "Journal of Environmental Management 논문 게재",
+  "sub": "Flood susceptibility mapping of Cheongju, South Korea based on the integration of environmental factors using various machine learning approaches",
+  "meta": "SCIE, JCR Q1, IF: 8.0, JCR Top 10%",
+  "kind": "journal"
+ },
+ {
+  "date": "2024-05-05",
+  "title": "Journal of Ambient Intelligence and Humanized Computing 논문 게재",
+  "sub": "Sliced Wasserstein adversarial training for improving adversarial robustness",
+  "meta": "SCIE, JCR Q1, IF: 7.104, JCR Top 10%",
+  "kind": "journal"
+ },
+ {
+  "date": "2024-05-01",
+  "title": "Pattern Recognition Letters 논문 게재",
+  "sub": "Graph contrastive learning with consistency regularization",
+  "meta": "SCIE, JCR Q2, IF: 3.9",
+  "kind": "journal"
+ },
+ {
+  "date": "2024-03-01",
+  "title": "Engineering Applications of Artificial Intelligence 논문 게재",
+  "sub": "Evaluating practical adversarial robustness of fault diagnosis systems via spectrogram-aware ensemble method",
+  "meta": "SCIE, JCR Q1, IF: 7.5, JCR Top 2%",
+  "kind": "journal"
+ },
+ {
+  "date": "2024-03-01",
+  "title": "이거루, 정승현 학생 대학원 입학",
+  "sub": "석박사통합과정 이거루, 석사과정 정승현",
+  "meta": "",
+  "kind": "join"
+ },
+ {
+  "date": "2024-01-01",
+  "title": "김캐디 산학 과제 수행",
+  "sub": "XAI를 활용한 골프 스윙 피드백 모델 개발 (2024.01 -",
+  "meta": "",
+  "kind": "project"
+ },
+ {
+  "date": "2023-10-19",
+  "title": "IEEE Access 논문 게재",
+  "sub": "Fairness-Aware Multimodal Learning in Automatic Video Interview Assessment",
+  "meta": "SCIE, JCR Q2, IF: 3.9",
+  "kind": "journal"
+ },
+ {
+  "date": "2023-10-01",
+  "title": "Neural Networks 논문 게재",
+  "sub": "Bridged adversarial training",
+  "meta": "SCIE, JCR Q1, IF: 6.6, JCR Top 11%",
+  "kind": "journal"
+ },
+ {
+  "date": "2023-09-01",
+  "title": "Applied Soft Computing 논문 게재",
+  "sub": "Fast sharpness-aware training for periodic time series classification and forecasting",
+  "meta": "SCIE, JCR Q1, IF: 7.2, JCR Top 10%",
+  "kind": "journal"
+ },
+ {
+  "date": "2023-09-01",
+  "title": "Christoph Timmermann 학생, 석사과정 입학",
+  "sub": "",
+  "meta": "",
+  "kind": "join"
+ },
+ {
+  "date": "2023-08-05",
+  "title": "Scientific Reports 논문 게재",
+  "sub": "Genetic descriptor search algorithm for predicting hydrogen adsorption free energy of 2D material",
+  "meta": "SCIE, JCR Q2, IF: 4.6",
+  "kind": "journal"
+ },
+ {
+  "date": "2023-07-01",
+  "title": "정승원, 정지우, 김미소, 김현진 학생, 학석사연계과정 입학",
+  "sub": "",
+  "meta": "",
+  "kind": "join"
+ },
+ {
+  "date": "2023-05-01",
+  "title": "Pixt 산학 과제 수행",
+  "sub": "한국어 전용 동영상 캡션 AI 모델 개발 (2023.05 - 2024.04)",
+  "meta": "",
+  "kind": "project"
+ },
+ {
+  "date": "2022-09-01",
+  "title": "Pattern Recognition 논문 게재",
+  "sub": "Variational cycle-consistent imputation adversarial networks for general missing patterns",
+  "meta": "SCIE, JCR Q1, IF: 7.5, JCR Top 7%",
+  "kind": "journal"
+ },
+ {
+  "date": "2022-08-01",
+  "title": "정승현 학생, 학석사연계과정 입학",
+  "sub": "",
+  "meta": "",
+  "kind": "join"
+ },
+ {
+  "date": "2022-07-01",
+  "title": "제네시스랩 산학 과제 수행",
+  "sub": "공정한 인공지능 면접 모델 알고리즘 개발 (2022.07 - 2022.12)",
+  "meta": "",
+  "kind": "project"
+ },
+ {
+  "date": "2022-06-01",
+  "title": "한국연구재단 산학 과제 수행",
+  "sub": "인공지능 시스템의 실용화를 위한 딥러닝 안정성 알고리즘 개발 (2022.06 - 2025.02)",
+  "meta": "",
+  "kind": "project"
+ },
+ {
+  "date": "2021-12-06",
+  "title": "NeurIPS 논문 게재",
+  "sub": "Parameter-free HE-friendly Logistic Regression",
+  "meta": "",
+  "kind": "journal"
+ },
+ {
+  "date": "2021-12-06",
+  "title": "NeurIPS 논문 게재",
+  "sub": "Towards Better Understanding of Training Certifiably Robust Models against Adversarial Examples",
+  "meta": "",
+  "kind": "journal"
+ },
+ {
+  "date": "2021-12-01",
+  "title": "Information Sciences 논문 게재",
+  "sub": "Fair clustering with fair correspondence distribution",
+  "meta": "SCIE, JCR Q1, IF: 8.233, JCR Top 10%",
+  "kind": "journal"
+ },
+ {
+  "date": "2021-04-01",
+  "title": "Pattern Recognition 논문 게재",
+  "sub": "Compact class-conditional domain invariant learning for multi-class domain adaptation",
+  "meta": "SCIE, JCR Q1, IF: 7.5, JCR Top 7%",
+  "kind": "journal"
+ }
+]
