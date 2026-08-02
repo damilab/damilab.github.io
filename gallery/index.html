@@ -529,7 +529,7 @@ html, body, * {
       Array.prototype.forEach.call(sec.querySelectorAll('.ph'), function (el) {
         var p = PINS[+el.dataset.idx];
         var ok = (activeCat === 'All' || p.cat === activeCat) &&
-                 (!term || (p.cap + ' ' + p.cat + ' ' + (p.desc || '')).toLowerCase().indexOf(term) >= 0);
+                 (!term || (p.cap + ' ' + p.cat + ' ' + (p.place || '') + ' ' + (p.desc || '')).toLowerCase().indexOf(term) >= 0);
         el.classList.toggle('is-off', !ok);
         if (ok) { visible.push(+el.dataset.idx); n++; }
       });
@@ -671,7 +671,8 @@ html, body, * {
     document.getElementById('pinImg').alt = it.cap;
     document.getElementById('pinCat').textContent = it.cat;
     document.getElementById('pinTitle').textContent = it.cap;
-    document.getElementById('pinDate').textContent = it.date;
+    document.getElementById('pinDate').textContent =
+      it.date + (it.place ? '  ·  ' + it.place : '');
     var d = document.getElementById('pinDesc');
     d.textContent = it.desc || '';
     d.style.display = it.desc ? '' : 'none';
