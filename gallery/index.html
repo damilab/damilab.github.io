@@ -606,6 +606,17 @@ html, body, * {
     tall: { w: 2, r: 4, bands: [4, 4] }
   };
 
+  // x 가 다른 사진의 확정 요청(크게/가로로 넓게/세로로 길게) 때문에 자기 차례를
+  // 기다리는 중인지. 작게 는 요청이 아니라 "언제나 보통 칸으로 고정"이라 대기하지
+  // 않는다 — 남의 큰 타일 옆을 채우는 보통 동반 타일로 아무 때나 쓸 수 있다.
+  function pending(x) { return !!x.size && x.size !== 'small'; }
+
+  // x 가 지금 이 자리에서 "이번에 커질 사진" 후보인지. 작게 는 절대 후보가 될 수
+  // 없다 — head 자리에 와도 마찬가지다(그래서 !x.size 만으로는 부족하다).
+  function autoPromoteOK(x, head, headFailed) {
+    return x.size !== 'small' && ((x === head && !headFailed) || !x.size);
+  }
+
   // rest(=head 를 뺀 pool) 안에서 앞에서부터 가까운 사진을 우선으로 bands 를
   // 정확히 채우는 조합을 찾는다. 아직 제 차례가 안 된 다른 요청 사진(size 있음)은
   // 후보에서 제외한다. 띠마다 처음부터(아직 안 쓴 사진 중) 다시 훑는다 — 앞 띠가
@@ -621,8 +632,8 @@ html, body, * {
       for (var i = 0; i < rest.length && remaining > 0; i++) {
         if (used[i]) continue;
         var item = rest[i];
-        if (item.size) continue;
-        if (item.w > remaining) continue;
+        if (pending(item)) continue;
+        if (item.w > remaining) break;   // 대기 중이 아닌 사진이 안 랞으면 이번 띠은 여기서 멈춘다(순서 유지)
         used[i] = true;
         idxs.push(i);
         remaining -= item.w;
@@ -642,7 +653,7 @@ html, body, * {
   // 중간 구멍은 절대 안 되므로, rest 안에 아직 제 차례가 안 된 요청 사진이
   // 하나라도 있으면(=뒤에 더 나올 게 있다는 뜻) 바로 포기한다.
   function fillBandsLastRow(rest, bands) {
-    if (rest.some(function (x) { return !!x.size; })) return null;
+    if (rest.some(pending)) return null;
     var capacity = bands.reduce(function (s, b) { return s + b; }, 0);
     var totalW = rest.reduce(function (s, x) { return s + x.w; }, 0);
     if (totalW > capacity) return null;
@@ -715,12 +726,18 @@ html, body, * {
         // 실패한 사진(headFailed)과 아직 제 차례가 안 된 다른 요청 사진은 여기서
         // 건드리지 않는다.
         var wideLeft = 0, tallLeft = 0;
-        pool.forEach(function (x) { if ((x === head && !headFailed) || !x.size) { if (x.w === 2) wideLeft++; else tallLeft++; } });
+        pool.forEach(function (x) { if (autoPromoteOK(x, head, headFailed)) { if (x.w === 2) wideLeft++; else tallLeft++; } });
         if (C >= 6 && block % 2 === 0 && (wideLeft >= 3 || tallLeft >= 5)) {
           var want = wideLeft >= 3 ? 2 : 1, need = wideLeft >= 3 ? 3 : 5, picked2 = [];
           for (var n = 0; n < need; n++) {
             var wi2 = -1;
-            for (var k = 0; k < pool.length; k++) { if (pool[k].w === want && ((pool[k] === head && !headFailed) || !pool[k].size)) { wi2 = k; break; } }
+            for (var k = 0; k < pool.length; k++) {
+              var cand = pool[k];
+              if (cand.w !== want) continue;
+              var ok = n === 0 ? autoPromoteOK(cand, head, headFailed)
+                : (autoPromoteOK(cand, head, headFailed) || cand.size === 'small');
+              if (ok) { wi2 = k; break; }
+            }
             if (wi2 < 0) break;
             picked2.push(pool.splice(wi2, 1)[0]);
           }
@@ -741,7 +758,7 @@ html, body, * {
           // 넣지 않는다(다음 블록에서 head 가 될 기회를 남겨 둔다). 4/2칸 화면은
           // 크기 요청 자체를 무시하므로 이 예약을 적용하지 않는다.
           for (var kk = 0; kk < pool.length; kk++) {
-            if (pool[kk].w <= rem && (C < 6 || pool[kk] === head || !pool[kk].size)) { i = kk; break; }
+            if (pool[kk].w <= rem && (C < 6 || pool[kk] === head || !pending(pool[kk]))) { i = kk; break; }
           }
           if (i < 0) break;
           var c = pool.splice(i, 1)[0];
