@@ -633,7 +633,7 @@ html, body, * {
         if (used[i]) continue;
         var item = rest[i];
         if (pending(item)) continue;
-        if (item.w > remaining) break;   // 대기 중이 아닌 사진이 안 랞으면 이번 띠은 여기서 멈춘다(순서 유지)
+        if (item.w > remaining) break;   // 대기 중이 아닌 사진이 안 맞으면 이번 띠는 여기서 멈춘다(순서 유지)
         used[i] = true;
         idxs.push(i);
         remaining -= item.w;
