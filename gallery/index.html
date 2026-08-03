@@ -535,7 +535,7 @@ html, body, * {
         .map(function (x) {
           var p = x[0], i = x[1];
           return '<button type="button" class="ph" data-cat="' + esc(p.cat) + '" data-idx="' + i +
-                 '" data-ratio="' + p.ratio + '" data-big="' + (p.size === 'big' ? '1' : '0') +
+                 '" data-ratio="' + p.ratio + '" data-size="' + esc(p.size || '') +
                  '" style="--fx:' + p.fx + '%; --fy:' + p.fy + '%">' +
                  '<span class="ph-img"><img src="' + esc(p.thumb) + '" alt="' + esc(p.cap) +
                  '" loading="lazy" decoding="async" width="' + p.w + '" height="' + p.h + '">' +
@@ -592,6 +592,79 @@ html, body, * {
   // 격자를 빈칸 없이 채우고, 모자란 만큼은 얼굴 쪽을 살려 잘라낸다
   function cols() { var w = innerWidth; return w < 620 ? 2 : (w < 1000 ? 4 : 6); }
 
+  // 크기 요청 네 가지: 자동(''), 크게(4x4), 가로로 넓게(4x2), 세로로 길게(2x4).
+  // w/r 은 6칸 그리드에서의 칸 수(w) 와 행 단위 수(r). bands 는 요청 사진이
+  // 빠진 "옆 공간"을 2행(=r 4단위)짜리 띠로 나눈 폭(칸) 목록이다. 각 띠는 그
+  // 폭만큼 가로 타일(2칸)과 세로 타일(1칸)을 아무렇게나 섞어 정확히 채우면 된다
+  // (예: 폭 4 띠는 가로 2장, 또는 가로1+세로2, 또는 세로 4장 모두 가능).
+  //   big : 4x4, 옆은 2칸x4행 = 폭2 띠 두 개
+  //   wide: 4x2, 옆은 2칸x2행 = 폭2 띠 한 개
+  //   tall: 2x4, 옆은 4칸x4행 = 폭4 띠 두 개
+  var SIZE_MODULES = {
+    big: { w: 4, r: 4, bands: [2, 2] },
+    wide: { w: 4, r: 2, bands: [2] },
+    tall: { w: 2, r: 4, bands: [4, 4] }
+  };
+
+  // rest(=head 를 뺀 pool) 안에서 앞에서부터 가까운 사진을 우선으로 bands 를
+  // 정확히 채우는 조합을 찾는다. 아직 제 차례가 안 된 다른 요청 사진(size 있음)은
+  // 후보에서 제외한다. 띠마다 처음부터(아직 안 쓴 사진 중) 다시 훑는다 — 앞 띠가
+  // 못 쓰고 건너뛴 사진(예: 남은 자리가 1칸인데 폭 2짜리라 못 낀 사진)도 다음
+  // 띠에서는 다시 후보가 되어야 하기 때문이다(안 그러면 총량은 충분한데도 그
+  // 사진 하나를 영영 못 써서 채울 수 있는 조합을 놓친다).
+  // 성공하면 rest 안에서의 인덱스 배열(오름차순), 실패하면 null.
+  function fillBands(rest, bands) {
+    var used = rest.map(function () { return false; });
+    var idxs = [];
+    for (var b = 0; b < bands.length; b++) {
+      var remaining = bands[b];
+      for (var i = 0; i < rest.length && remaining > 0; i++) {
+        if (used[i]) continue;
+        var item = rest[i];
+        if (item.size) continue;
+        if (item.w > remaining) continue;
+        used[i] = true;
+        idxs.push(i);
+        remaining -= item.w;
+      }
+      if (remaining !== 0) return null;
+    }
+    idxs.sort(function (a, b) { return a - b; });
+    return idxs;
+  }
+
+  // "그 해 섹션의 마지막 줄" 구제 규칙: rest(=head 를 뺀, 아직 자기 차례가 안 된
+  // 다른 요청 사진은 하나도 없는) 전체의 폭 합이 이 프리셋의 옆 공간(bands 합)
+  // 을 넘지 않으면, head 는 지금 그 해에서 사실상 마지막 줄에 있다는 뜻이다
+  // (뒤에 남은 사진을 전부 옆에 욱여넣어도 넘치지 않으니까). 이때는 fillBands
+  // 처럼 "정확히 0" 을 요구하지 않고 rest 를 전부 순서대로 욱여넣는다. 못 채운
+  // 칸은 섹션 맨 끝(다음 줄에 이어질 사진이 없는 자리)에 빈칸으로 남는다 —
+  // 중간 구멍은 절대 안 되므로, rest 안에 아직 제 차례가 안 된 요청 사진이
+  // 하나라도 있으면(=뒤에 더 나올 게 있다는 뜻) 바로 포기한다.
+  function fillBandsLastRow(rest, bands) {
+    if (rest.some(function (x) { return !!x.size; })) return null;
+    var capacity = bands.reduce(function (s, b) { return s + b; }, 0);
+    var totalW = rest.reduce(function (s, x) { return s + x.w; }, 0);
+    if (totalW > capacity) return null;
+    var used = rest.map(function () { return false; });
+    for (var b = 0; b < bands.length; b++) {
+      var remaining = bands[b];
+      for (var i = 0; i < rest.length && remaining > 0; i++) {
+        if (used[i]) continue;
+        var item = rest[i];
+        if (item.w > remaining) continue;
+        used[i] = true;
+        remaining -= item.w;
+      }
+    }
+    var idxs = [];
+    for (var k = 0; k < used.length; k++) {
+      if (!used[k]) return null; // totalW<=capacity 면 이론상 여기 안 옴(방어)
+      idxs.push(k);
+    }
+    return idxs;
+  }
+
   function layout() {
     Array.prototype.forEach.call(feed.querySelectorAll('.grid'), function (g) {
       var cards = Array.prototype.slice.call(g.querySelectorAll('.ph:not(.is-off)'));
@@ -601,48 +674,75 @@ html, body, * {
       g.style.setProperty('--cols', C);
       g.style.setProperty('--rh', (((2 * colW + gap) / 1.5 - gap) / 2).toFixed(2) + 'px');
 
-      var pool = cards.map(function (el) {
-        return { el: el, w: +el.dataset.ratio >= 1.2 ? 2 : 1, r: 2 };
+            var pool = cards.map(function (el) {
+        return { el: el, w: +el.dataset.ratio >= 1.2 ? 2 : 1, r: 2, size: el.dataset.size || '' };
       });
       var laid = [], block = 0, big = 0;
       while (pool.length) {
-        // 사진이 대부분 같은 비율이면 타일이 전부 같은 크기가 되어 밋밋해진다.
-        // 세 블록마다 한 장을 두 배 크기로 키우고 그 옆을 보통 타일 두 장으로 채운다.
-        // 4x4 한 장 + 2x2 두 장 = 6칸 x 4행 이라 빈칸은 생기지 않는다.
-        var wideLeft = 0, tallLeft = 0;
-        pool.forEach(function (x) { if (x.w === 2) wideLeft++; else tallLeft++; });
-        if (C >= 6 && block % 2 === 0 && (wideLeft >= 3 || tallLeft >= 5)) {
-          // 가로 사진이 넉넉하면 가로 한 장을 두 배로 키우고 옆을 보통 두 장으로 채운다.
-          // 세로 사진밖에 없으면 세로 한 장을 두 배로 키우고 옆에 네 장을 쌓는다.
-          // 어느 쪽이든 6칸 x 4행이 정확히 차서 빈칸이 없다.
-          var want = wideLeft >= 3 ? 2 : 1, need = wideLeft >= 3 ? 3 : 5, picked = [];
-          for (var n = 0; n < need; n++) {
-            var wi = -1;
-            // ★ 표시된 사진은 picked[0] 자리(실제로 큰 타일이 되는 자리)를 고를 때만 우선한다
-            if (n === 0) for (var m = 0; m < pool.length; m++) {
-              if (pool[m].w === want && pool[m].el.dataset.big === '1') { wi = m; break; }
-            }
-            if (wi < 0) for (var m2 = 0; m2 < pool.length; m2++) {
-              if (pool[m2].w === want) { wi = m2; break; }
-            }
-            if (wi < 0) break;
-            picked.push(pool.splice(wi, 1)[0]);
-          }
-          if (picked.length === need) {
-            picked[0].w = want * 2; picked[0].r = 4;
+        // 드래그 순서(=지금 pool 맨 앞) 를 그대로 존중한다. 그 자리의 사진에
+        // 크기 요청이 있으면, 뒤에 남은 사진들을 짝으로 써서 지금 자리에서
+        // 바로 그 모양을 채워본다. 부족하면 이 사진은 건드리지 않고(자리도
+        // 그대로) 아래 자동 규칙/보통 칸으로 넘어간다.
+        var head = pool[0];
+        var mod = (C >= 6 && head.size) ? SIZE_MODULES[head.size] : null;
+        var headFailed = false;
+        if (mod) {
+          var idxs = fillBands(pool.slice(1), mod.bands);
+          if (!idxs) idxs = fillBandsLastRow(pool.slice(1), mod.bands);
+          if (idxs) {
+            var promoted = pool.shift();
+            promoted.w = mod.w; promoted.r = mod.r;
             // 한 번은 왼쪽, 다음은 오른쪽에 붙여 한쪽으로 쏠리지 않게 한다
-            picked[0].col = (big % 2 === 0) ? 1 : C - picked[0].w + 1;
+            promoted.col = (big % 2 === 0) ? 1 : C - promoted.w + 1;
             big++;
-            laid = laid.concat(picked);
+            var comps = [];
+            idxs.slice().sort(function (a, b) { return b - a; }).forEach(function (ix) {
+              comps.unshift(pool.splice(ix, 1)[0]);
+            });
+            laid = laid.concat([promoted].concat(comps));
             block++;
             continue;
           }
-          pool = picked.concat(pool);   // 모자라면 원래대로 돌려놓고 보통 줄로 간다
+          // 짝이 모자라 이번엔 보통 크기로 내려간다. 이 사진은 요청이 실패했으므로
+          // (다른 모양으로 대신 커지면 사용자 입장에서 이해가 안 되므로) 아래 자동
+          // 큰 타일 후보에서도 제외한다.
+          headFailed = true;
+        }
+        // 사진이 대부분 같은 비율이면 타일이 전부 같은 크기가 되어 밋밋해진다.
+        // 세 블록마다 한 장을 두 배 크기로 키우고 그 옆을 보통 타일 두 장으로 채운다.
+        // 크기 요청이 없는 사진에만 적용되는 자동 규칙(예전과 동일). head 자신은
+        // (요청이 아예 없었으므로) 자동 후보에 들어갈 수 있지만, 방금 자기 요청이
+        // 실패한 사진(headFailed)과 아직 제 차례가 안 된 다른 요청 사진은 여기서
+        // 건드리지 않는다.
+        var wideLeft = 0, tallLeft = 0;
+        pool.forEach(function (x) { if ((x === head && !headFailed) || !x.size) { if (x.w === 2) wideLeft++; else tallLeft++; } });
+        if (C >= 6 && block % 2 === 0 && (wideLeft >= 3 || tallLeft >= 5)) {
+          var want = wideLeft >= 3 ? 2 : 1, need = wideLeft >= 3 ? 3 : 5, picked2 = [];
+          for (var n = 0; n < need; n++) {
+            var wi2 = -1;
+            for (var k = 0; k < pool.length; k++) { if (pool[k].w === want && ((pool[k] === head && !headFailed) || !pool[k].size)) { wi2 = k; break; } }
+            if (wi2 < 0) break;
+            picked2.push(pool.splice(wi2, 1)[0]);
+          }
+          if (picked2.length === need) {
+            picked2[0].w = want * 2; picked2[0].r = 4;
+            picked2[0].col = (big % 2 === 0) ? 1 : C - picked2[0].w + 1;
+            big++;
+            laid = laid.concat(picked2);
+            block++;
+            continue;
+          }
+          pool = picked2.concat(pool);   // 모자라면 원래대로 돌려놓고 보통 줄로 간다
         }
         var rem = C, row = [];
         while (rem > 0 && pool.length) {
           var i = -1;
-          for (var k = 0; k < pool.length; k++) { if (pool[k].w <= rem) { i = k; break; } }
+          // 6칸 화면에서는 여기서도 아직 제 차례가 안 된 요청 사진을 그냥 채워
+          // 넣지 않는다(다음 블록에서 head 가 될 기회를 남겨 둔다). 4/2칸 화면은
+          // 크기 요청 자체를 무시하므로 이 예약을 적용하지 않는다.
+          for (var kk = 0; kk < pool.length; kk++) {
+            if (pool[kk].w <= rem && (C < 6 || pool[kk] === head || !pool[kk].size)) { i = kk; break; }
+          }
           if (i < 0) break;
           var c = pool.splice(i, 1)[0];
           row.push(c); rem -= c.w;

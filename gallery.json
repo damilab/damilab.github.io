@@ -15,7 +15,8 @@
    "desc": "",
    "place": "COEX, Seoul",
    "id": "6a2048e1c51c4c33b9e8e337ffbce508",
-   "ord": 0
+   "ord": 0,
+   "size": "big"
   },
   {
    "thumb": "/images/gallery/icml2026_IMG_2624.jpg",
@@ -49,7 +50,8 @@
    "desc": "",
    "place": "COEX, Seoul",
    "id": "3e5c4ac480c94e30b5e14c7469e0b01c",
-   "ord": 2
+   "ord": 2,
+   "size": "big"
   },
   {
    "thumb": "/images/posts/51/IMG_1074_hu_d501aac57028e4d9.jpg",
@@ -199,7 +201,8 @@
    "desc": "",
    "place": "Rio de Janeiro, Brazil",
    "id": "a30ac1701d2447dca09fd73d2e79827c",
-   "ord": 11
+   "ord": 11,
+   "size": "tall"
   },
   {
    "thumb": "/images/posts/48/1000042430_hu_9cba592b22cf1d37.jpg",
@@ -247,7 +250,8 @@
    "fy": 51.7,
    "desc": "",
    "id": "639553495bca4d2fa2a50faccafbcdb4",
-   "ord": 14
+   "ord": 14,
+   "size": "tall"
   },
   {
    "thumb": "/images/posts/48/IMG_0276_hu_6a42ab7b6df94ddc.jpg",
@@ -295,7 +299,7 @@
    "fy": 64.7,
    "desc": "",
    "id": "76c6a4da74c1417c80a0c10ba70269b7",
-   "ord": 17
+   "ord": 20
   },
   {
    "thumb": "/images/posts/48/IMG_9476_hu_cb09d873d9e0ceae.jpg",
@@ -311,7 +315,7 @@
    "fy": 62.9,
    "desc": "",
    "id": "df88ce31fa1247e7a1efc2e2b32c4e09",
-   "ord": 18
+   "ord": 17
   },
   {
    "thumb": "/images/posts/47/parksa_hu_cf40d9cce272eb93.jpg",
@@ -327,7 +331,7 @@
    "fy": 53.3,
    "desc": "",
    "id": "a2d5474b691d421f93abf37c65ec0c11",
-   "ord": 19
+   "ord": 18
   },
   {
    "thumb": "/images/posts/47/parksa2_hu_dd626fffafcd67b4.jpg",
@@ -343,7 +347,7 @@
    "fy": 48.6,
    "desc": "",
    "id": "013faebd70da4a818e0da884bd152de0",
-   "ord": 20
+   "ord": 19
   },
   {
    "thumb": "/images/posts/47/parksa3_hu_53e5b2c3b01ca5df.jpg",
@@ -1763,7 +1767,8 @@
    "fy": 56.0,
    "desc": "",
    "id": "7b1a6ae2678242ef92fb229e4fd19452",
-   "ord": 11
+   "ord": 11,
+   "size": "tall"
   },
   {
    "thumb": "/images/posts/15/미소CMU_hu_87bf31945789a7f7.png",
@@ -1864,7 +1869,8 @@
    "desc": "",
    "place": "Yeosu, Korea",
    "id": "33e3ab93cd0f435b8a6e9b421f286f7e",
-   "ord": 17
+   "ord": 17,
+   "size": "big"
   },
   {
    "thumb": "/images/gallery/insta_17851467435186665.jpg",
@@ -1884,23 +1890,6 @@
    "ord": 18
   },
   {
-   "thumb": "/images/gallery/insta_17883955319981427.jpg",
-   "full": "/images/gallery/insta_17883955319981427.jpg",
-   "w": 1400,
-   "h": 1304,
-   "ratio": 1.0736,
-   "cap": "대한산업공학회 2024 춘계학술대회",
-   "cat": "Conference",
-   "date": "2024.05",
-   "link": "",
-   "fx": 56.4,
-   "fy": 80.0,
-   "desc": "",
-   "place": "Yeosu, Korea",
-   "id": "0cbf194ade1647ccad7554a51d31d73f",
-   "ord": 19
-  },
-  {
    "thumb": "/images/gallery/insta_17916454319824439.jpg",
    "full": "/images/gallery/insta_17916454319824439.jpg",
    "w": 1400,
@@ -1915,7 +1904,7 @@
    "desc": "",
    "place": "Yeosu, Korea",
    "id": "af89ffa02b414100b2e0fb9c6f6f27df",
-   "ord": 20
+   "ord": 19
   },
   {
    "thumb": "/images/gallery/insta_17958480815641876.jpg",
@@ -1932,7 +1921,7 @@
    "desc": "",
    "place": "Yeosu, Korea",
    "id": "6abff3a755b444fcaa70298e7e41777a",
-   "ord": 21
+   "ord": 20
   },
   {
    "thumb": "/images/gallery/insta_18015747509249724.jpg",
@@ -1949,7 +1938,7 @@
    "desc": "",
    "place": "Yeosu, Korea",
    "id": "92d8e748232f4b24a1c2f9e15cf1583c",
-   "ord": 22
+   "ord": 21
   },
   {
    "thumb": "/images/gallery/insta_18018738953330702.jpg",
@@ -1966,7 +1955,7 @@
    "desc": "",
    "place": "Yeosu, Korea",
    "id": "4e0f3899a5e442db853eb01df69f707a",
-   "ord": 23
+   "ord": 22
   },
   {
    "thumb": "/images/gallery/insta_18022122385981292.jpg",
@@ -1983,7 +1972,7 @@
    "desc": "",
    "place": "Yeosu, Korea",
    "id": "7efec01ad88c46098c3b54a277deeda3",
-   "ord": 24
+   "ord": 23
   },
   {
    "thumb": "/images/gallery/insta_18038364289882898.jpg",
@@ -2000,7 +1989,7 @@
    "desc": "",
    "place": "Yeosu, Korea",
    "id": "ad230f3e781c4ce799b3a95c412a4dbc",
-   "ord": 25
+   "ord": 24
   },
   {
    "thumb": "/images/gallery/insta_18101903116394949.jpg",
@@ -2017,7 +2006,7 @@
    "desc": "",
    "place": "Yeosu, Korea",
    "id": "3f188da24ed043d4a4ba268a5c17934c",
-   "ord": 27
+   "ord": 25
   },
   {
    "thumb": "/images/gallery/insta_18258765667243296.jpg",
@@ -2033,7 +2022,7 @@
    "fy": 66.0,
    "desc": "",
    "id": "30f4f69661ac4c6f82626a8f0d0ccc1f",
-   "ord": 28,
+   "ord": 26,
    "size": "big"
   },
   {
@@ -2051,7 +2040,7 @@
    "desc": "",
    "place": "Yeosu, Korea",
    "id": "c37ef74f0bf64d41a478aaf55feda1e8",
-   "ord": 29
+   "ord": 27
   },
   {
    "thumb": "/images/gallery/insta_18319098757123005.jpg",
@@ -2068,7 +2057,7 @@
    "desc": "",
    "place": "Yeosu, Korea",
    "id": "1fed3f1fb1814803a7f9c0ab8ba5ed18",
-   "ord": 30
+   "ord": 28
   },
   {
    "thumb": "/images/posts/11/연구실회식첫_hu_6e814e9ebe3ed2d.png",
@@ -2084,7 +2073,7 @@
    "fy": 46.3,
    "desc": "",
    "id": "97ecf38648da4ad9a5cdc7b2df59e9f1",
-   "ord": 31
+   "ord": 29
   },
   {
    "thumb": "/images/posts/9/등산대회_0_hu_f34ad311c5c5381.jpg",
@@ -2100,7 +2089,7 @@
    "fy": 49.9,
    "desc": "",
    "id": "10c4dd1de3b24ed0adb5097da3890ae1",
-   "ord": 32
+   "ord": 30
   },
   {
    "thumb": "/images/posts/9/등산대회_2_hu_aa6a01156744d6fa.jpg",
@@ -2116,7 +2105,7 @@
    "fy": 50.7,
    "desc": "",
    "id": "42879f15ec1d4d21bca65b1aa277fe35",
-   "ord": 33
+   "ord": 31
   },
   {
    "thumb": "/images/posts/8/연구실회이식_hu_ec04ac0fff911c82.png",
@@ -2132,7 +2121,7 @@
    "fy": 44.5,
    "desc": "",
    "id": "141449a5a020433d9108fe69aa640288",
-   "ord": 34
+   "ord": 32
   },
   {
    "thumb": "/images/posts/7/로봇학회_hu_336b2b2d522421ba.jpg",
@@ -2149,7 +2138,7 @@
    "desc": "",
    "place": "Pyeongchang, Korea",
    "id": "4632da32b6df4c3d92ad3a6fabf64def",
-   "ord": 35
+   "ord": 33
   },
   {
    "thumb": "/images/posts/6/정승현_졸업1_hu_fea849cb705193c0.jpg",
@@ -2165,7 +2154,7 @@
    "fy": 68.1,
    "desc": "",
    "id": "d9721c0c8f1645afa6c57a7f0d0389e9",
-   "ord": 36
+   "ord": 34
   },
   {
    "thumb": "/images/posts/6/정승현_졸업2_hu_e79ba14695b02446.jpg",
@@ -2181,7 +2170,7 @@
    "fy": 65.5,
    "desc": "",
    "id": "140a8758a1a941cc8b739ae71073cba9",
-   "ord": 37
+   "ord": 35
   },
   {
    "thumb": "/images/posts/5/김현진_미국1_hu_a8b8edd3766d3611.jpg",
@@ -2198,7 +2187,7 @@
    "desc": "",
    "place": "Redmond, USA",
    "id": "737b6c0b1e4a4d3997137a0ba9f8ad9c",
-   "ord": 38
+   "ord": 36
   },
   {
    "thumb": "/images/posts/4/자료분석학회1_hu_e8466bac0a3589c3.jpg",
@@ -2215,7 +2204,7 @@
    "desc": "",
    "place": "Busan, Korea",
    "id": "fcfc3cdd7279454f8acf3344fdfeae1f",
-   "ord": 39
+   "ord": 37
   },
   {
    "thumb": "/images/posts/3/23산업공학회1_hu_f9a32808312155cf.jpg",
@@ -2232,7 +2221,8 @@
    "desc": "",
    "place": "Jeju, Korea",
    "id": "59f83629cf4c4ae98d12785560ded3bd",
-   "ord": 0
+   "ord": 0,
+   "size": "big"
   },
   {
    "thumb": "/images/posts/3/23산업공학회2_hu_b73682675093c1d.jpg",
@@ -2252,23 +2242,6 @@
    "ord": 1
   },
   {
-   "thumb": "/images/gallery/insta_17880126524821961.jpg",
-   "full": "/images/gallery/insta_17880126524821961.jpg",
-   "w": 1400,
-   "h": 1026,
-   "ratio": 1.3645,
-   "cap": "대한산업공학회 2023 춘계학술대회",
-   "cat": "Conference",
-   "date": "2023.05",
-   "link": "",
-   "fx": 39.9,
-   "fy": 40.8,
-   "desc": "",
-   "place": "Jeju, Korea",
-   "id": "ff534917902c42b28d34213a97de8800",
-   "ord": 2
-  },
-  {
    "thumb": "/images/gallery/insta_17958719252544816.jpg",
    "full": "/images/gallery/insta_17958719252544816.jpg",
    "w": 1400,
@@ -2283,7 +2256,7 @@
    "desc": "",
    "place": "Jeju, Korea",
    "id": "90f7adb136204c089815ef04ec63ea09",
-   "ord": 3
+   "ord": 2
   }
  ]
 }
