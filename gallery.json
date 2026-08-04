@@ -2288,6 +2288,40 @@
    "place": "Jeju, Korea",
    "id": "90f7adb136204c089815ef04ec63ea09",
    "ord": 2
+  },
+  {
+   "id": "0311f986e35f484187305adc129d207b",
+   "thumb": "/images/gallery/g_4ad96e3d2434470c.jpg",
+   "full": "/images/gallery/g_4ad96e3d2434470c.jpg",
+   "w": 1050,
+   "h": 1400,
+   "ratio": 0.75,
+   "cap": "민석짱 발표",
+   "cat": "Conference",
+   "date": "2026.05",
+   "link": "",
+   "desc": "",
+   "fx": 33.1,
+   "fy": 43.0,
+   "place": "ASK 2026, Gangneung",
+   "ord": 22
+  },
+  {
+   "id": "e4e67f4fa3044c17bb6fde4f5418f2b8",
+   "thumb": "/images/gallery/g_4841e54829f14efe.jpg",
+   "full": "/images/gallery/g_4841e54829f14efe.jpg",
+   "w": 1400,
+   "h": 1050,
+   "ratio": 1.3333,
+   "cap": "교수님 발표",
+   "cat": "Conference",
+   "date": "2026.05",
+   "link": "",
+   "desc": "",
+   "fx": 18.7,
+   "fy": 70.4,
+   "place": "ASK 2026, Gangneung",
+   "ord": 23
   }
  ]
 }
