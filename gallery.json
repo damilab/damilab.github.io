@@ -1,39 +1,22 @@
 {
  "items": [
   {
-   "thumb": "/images/gallery/icml2026_IMG_2624.jpg",
-   "full": "/images/gallery/icml2026_IMG_2624.jpg",
-   "w": 1400,
-   "h": 788,
-   "ratio": 1.7766,
-   "cap": "FAGEN@ICML 2026 포스터 세션",
-   "cat": "Conference",
-   "date": "2026.07",
-   "link": "/publication/",
-   "fx": 51.1,
-   "fy": 42.4,
-   "desc": "",
-   "place": "COEX, Seoul",
-   "id": "533ed2fbb5f44448b5b592c0d293d250",
-   "ord": 0
-  },
-  {
-   "id": "e4e67f4fa3044c17bb6fde4f5418f2b8",
-   "thumb": "/images/gallery/g_4841e54829f14efe.jpg",
-   "full": "/images/gallery/g_4841e54829f14efe.jpg",
+   "thumb": "/images/gallery/icml2026_IMG_0643.jpg",
+   "full": "/images/gallery/icml2026_IMG_0643.jpg",
    "w": 1400,
    "h": 1050,
    "ratio": 1.3333,
-   "cap": "ASK 2026",
+   "cap": "FAGEN@ICML 2026 워크샵 포스터 발표",
    "cat": "Conference",
-   "date": "2026.05",
-   "link": "",
+   "date": "2026.07",
+   "link": "/publication/",
+   "fx": 45.0,
+   "fy": 51.8,
    "desc": "",
-   "fx": 18.7,
-   "fy": 70.4,
-   "place": "",
-   "ord": 1,
-   "size": "small"
+   "place": "COEX, Seoul",
+   "id": "6a2048e1c51c4c33b9e8e337ffbce508",
+   "ord": 0,
+   "size": "big"
   },
   {
    "thumb": "/images/gallery/icml2026_IMG_0625.jpg",
@@ -50,8 +33,94 @@
    "desc": "",
    "place": "COEX, Seoul",
    "id": "3e5c4ac480c94e30b5e14c7469e0b01c",
-   "ord": 2,
+   "ord": 1,
    "size": "big"
+  },
+  {
+   "thumb": "/images/gallery/icml2026_IMG_2624.jpg",
+   "full": "/images/gallery/icml2026_IMG_2624.jpg",
+   "w": 1400,
+   "h": 788,
+   "ratio": 1.7766,
+   "cap": "FAGEN@ICML 2026 포스터 세션",
+   "cat": "Conference",
+   "date": "2026.07",
+   "link": "/publication/",
+   "fx": 51.1,
+   "fy": 42.4,
+   "desc": "",
+   "place": "COEX, Seoul",
+   "id": "533ed2fbb5f44448b5b592c0d293d250",
+   "ord": 2
+  },
+  {
+   "id": "bc172a4097ee4f23a868a0f1edee7f8a",
+   "thumb": "/images/gallery/g_6323c692b5fd433e.jpg",
+   "full": "/images/gallery/g_6323c692b5fd433e.jpg",
+   "w": 1400,
+   "h": 1050,
+   "ratio": 1.3333,
+   "cap": "연구실 MT",
+   "cat": "Workshop",
+   "date": "2026.06",
+   "link": "",
+   "desc": "",
+   "fx": 38.0,
+   "fy": 20.0,
+   "place": "",
+   "ord": 3
+  },
+  {
+   "id": "c6c99c5976c345cfae64e522274bb0fb",
+   "thumb": "/images/gallery/g_e375f278be224889.jpg",
+   "full": "/images/gallery/g_e375f278be224889.jpg",
+   "w": 1050,
+   "h": 1400,
+   "ratio": 0.75,
+   "cap": "연구실 MT",
+   "cat": "Workshop",
+   "date": "2026.06",
+   "link": "",
+   "desc": "",
+   "fx": 39.5,
+   "fy": 70.3,
+   "place": "",
+   "ord": 4
+  },
+  {
+   "id": "c544d93b114143c6be05bd5a3ea465e2",
+   "thumb": "/images/gallery/g_970014cf07854855.jpg",
+   "full": "/images/gallery/g_970014cf07854855.jpg",
+   "w": 1400,
+   "h": 1050,
+   "ratio": 1.3333,
+   "cap": "연구실 MT",
+   "cat": "Workshop",
+   "date": "2026.06",
+   "link": "",
+   "desc": "",
+   "fx": 52.0,
+   "fy": 51.7,
+   "place": "",
+   "ord": 5
+  },
+  {
+   "id": "e4e67f4fa3044c17bb6fde4f5418f2b8",
+   "thumb": "/images/gallery/g_4841e54829f14efe.jpg",
+   "full": "/images/gallery/g_4841e54829f14efe.jpg",
+   "w": 1400,
+   "h": 1050,
+   "ratio": 1.3333,
+   "cap": "ASK 2026",
+   "cat": "Conference",
+   "date": "2026.05",
+   "link": "",
+   "desc": "",
+   "fx": 18.7,
+   "fy": 70.4,
+   "place": "",
+   "ord": 6,
+   "size": "small"
   },
   {
    "thumb": "/images/posts/51/IMG_1074_hu_d501aac57028e4d9.jpg",
@@ -67,7 +136,7 @@
    "fy": 29.9,
    "desc": "",
    "id": "3a54facc6fd944e7aaa549717c188f60",
-   "ord": 3,
+   "ord": 7,
    "place": ""
   },
   {
@@ -85,7 +154,7 @@
    "fx": 33.1,
    "fy": 43.0,
    "place": "",
-   "ord": 4,
+   "ord": 8,
    "size": "small"
   },
   {
@@ -102,26 +171,8 @@
    "fy": 44.3,
    "desc": "",
    "id": "0440dd5c94b2451e8fa10ab3699263ed",
-   "ord": 5,
+   "ord": 9,
    "place": ""
-  },
-  {
-   "thumb": "/images/gallery/icml2026_IMG_0643.jpg",
-   "full": "/images/gallery/icml2026_IMG_0643.jpg",
-   "w": 1400,
-   "h": 1050,
-   "ratio": 1.3333,
-   "cap": "FAGEN@ICML 2026 워크샵 포스터 발표",
-   "cat": "Conference",
-   "date": "2026.07",
-   "link": "/publication/",
-   "fx": 45.0,
-   "fy": 51.8,
-   "desc": "",
-   "place": "COEX, Seoul",
-   "id": "6a2048e1c51c4c33b9e8e337ffbce508",
-   "ord": 6,
-   "size": "big"
   },
   {
    "thumb": "/images/posts/51/IMG_9896_hu_b7836b9bdd77ad3.jpg",
@@ -137,7 +188,7 @@
    "fy": 64.0,
    "desc": "",
    "id": "41f1a4c650ef4a3bbb468db857b6861a",
-   "ord": 7,
+   "ord": 10,
    "place": ""
   },
   {
@@ -155,7 +206,7 @@
    "desc": "",
    "place": "COEX, Seoul",
    "id": "719607fb8e4d4570b25a7d2eaa04083e",
-   "ord": 8
+   "ord": 11
   },
   {
    "thumb": "/images/posts/50/it2_hu_e32aa1ae8886a915.jpg",
@@ -172,7 +223,7 @@
    "desc": "",
    "place": "COEX, Seoul",
    "id": "cdbbfae4ddb14e29ad418097df50a460",
-   "ord": 9
+   "ord": 12
   },
   {
    "thumb": "/images/posts/49/ICLR1_hu_c8e37b7b513d92f3.jpg",
@@ -189,7 +240,7 @@
    "desc": "",
    "place": "Rio de Janeiro, Brazil",
    "id": "3508b63765b648bb9d717e74eb622bea",
-   "ord": 10
+   "ord": 13
   },
   {
    "thumb": "/images/posts/49/ICLR2_hu_ae9731701e4ccbbc.jpg",
@@ -206,7 +257,7 @@
    "desc": "",
    "place": "Rio de Janeiro, Brazil",
    "id": "85e8a9b1e4d64138a90d2e0e54e60795",
-   "ord": 11
+   "ord": 14
   },
   {
    "thumb": "/images/posts/49/ICLR4_hu_37691ceeffc61989.jpg",
@@ -223,7 +274,7 @@
    "desc": "",
    "place": "Rio de Janeiro, Brazil",
    "id": "f88bbb92200c4686acbd994965439fce",
-   "ord": 12
+   "ord": 15
   },
   {
    "thumb": "/images/posts/49/IMG_6574_hu_ee5153b1c713650b.jpg",
@@ -240,7 +291,7 @@
    "desc": "",
    "place": "Rio de Janeiro, Brazil",
    "id": "a30ac1701d2447dca09fd73d2e79827c",
-   "ord": 13,
+   "ord": 16,
    "size": "tall"
   },
   {
@@ -257,7 +308,7 @@
    "fy": 54.8,
    "desc": "",
    "id": "9d0c5e96f9864cf981458a86b5c3a91b",
-   "ord": 14,
+   "ord": 17,
    "place": ""
   },
   {
@@ -274,7 +325,7 @@
    "fy": 41.3,
    "desc": "",
    "id": "39ae95c7e3f147cfafa2bbde7c6e2bcc",
-   "ord": 15,
+   "ord": 18,
    "place": ""
   },
   {
@@ -291,7 +342,7 @@
    "fy": 51.7,
    "desc": "",
    "id": "639553495bca4d2fa2a50faccafbcdb4",
-   "ord": 16,
+   "ord": 19,
    "size": "tall",
    "place": ""
   },
@@ -309,7 +360,7 @@
    "fy": 47.6,
    "desc": "",
    "id": "a17d557be7b54cb489e4324b6b1048ec",
-   "ord": 17,
+   "ord": 20,
    "place": ""
   },
   {
@@ -326,7 +377,7 @@
    "fy": 59.0,
    "desc": "",
    "id": "8354d10b986043b48bbc4a0ce4a59917",
-   "ord": 18,
+   "ord": 21,
    "place": ""
   },
   {
@@ -343,41 +394,7 @@
    "fy": 62.9,
    "desc": "",
    "id": "df88ce31fa1247e7a1efc2e2b32c4e09",
-   "ord": 19,
-   "place": ""
-  },
-  {
-   "thumb": "/images/posts/47/parksa_hu_cf40d9cce272eb93.jpg",
-   "full": "/images/posts/47/parksa_hu_c3c7a671c3dc7d08.jpg",
-   "w": 1024,
-   "h": 576,
-   "ratio": 1.7778,
-   "cap": "졸업식 축하",
-   "cat": "Milestone",
-   "date": "2026.02",
-   "link": "/news/47/",
-   "fx": 49.0,
-   "fy": 53.3,
-   "desc": "",
-   "id": "a2d5474b691d421f93abf37c65ec0c11",
-   "ord": 20,
-   "place": ""
-  },
-  {
-   "thumb": "/images/posts/47/parksa2_hu_dd626fffafcd67b4.jpg",
-   "full": "/images/posts/47/parksa2_hu_5eee14a8ed914e13.jpg",
-   "w": 1024,
-   "h": 576,
-   "ratio": 1.7778,
-   "cap": "2026년 2월 졸업식",
-   "cat": "Milestone",
-   "date": "2026.02",
-   "link": "/news/47/",
-   "fx": 51.6,
-   "fy": 48.6,
-   "desc": "",
-   "id": "013faebd70da4a818e0da884bd152de0",
-   "ord": 21,
+   "ord": 22,
    "place": ""
   },
   {
@@ -394,7 +411,41 @@
    "fy": 64.7,
    "desc": "",
    "id": "76c6a4da74c1417c80a0c10ba70269b7",
-   "ord": 22,
+   "ord": 23,
+   "place": ""
+  },
+  {
+   "thumb": "/images/posts/47/parksa_hu_cf40d9cce272eb93.jpg",
+   "full": "/images/posts/47/parksa_hu_c3c7a671c3dc7d08.jpg",
+   "w": 1024,
+   "h": 576,
+   "ratio": 1.7778,
+   "cap": "졸업식 축하",
+   "cat": "Milestone",
+   "date": "2026.02",
+   "link": "/news/47/",
+   "fx": 49.0,
+   "fy": 53.3,
+   "desc": "",
+   "id": "a2d5474b691d421f93abf37c65ec0c11",
+   "ord": 24,
+   "place": ""
+  },
+  {
+   "thumb": "/images/posts/47/parksa2_hu_dd626fffafcd67b4.jpg",
+   "full": "/images/posts/47/parksa2_hu_5eee14a8ed914e13.jpg",
+   "w": 1024,
+   "h": 576,
+   "ratio": 1.7778,
+   "cap": "2026년 2월 졸업식",
+   "cat": "Milestone",
+   "date": "2026.02",
+   "link": "/news/47/",
+   "fx": 51.6,
+   "fy": 48.6,
+   "desc": "",
+   "id": "013faebd70da4a818e0da884bd152de0",
+   "ord": 25,
    "place": ""
   },
   {
@@ -411,7 +462,7 @@
    "fy": 53.3,
    "desc": "",
    "id": "68a0c05008af473b88b2cca91211e229",
-   "ord": 23,
+   "ord": 26,
    "place": ""
   },
   {
@@ -2324,57 +2375,6 @@
    "place": "Jeju, Korea",
    "id": "90f7adb136204c089815ef04ec63ea09",
    "ord": 2
-  },
-  {
-   "id": "bc172a4097ee4f23a868a0f1edee7f8a",
-   "thumb": "/images/gallery/g_6323c692b5fd433e.jpg",
-   "full": "/images/gallery/g_6323c692b5fd433e.jpg",
-   "w": 1400,
-   "h": 1050,
-   "ratio": 1.3333,
-   "cap": "연구실 MT",
-   "cat": "Workshop",
-   "date": "2026.06",
-   "link": "",
-   "desc": "",
-   "fx": 38.0,
-   "fy": 20.0,
-   "place": "",
-   "ord": 24
-  },
-  {
-   "id": "c6c99c5976c345cfae64e522274bb0fb",
-   "thumb": "/images/gallery/g_e375f278be224889.jpg",
-   "full": "/images/gallery/g_e375f278be224889.jpg",
-   "w": 1050,
-   "h": 1400,
-   "ratio": 0.75,
-   "cap": "연구실 MT",
-   "cat": "Workshop",
-   "date": "2026.06",
-   "link": "",
-   "desc": "",
-   "fx": 39.5,
-   "fy": 70.3,
-   "place": "",
-   "ord": 25
-  },
-  {
-   "id": "c544d93b114143c6be05bd5a3ea465e2",
-   "thumb": "/images/gallery/g_970014cf07854855.jpg",
-   "full": "/images/gallery/g_970014cf07854855.jpg",
-   "w": 1400,
-   "h": 1050,
-   "ratio": 1.3333,
-   "cap": "연구실 MT",
-   "cat": "Workshop",
-   "date": "2026.06",
-   "link": "",
-   "desc": "",
-   "fx": 52.0,
-   "fy": 51.7,
-   "place": "",
-   "ord": 26
   }
  ]
 }

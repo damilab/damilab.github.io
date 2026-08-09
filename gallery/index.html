@@ -727,7 +727,9 @@ html, body, * {
         // 건드리지 않는다.
         var wideLeft = 0, tallLeft = 0;
         pool.forEach(function (x) { if (autoPromoteOK(x, head, headFailed)) { if (x.w === 2) wideLeft++; else tallLeft++; } });
-        if (C >= 6 && block % 2 === 0 && (wideLeft >= 3 || tallLeft >= 5)) {
+        // 사람이 고른 크기 요청이 아직 남아 있으면 자동 규칙은 쉰다.
+        var waiting = pool.some(pending);
+        if (C >= 6 && !waiting && block % 2 === 0 && (wideLeft >= 3 || tallLeft >= 5)) {
           var want = wideLeft >= 3 ? 2 : 1, need = wideLeft >= 3 ? 3 : 5, picked2 = [];
           for (var n = 0; n < need; n++) {
             var wi2 = -1;
