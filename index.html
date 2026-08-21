@@ -633,12 +633,13 @@ document.addEventListener('DOMContentLoaded', function() {
   .dami-tl{--ink:#111;--sub:#6b6b6b;--line:#e2e2e2;--line2:#d0d0d0;--soft:#f2f2f2;
     --k-accept:#1D4ED8;--k-journal:#0E7490;--k-award:#B91C1C;
     --k-career:#B45309;--k-join:#6D28D9;--k-project:#15803D;--k-etc:#374151;
+    --k-conf:#BE185D;
     color:var(--ink);max-width:1080px}
   .dami-tl *{box-sizing:border-box}
   .dami-tl .k-accept{--k:var(--k-accept)} .dami-tl .k-journal{--k:var(--k-journal)}
   .dami-tl .k-award{--k:var(--k-award)}  .dami-tl .k-career{--k:var(--k-career)}
   .dami-tl .k-join{--k:var(--k-join)}    .dami-tl .k-project{--k:var(--k-project)}
-  .dami-tl .k-etc{--k:var(--k-etc)}
+  .dami-tl .k-etc{--k:var(--k-etc)}   .dami-tl .k-conf{--k:var(--k-conf)}
 
   .dami-tl .tl-filters{display:flex;gap:7px;flex-wrap:wrap;align-items:center;margin-top:18px}
   .dami-tl .tl-filters .sep{width:1px;align-self:stretch;background:var(--line2);margin:2px 6px}
@@ -658,9 +659,11 @@ document.addEventListener('DOMContentLoaded', function() {
     border-radius:50%;background:var(--k);box-shadow:0 0 0 3px #fff}
   .dami-tl .history-item h4{margin:0;font-size:15.5px;font-weight:800;line-height:1.45;
     letter-spacing:-.02em;color:var(--ink)}
-  .dami-tl .history-item.k-journal h4,.dami-tl .history-item.k-accept h4{color:#002472}
+  .dami-tl .history-item.k-journal h4,.dami-tl .history-item.k-accept h4,
+  .dami-tl .history-item.k-conf h4{color:#002472}
   .dami-tl .history-item p{margin:3px 0 0;font-size:13px;line-height:1.5;color:var(--sub)}
   .dami-tl .history-item.k-journal > p:not(.tl-meta),.dami-tl .history-item.k-accept > p,
+  .dami-tl .history-item.k-conf > p:not(.tl-meta),
   .dami-tl .history-item.k-project > p,.dami-tl .history-item.k-award > p{color:#334155;font-weight:600}
   .dami-tl .history-item .history-venue{color:#002472}
   .dami-tl .history-item .history-event-text{color:var(--ink)}
@@ -834,7 +837,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <li class="history-item k-journal" data-year="2026" data-kind="journal">
             <time class="tl-dt" datetime="2026-05-22">2026.05.22</time>
             <span class="tl-dot" aria-hidden="true"></span>
-            <h4>IEEE Access (JCR Q1) 논문 게재</h4>
+            <h4>IEEE Access (JCR Q2) 논문 게재</h4>
             <p>Exploring the Effect of Multi-Step Ascent in Sharpness-Aware Minimization</p>
             <p class="tl-meta">SCIE, JCR Q2, IF: 3.6</p>
           </li>
@@ -909,7 +912,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <p>Deep learning-enhanced geospatial modeling for indoor radon mapping in Jeollabuk-do, South Korea</p>
             <p class="tl-meta">SCIE, JCR Q1, IF: 4.4, JCR Top 15%</p>
           </li>
-          <li class="history-item k-journal" data-year="2025" data-kind="journal">
+          <li class="history-item k-conf" data-year="2025" data-kind="conf">
             <time class="tl-dt" datetime="2025-06-12">2025.06.12</time>
             <span class="tl-dot" aria-hidden="true"></span>
             <h4>CVsports at CVPR 2025 논문 게재</h4>
@@ -1135,13 +1138,13 @@ document.addEventListener('DOMContentLoaded', function() {
         <section class="tl-yr">
           <h3>2021</h3>
           <ol class="tl-rows">
-          <li class="history-item k-journal" data-year="2021" data-kind="journal">
+          <li class="history-item k-conf" data-year="2021" data-kind="conf">
             <time class="tl-dt" datetime="2021-12-06">2021.12.06</time>
             <span class="tl-dot" aria-hidden="true"></span>
             <h4>NeurIPS 논문 게재</h4>
             <p>Parameter-free HE-friendly Logistic Regression</p>
           </li>
-          <li class="history-item k-journal" data-year="2021" data-kind="journal">
+          <li class="history-item k-conf" data-year="2021" data-kind="conf">
             <time class="tl-dt" datetime="2021-12-06">2021.12.06</time>
             <span class="tl-dot" aria-hidden="true"></span>
             <h4>NeurIPS 논문 게재</h4>
@@ -1318,7 +1321,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 </footer>
 <script>
-  document.querySelectorAll('.history-item.k-journal h4, .history-item.k-accept h4').forEach((heading) => {
+  document.querySelectorAll('.history-item.k-journal h4, .history-item.k-accept h4, .history-item.k-conf h4').forEach((heading) => {
     const match = heading.textContent.trim().match(/^(.*?)(\s+논문(?:\s+\d+편)?\s+(?:게재|채택))$/);
     if (!match) return;
     heading.innerHTML = `<span class="history-venue">${match[1]}</span><span class="history-event-text">${match[2]}</span>`;
