@@ -1,7 +1,14 @@
 [
  {
+  "date": "2026-08-21",
+  "title": "EMNLP 2026 논문 5편 채택",
+  "sub": "Confess What You Know: Forget-Set Misalignment with Model Knowledge in LLM Unlearning (Main)\nWill the User Ever Know? Covert Indirect Prompt Injection Attacks on Tool-Using LLM Agents (Main)\nFaVOR: LLM-Based Agentic Framework for Factor Mining via Empirical Validation (Findings)\nSafeBranch: Branch-Pair Safety Alignment for Embodied Agents (Findings)\nHiP-LR: Hierarchical Planning with Localized Failure Recovery for Long-Horizon Multi-Robot Tasks (Findings)",
+  "meta": "",
+  "kind": "accept"
+ },
+ {
   "date": "2026-08-20",
-  "title": "Research in International Business and Finance 논문 게재",
+  "title": "Research in International Business and Finance (JCR Top 4%) 논문 게재",
   "sub": "Who provides liquidity in retail-dominated markets? Evidence from Korea",
   "meta": "SSCI, JCR Q1, IF: 7.6, JCR Top 4% (9/243)",
   "kind": "journal"
@@ -22,7 +29,7 @@
  },
  {
   "date": "2026-07-08",
-  "title": "Journal of Hazardous Materials Advances 논문 게재",
+  "title": "Journal of Hazardous Materials Advances (JCR Top 9%) 논문 게재",
   "sub": "Sampling-bias-aware machine-learning mapping of geogenic indoor radon hazard in Jeollanam-do, Korea using measured-low negatives",
   "meta": "SCIE, JCR Q1, IF: 9.1, JCR Top 9%",
   "kind": "journal"
@@ -43,7 +50,7 @@
  },
  {
   "date": "2026-05-22",
-  "title": "IEEE Access 논문 게재",
+  "title": "IEEE Access (JCR Q1) 논문 게재",
   "sub": "Exploring the Effect of Multi-Step Ascent in Sharpness-Aware Minimization",
   "meta": "SCIE, JCR Q2, IF: 3.6",
   "kind": "journal"
@@ -71,15 +78,8 @@
  },
  {
   "date": "2026-01-26",
-  "title": "ICLR 2026 논문 채택",
-  "sub": "Co-occurring Associated REtained concepts in Diffusion Unlearning",
-  "meta": "",
-  "kind": "accept"
- },
- {
-  "date": "2026-01-25",
-  "title": "ICLR 2026 논문 채택",
-  "sub": "SlotGCG: Exploiting the Positional Vulnerability in LLMs for Jailbreak Attacks",
+  "title": "ICLR 2026 논문 2편 채택",
+  "sub": "Co-occurring Associated REtained concepts in Diffusion Unlearning (Main)\nSlotGCG: Exploiting the Positional Vulnerability in LLMs for Jailbreak Attacks (Main)",
   "meta": "",
   "kind": "accept"
  },
@@ -148,7 +148,7 @@
  },
  {
   "date": "2025-04-23",
-  "title": "Information Sciences 논문 게재",
+  "title": "Information Sciences (JCR Top 8%) 논문 게재",
   "sub": "Towards undetectable adversarial attack on time series classification",
   "meta": "SCIE, JCR Q1, IF: 8.2, JCR Top 8%",
   "kind": "journal"
@@ -162,7 +162,7 @@
  },
  {
   "date": "2025-04-10",
-  "title": "Finance Research Letters 논문 게재",
+  "title": "Finance Research Letters (JCR Top 1%) 논문 게재",
   "sub": "Interconnected dynamics of sustainable cryptocurrencies: Insights from transfer entropy analysis",
   "meta": "SSCI, JCR Q1, IF: 7.4, JCR Top 1%",
   "kind": "journal"
@@ -197,7 +197,7 @@
  },
  {
   "date": "2025-03-01",
-  "title": "Applied Soft Computing 논문 게재",
+  "title": "Applied Soft Computing (JCR Top 10%) 논문 게재",
   "sub": "Black-box adversarial examples via frequency distortion against fault diagnosis systems",
   "meta": "SCIE, JCR Q1, IF: 7.2, JCR Top 10%",
   "kind": "journal"
@@ -211,7 +211,7 @@
  },
  {
   "date": "2025-02-07",
-  "title": "Earth Systems and Environment 논문 게재",
+  "title": "Earth Systems and Environment (JCR Top 10%) 논문 게재",
   "sub": "AI-Driven Geospatial Analysis of Indoor Radon Levels: A Case Study in Chungcheongbuk-do, South Korea",
   "meta": "ESCI, JCR Q1, IF: 5.3, JCR Top 10%",
   "kind": "journal"
