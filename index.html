@@ -1316,6 +1316,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     </div>
 </footer>
+<script>
+  document.querySelectorAll('.history-item.k-journal h4, .history-item.k-accept h4').forEach((heading) => {
+    const match = heading.textContent.trim().match(/^(.*?)(\s+논문(?:\s+\d+편)?\s+(?:게재|채택))$/);
+    if (!match) return;
+    heading.innerHTML = `<span class="history-venue">${match[1]}</span><span class="history-event-text">${match[2]}</span>`;
+  });
+</script>
 </body>
 
 </html>
