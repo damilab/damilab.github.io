@@ -660,6 +660,9 @@ document.addEventListener('DOMContentLoaded', function() {
     letter-spacing:-.02em;color:var(--ink)}
   .dami-tl .history-item p{margin:3px 0 0;font-size:13px;line-height:1.5;color:var(--sub)}
   .dami-tl .history-item.k-journal > p:not(.tl-meta),.dami-tl .history-item.k-accept > p{color:#334155;font-weight:600}
+  .dami-tl .history-item .history-venue{color:#4f46e5}
+  .dami-tl .history-item .tl-paper{position:relative;padding-left:13px}
+  .dami-tl .history-item .tl-paper::before{content:"•";position:absolute;left:0;color:var(--k);font-weight:900}
   .dami-tl .history-item a{color:inherit;text-decoration:none;
     border-bottom:1.5px solid #c9c9c9;transition:color .12s ease,border-color .12s ease}
   .dami-tl .history-item a:hover{color:var(--k);border-bottom-color:var(--k)}
@@ -782,12 +785,12 @@ document.addEventListener('DOMContentLoaded', function() {
           <li class="history-item k-accept" data-year="2026" data-kind="accept">
             <time class="tl-dt" datetime="2026-08-21">2026.08.21</time>
             <span class="tl-dot" aria-hidden="true"></span>
-            <h4>EMNLP 2026 논문 5편 채택</h4>
-            <p>Confess What You Know: Forget-Set Misalignment with Model Knowledge in LLM Unlearning (Main)</p>
-            <p>Will the User Ever Know? Covert Indirect Prompt Injection Attacks on Tool-Using LLM Agents (Main)</p>
-            <p>FaVOR: LLM-Based Agentic Framework for Factor Mining via Empirical Validation (Findings)</p>
-            <p>SafeBranch: Branch-Pair Safety Alignment for Embodied Agents (Findings)</p>
-            <p>HiP-LR: Hierarchical Planning with Localized Failure Recovery for Long-Horizon Multi-Robot Tasks (Findings)</p>
+            <h4><span class="history-venue">EMNLP 2026</span> 논문 5편 채택</h4>
+            <p class="tl-paper">Confess What You Know: Forget-Set Misalignment with Model Knowledge in LLM Unlearning (Main)</p>
+            <p class="tl-paper">Will the User Ever Know? Covert Indirect Prompt Injection Attacks on Tool-Using LLM Agents (Main)</p>
+            <p class="tl-paper">FaVOR: LLM-Based Agentic Framework for Factor Mining via Empirical Validation (Findings)</p>
+            <p class="tl-paper">SafeBranch: Branch-Pair Safety Alignment for Embodied Agents (Findings)</p>
+            <p class="tl-paper">HiP-LR: Hierarchical Planning with Localized Failure Recovery for Long-Horizon Multi-Robot Tasks (Findings)</p>
           </li>
           <li class="history-item k-journal" data-year="2026" data-kind="journal">
             <time class="tl-dt" datetime="2026-08-20">2026.08.20</time>
