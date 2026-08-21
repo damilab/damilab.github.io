@@ -2,6 +2,21 @@
   "schema": 1,
   "papers": [
     {
+      "id": "who-provides-liquidity-in-retail-dominated-markets-evidence-from-korea",
+      "title": "Who provides liquidity in retail-dominated markets? Evidence from Korea",
+      "year": 2026,
+      "date": "2026-08-20",
+      "keywords": ["Finance", "Market Microstructure", "Liquidity"],
+      "abstract": "This study investigates who provides liquidity in retail-dominated markets, using evidence from Korea.",
+      "research_area": "application",
+      "subfield": "Finance & Society",
+      "subfields": ["Finance & Society"],
+      "map_label": "Market Liquidity",
+      "venue": "Research in International Business and Finance",
+      "authors": ["Sujin Pyo", "Woojin Lee"],
+      "links": {"paper": "https://doi.org/10.1016/j.ribaf.2026.103585", "doi": "https://doi.org/10.1016/j.ribaf.2026.103585"}
+    },
+    {
       "title": "What Did You Do Behind My Back?! Covert Indirect Prompt Injection on Tool-Using LLM Agents",
       "date": "2026-07-10",
       "venue": "FAGEN@ICML 2026",
