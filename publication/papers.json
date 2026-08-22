@@ -2,19 +2,180 @@
   "schema": 1,
   "papers": [
     {
+      "title": "HiP-LR: Hierarchical Planning with Localized Failure Recovery for Long-Horizon Multi-Robot Tasks",
+      "date": "2026-08-21",
+      "venue": "EMNLP 2026 Findings",
+      "authors": [
+        "Chaerin Lee",
+        "Seoyoon Kim",
+        "Seungbeen Lee",
+        "Woojin Lee",
+        "Soohwan Song"
+      ],
+      "abstract": "Large Language Model (LLM)-driven multi-robot systems struggle with long-horizon tasks due to planning and execution complexities. As task dependencies grow, centralized planners suffer from context explosion and hallucinations, while minor runtime errors can disrupt the entire operation. Current monolithic methods overload LLMs and cause unnecessary global halts during error recovery. To address this, we introduce Hierarchical Planning with Localized Failure Recovery (HiP-LR). HiP-LR uses a two-level hierarchy to divide complex instructions into dependency-isolated subtask groups. A central agent allocates global tasks, while local agents execute specific plans, keeping LLM contexts compact. Furthermore, a PDDL-based dual-memory structure enables failure-localized replanning: if an error occurs, only the affected group pauses to replan, allowing others to continue uninterrupted. Evaluated on MAP-THOR, HiP-LR improves the task success rate by 38% and reduces replan-wait costs by 90% over state-of-the-art baselines. Furthermore, HiP-LR demonstrates highly robust recovery capabilities on our novel failure-injection benchmark, RECAP-THOR.",
+      "keywords": [
+        "Multi-Robot",
+        "Planning",
+        "Failure Recovery"
+      ],
+      "research_area": "application",
+      "subfield": "Science & Technology",
+      "map_label": "Multi-Robot Planning",
+      "image": "/images/news/emnlp2026/hiplr-fig1.webp",
+      "links": {
+        "해설": "/news/58/"
+      },
+      "id": "hip-lr-hierarchical-planning-with-localized-failure-recovery-for-long-horizon-multi-robot-tasks",
+      "year": 2026,
+      "subfields": [
+        "Science & Technology"
+      ]
+    },
+    {
+      "title": "SafeBranch: Branch-Pair Safety Alignment for Embodied Agents",
+      "date": "2026-08-21",
+      "venue": "EMNLP 2026 Findings",
+      "authors": [
+        "Hyunse Lee",
+        "Jiwoo Jeong",
+        "Haneul Lee",
+        "Kyochul Jang",
+        "Youngjae Yu",
+        "Woojin Lee"
+      ],
+      "abstract": "Vision-language-model-based embodied agents can complete instructed tasks but often violate safety constraints in the process, a problem recently framed as interactive safety. Training such agents to act safely is difficult, since safety and task success are distinct objectives, and safety arises only at a small number of safety-critical steps within a trajectory. Standard supervision is insufficient: imitating safe trajectories teaches behavior without explaining why it is safe, and contrasting arbitrary safe and unsafe trajectories mixes the safety signal with unrelated differences. We propose SafeBranch, a framework that aligns an embodied actor on safety through branch pairs constructed from the actor's own unsafe rollouts via environment rollback. SafeBranch rolls each unsafe rollout back to the safety-critical step that caused the violation, queries the actor for a safe alternative, and pairs the original action with the alternative so that the two branches differ only at that step. The trained actor acts safely at deployment with no critic in the loop. On IS-Bench, SafetyALFRED, and out-of-distribution variants with unseen tasks and objects, it handles safety reliably without sacrificing task success, achieving roughly ten times more safe successes than the untrained baseline on the unseen-object variant.",
+      "keywords": [
+        "Embodied Agent",
+        "Safety Alignment"
+      ],
+      "research_area": "trust",
+      "subfield": "Privacy & Safety",
+      "map_label": "Embodied Safety",
+      "image": "/images/news/emnlp2026/safebranch-fig1.webp",
+      "links": {
+        "paper": "https://arxiv.org/abs/2608.19729",
+        "해설": "/news/57/"
+      },
+      "id": "safebranch-branch-pair-safety-alignment-for-embodied-agents",
+      "year": 2026,
+      "subfields": [
+        "Privacy & Safety"
+      ]
+    },
+    {
+      "title": "FaVOR: LLM-Based Agentic Framework for Factor Mining via Empirical Validation",
+      "date": "2026-08-21",
+      "venue": "EMNLP 2026 Findings",
+      "authors": [
+        "Hyeonjin Kim",
+        "Minseok Kim",
+        "Seunghyeon Jung",
+        "Sujin Pyo",
+        "Huisu Jang",
+        "Woojin Lee"
+      ],
+      "abstract": "Traditional finance relies on experts to handcraft factors through a principled process grounded in economic rationale. Recent LLM-based multi-agent systems have automated this process, scaling factor mining far beyond manual effort. However, these automated approaches optimize directly for returns and rarely check whether a generated factor still expresses the economic hypothesis that motivated it. We identify this inconsistency between mathematical form and economic meaning as a structural failure mode of return-oriented automation. The resulting factors blur the line between real signals and spurious correlations and break down across regime shifts. We propose FaVOR (Factor Validation through Observable Reasoning), an agentic framework that restructures factor mining around hypothesis-level evidence rather than return outcomes. In place of the standard hypothesis-to-formula leap, FaVOR enforces a three-stage consistency loop tying mathematical form to economic rationale throughout. (1) Decomposition splits a broad economic hypothesis into independent observable conditions. (2) Validation checks whether each factor reflects its intended condition. (3) Integration merges them into a composite whose structure remains interpretable. On the CSI 500 and S&P 500 in 2025, FaVOR outperforms existing baselines while remaining effective across regimes. FaVOR shows that hypothesis-grounded factor discovery produces signals that are interpretable by construction, regime-robust, and economically faithful.",
+      "keywords": [
+        "LLM Agents",
+        "Finance",
+        "Factor Mining"
+      ],
+      "research_area": "application",
+      "subfield": "Finance & Society",
+      "map_label": "Factor Mining",
+      "image": "/images/news/emnlp2026/favor-fig1.webp",
+      "links": {
+        "해설": "/news/56/"
+      },
+      "id": "favor-llm-based-agentic-framework-for-factor-mining-via-empirical-validation",
+      "year": 2026,
+      "subfields": [
+        "Finance & Society"
+      ]
+    },
+    {
+      "title": "Will the User Ever Know? Covert Indirect Prompt Injection Attacks on Tool-Using LLM Agents",
+      "date": "2026-08-21",
+      "venue": "EMNLP 2026",
+      "authors": [
+        "Yunseok Lee",
+        "Yunji Kim",
+        "Woojin Lee"
+      ],
+      "abstract": "As LLM agents take real-world actions through tools, indirect prompt injection (IPI) has emerged as a serious threat. The standard metric, Attack Success Rate (ASR), counts whether the injection was successful but ignores what the user notices in the agent's final response. Looking at successful injection traces, we find two distinct outcomes. In one, the agent executes the injection while returning an otherwise normal response. In the other, it reports the injected action in its final response and gives the user a chance to notice. We call these covert and overt successes. From the user's perspective, we decompose ASR into the Covert Success Rate (CSR), which counts successes that leave no trace in the final response, and the Overt Success Rate (OSR), which counts successes the user can detect. To understand what drives the gap, we analyze the trajectories where injections succeed and find that the agent's behavior after the injection is what separates covert from overt. Covert traces hand control back to the user task before ending, while overt traces end at the attack itself. This split follows from the ReAct format, where the final response summarizes the agent's most recent action. Building on this observation, we propose ICoA (Induced Covert Attack), the strongest IPI attack designed to induce covert outcomes by steering the agent's trajectory so it returns to the user task after executing the injection. ICoA achieves the highest CSR across four target models on AgentDojo the benchmark, with gains of 3.79 to 12.01 percentage points over the strongest existing baseline.",
+      "keywords": [
+        "Agentic LLM",
+        "Indirect Prompt Injection",
+        "Security"
+      ],
+      "research_area": "trust",
+      "subfield": "Security & Attacks",
+      "map_label": "Indirect Prompt Injection",
+      "image": "/images/news/emnlp2026/icoa-fig1.webp",
+      "links": {
+        "해설": "/news/54/"
+      },
+      "id": "will-the-user-ever-know-covert-indirect-prompt-injection-attacks-on-tool-using-llm-agents",
+      "year": 2026,
+      "subfields": [
+        "Security & Attacks"
+      ]
+    },
+    {
+      "title": "Confess What You Know: Forget-Set Misalignment with Model Knowledge in LLM Unlearning",
+      "date": "2026-08-21",
+      "venue": "EMNLP 2026",
+      "authors": [
+        "Miso Kim",
+        "Georu Lee",
+        "Seungwon Jeong",
+        "Woojin Lee"
+      ],
+      "abstract": "Machine unlearning for large language models (LLMs) often assumes that a pre-defined forget set matches what the model has memorized, but this frequently breaks in realistic privacy settings where the original training data is inaccessible. We term this gap forget-set misalignment and identify two cases. In Under Unlearning, the forget set omits memorized information and leakage persists. In Out-of-Knowledge Unlearning, the algorithm is driven to \"forget\" knowledge the model never learned, perturbing parameters and degrading utility. Using gradient-level analysis, we show these behaviors arise from misaligned unlearning targets rather than specific optimization choices. We then propose CONfession-to-Forget-Set (CONFS), a data-blind framework that constructs model-aligned forget sets by eliciting and formalizing the model's memorized knowledge. Across synthetic, multimodal, and real-world benchmarks, CONFS matches the unlearning performance of a Gold-standard that uses the original pre-training data, while preserving utility better than other data-blind forget-set constructions.",
+      "keywords": [
+        "Machine Unlearning",
+        "Privacy",
+        "LLM"
+      ],
+      "research_area": "trust",
+      "subfield": "Privacy & Safety",
+      "map_label": "LLM Unlearning",
+      "image": "/images/news/emnlp2026/confess-fig1.webp",
+      "links": {
+        "해설": "/news/55/"
+      },
+      "id": "confess-what-you-know-forget-set-misalignment-with-model-knowledge-in-llm-unlearning",
+      "year": 2026,
+      "subfields": [
+        "Privacy & Safety"
+      ]
+    },
+    {
       "id": "who-provides-liquidity-in-retail-dominated-markets-evidence-from-korea",
       "title": "Who provides liquidity in retail-dominated markets? Evidence from Korea",
       "year": 2026,
       "date": "2026-08-20",
-      "keywords": ["Finance", "Market Microstructure", "Liquidity"],
+      "keywords": [
+        "Finance",
+        "Market Microstructure",
+        "Liquidity"
+      ],
       "abstract": "This study investigates who provides liquidity in retail-dominated markets, using evidence from Korea.",
       "research_area": "application",
       "subfield": "Finance & Society",
-      "subfields": ["Finance & Society"],
+      "subfields": [
+        "Finance & Society"
+      ],
       "map_label": "Market Liquidity",
       "venue": "Research in International Business and Finance",
-      "authors": ["Sujin Pyo", "Woojin Lee"],
-      "links": {"paper": "https://doi.org/10.1016/j.ribaf.2026.103585", "doi": "https://doi.org/10.1016/j.ribaf.2026.103585"}
+      "authors": [
+        "Sujin Pyo",
+        "Woojin Lee"
+      ],
+      "links": {
+        "paper": "https://doi.org/10.1016/j.ribaf.2026.103585",
+        "doi": "https://doi.org/10.1016/j.ribaf.2026.103585"
+      }
     },
     {
       "title": "What Did You Do Behind My Back?! Covert Indirect Prompt Injection on Tool-Using LLM Agents",
