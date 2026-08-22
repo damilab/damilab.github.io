@@ -233,6 +233,10 @@ html, body, * {
   .newspage .card:hover{transform:translateY(-4px);box-shadow:0 12px 26px rgba(0,0,0,.13);
     border-color:var(--k,var(--ink))}
   .newspage .card .ph{position:relative;aspect-ratio:16/9;background:#f2f2f2;overflow:hidden}
+  /* 논문 원문 그림은 도식이라 잘라내면 중간에서 끊긴다. 전체를 담고 여백을 흰색으로 */
+  .newspage .card .ph.is-fit{background:#fff}
+  .newspage .card .ph.is-fit img{object-fit:contain;object-position:center}
+  .newspage .card:hover .ph.is-fit img{transform:none}
   .newspage .card .ph img{width:100%;height:100%;object-fit:cover;object-position:center 38%;
     transition:transform .35s ease}
   .newspage .card:hover .ph img{transform:scale(1.05)}
@@ -271,7 +275,7 @@ html, body, * {
       <span class="top-title">News</span>
       <span class="top-sub">연구실의 논문, 수상, 학회 참가와 구성원 소식</span>
     </div>
-    <div class="chips"><button class="chip" type="button" data-cat="all" aria-pressed="true">All<b>31</b></button><button class="chip" type="button" data-cat="paper" aria-pressed="false">Paper<b>3</b></button><button class="chip" type="button" data-cat="award" aria-pressed="false">Award<b>4</b></button><button class="chip" type="button" data-cat="conf" aria-pressed="false">Conference<b>17</b></button><button class="chip" type="button" data-cat="people" aria-pressed="false">People<b>7</b></button></div>
+    <div class="chips"><button class="chip" type="button" data-cat="all" aria-pressed="true">All<b>36</b></button><button class="chip" type="button" data-cat="paper" aria-pressed="false">Paper<b>8</b></button><button class="chip" type="button" data-cat="award" aria-pressed="false">Award<b>4</b></button><button class="chip" type="button" data-cat="conf" aria-pressed="false">Conference<b>17</b></button><button class="chip" type="button" data-cat="people" aria-pressed="false">People<b>7</b></button></div>
   </div>
 
   <div class="wrap">
@@ -286,10 +290,40 @@ html, body, * {
         </div>
       </a>
         <section class="yr" data-year="2026">
-          <h2>2026 <span>5</span></h2>
+          <h2>2026 <span>10</span></h2>
           <div class="grid">
+          <a class="card k-paper" href="/news/55/" data-cat="paper">
+            <div class="ph is-fit"><img src="/images/news/emnlp2026/confess-fig1.webp" alt="" loading="lazy" decoding="async"><span class="cat">Paper</span></div>
+            <div class="cb"><span class="dt">2026.08.21</span>
+              <h3>지우라고 한 것과 모델이 외운 것이 다르다</h3>
+              <p>삭제 요청과 모델이 실제로 기억한 내용이 어긋나는 문제를 규정하고, 모델에게 스스로 기억을 털어놓게 해 지울 대상을 만드는 CONFS 를 제안했습니다.</p></div>
+          </a>
+          <a class="card k-paper" href="/news/54/" data-cat="paper">
+            <div class="ph is-fit"><img src="/images/news/emnlp2026/icoa-fig1.webp" alt="" loading="lazy" decoding="async"><span class="cat">Paper</span></div>
+            <div class="cb"><span class="dt">2026.08.21</span>
+              <h3>공격은 성공했는데 사용자는 모른다</h3>
+              <p>LLM 에이전트를 노린 indirect prompt injection 을 사용자가 알아채는지 기준으로 다시 나누고, 알아채지 못하게 만드는 공격 ICoA 를 제안했습니다.</p></div>
+          </a>
+          <a class="card k-paper" href="/news/58/" data-cat="paper">
+            <div class="ph is-fit"><img src="/images/news/emnlp2026/hiplr-fig1.webp" alt="" loading="lazy" decoding="async"><span class="cat">Paper</span></div>
+            <div class="cb"><span class="dt">2026.08.21</span>
+              <h3>로봇 하나가 멈추면 전부 멈추는 문제</h3>
+              <p>장기 다중 로봇 과업에서 실패가 났을 때 전역 계획을 다시 짜는 대신, 영향을 받은 그룹만 멈춰 재계획하는 HiP-LR 을 제안했습니다.</p></div>
+          </a>
+          <a class="card k-paper" href="/news/57/" data-cat="paper">
+            <div class="ph is-fit"><img src="/images/news/emnlp2026/safebranch-fig1.webp" alt="" loading="lazy" decoding="async"><span class="cat">Paper</span></div>
+            <div class="cb"><span class="dt">2026.08.21</span>
+              <h3>안전은 궤적 전체가 아니라 한 걸음에서 갈린다</h3>
+              <p>embodied agent 의 위험한 실행을 시뮬레이터에서 되감아, 맥락은 같고 행동만 다른 두 갈래로 안전을 학습시키는 SafeBranch 를 제안했습니다.</p></div>
+          </a>
+          <a class="card k-paper" href="/news/56/" data-cat="paper">
+            <div class="ph is-fit"><img src="/images/news/emnlp2026/favor-fig1.webp" alt="" loading="lazy" decoding="async"><span class="cat">Paper</span></div>
+            <div class="cb"><span class="dt">2026.08.21</span>
+              <h3>수익률이 좋으면 좋은 factor 인가</h3>
+              <p>수익률만 좇는 LLM factor 자동 발굴의 구조적 허점을 짚고, 경제 가설을 관측 가능한 조건으로 쪼개 백테스트 전에 검증하는 FaVOR 를 제안했습니다.</p></div>
+          </a>
           <a class="card k-paper" href="/news/53/" data-cat="paper">
-            <div class="ph"><img src="/images/publications/covert-ipi-fagen-icml2026-poster.png" alt="" loading="lazy" decoding="async"><span class="cat">Paper</span></div>
+            <div class="ph is-fit"><img src="/images/publications/covert-ipi-fagen-icml2026-poster.png" alt="" loading="lazy" decoding="async"><span class="cat">Paper</span></div>
             <div class="cb"><span class="dt">2026.05.27</span>
               <h3>연구실 논문 FAGEN@ICML 2026 Accept</h3>
               <p>연구실 논문 &quot;What Did You Do Behind My Back?! Covert Indirect Prompt Injection on Tool-Using LLM Agents&quot;이 FAGEN@ICM</p></div>
@@ -307,16 +341,16 @@ html, body, * {
               <p>연구실 정승현 학생이 석사과정을 졸업하였습니다. 동시에 박사과정에 입학하였습니다.</p></div>
           </a>
           <a class="card k-paper" href="/news/46/" data-cat="paper">
-            <div class="ph"><img src="/images/posts/46/recare_hu_49912d9cbd6652a4.webp" alt="" loading="lazy" decoding="async"><span class="cat">Paper</span></div>
+            <div class="ph is-fit"><img src="/images/news/iclr2026/recare-fig.webp" alt="" loading="lazy" decoding="async"><span class="cat">Paper</span></div>
             <div class="cb"><span class="dt">2026.01.26</span>
-              <h3>연구실 논문 ICLR 2026 Accept</h3>
-              <p>연구실 논문 &quot;Co-occurring Associated REtained concepts in Diffusion Unlearning&quot;이 ICLR 2026에 Accept 되었습니다.</p></div>
+              <h3>누드를 지웠더니 사람도 같이 사라졌다</h3>
+              <p>확산 모델에서 유해 개념을 지울 때 함께 죽어 버리는 무해한 개념을 CARE 로 정의하고, 그것을 지키면서 대상만 지우는 ReCARE 를 제안했습니다.</p></div>
           </a>
           <a class="card k-paper" href="/news/45/" data-cat="paper">
-            <div class="ph"><img src="/images/posts/45/slotgcg_hu_837ca6f3d9927001.webp" alt="" loading="lazy" decoding="async"><span class="cat">Paper</span></div>
+            <div class="ph is-fit"><img src="/images/news/iclr2026/slotgcg-fig.webp" alt="" loading="lazy" decoding="async"><span class="cat">Paper</span></div>
             <div class="cb"><span class="dt">2026.01.26</span>
-              <h3>연구실 논문 ICLR 2026 Accept</h3>
-              <p>연구실 논문 &quot;SlotGCG, Exploiting the Positional Vulnerability in LLMs for Jailbreak Attacks&quot;이 ICLR 2026에 Accept 되었습</p></div>
+              <h3>공격 토큰을 어디에 끼우느냐가 성패를 가른다</h3>
+              <p>jailbreak 공격 토큰을 프롬프트 끝에만 붙이던 관행을 깨고, 삽입 위치의 취약도를 점수화해 가장 약한 자리를 노리는 SlotGCG 를 제안했습니다.</p></div>
           </a>
           </div>
         </section>

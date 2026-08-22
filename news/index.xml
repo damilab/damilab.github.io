@@ -13,6 +13,55 @@
 			<lastBuildDate>Mon, 08 Jun 2026 10:00:00 +0900</lastBuildDate>
 		
 			<atom:link href="https://damilab.github.io/news/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>로봇 하나가 멈추면 전부 멈추는 문제</title>
+      <link>https://damilab.github.io/news/58/</link>
+      <pubDate>Fri, 21 Aug 2026 10:00:00 +0900</pubDate>
+      <guid>https://damilab.github.io/news/58/</guid>
+      <description>장기 다중 로봇 과업에서 실패가 났을 때 전역 계획을 다시 짜는 대신, 영향을 받은 그룹만 멈춰 재계획하는 HiP-LR 을 제안했습니다.</description>
+    </item>
+    <item>
+      <title>안전은 궤적 전체가 아니라 한 걸음에서 갈린다</title>
+      <link>https://damilab.github.io/news/57/</link>
+      <pubDate>Fri, 21 Aug 2026 10:00:00 +0900</pubDate>
+      <guid>https://damilab.github.io/news/57/</guid>
+      <description>embodied agent 의 위험한 실행을 시뮬레이터에서 되감아, 맥락은 같고 행동만 다른 두 갈래로 안전을 학습시키는 SafeBranch 를 제안했습니다.</description>
+    </item>
+    <item>
+      <title>수익률이 좋으면 좋은 factor 인가</title>
+      <link>https://damilab.github.io/news/56/</link>
+      <pubDate>Fri, 21 Aug 2026 10:00:00 +0900</pubDate>
+      <guid>https://damilab.github.io/news/56/</guid>
+      <description>수익률만 좇는 LLM factor 자동 발굴의 구조적 허점을 짚고, 경제 가설을 관측 가능한 조건으로 쪼개 백테스트 전에 검증하는 FaVOR 를 제안했습니다.</description>
+    </item>
+    <item>
+      <title>지우라고 한 것과 모델이 외운 것이 다르다</title>
+      <link>https://damilab.github.io/news/55/</link>
+      <pubDate>Fri, 21 Aug 2026 10:00:00 +0900</pubDate>
+      <guid>https://damilab.github.io/news/55/</guid>
+      <description>삭제 요청과 모델이 실제로 기억한 내용이 어긋나는 문제를 규정하고, 모델에게 스스로 기억을 털어놓게 해 지울 대상을 만드는 CONFS 를 제안했습니다.</description>
+    </item>
+    <item>
+      <title>공격은 성공했는데 사용자는 모른다</title>
+      <link>https://damilab.github.io/news/54/</link>
+      <pubDate>Fri, 21 Aug 2026 10:00:00 +0900</pubDate>
+      <guid>https://damilab.github.io/news/54/</guid>
+      <description>LLM 에이전트를 노린 indirect prompt injection 을 사용자가 알아채는지 기준으로 다시 나누고, 알아채지 못하게 만드는 공격 ICoA 를 제안했습니다.</description>
+    </item>
+    <item>
+      <title>누드를 지웠더니 사람도 같이 사라졌다</title>
+      <link>https://damilab.github.io/news/46/</link>
+      <pubDate>Mon, 26 Jan 2026 10:00:00 +0900</pubDate>
+      <guid>https://damilab.github.io/news/46/</guid>
+      <description>확산 모델에서 유해 개념을 지울 때 함께 죽어 버리는 무해한 개념을 CARE 로 정의하고, 그것을 지키면서 대상만 지우는 ReCARE 를 제안했습니다.</description>
+    </item>
+    <item>
+      <title>공격 토큰을 어디에 끼우느냐가 성패를 가른다</title>
+      <link>https://damilab.github.io/news/45/</link>
+      <pubDate>Mon, 26 Jan 2026 10:00:00 +0900</pubDate>
+      <guid>https://damilab.github.io/news/45/</guid>
+      <description>jailbreak 공격 토큰을 프롬프트 끝에만 붙이던 관행을 깨고, 삽입 위치의 취약도를 점수화해 가장 약한 자리를 노리는 SlotGCG 를 제안했습니다.</description>
+    </item>
 			<item>
 				<title>연구실 논문 FAGEN@ICML 2026 Accept</title>
 				<link>https://damilab.github.io/news/53/</link>
@@ -61,20 +110,6 @@
 				<pubDate>Thu, 12 Feb 2026 12:00:00 +0900</pubDate>
 				<guid>https://damilab.github.io/news/47/</guid>
 				<description>연구실 정승현 학생이 석사과정을 졸업하였습니다. 동시에 박사과정에 입학하였습니다.</description>
-			</item>
-			<item>
-				<title>연구실 논문 ICLR 2026 Accept</title>
-				<link>https://damilab.github.io/news/46/</link>
-				<pubDate>Mon, 26 Jan 2026 12:00:00 +0900</pubDate>
-				<guid>https://damilab.github.io/news/46/</guid>
-				<description>연구실 논문 &amp;ldquo;Co-occurring Associated REtained concepts in Diffusion Unlearning&amp;quot;이 ICLR 2026에 Accept 되었습니다.</description>
-			</item>
-			<item>
-				<title>연구실 논문 ICLR 2026 Accept</title>
-				<link>https://damilab.github.io/news/45/</link>
-				<pubDate>Mon, 26 Jan 2026 11:00:00 +0900</pubDate>
-				<guid>https://damilab.github.io/news/45/</guid>
-				<description>연구실 논문 &amp;ldquo;SlotGCG, Exploiting the Positional Vulnerability in LLMs for Jailbreak Attacks&amp;quot;이 ICLR 2026에 Accept 되었습니다.</description>
 			</item>
 			<item>
 				<title>연구실 송년회</title>
