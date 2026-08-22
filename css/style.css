@@ -4911,3 +4911,9 @@ EmojiSymbols;
     line-height: 1.75rem;
   }
 }
+
+/* News 글 커버: 사진 비율을 그대로 두고 전체를 보여 준다.
+   가로로 긴 사진만 좌우에 여백을 두고, 좁은 화면에서는 여백을 없앤다. */
+.cover-wide{width:78%;margin:0 auto}
+.cover-full{width:100%;margin:0 auto}
+@media (max-width:640px){.cover-wide{width:100%}}
