@@ -1,6 +1,60 @@
 {
  "items": [
   {
+   "thumb": "/images/posts/60/grad-group.jpg",
+   "full": "/images/posts/60/grad-group.jpg",
+   "w": 1400,
+   "h": 1050,
+   "ratio": 1.3333,
+   "cap": "2026년 8월 졸업식",
+   "cat": "Milestone",
+   "date": "2026.08",
+   "link": "/news/60/",
+   "fx": 50.0,
+   "fy": 38.0,
+   "desc": "",
+   "place": "",
+   "id": "40386f1ee3d24a29b9747955ef977184",
+   "ord": 0,
+   "size": "big"
+  },
+  {
+   "thumb": "/images/posts/60/grad-three.jpg",
+   "full": "/images/posts/60/grad-three.jpg",
+   "w": 1400,
+   "h": 1867,
+   "ratio": 0.7499,
+   "cap": "2026년 8월 졸업식",
+   "cat": "Milestone",
+   "date": "2026.08",
+   "link": "/news/60/",
+   "fx": 50.0,
+   "fy": 66.0,
+   "desc": "",
+   "place": "",
+   "id": "26fb41a31ce343cdb495eca56da13e53",
+   "ord": 1,
+   "size": "tall"
+  },
+  {
+   "thumb": "/images/posts/60/grad-banner.jpg",
+   "full": "/images/posts/60/grad-banner.jpg",
+   "w": 1400,
+   "h": 1050,
+   "ratio": 1.3333,
+   "cap": "졸업 축하 현수막",
+   "cat": "Milestone",
+   "date": "2026.08",
+   "link": "/news/60/",
+   "fx": 50.0,
+   "fy": 42.0,
+   "desc": "",
+   "place": "",
+   "id": "625619f0feb94eeea333f2224d9bfb8d",
+   "ord": 2,
+   "size": ""
+  },
+  {
    "thumb": "/images/gallery/icml2026_IMG_0643.jpg",
    "full": "/images/gallery/icml2026_IMG_0643.jpg",
    "w": 1400,
@@ -15,7 +69,7 @@
    "desc": "",
    "place": "COEX, Seoul",
    "id": "6a2048e1c51c4c33b9e8e337ffbce508",
-   "ord": 0,
+   "ord": 3,
    "size": "big"
   },
   {
@@ -33,7 +87,7 @@
    "desc": "",
    "place": "COEX, Seoul",
    "id": "3e5c4ac480c94e30b5e14c7469e0b01c",
-   "ord": 1,
+   "ord": 4,
    "size": "big"
   },
   {
@@ -51,7 +105,7 @@
    "desc": "",
    "place": "COEX, Seoul",
    "id": "533ed2fbb5f44448b5b592c0d293d250",
-   "ord": 2
+   "ord": 5
   },
   {
    "id": "bc172a4097ee4f23a868a0f1edee7f8a",
@@ -68,7 +122,7 @@
    "fx": 38.0,
    "fy": 20.0,
    "place": "",
-   "ord": 3
+   "ord": 6
   },
   {
    "id": "c6c99c5976c345cfae64e522274bb0fb",
@@ -85,7 +139,7 @@
    "fx": 39.5,
    "fy": 70.3,
    "place": "",
-   "ord": 4
+   "ord": 7
   },
   {
    "id": "c544d93b114143c6be05bd5a3ea465e2",
@@ -102,7 +156,7 @@
    "fx": 52.0,
    "fy": 51.7,
    "place": "",
-   "ord": 5
+   "ord": 8
   },
   {
    "id": "e4e67f4fa3044c17bb6fde4f5418f2b8",
@@ -119,7 +173,7 @@
    "fx": 18.7,
    "fy": 70.4,
    "place": "",
-   "ord": 6,
+   "ord": 9,
    "size": "small"
   },
   {
@@ -136,7 +190,7 @@
    "fy": 29.9,
    "desc": "",
    "id": "3a54facc6fd944e7aaa549717c188f60",
-   "ord": 7,
+   "ord": 10,
    "place": ""
   },
   {
@@ -154,7 +208,7 @@
    "fx": 33.1,
    "fy": 43.0,
    "place": "",
-   "ord": 8,
+   "ord": 11,
    "size": "small"
   },
   {
@@ -171,7 +225,7 @@
    "fy": 44.3,
    "desc": "",
    "id": "0440dd5c94b2451e8fa10ab3699263ed",
-   "ord": 9,
+   "ord": 12,
    "place": ""
   },
   {
@@ -188,7 +242,7 @@
    "fy": 64.0,
    "desc": "",
    "id": "41f1a4c650ef4a3bbb468db857b6861a",
-   "ord": 10,
+   "ord": 13,
    "place": ""
   },
   {
@@ -206,7 +260,7 @@
    "desc": "",
    "place": "COEX, Seoul",
    "id": "719607fb8e4d4570b25a7d2eaa04083e",
-   "ord": 11
+   "ord": 14
   },
   {
    "thumb": "/images/posts/50/it2_hu_e32aa1ae8886a915.jpg",
@@ -223,7 +277,7 @@
    "desc": "",
    "place": "COEX, Seoul",
    "id": "cdbbfae4ddb14e29ad418097df50a460",
-   "ord": 12
+   "ord": 15
   },
   {
    "thumb": "/images/posts/49/ICLR1_hu_c8e37b7b513d92f3.jpg",
@@ -240,7 +294,7 @@
    "desc": "",
    "place": "Rio de Janeiro, Brazil",
    "id": "3508b63765b648bb9d717e74eb622bea",
-   "ord": 13
+   "ord": 16
   },
   {
    "thumb": "/images/posts/49/ICLR2_hu_ae9731701e4ccbbc.jpg",
@@ -257,7 +311,7 @@
    "desc": "",
    "place": "Rio de Janeiro, Brazil",
    "id": "85e8a9b1e4d64138a90d2e0e54e60795",
-   "ord": 14
+   "ord": 17
   },
   {
    "thumb": "/images/posts/49/ICLR4_hu_37691ceeffc61989.jpg",
@@ -274,7 +328,7 @@
    "desc": "",
    "place": "Rio de Janeiro, Brazil",
    "id": "f88bbb92200c4686acbd994965439fce",
-   "ord": 15
+   "ord": 18
   },
   {
    "thumb": "/images/posts/49/IMG_6574_hu_ee5153b1c713650b.jpg",
@@ -291,7 +345,7 @@
    "desc": "",
    "place": "Rio de Janeiro, Brazil",
    "id": "a30ac1701d2447dca09fd73d2e79827c",
-   "ord": 16,
+   "ord": 19,
    "size": "tall"
   },
   {
@@ -308,7 +362,7 @@
    "fy": 54.8,
    "desc": "",
    "id": "9d0c5e96f9864cf981458a86b5c3a91b",
-   "ord": 17,
+   "ord": 20,
    "place": ""
   },
   {
@@ -325,7 +379,7 @@
    "fy": 41.3,
    "desc": "",
    "id": "39ae95c7e3f147cfafa2bbde7c6e2bcc",
-   "ord": 18,
+   "ord": 21,
    "place": ""
   },
   {
@@ -342,7 +396,7 @@
    "fy": 51.7,
    "desc": "",
    "id": "639553495bca4d2fa2a50faccafbcdb4",
-   "ord": 19,
+   "ord": 22,
    "size": "tall",
    "place": ""
   },
@@ -360,7 +414,7 @@
    "fy": 47.6,
    "desc": "",
    "id": "a17d557be7b54cb489e4324b6b1048ec",
-   "ord": 20,
+   "ord": 23,
    "place": ""
   },
   {
@@ -377,7 +431,7 @@
    "fy": 59.0,
    "desc": "",
    "id": "8354d10b986043b48bbc4a0ce4a59917",
-   "ord": 21,
+   "ord": 24,
    "place": ""
   },
   {
@@ -394,7 +448,7 @@
    "fy": 62.9,
    "desc": "",
    "id": "df88ce31fa1247e7a1efc2e2b32c4e09",
-   "ord": 22,
+   "ord": 25,
    "place": ""
   },
   {
@@ -411,7 +465,7 @@
    "fy": 64.7,
    "desc": "",
    "id": "76c6a4da74c1417c80a0c10ba70269b7",
-   "ord": 23,
+   "ord": 26,
    "place": ""
   },
   {
@@ -428,7 +482,7 @@
    "fy": 53.3,
    "desc": "",
    "id": "a2d5474b691d421f93abf37c65ec0c11",
-   "ord": 24,
+   "ord": 27,
    "place": ""
   },
   {
@@ -445,7 +499,7 @@
    "fy": 48.6,
    "desc": "",
    "id": "013faebd70da4a818e0da884bd152de0",
-   "ord": 25,
+   "ord": 28,
    "place": ""
   },
   {
@@ -462,7 +516,7 @@
    "fy": 53.3,
    "desc": "",
    "id": "68a0c05008af473b88b2cca91211e229",
-   "ord": 26,
+   "ord": 29,
    "place": ""
   },
   {
@@ -479,7 +533,7 @@
    "fy": 42.6,
    "desc": "",
    "id": "7b88991c2f584041bb824923905af5ec",
-   "ord": 0,
+   "ord": 3,
    "place": ""
   },
   {
@@ -496,7 +550,7 @@
    "fy": 69.4,
    "desc": "",
    "id": "f48e956df8c143b985befcaf5a85494a",
-   "ord": 1,
+   "ord": 4,
    "place": ""
   },
   {
@@ -513,7 +567,7 @@
    "fy": 24.3,
    "desc": "",
    "id": "8a235b97e06a4b409d8d340269ea7e47",
-   "ord": 2,
+   "ord": 5,
    "place": ""
   },
   {
@@ -530,7 +584,7 @@
    "fy": 55.1,
    "desc": "",
    "id": "81a30948783d4f129d7798bae73d2e0c",
-   "ord": 3,
+   "ord": 6,
    "place": ""
   },
   {
@@ -547,7 +601,7 @@
    "fy": 27.6,
    "desc": "",
    "id": "26909445c5434bcfb7e9df4d3a1e8734",
-   "ord": 4,
+   "ord": 7,
    "place": ""
   },
   {
@@ -564,7 +618,7 @@
    "fy": 34.0,
    "desc": "",
    "id": "7a8867d62d7b45c2955d431e4136d1ad",
-   "ord": 5,
+   "ord": 8,
    "place": ""
   },
   {
@@ -581,7 +635,7 @@
    "fy": 58.6,
    "desc": "",
    "id": "e39adab0af68484faefbcc18e4b23a80",
-   "ord": 6,
+   "ord": 9,
    "place": ""
   },
   {
@@ -598,7 +652,7 @@
    "fy": 34.0,
    "desc": "",
    "id": "1ddf9cad24454b26a1055e5a0247641b",
-   "ord": 7,
+   "ord": 10,
    "place": ""
   },
   {
@@ -616,7 +670,7 @@
    "desc": "",
    "place": "Dongguk University, Seoul",
    "id": "8da912726f3e4ffe85fc2aae1b38094f",
-   "ord": 8
+   "ord": 11
   },
   {
    "thumb": "/images/posts/39/emnlp1_hu_9d5bfcb7894e642f.jpg",
@@ -633,7 +687,7 @@
    "desc": "",
    "place": "Suzhou, China",
    "id": "fe79e3b68202487084befad0977d9b8f",
-   "ord": 9,
+   "ord": 12,
    "size": "big"
   },
   {
@@ -651,7 +705,7 @@
    "desc": "",
    "place": "Suzhou, China",
    "id": "fc010e120aa44cd8a263f4e6eb89f230",
-   "ord": 10
+   "ord": 13
   },
   {
    "thumb": "/images/posts/39/emnlp4_hu_f97e1f87fb28c110.jpg",
@@ -668,7 +722,7 @@
    "desc": "",
    "place": "Suzhou, China",
    "id": "fbe6da81cd0d41e5acceb54e78fc1d0e",
-   "ord": 11
+   "ord": 14
   },
   {
    "thumb": "/images/posts/39/emnlp5_hu_511e74957bb77bb1.jpg",
@@ -685,7 +739,7 @@
    "desc": "",
    "place": "Suzhou, China",
    "id": "7ed2f6885f6842eb83dcdc5a84dbc8a2",
-   "ord": 12
+   "ord": 15
   },
   {
    "thumb": "/images/posts/38/sk1_hu_c311b6d50a6ab6b2.jpg",
@@ -702,7 +756,7 @@
    "desc": "",
    "place": "COEX, Seoul",
    "id": "dd859e57dcd645ba860f853608951233",
-   "ord": 13
+   "ord": 16
   },
   {
    "thumb": "/images/gallery/insta_17904766131269776.jpg",
@@ -718,7 +772,7 @@
    "fy": 55.9,
    "desc": "",
    "id": "84587b7390c54d3eb35d8d0d22c8e5a8",
-   "ord": 14,
+   "ord": 17,
    "place": ""
   },
   {
@@ -735,7 +789,7 @@
    "fy": 56.0,
    "desc": "",
    "id": "e46e522daee94e3f83d767ee445a5271",
-   "ord": 15,
+   "ord": 18,
    "place": ""
   },
   {
@@ -752,7 +806,7 @@
    "fy": 56.1,
    "desc": "",
    "id": "bc1f2d870a2a442e9c453f0c85cca589",
-   "ord": 16,
+   "ord": 19,
    "place": ""
   },
   {
@@ -769,7 +823,7 @@
    "fy": 47.5,
    "desc": "",
    "id": "86bbc25cbf5c4064b0361ade59db9124",
-   "ord": 17,
+   "ord": 20,
    "place": ""
   },
   {
@@ -786,7 +840,7 @@
    "fy": 47.8,
    "desc": "",
    "id": "00a10a83cd334e678cc7aa73a58aa3f2",
-   "ord": 18,
+   "ord": 21,
    "place": ""
   },
   {
@@ -803,7 +857,7 @@
    "fy": 41.6,
    "desc": "",
    "id": "32b2e8034a3b46d4b41cac81a2382b51",
-   "ord": 19,
+   "ord": 22,
    "place": ""
   },
   {
@@ -820,7 +874,7 @@
    "fy": 45.0,
    "desc": "",
    "id": "3c5437bc5f6e47bdb8538211e3f072e0",
-   "ord": 20,
+   "ord": 23,
    "place": ""
   },
   {
@@ -837,7 +891,7 @@
    "fy": 61.9,
    "desc": "",
    "id": "cd61b7fce893463a932e6b2bf99cf7c0",
-   "ord": 21,
+   "ord": 24,
    "place": ""
   },
   {
@@ -854,7 +908,7 @@
    "fy": 54.0,
    "desc": "",
    "id": "fde80d0d1a3d4d5f87717188f26406d7",
-   "ord": 22,
+   "ord": 25,
    "place": ""
   },
   {
@@ -872,7 +926,7 @@
    "desc": "",
    "place": "Pyeongchang, Korea",
    "id": "7854d1162efc4f8a9891ab2f5bab826e",
-   "ord": 23
+   "ord": 26
   },
   {
    "thumb": "/images/posts/33/졸업식1_hu_7da8fd189f51f698.jpg",
@@ -888,7 +942,7 @@
    "fy": 41.5,
    "desc": "",
    "id": "f6ee8183ebf4499a9bd9ad57451d44a2",
-   "ord": 24,
+   "ord": 27,
    "place": ""
   },
   {
@@ -905,7 +959,7 @@
    "fy": 69.2,
    "desc": "",
    "id": "d83bb0a7e1494bb0a14fabe3656710d5",
-   "ord": 25,
+   "ord": 28,
    "place": ""
   },
   {
@@ -923,7 +977,7 @@
    "desc": "",
    "place": "Hanyang University, Seoul",
    "id": "49c2cb9bdee74b6089ce77df7b47d6e0",
-   "ord": 26
+   "ord": 29
   },
   {
    "thumb": "/images/posts/31/한국정보처리학회워크샵1_hu_58ae5d191334bae1.jpg",
@@ -939,7 +993,7 @@
    "fy": 52.8,
    "desc": "",
    "id": "e77a54f9885a417ca6a0f1dbae4128e9",
-   "ord": 27,
+   "ord": 30,
    "place": ""
   },
   {
@@ -957,7 +1011,7 @@
    "desc": "",
    "place": "Jeju, Korea",
    "id": "26bc906240974f808acfbc043b244abf",
-   "ord": 28
+   "ord": 31
   },
   {
    "thumb": "/images/posts/30/산업공학회2_hu_ed5999e01d15d1ba.jpg",
@@ -974,7 +1028,7 @@
    "desc": "",
    "place": "Jeju, Korea",
    "id": "c594570d3d3c4a91b2ab431714c8b10a",
-   "ord": 29
+   "ord": 32
   },
   {
    "thumb": "/images/posts/30/산업공학회3_hu_316e21ebf341643a.jpg",
@@ -991,7 +1045,7 @@
    "desc": "",
    "place": "Jeju, Korea",
    "id": "ed069e50644445bf9c7ee380d91304f5",
-   "ord": 30
+   "ord": 33
   },
   {
    "thumb": "/images/posts/30/산업공학회4_hu_e986f23b45e50486.jpg",
@@ -1008,7 +1062,7 @@
    "desc": "",
    "place": "Jeju, Korea",
    "id": "88c01de1a9754b8aadf4405ee682cd91",
-   "ord": 31
+   "ord": 34
   },
   {
    "thumb": "/images/posts/29/CVPR1_hu_aa92eda0870d97a0.jpg",
@@ -1025,7 +1079,7 @@
    "desc": "",
    "place": "Nashville, USA",
    "id": "94c9801ea98440dba65cb53acac05455",
-   "ord": 32
+   "ord": 35
   },
   {
    "thumb": "/images/gallery/insta_18028991051487557.jpg",
@@ -1042,7 +1096,7 @@
    "desc": "",
    "place": "Jeju, Korea",
    "id": "6984016fca1843ec9bdb840baf5209e2",
-   "ord": 33
+   "ord": 36
   },
   {
    "thumb": "/images/gallery/insta_18069973154006206.jpg",
@@ -1059,7 +1113,7 @@
    "desc": "",
    "place": "Jeju, Korea",
    "id": "4e09cf92619948c6894c98a111713dfb",
-   "ord": 34
+   "ord": 37
   },
   {
    "thumb": "/images/gallery/insta_18409117717104673.jpg",
@@ -1075,7 +1129,7 @@
    "fy": 43.2,
    "desc": "",
    "id": "027efade841e44b3a1ce6e105b89f480",
-   "ord": 35,
+   "ord": 38,
    "place": ""
   },
   {
@@ -1092,7 +1146,7 @@
    "fy": 53.7,
    "desc": "",
    "id": "e36e3932a0ce49ef9f228e9f780f6bdf",
-   "ord": 36,
+   "ord": 39,
    "place": ""
   },
   {
@@ -1109,7 +1163,7 @@
    "fy": 45.1,
    "desc": "",
    "id": "8d6b369331934d89b67c928a6fd488ea",
-   "ord": 37,
+   "ord": 40,
    "place": ""
   },
   {
@@ -1127,7 +1181,7 @@
    "desc": "",
    "place": "Pyeongchang, Korea",
    "id": "7f2409aa1a6340a5b75ae0289989a050",
-   "ord": 38
+   "ord": 41
   },
   {
    "thumb": "/images/posts/25/로봇학회2_hu_7b0f397a0f98500d.jpg",
@@ -1144,7 +1198,7 @@
    "desc": "",
    "place": "Pyeongchang, Korea",
    "id": "de9222af55e0438c8c1f0b74734e9fc0",
-   "ord": 39
+   "ord": 42
   },
   {
    "thumb": "/images/posts/24/민석이졸업_hu_ff44cbff43b8d4c.jpg",
@@ -1160,7 +1214,7 @@
    "fy": 53.2,
    "desc": "",
    "id": "20c1a5c96ea74ea6b8bdd779f2c0caa6",
-   "ord": 40,
+   "ord": 43,
    "place": ""
   },
   {
@@ -1178,7 +1232,7 @@
    "desc": "",
    "place": "Tokyo, Japan",
    "id": "032f86a1e9eb4530b78044782836e93a",
-   "ord": 41
+   "ord": 44
   },
   {
    "thumb": "/images/gallery/insta_17863797912325014.jpg",
@@ -1195,7 +1249,7 @@
    "desc": "",
    "place": "Tokyo, Japan",
    "id": "44a990b5be4b49809fac6697d388e8cc",
-   "ord": 42
+   "ord": 45
   },
   {
    "thumb": "/images/gallery/insta_17865165588322521.jpg",
@@ -1212,7 +1266,7 @@
    "desc": "",
    "place": "Tokyo, Japan",
    "id": "27cc7e1246b74ceb8a0b7b3b4026666c",
-   "ord": 43
+   "ord": 46
   },
   {
    "thumb": "/images/gallery/insta_17898979902107926.jpg",
@@ -1228,7 +1282,7 @@
    "fy": 80.0,
    "desc": "",
    "id": "785aa8e43eac4e2c8fab7c3e15cacd8d",
-   "ord": 44,
+   "ord": 47,
    "place": ""
   },
   {
@@ -1246,7 +1300,7 @@
    "desc": "",
    "place": "Tokyo, Japan",
    "id": "d55df688f94d4d69b874ab2b6f492a4d",
-   "ord": 45
+   "ord": 48
   },
   {
    "thumb": "/images/gallery/insta_17920309521021277.jpg",
@@ -1262,7 +1316,7 @@
    "fy": 59.1,
    "desc": "",
    "id": "08c251d86b0c4fed80d064ce661d88a3",
-   "ord": 46,
+   "ord": 49,
    "place": ""
   },
   {
@@ -1280,7 +1334,7 @@
    "desc": "",
    "place": "Tokyo, Japan",
    "id": "022731c2e9e443778423b8acd0e7b77e",
-   "ord": 47
+   "ord": 50
   },
   {
    "thumb": "/images/gallery/insta_17945624831798615.jpg",
@@ -1296,7 +1350,7 @@
    "fy": 53.5,
    "desc": "",
    "id": "4b810b9d60bd4866b51dd86c281957f9",
-   "ord": 48,
+   "ord": 51,
    "place": ""
   },
   {
@@ -1314,7 +1368,7 @@
    "desc": "",
    "place": "Tokyo, Japan",
    "id": "ccf34f3cf48f483eb244000a16b21174",
-   "ord": 49
+   "ord": 52
   },
   {
    "thumb": "/images/gallery/insta_17996796968591221.jpg",
@@ -1331,7 +1385,7 @@
    "desc": "",
    "place": "Tokyo, Japan",
    "id": "c58b2357378f4dc39f05d5a9dd63dbc3",
-   "ord": 50
+   "ord": 53
   },
   {
    "thumb": "/images/gallery/insta_18022171760391743.jpg",
@@ -1348,7 +1402,7 @@
    "desc": "",
    "place": "Tokyo, Japan",
    "id": "74795b46ffc24a5bb8980e20f149a952",
-   "ord": 51
+   "ord": 54
   },
   {
    "thumb": "/images/gallery/insta_18031288610268925.jpg",
@@ -1365,7 +1419,7 @@
    "desc": "",
    "place": "Tokyo, Japan",
    "id": "81394d304a4b4b048499eceee3937dae",
-   "ord": 52
+   "ord": 55
   },
   {
    "thumb": "/images/gallery/insta_18042922379070482.jpg",
@@ -1381,7 +1435,7 @@
    "fy": 40.6,
    "desc": "",
    "id": "66e1bc9f5878425e9890bcbff664c9cb",
-   "ord": 53,
+   "ord": 56,
    "place": ""
   },
   {
@@ -1399,7 +1453,7 @@
    "desc": "",
    "place": "Tokyo, Japan",
    "id": "94aa6d46cbd1418bb0807190a72d4ab9",
-   "ord": 54
+   "ord": 57
   },
   {
    "thumb": "/images/gallery/insta_18046916342228650.jpg",
@@ -1415,7 +1469,7 @@
    "fy": 51.8,
    "desc": "",
    "id": "ca058e0b68084a01ac4e13dc59705599",
-   "ord": 55,
+   "ord": 58,
    "place": ""
   },
   {
@@ -1433,7 +1487,7 @@
    "desc": "",
    "place": "Tokyo, Japan",
    "id": "926299eb12eb47fb8b2bc2daacf18af9",
-   "ord": 56
+   "ord": 59
   },
   {
    "thumb": "/images/gallery/insta_18053264426505806.jpg",
@@ -1450,7 +1504,7 @@
    "desc": "",
    "place": "Tokyo, Japan",
    "id": "2e2a65dd111647d2ad4d9f344a7dd34f",
-   "ord": 57
+   "ord": 60
   },
   {
    "thumb": "/images/gallery/insta_18056175511989856.jpg",
@@ -1467,7 +1521,7 @@
    "desc": "",
    "place": "Tokyo, Japan",
    "id": "98976279c962483f9de8f49d42517947",
-   "ord": 58
+   "ord": 61
   },
   {
    "thumb": "/images/gallery/insta_18058506619819532.jpg",
@@ -1484,7 +1538,7 @@
    "desc": "",
    "place": "Tokyo, Japan",
    "id": "55cc0aa6b813482fbc94a2b3892a51fc",
-   "ord": 59
+   "ord": 62
   },
   {
    "thumb": "/images/gallery/insta_18062677927911385.jpg",
@@ -1500,7 +1554,7 @@
    "fy": 45.8,
    "desc": "",
    "id": "73f0250ae2c14ae69ef61fdf60b095e2",
-   "ord": 60,
+   "ord": 63,
    "place": ""
   },
   {
@@ -1517,7 +1571,7 @@
    "fy": 46.5,
    "desc": "",
    "id": "a7e856d1a2884fec9e27a873a49d1e76",
-   "ord": 61,
+   "ord": 64,
    "place": ""
   },
   {
@@ -1535,7 +1589,7 @@
    "desc": "",
    "place": "Tokyo, Japan",
    "id": "23171f25a642417ea539ece17715e789",
-   "ord": 62
+   "ord": 65
   },
   {
    "thumb": "/images/gallery/insta_18070692472751914.jpg",
@@ -1551,7 +1605,7 @@
    "fy": 51.0,
    "desc": "",
    "id": "ee5efe172ccc4648b778647572296f97",
-   "ord": 63,
+   "ord": 66,
    "place": ""
   },
   {
@@ -1569,7 +1623,7 @@
    "desc": "",
    "place": "Tokyo, Japan",
    "id": "689f16cae8e34980af8ee0b169ce3440",
-   "ord": 64
+   "ord": 67
   },
   {
    "thumb": "/images/gallery/insta_18084986437583328.jpg",
@@ -1586,7 +1640,7 @@
    "desc": "",
    "place": "Tokyo, Japan",
    "id": "9176618b55a44b459cac7add5c35f7d6",
-   "ord": 65
+   "ord": 68
   },
   {
    "thumb": "/images/gallery/insta_18096041407502992.jpg",
@@ -1603,7 +1657,7 @@
    "desc": "",
    "place": "Tokyo, Japan",
    "id": "28c9ff1c6fe6445f928e3ae663ae7707",
-   "ord": 66,
+   "ord": 69,
    "size": "big"
   },
   {
@@ -1621,7 +1675,7 @@
    "desc": "",
    "place": "Tokyo, Japan",
    "id": "b8b1eaeb80b043eaac9ed5395ed5baa9",
-   "ord": 67
+   "ord": 70
   },
   {
    "thumb": "/images/gallery/insta_18114902392442108.jpg",
@@ -1638,7 +1692,7 @@
    "desc": "",
    "place": "Tokyo, Japan",
    "id": "7b55cb54cbe446adb0edef4783b9acbf",
-   "ord": 68
+   "ord": 71
   },
   {
    "thumb": "/images/gallery/insta_18124481020372775.jpg",
@@ -1654,7 +1708,7 @@
    "fy": 53.3,
    "desc": "",
    "id": "dda75963610847d5a6d19ffca3579e0e",
-   "ord": 69,
+   "ord": 72,
    "place": ""
   },
   {
@@ -1672,7 +1726,7 @@
    "desc": "",
    "place": "Tokyo, Japan",
    "id": "76e6766d5932457a84244a3532c45023",
-   "ord": 70
+   "ord": 73
   },
   {
    "thumb": "/images/gallery/insta_18312592870207419.jpg",
@@ -1688,7 +1742,7 @@
    "fy": 63.4,
    "desc": "",
    "id": "baaad0481c664bd798421331973aa7dd",
-   "ord": 71,
+   "ord": 74,
    "place": ""
   },
   {
@@ -1706,7 +1760,7 @@
    "desc": "",
    "place": "Tokyo, Japan",
    "id": "4d68cb4005af410080d47c2b9c1d2b54",
-   "ord": 72
+   "ord": 75
   },
   {
    "thumb": "/images/posts/22/연구실송년회_hu_e1ecb1cbe28bf476.png",
@@ -1722,7 +1776,7 @@
    "fy": 28.3,
    "desc": "",
    "id": "7911771501e448d48770192b6f22c618",
-   "ord": 0,
+   "ord": 3,
    "place": ""
   },
   {
@@ -1740,7 +1794,7 @@
    "desc": "",
    "place": "Gyeongju, Korea",
    "id": "f945ef8873c24946bcdc71713bce5a19",
-   "ord": 1
+   "ord": 4
   },
   {
    "thumb": "/images/gallery/insta_17914349496034408.jpg",
@@ -1757,7 +1811,7 @@
    "desc": "",
    "place": "Gyeongju, Korea",
    "id": "2ef9fe40f9984c31a3e9f8fefb1f5824",
-   "ord": 2
+   "ord": 5
   },
   {
    "thumb": "/images/gallery/insta_17917036637918904.jpg",
@@ -1774,7 +1828,7 @@
    "desc": "",
    "place": "Gyeongju, Korea",
    "id": "505384d61dab41ac9208e75f9bfa5ee2",
-   "ord": 3
+   "ord": 6
   },
   {
    "thumb": "/images/gallery/insta_18049106641866218.jpg",
@@ -1791,7 +1845,7 @@
    "desc": "",
    "place": "Gyeongju, Korea",
    "id": "de11921f33bd4967ba2aeb1d82692f87",
-   "ord": 4,
+   "ord": 7,
    "size": "tall"
   },
   {
@@ -1808,7 +1862,7 @@
    "fy": 55.3,
    "desc": "",
    "id": "9e3c9cfeca03447293ed68cff50ba18a",
-   "ord": 5,
+   "ord": 8,
    "place": ""
   },
   {
@@ -1825,7 +1879,7 @@
    "fy": 64.2,
    "desc": "",
    "id": "29508d8ad83b41c7978a8542eb187ba1",
-   "ord": 6,
+   "ord": 9,
    "place": ""
   },
   {
@@ -1842,7 +1896,7 @@
    "fy": 50.8,
    "desc": "",
    "id": "c761c705c5834080bbedeeebc665a359",
-   "ord": 7,
+   "ord": 10,
    "place": ""
   },
   {
@@ -1859,7 +1913,7 @@
    "fy": 31.1,
    "desc": "",
    "id": "6ab737c4bd7d46f18b1099d86fd5094b",
-   "ord": 8,
+   "ord": 11,
    "place": ""
   },
   {
@@ -1876,7 +1930,7 @@
    "fy": 59.7,
    "desc": "",
    "id": "4f47aca7f61c40f8b339c80f867298dd",
-   "ord": 9,
+   "ord": 12,
    "place": ""
   },
   {
@@ -1893,7 +1947,7 @@
    "fy": 48.5,
    "desc": "",
    "id": "1c5b542978934e5983bbca61c331c65c",
-   "ord": 10,
+   "ord": 13,
    "place": ""
   },
   {
@@ -1910,7 +1964,7 @@
    "fy": 56.0,
    "desc": "",
    "id": "7b1a6ae2678242ef92fb229e4fd19452",
-   "ord": 11,
+   "ord": 14,
    "size": "tall",
    "place": ""
   },
@@ -1929,7 +1983,7 @@
    "desc": "",
    "place": "Pittsburgh, USA",
    "id": "dd1d81d6fa4845eca741efea66c7c434",
-   "ord": 12
+   "ord": 15
   },
   {
    "thumb": "/images/posts/14/연구실회식셋_hu_65b96112986f9c02.png",
@@ -1945,7 +1999,7 @@
    "fy": 27.2,
    "desc": "",
    "id": "8e3bba98ada647f085972207cbb063a5",
-   "ord": 13,
+   "ord": 16,
    "place": ""
   },
   {
@@ -1963,7 +2017,7 @@
    "desc": "",
    "place": "Yeosu, Korea",
    "id": "fce9fef3df2342cb9c184503990842a7",
-   "ord": 14
+   "ord": 17
   },
   {
    "thumb": "/images/posts/12/24산업공학회1_hu_e198923cfd38f41e.jpg",
@@ -1980,7 +2034,7 @@
    "desc": "",
    "place": "Yeosu, Korea",
    "id": "aa931cdccd5145849984086527e63006",
-   "ord": 15
+   "ord": 18
   },
   {
    "thumb": "/images/posts/12/24산업공학회2_hu_26201c0391c029a2.jpg",
@@ -1997,7 +2051,7 @@
    "desc": "",
    "place": "Yeosu, Korea",
    "id": "b6261e5fcdf1489f894341b1a15a4a68",
-   "ord": 16
+   "ord": 19
   },
   {
    "thumb": "/images/posts/12/24산업공학회3_hu_9956afe495a29a29.jpg",
@@ -2014,7 +2068,7 @@
    "desc": "",
    "place": "Yeosu, Korea",
    "id": "33e3ab93cd0f435b8a6e9b421f286f7e",
-   "ord": 17,
+   "ord": 20,
    "size": "big"
   },
   {
@@ -2032,7 +2086,7 @@
    "desc": "",
    "place": "Yeosu, Korea",
    "id": "eac0e067bab34a13974cca6f4ef649a8",
-   "ord": 18
+   "ord": 21
   },
   {
    "thumb": "/images/gallery/insta_17916454319824439.jpg",
@@ -2049,7 +2103,7 @@
    "desc": "",
    "place": "Yeosu, Korea",
    "id": "af89ffa02b414100b2e0fb9c6f6f27df",
-   "ord": 19
+   "ord": 22
   },
   {
    "thumb": "/images/gallery/insta_17958480815641876.jpg",
@@ -2066,7 +2120,7 @@
    "desc": "",
    "place": "Yeosu, Korea",
    "id": "6abff3a755b444fcaa70298e7e41777a",
-   "ord": 20
+   "ord": 23
   },
   {
    "thumb": "/images/gallery/insta_18015747509249724.jpg",
@@ -2083,7 +2137,7 @@
    "desc": "",
    "place": "Yeosu, Korea",
    "id": "92d8e748232f4b24a1c2f9e15cf1583c",
-   "ord": 21
+   "ord": 24
   },
   {
    "thumb": "/images/gallery/insta_18018738953330702.jpg",
@@ -2100,7 +2154,7 @@
    "desc": "",
    "place": "Yeosu, Korea",
    "id": "4e0f3899a5e442db853eb01df69f707a",
-   "ord": 22
+   "ord": 25
   },
   {
    "thumb": "/images/gallery/insta_18022122385981292.jpg",
@@ -2117,7 +2171,7 @@
    "desc": "",
    "place": "Yeosu, Korea",
    "id": "7efec01ad88c46098c3b54a277deeda3",
-   "ord": 23
+   "ord": 26
   },
   {
    "thumb": "/images/gallery/insta_18038364289882898.jpg",
@@ -2134,7 +2188,7 @@
    "desc": "",
    "place": "Yeosu, Korea",
    "id": "ad230f3e781c4ce799b3a95c412a4dbc",
-   "ord": 24
+   "ord": 27
   },
   {
    "thumb": "/images/gallery/insta_18101903116394949.jpg",
@@ -2151,7 +2205,7 @@
    "desc": "",
    "place": "Yeosu, Korea",
    "id": "3f188da24ed043d4a4ba268a5c17934c",
-   "ord": 25
+   "ord": 28
   },
   {
    "thumb": "/images/gallery/insta_18258765667243296.jpg",
@@ -2167,7 +2221,7 @@
    "fy": 66.0,
    "desc": "",
    "id": "30f4f69661ac4c6f82626a8f0d0ccc1f",
-   "ord": 26,
+   "ord": 29,
    "size": "big",
    "place": ""
   },
@@ -2185,7 +2239,7 @@
    "fy": 46.3,
    "desc": "",
    "id": "97ecf38648da4ad9a5cdc7b2df59e9f1",
-   "ord": 27,
+   "ord": 30,
    "place": ""
   },
   {
@@ -2202,7 +2256,7 @@
    "fy": 49.9,
    "desc": "",
    "id": "10c4dd1de3b24ed0adb5097da3890ae1",
-   "ord": 28,
+   "ord": 31,
    "place": ""
   },
   {
@@ -2219,7 +2273,7 @@
    "fy": 50.7,
    "desc": "",
    "id": "42879f15ec1d4d21bca65b1aa277fe35",
-   "ord": 29,
+   "ord": 32,
    "place": ""
   },
   {
@@ -2236,7 +2290,7 @@
    "fy": 44.5,
    "desc": "",
    "id": "141449a5a020433d9108fe69aa640288",
-   "ord": 30,
+   "ord": 33,
    "place": ""
   },
   {
@@ -2254,7 +2308,7 @@
    "desc": "",
    "place": "Pyeongchang, Korea",
    "id": "4632da32b6df4c3d92ad3a6fabf64def",
-   "ord": 31
+   "ord": 34
   },
   {
    "thumb": "/images/posts/6/정승현_졸업1_hu_fea849cb705193c0.jpg",
@@ -2270,7 +2324,7 @@
    "fy": 68.1,
    "desc": "",
    "id": "d9721c0c8f1645afa6c57a7f0d0389e9",
-   "ord": 32,
+   "ord": 35,
    "place": ""
   },
   {
@@ -2287,7 +2341,7 @@
    "fy": 65.5,
    "desc": "",
    "id": "140a8758a1a941cc8b739ae71073cba9",
-   "ord": 33,
+   "ord": 36,
    "place": ""
   },
   {
@@ -2305,7 +2359,7 @@
    "desc": "",
    "place": "Redmond, USA",
    "id": "737b6c0b1e4a4d3997137a0ba9f8ad9c",
-   "ord": 34
+   "ord": 37
   },
   {
    "thumb": "/images/posts/4/자료분석학회1_hu_e8466bac0a3589c3.jpg",
@@ -2322,7 +2376,7 @@
    "desc": "",
    "place": "Busan, Korea",
    "id": "fcfc3cdd7279454f8acf3344fdfeae1f",
-   "ord": 35
+   "ord": 38
   },
   {
    "thumb": "/images/posts/3/23산업공학회1_hu_f9a32808312155cf.jpg",
@@ -2339,7 +2393,7 @@
    "desc": "",
    "place": "Jeju, Korea",
    "id": "59f83629cf4c4ae98d12785560ded3bd",
-   "ord": 0,
+   "ord": 3,
    "size": "big"
   },
   {
@@ -2357,7 +2411,7 @@
    "desc": "",
    "place": "Jeju, Korea",
    "id": "42c400433ab8471cbb5275cbad24cc4a",
-   "ord": 1
+   "ord": 4
   },
   {
    "thumb": "/images/gallery/insta_17958719252544816.jpg",
@@ -2374,7 +2428,7 @@
    "desc": "",
    "place": "Jeju, Korea",
    "id": "90f7adb136204c089815ef04ec63ea09",
-   "ord": 2
+   "ord": 5
   }
  ]
 }
