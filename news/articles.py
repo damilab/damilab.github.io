@@ -307,7 +307,7 @@ PAPERS = [
         id=57, slug="safebranch", track="findings",
         head="안전은 궤적 전체가 아니라 한 걸음에서 갈린다",
         title_en="SafeBranch: Branch-Pair Safety Alignment for Embodied Agents",
-        authors="Hyunse Lee*, Jiwoo Jung*, Haneul Lee, Kyochul Jang, "
+        authors="Hyunse Lee*, Jiwoo Jeong*, Haneul Lee, Kyochul Jang, "
                 "Youngjae Yu, Woojin Lee",
         authors_note="* 공동 1저자",
         excerpt="embodied agent 의 위험한 실행을 시뮬레이터에서 되감아, 맥락은 같고 행동만 다른 두 "
