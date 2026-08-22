@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/dami_logo_b.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/dami_logo_b.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/dami_logo_b.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<title itemprop="name"> 지우라고 한 것과 모델이 외운 것이 다르다 | DAMI LAB 
+</title>
+<meta name="description" content="" />
+<meta property="og:title" content="지우라고 한 것과 모델이 외운 것이 다르다 | DAMI LAB" />
+<meta name="twitter:title" content="지우라고 한 것과 모델이 외운 것이 다르다 | DAMI LAB" />
+<meta itemprop="name" content="지우라고 한 것과 모델이 외운 것이 다르다 | DAMI LAB" />
+<meta name="application-name" content="지우라고 한 것과 모델이 외운 것이 다르다 | DAMI LAB" />
+<meta property="og:description"
+      content="" />
+<meta property="og:site_name" content="DAMI LAB" />
+<meta property="og:url" content="https://damilab.github.io/news/55/" />
+<meta property="og:locale" content="en">
+<meta property="og:image" content="/" />
+<meta property="og:image:secure_url" content="https://damilab.github.io/" />
+<meta property="og:type" content="article" />
+
+
+
+<link rel="stylesheet" href="/fonts/font.css" />
+<style>
+ 
+html, body, * {
+  font-family: 'Pretendard', ui-sans-serif, system-ui, sans-serif !important;
+}
+</style>
+
+
+
+
+<link rel="stylesheet" href="/css/style.css" />
+
+
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+
+<body class="bg-zinc-100 dark:bg-gray-800">
+    <div class="top-0 z-50 w-full text-gray-200 bg-gray-900 border-2 border-gray-900 md:sticky border-b-stone-200/10">
+    <div x-data="{ open: false }" class="flex flex-col max-w-full px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+        <div class="flex flex-row items-center justify-between p-4">
+            <a href="/" class="flex text-gray-100 transition duration-1000 ease-in-out group">
+                <img src="/images/dami_logo_w.png" class="transition-opacity h-9 w-9 group-hover:opacity-50 group-focus:opacity-70" alt="DAMI LAB Logo" />
+                <div class="mt-1 ml-3 text-xl font-black tracking-tight text-gray-100 uppercase transition-colors group-hover:text-gray-400/60">
+                    DAMI LAB</div>
+            </a>
+            <button class="rounded-lg md:hidden focus:outline-none focus:shadow-outline" @click="open = !open" role="navigation" aria-expanded="false" aria-label="Main" aria-controls="menuItems">
+                <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+                    <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                    <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                </svg>
+            </button>
+        </div>
+        <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow hidden pb-4 md:pb-0 md:flex md:justify-end md:flex-row flex-wrap">
+            
+            
+            <a class="px-4 py-2 mt-2 text-sm font-semibold rounded-lg md:mt-0 md:ml-4 hover:text-white focus:text-white hover:bg-primary-600 focus:bg-primary-700 focus:outline-none focus:shadow-outline" href="https://damilab.github.io/" title="Home">
+                Home
+            </a>
+            
+            
+            
+            <a class="px-4 py-2 mt-2 text-sm font-semibold rounded-lg md:mt-0 md:ml-4 hover:text-white focus:text-white hover:bg-primary-600 focus:bg-primary-700 focus:outline-none focus:shadow-outline" href="https://damilab.github.io/research/" title="Research">
+                Research
+            </a>
+            
+            
+            
+            <div @click.away="open = false" class="relative" x-data="{ open: false }">
+                <button @click="open = !open" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 hover:text-white focus:text-white hover:bg-primary-600 focus:bg-primary-600 focus:outline-none focus:shadow-outline">
+                    <span>People</span>
+                    <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+                <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 z-30 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48">
+                    <div class="px-2 py-2 bg-white rounded-md shadow text-primary-900">
+                        
+                        <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 hover:text-white focus:text-white hover:bg-primary-600 focus:bg-primary-600 focus:outline-none focus:shadow-outline" href="https://damilab.github.io/professor/">Professor</a>
+                        
+                        <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 hover:text-white focus:text-white hover:bg-primary-600 focus:bg-primary-600 focus:outline-none focus:shadow-outline" href="https://damilab.github.io/researcher/">Researcher</a>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+            <a class="px-4 py-2 mt-2 text-sm font-semibold rounded-lg md:mt-0 md:ml-4 hover:text-white focus:text-white hover:bg-primary-600 focus:bg-primary-700 focus:outline-none focus:shadow-outline" href="https://damilab.github.io/projects/" title="Projects">
+                Projects
+            </a>
+            
+            
+            
+            <div @click.away="open = false" class="relative" x-data="{ open: false }">
+                <span class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg md:w-auto md:inline-flex md:mt-0 md:ml-4 hover:text-white hover:bg-primary-600">
+                    <a href="https://damilab.github.io/publication/" title="Publication">Publication</a>
+                    <button @click="open = !open" type="button" aria-label="Publication submenu" class="ml-1 bg-transparent border-0 focus:outline-none focus:shadow-outline">
+                        <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 transition-transform duration-200 transform">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                </span>
+                <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 z-30 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-64">
+                    <div class="px-2 py-2 bg-white rounded-md shadow text-primary-900">
+                        
+                        <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 hover:text-white focus:text-white hover:bg-primary-600 focus:bg-primary-600 focus:outline-none focus:shadow-outline" href="https://damilab.github.io/publication/">Publications</a>
+                        
+                        <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 hover:text-white focus:text-white hover:bg-primary-600 focus:bg-primary-600 focus:outline-none focus:shadow-outline" href="https://damilab.github.io/publication/preprint/">Preprints &amp; Under Review</a>
+                        
+                        <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 hover:text-white focus:text-white hover:bg-primary-600 focus:bg-primary-600 focus:outline-none focus:shadow-outline" href="https://damilab.github.io/publication/domestic/">Other Publications</a>
+                        
+                        <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 hover:text-white focus:text-white hover:bg-primary-600 focus:bg-primary-600 focus:outline-none focus:shadow-outline" href="https://damilab.github.io/publication/patents/">Patents &amp; Software</a>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+            <a class="px-4 py-2 mt-2 text-sm font-semibold rounded-lg md:mt-0 md:ml-4 hover:text-white focus:text-white hover:bg-primary-600 focus:bg-primary-700 focus:outline-none focus:shadow-outline" href="https://damilab.github.io/news/" title="News">
+                News
+            </a>
+            
+            
+            
+            <a class="px-4 py-2 mt-2 text-sm font-semibold rounded-lg md:mt-0 md:ml-4 hover:text-white focus:text-white hover:bg-primary-600 focus:bg-primary-700 focus:outline-none focus:shadow-outline" href="https://damilab.github.io/gallery/" title="Gallery">
+                Gallery
+            </a>
+            
+            
+            
+            <a class="px-4 py-2 mt-2 text-sm font-semibold rounded-lg md:mt-0 md:ml-4 hover:text-white focus:text-white hover:bg-primary-600 focus:bg-primary-700 focus:outline-none focus:shadow-outline" href="https://damilab.github.io/contact/" title="Contact">
+                Contact
+            </a>
+            
+            
+        </nav>
+    </div>
+</div>
+    
+<style>
+  .newsart{--ink:#111827;--sub:#4b5563;--line:#d4d4d8;--navy:#002472;
+    --main:#1D4ED8;--find:#B45309;
+    color:var(--ink);font-family:'Pretendard',system-ui,-apple-system,sans-serif}
+  .newsart *{box-sizing:border-box}
+  .newsart .na-wrap{max-width:800px;margin:0 auto;padding:0 24px}
+
+  .newsart .na-head{background:#f4f5f7;border-bottom:3px solid var(--navy);
+    padding:44px 0 34px}
+  .newsart .na-badges{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:16px}
+  .newsart .na-venue{background:var(--navy);color:#fff;font-size:12.5px;font-weight:900;
+    letter-spacing:.04em;padding:5px 12px;border-radius:999px}
+  .newsart .na-track{color:#fff;font-size:12.5px;font-weight:900;letter-spacing:.04em;
+    padding:5px 12px;border-radius:999px}
+  .newsart .na-track.is-main{background:var(--main)}
+  .newsart .na-track.is-findings{background:var(--find)}
+  .newsart .na-date{font-size:12.5px;font-weight:700;color:var(--sub)}
+  .newsart .na-head h1{margin:0;font-size:clamp(26px,4vw,38px);font-weight:900;
+    line-height:1.25;letter-spacing:-.035em;color:var(--ink)}
+  .newsart .na-en{margin:14px 0 0;font-size:15px;line-height:1.55;font-weight:700;
+    color:var(--navy)}
+
+  .newsart .na-body{padding-top:34px;padding-bottom:8px}
+
+  .newsart .na-tldr{border:2px solid var(--navy);border-left-width:7px;border-radius:8px;
+    background:#fff;padding:17px 20px;margin:0 0 26px}
+  .newsart .na-tldr b{display:block;font-size:12.5px;font-weight:900;letter-spacing:.09em;
+    color:var(--navy);margin-bottom:7px}
+  .newsart .na-body .na-tldr p{margin:0;font-size:15px;line-height:1.72;color:var(--ink);
+    font-weight:500}
+
+  .newsart .na-info{border-top:1.5px solid var(--line);border-bottom:1.5px solid var(--line);
+    padding:15px 2px;margin:0 0 32px}
+  .newsart .na-info dl{margin:0;display:grid;grid-template-columns:88px 1fr;
+    gap:8px 14px;font-size:14px;line-height:1.6}
+  .newsart .na-info dt{margin:0;font-weight:900;color:var(--sub)}
+  .newsart .na-info dd{margin:0;color:var(--ink);font-weight:600}
+  .newsart .na-info .na-note{display:block;margin-top:3px;font-size:12.5px;
+    font-weight:600;color:var(--sub)}
+
+  .newsart h2{margin:34px 0 13px;font-size:21px;font-weight:900;letter-spacing:-.03em;
+    color:var(--navy);padding-left:13px;border-left:5px solid var(--navy);line-height:1.3}
+  .newsart .na-body p{margin:0 0 15px;font-size:15.5px;line-height:1.85;color:var(--ink)}
+
+  .newsart .na-quote{margin:24px 0;padding:4px 0 4px 20px;border-left:5px solid var(--main)}
+  .newsart .na-body .na-quote p{margin:0;font-size:18px;line-height:1.6;font-weight:800;
+    letter-spacing:-.02em;color:var(--navy)}
+
+  .newsart .na-fig{margin:28px 0;padding:0}
+  .newsart .na-fig img{display:block;width:100%;height:auto;border:1.5px solid var(--line);
+    border-radius:8px;background:#fff}
+  .newsart .na-fig figcaption{margin-top:9px;font-size:13px;line-height:1.62;color:var(--sub)}
+
+  .newsart .na-set{margin:0;padding:16px 20px;background:#f4f5f7;border-radius:8px;
+    display:grid;grid-template-columns:92px 1fr;gap:9px 16px;font-size:14.5px;line-height:1.68}
+  .newsart .na-set dt{margin:0;font-weight:900;color:var(--navy)}
+  .newsart .na-set dd{margin:0;color:var(--ink)}
+
+  .newsart .na-num{list-style:none;margin:0;padding:0;counter-reset:na}
+  .newsart .na-num li{counter-increment:na;position:relative;padding-left:38px;
+    margin-bottom:17px;font-size:15.5px;line-height:1.85}
+  .newsart .na-num li::before{content:"(" counter(na) ")";position:absolute;left:0;top:0;
+    font-weight:900;color:var(--main);font-size:15.5px}
+
+  .newsart .na-body p.na-close{margin:30px 0 0;padding:18px 20px;background:var(--navy);
+    border-radius:8px;color:#fff;font-size:15px;line-height:1.78;font-weight:600}
+
+  @media (max-width:640px){
+    .newsart .na-head{padding:32px 0 26px}
+    .newsart .na-info dl,.newsart .na-set{grid-template-columns:1fr;gap:2px 0}
+    .newsart .na-info dt,.newsart .na-set dt{margin-top:9px}
+    .newsart .na-body p{font-size:15px}
+    .newsart .na-body .na-quote p{font-size:16.5px}
+  }
+</style>
+<article class="newsart">
+  <header class="na-head">
+    <div class="na-wrap">
+      <div class="na-badges">
+        <span class="na-venue">EMNLP 2026</span>
+        <span class="na-track is-main">Main Conference</span>
+        <span class="na-date">2026.08.21</span>
+      </div>
+      <h1>지우라고 한 것과 모델이 외운 것이 다르다</h1>
+      <p class="na-en">Confess What You Know: Forget-Set Misalignment with Model Knowledge in LLM Unlearning</p>
+    </div>
+  </header>
+
+  <div class="na-wrap na-body">
+    <aside class="na-tldr">
+      <b>TL;DR</b>
+      <p>LLM 언러닝은 지울 대상을 forget set 으로 미리 정해 놓고 시작합니다. 그런데 실제 개인정보 삭제 요청 상황에서는 원래 학습 데이터를 볼 수 없어서, 요청한 forget set 과 모델이 실제로 외운 내용이 어긋납니다. 본 논문은 이를 forget-set misalignment 로 규정하고 두 가지 실패 유형을 구분한 뒤, 모델에게 스스로 기억을 털어놓게 해 forget set 을 구성하는 CONFS 를 제안합니다. 원본 학습 데이터를 쓰는 Gold-standard 에 필적하는 망각 성능을, 학습 데이터를 전혀 보지 않고 달성합니다.</p>
+    </aside>
+
+    <div class="na-info">
+      <dl>
+        <dt>논문</dt><dd>Confess What You Know: Forget-Set Misalignment with Model Knowledge in LLM Unlearning</dd>
+        <dt>저자</dt><dd>Miso Kim, Georu Lee, Seungwon Jeong, Woojin Lee</dd>
+        <dt>학회</dt><dd>The 2026 Conference on Empirical Methods in Natural Language Processing (EMNLP 2026)</dd>
+        <dt>트랙</dt><dd>Main Conference</dd>
+      </dl>
+    </div>
+
+    <h2>배경</h2>
+    <p>LLM 은 개인정보가 섞인 방대한 데이터로 학습되기 때문에 배포 이후 민감한 내용을 흘릴 수 있습니다. 이를 사후에 제거하는 방법이 LLM unlearning 이고, 지울 대상으로 미리 지정한 데이터를 forget set 이라 부릅니다. 기존 연구는 이 집합이 주어졌다고 보고 그 위에서 어떤 망각 알고리즘이 더 나은지를 겨뤄 왔습니다.</p>
+    <p>현실의 삭제 요청은 그렇게 깔끔하지 않습니다. 어떤 사람이 LLM 이 자기 정보를 말한다는 사실을 알고 삭제를 요청한다고 해 보겠습니다. 무엇을 지워 달라고 특정할 수는 있지만, 모델이 실제로 무엇을 외웠는지는 볼 수 없습니다. 원래 학습 데이터에 접근할 수 없기 때문입니다.</p>
+    <blockquote class="na-quote"><p>지워 달라고 말할 수는 있어도, 모델이 무엇을 외웠는지는 볼 수 없습니다.</p></blockquote>
+    <p>본 논문은 이 어긋남을 forget-set misalignment 라 부르고 두 가지 실패 유형으로 나눕니다. Under Unlearning 은 모델이 외운 민감 정보가 요청에서 빠진 경우입니다. 망각 효과가 요청된 사실 주변에 머물고 연결된 엔티티 수준 지식까지 번지지 않아 핵심적인 누출 위험이 그대로 남습니다. Out-of-Knowledge Unlearning 은 반대로 모델이 학습한 적 없는 정보가 요청에 들어간 경우입니다. 배운 적 없는 것을 지우라는 신호가 파라미터를 불필요하게 흔들어 일반 성능을 떨어뜨립니다. 두 현상 모두 특정 최적화 기법을 잘못 골라서 생기는 것이 아니라 망각 목표 자체가 어긋나서 생긴다는 점을 gradient 수준 분석으로 보였습니다.</p>
+    <figure class="na-fig">
+      <img src="/images/news/emnlp2026/confess-fig1.webp" alt="사용자의 삭제 요청 범위와 모델이 실제로 기억한 범위가 어긋나는 두 경우" loading="lazy" decoding="async" />
+      <figcaption>Figure 1. LLM 언러닝에서 forget set 이 어긋나는 상황입니다. 사용자의 개인정보 중 일부만 모델의 기억으로 남지만 그 경계는 사용자에게 보이지 않습니다. 그래서 삭제 요청이 기억된 정보를 빠뜨리거나(Under Unlearning) 기억한 적 없는 정보를 포함해(Out-of-Knowledge Unlearning), 개인정보 누출이나 불필요한 성능 저하로 이어집니다.</figcaption>
+    </figure>
+    <h2>제안 방법</h2>
+    <p>CONFS(CONfession-to-Forget-Set)는 원본 학습 데이터를 보지 않고 forget set 을 만듭니다. 출발점은 모델에게 직접 묻는 것입니다. 대상 인물에 대해 아는 것을 모두 말해 보라고 해서, 모델이 외운 내용을 밖으로 꺼냅니다. 이 단계가 confession 입니다.</p>
+    <p>꺼낸 진술은 형태가 제각각이라 그대로는 지울 단위로 쓸 수 없습니다. 그래서 Subject-Relation-Object(SRO) 삼중항으로 구조화해 검증 가능한 최소 단위로 쪼갭니다. 한 번 물어서 다 나오는 경우도 드뭅니다. 그래서 처음 진술에서 얻은 핵심 속성을 단서로 삼아 숨은 세부를 다시 캐묻는 reconfession 을 재귀적으로 반복합니다. 삼중항 구조화와 질문 생성에는 외부 지식 없이 GPT-4o 를 사용합니다.</p>
+    <p>마지막은 환각을 걸러 내는 일입니다. 모델이 실제로 외우지 않은 항목을 forget set 에 넣으면 그것이 곧 Out-of-Knowledge Unlearning 이 됩니다. SelfCheckGPT 방식을 따라 각 질문에 대해 여러 답을 무작위로 뽑고, DeBERTa-v3-large NLI 모델로 매긴 평균 모순 확률이 임계값 0.7 미만인 항목만 남깁니다.</p>
+    <h2>실험 설정</h2>
+    <dl class="na-set">
+      <dt>벤치마크</dt><dd>합성 데이터 TOFU, 멀티모달 CLEAR, 실존 인물 RWKU. TOFU 는 가상 작가 200명 프로필에서 대상의 10%를 언러닝하고, CLEAR 는 같은 프로토콜의 시각·언어 확장이며, RWKU 는 실존 공인 상위 10 엔티티를 하나씩 처리</dd>
+      <dt>모델</dt><dd>TOFU 와 RWKU 는 LLaMA-2-7B-Chat, CLEAR 는 LLaVA-1.5-7B</dd>
+      <dt>망각 알고리즘</dt><dd>GA, GD, NPO, RT 네 가지</dd>
+      <dt>비교 대상</dt><dd>원본 학습 데이터를 그대로 쓰는 Gold-standard, 자유 회상 방식 FreeRecall-QA, 그리고 RWKU-style 구성</dd>
+    </dl>
+    <h2>결과</h2>
+    <ol class="na-num">
+      <li>TOFU 10% 설정의 GA 기준으로, CONFS 가 만든 forget set 의 망각 성능은 원본 학습 데이터를 쓴 Gold-standard 에 근접했습니다. forget 확률이 CONFS 0.346, Gold-standard 0.327 이었습니다. 학습 데이터를 보지 않고 만든 다른 구성은 FreeRecall-QA 0.511, RWKU-style 0.421 로 훨씬 덜 지웠습니다. 언러닝 전 모델은 0.990 입니다.</li>
+      <li>남겨야 할 지식은 오히려 더 잘 지켰습니다. 같은 설정의 retain 확률이 CONFS 0.615 로 Gold-standard 0.360, FreeRecall-QA 0.517, RWKU-style 0.394 를 모두 웃돌았습니다. 지울 것은 Gold-standard 만큼 지우면서 남길 것은 더 남긴 셈입니다.</li>
+      <li>GA, GD, NPO, RT 네 알고리즘 전반에서, 원본 데이터를 쓸 수 없는 조건일 때 CONFS 가 망각과 유용성 사이 균형이 가장 좋았습니다. Retain 뿐 아니라 Real Authors 와 World Facts 성능도 다른 data-blind 구성보다 잘 보존했습니다.</li>
+      <li>멀티모달 환경인 CLEAR 에서도 같은 균형이 유지됐습니다. RWKU 에서는 벤치마크가 제공하는 forget set 을 CONFS 로 바꾸자 GA, NPO, RT 전부에서 망각이 개선되면서 Neighbor 집합 성능은 비슷하게 유지됐고, 하위 작업 성능과 멤버십 추론 공격 지표도 유지되거나 좋아졌습니다.</li>
+    </ol>
+    <h2>의의</h2>
+    <p class="na-close">forget set 을 주어진 것으로 놓고 알고리즘만 겨루는 대신, 무엇을 지울지부터 모델의 기억에 맞추면 결과가 달라집니다. CONFS 는 대상 모델 자신의 출력만 쓰고 새로운 정보를 넣지 않기 때문에, 원본 학습 데이터를 볼 수 없는 실제 삭제 요청 상황에 그대로 적용됩니다. 다만 적용 범위는 엔티티에 관한 사실 지식처럼 SRO 단위로 구조화할 수 있는 기억이며, 긴 서사나 절차적 지식으로 넓히려면 별도의 정식화가 필요합니다.</p>
+  </div>
+
+<div class="max-w-4xl px-6 pb-16 mx-auto">
+    <div class="flex justify-between items-center pt-8 border-t border-gray-200 dark:border-gray-700">
+      <a href="#" onclick="goBackToNewsList(); return false;" class="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-primary-500 border border-transparent rounded-lg shadow-sm hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition duration-200 ease-in-out transform hover:scale-105" style="display: inline-flex !important;">
+        <span class="mr-2 text-lg" style="display: inline-block;"></span>
+        <span style="display: inline-block;">목록</span>
+      </a>
+      
+      <div class="text-sm text-gray-500 dark:text-gray-400">
+        <time datetime="2026-08-21T10:00:00&#43;09:00">2026년 8월 21일</time>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function goBackToNewsList() {
+      
+      if (document.referrer && document.referrer.includes('/news')) {
+        history.back();
+      } else {
+        
+        window.location.href = '\/news\/';
+      }
+    }
+  </script>
+</article>
+
+    <footer class="bg-gray-900 text-gray-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        <h2 class="text-3xl font-bold text-center text-white mb-8">
+            Contact
+        </h2>
+
+        <div class="flex flex-col md:flex-row justify-center items-center md:items-stretch gap-8 md:gap-10">
+
+            <div class="flex flex-col gap-4 text-center md:text-left">
+                <div class="flex items-center gap-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    <span>
+                        이우진 교수
+                        <a href="mailto:wj926@dgu.ac.kr" class="underline hover:text-white">
+                            (wj926@dgu.ac.kr)
+                        </a>
+                    </span>
+                </div>
+                <div class="flex items-start gap-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    <div class="flex flex-col text-left">
+                        <span>교수님 연구실: 서울특별시 중구 필동로 1길 30 동국대학교 신공학관 10117호</span>
+                        <span class="mt-1">대학원 연구실: 서울특별시 중구 필동로 1길 30 동국대학교 신공학관 5112호</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hidden md:block w-px bg-gray-400 mx-4"></div>
+
+
+            <div class="flex items-center gap-14">
+                
+                
+                <a href="https://standing-monkey-571.notion.site/64cecd062361493aa8ad3d4a18569246?v=64f62577e9cd42b99a81fd1612d350b4" class="text-gray-300 hover:text-white" aria-label="Notion">
+                    <svg viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="w-10 h-10">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M25.92 19.523c-5.247.353-6.437.433-9.417-1.99L8.927 11.507c-.77-.78-.383-1.753 1.557-1.947l53.193-3.887c4.467-.39 6.793 1.167 8.54 2.527l9.123 6.61c.39.197 1.36 1.36.193 1.36l-54.933 3.307-.68.047zm-6.117 68.777V30.367c0-2.53.777-3.697 3.103-3.893L86 22.78c2.14-.193 3.107 1.167 3.107 3.693v57.547c0 2.53-.39 4.67-3.883 4.863l-60.377 3.5c-3.493.193-5.043-.97-5.043-4.083zm59.6-54.827c.387 1.75 0 3.5-1.75 3.7l-2.91.577v42.773c-2.527 1.36-4.853 2.137-6.797 2.137-3.107 0-3.883-.973-6.21-3.887l-19.03-29.94v28.967l6.02 1.363s0 3.5-4.857 3.5l-13.39.777c-.39-.78 0-2.723 1.357-3.11l3.497-.97v-38.3L30.48 40.667c-.39-1.75.58-4.277 3.3-4.473l14.367-.967 19.8 30.327v-26.83l-5.047-.58c-.39-2.143 1.163-3.7 3.103-3.89l13.4-.78z"/>
+                    </svg>
+                </a>
+                
+
+                
+                <a href="https://github.com/damilab" class="text-gray-300 hover:text-white" aria-label="GitHub">
+                    <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
+                    </svg>
+                </a>
+                
+
+                
+                <a href="https://www.google.com/url?q=https%3A%2F%2Fwww.instagram.com%2Fdami_dgu%2F&amp;sa=D&amp;sntz=1&amp;usg=AOvVaw1jr1SL7xLstWDjChBdK34Y" class="text-gray-300 hover:text-white" aria-label="Instagram">
+                <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill-rule="evenodd"
+                    d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0
+                    011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06
+                    1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902
+                    4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067
+                    .048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427
+                    -.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363
+                    -.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218
+                    -1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247
+                    1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081
+                    1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398
+                    -1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058
+                    1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466
+                    .399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048
+                    1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466
+                    -.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055
+                    .058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344
+                    -1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3
+                    -1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12
+                    6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333
+                    3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2
+                    1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                    clip-rule="evenodd"/>
+                </svg>
+                </a>
+                
+            </div>
+
+        </div>
+
+        <div class="mt-8 border-t border-white/10 pt-6">
+            <p class="text-center text-sm text-gray-400">
+                &copy; 2026 DAMI LAB. All rights reserved.
+            </p>
+        </div>
+
+    </div>
+</footer>
+</body>
+
+</html>
