@@ -21,41 +21,6 @@
       <description>DAMI Lab 논문 5편이 EMNLP 2026에 채택되었습니다. Main Conference 2편, Findings 3편입니다.</description>
     </item>
     <item>
-      <title>CONFS 연구 EMNLP 2026 Accept</title>
-      <link>https://damilab.github.io/news/55/</link>
-      <pubDate>Fri, 21 Aug 2026 10:00:00 +0900</pubDate>
-      <guid>https://damilab.github.io/news/55/</guid>
-      <description>삭제 요청과 모델이 실제로 기억한 내용이 어긋나는 문제를 규정하고, 모델에게 스스로 기억을 털어놓게 해 지울 대상을 만드는 CONFS 를 제안했습니다.</description>
-    </item>
-    <item>
-      <title>ICoA 연구 EMNLP 2026 Accept</title>
-      <link>https://damilab.github.io/news/54/</link>
-      <pubDate>Fri, 21 Aug 2026 10:00:00 +0900</pubDate>
-      <guid>https://damilab.github.io/news/54/</guid>
-      <description>LLM 에이전트를 노린 indirect prompt injection 을 사용자가 알아채는지 기준으로 다시 나누고, 알아채지 못하게 만드는 공격 ICoA 를 제안했습니다.</description>
-    </item>
-    <item>
-      <title>HiP-LR 연구 EMNLP 2026 Accept</title>
-      <link>https://damilab.github.io/news/58/</link>
-      <pubDate>Fri, 21 Aug 2026 10:00:00 +0900</pubDate>
-      <guid>https://damilab.github.io/news/58/</guid>
-      <description>장기 다중 로봇 과업에서 실패가 났을 때 전역 계획을 다시 짜는 대신, 영향을 받은 그룹만 멈춰 재계획하는 HiP-LR 을 제안했습니다.</description>
-    </item>
-    <item>
-      <title>SafeBranch 연구 EMNLP 2026 Accept</title>
-      <link>https://damilab.github.io/news/57/</link>
-      <pubDate>Fri, 21 Aug 2026 10:00:00 +0900</pubDate>
-      <guid>https://damilab.github.io/news/57/</guid>
-      <description>embodied agent 의 위험한 실행을 시뮬레이터에서 되감아, 맥락은 같고 행동만 다른 두 갈래로 안전을 학습시키는 SafeBranch 를 제안했습니다.</description>
-    </item>
-    <item>
-      <title>FaVOR 연구 EMNLP 2026 Accept</title>
-      <link>https://damilab.github.io/news/56/</link>
-      <pubDate>Fri, 21 Aug 2026 10:00:00 +0900</pubDate>
-      <guid>https://damilab.github.io/news/56/</guid>
-      <description>수익률만 좇는 LLM factor 자동 발굴의 구조적 허점을 짚고, 경제 가설을 관측 가능한 조건으로 쪼개 백테스트 전에 검증하는 FaVOR 를 제안했습니다.</description>
-    </item>
-    <item>
       <title>ReCARE 연구 ICLR 2026 Accept</title>
       <link>https://damilab.github.io/news/46/</link>
       <pubDate>Mon, 26 Jan 2026 10:00:00 +0900</pubDate>
