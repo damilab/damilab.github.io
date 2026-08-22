@@ -5,6 +5,9 @@
 이 저장소를 고치기 전에 [WEBSITE_MAINTENANCE.md](WEBSITE_MAINTENANCE.md) 를 먼저 읽는다.
 페이지별 수정 위치, 작업 순서, 검수 방법이 거기에 있다.
 
+논문 채택 소식을 News 기사로 만들 때는
+[news/ARTICLE_RULES.md](news/ARTICLE_RULES.md) 를 함께 읽는다.
+
 아래는 그중에서도 어기면 되돌리기 어려운 것들이다.
 
 ## 논문 PDF는 저장소에 넣지 않는다
