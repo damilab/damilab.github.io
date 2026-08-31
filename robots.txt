@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://damilab.github.io/sitemap.xml
