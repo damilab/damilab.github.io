@@ -4917,3 +4917,54 @@ EmojiSymbols;
 .cover-wide{width:78%;margin:0 auto}
 .cover-full{width:100%;margin:0 auto}
 @media (max-width:640px){.cover-wide{width:100%}}
+
+/* Footer utilities the purged build dropped. Scoped to footer so nothing
+   else on the site shifts. */
+footer .underline {
+  text-decoration-line: underline;
+}
+
+footer .w-px {
+  width: 1px;
+}
+
+footer .bg-gray-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(156 163 175 / var(--tw-bg-opacity));
+}
+
+footer .mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+footer .gap-14 {
+  gap: 3.5rem;
+}
+
+footer .border-t {
+  border-top-width: 1px;
+  border-top-style: solid;
+}
+
+footer .border-white\/10 {
+  border-color: rgb(255 255 255 / 0.1);
+}
+
+@media (min-width: 768px) {
+  footer .md\:block {
+    display: block;
+  }
+
+  footer .md\:items-stretch {
+    align-items: stretch;
+  }
+
+  footer .md\:gap-10 {
+    gap: 2.5rem;
+  }
+
+  footer .md\:text-left {
+    text-align: left;
+  }
+}
