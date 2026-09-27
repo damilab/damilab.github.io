@@ -1,5 +1,17 @@
 [
  {
+  "id": 61,
+  "url": "https://damilab.github.io/news/61/",
+  "title": "ICoA 연구, EMNLP 2026 Oral 발표 선정",
+  "date": "2026-09-27",
+  "cover": "/images/news/emnlp2026/icoa-oral.webp",
+  "excerpt": "이윤석·김윤지 학생과 이우진 교수의 ICoA 논문이 EMNLP 2026 Oral 발표에 선정되었습니다. 전체 제출 17,669편 중 Oral 선정은 462편, 약 2.6%입니다.",
+  "cat": "paper",
+  "catLabel": "논문",
+  "ord": 1,
+  "fit": "contain"
+},
+ {
   "id": 52,
   "url": "https://damilab.github.io/news/52/",
   "title": "DAMI 연구실 학석사연계과정 학생 모집 (~2026.6.21)",
