@@ -2,6 +2,37 @@
   "schema": 1,
   "papers": [
     {
+      "title": "Dividing and Fair Sampling: Fair Video Interview Assessment with Multiple Sensitive Attributes via Wasserstein Distance",
+      "date": "2026-10-19",
+      "venue": "Engineering Applications of Artificial Intelligence",
+      "authors": [
+        "Georu Lee",
+        "Jinho Choi",
+        "Seunghyeon Jung",
+        "Changwoo Kim",
+        "Jihyeong Yoo",
+        "Daehun Yoo",
+        "Woojin Lee"
+      ],
+      "abstract": "Automated video interview assessment systems are increasingly used in hiring, making fairness essential. While existing research has primarily focused on a single sensitive attribute, real-world applications require addressing multiple sensitive attributes simultaneously. However, enforcing fairness across all intersectional subgroups requires comparisons among a rapidly growing number of subgroup pairs, for example 28 pairs for three binary attributes and 120 for four, and becomes difficult when some subgroups contain very few samples. Existing methods therefore struggle to balance fairness and predictive performance under multiple sensitive attributes. We propose the Dividing and Fair Sampling (DNF) method, a fairness-aware training algorithm for multimodal deep learning models, which divides each mini-batch into two sub-batches based on one sensitive attribute per iteration. Then, using Fair Sampling, it constructs equally sized sub-batches while rebalancing their sampling distributions with respect to the remaining sensitive attributes. It then minimizes the Wasserstein distance between their prediction distributions. By considering one sensitive attribute at a time, DNF avoids computing Wasserstein distances across all pairs of intersectional subgroups, while Fair Sampling mitigates severe subgroup imbalance. Our work addresses fairness across multiple sensitive attributes in multimodal video interview assessment, where video, audio, and text are combined to predict hiring recommendation scores. Experiments on an in-house hiring recommendation dataset and the public First Impressions video benchmark show that DNF improves most fairness metrics, measured by threshold-independent strong pairwise demographic disparity and strong pairwise equal opportunity, and provides a controllable trade-off with predictive performance, measured by Pearson correlation coefficient.",
+      "keywords": [
+        "Fairness",
+        "Multimodal Learning",
+        "Video Interview",
+        "Wasserstein Distance"
+      ],
+      "research_area": "core",
+      "subfield": "Fairness",
+      "subfields": [
+        "Fairness"
+      ],
+      "map_label": "Multi-Attribute Fairness",
+      "image": "/images/publications/eaai-dnf-fig3.webp",
+      "links": {},
+      "id": "dividing-and-fair-sampling-fair-video-interview-assessment-with-multiple-sensitive-attributes-via-wasserstein-distance",
+      "year": 2026
+    },
+    {
       "title": "HiP-LR: Hierarchical Planning with Localized Failure Recovery for Long-Horizon Multi-Robot Tasks",
       "date": "2026-08-21",
       "venue": "EMNLP 2026 Findings",
