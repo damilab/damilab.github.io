@@ -1,5 +1,16 @@
 [
  {
+  "id": 63,
+  "url": "https://damilab.github.io/news/63/",
+  "title": "DNF 연구 EAAI 게재 승인",
+  "date": "2026-10-19",
+  "cover": "/images/news/eaai2026/dnf-fig3.webp",
+  "excerpt": "이거루·정승현·김창우 학생과 이우진 교수가 참여한 DNF 논문이 Engineering Applications of Artificial Intelligence(EAAI, JCR 상위 3.35%)에 게재 승인되었습니다. 여러 민감 속성에 대해 공정한 AI 면접 평가 모델을 학습하는 방법입니다.",
+  "cat": "paper",
+  "catLabel": "논문",
+  "fit": "contain"
+ },
+ {
   "id": 61,
   "url": "https://damilab.github.io/news/61/",
   "title": "ICoA 연구, EMNLP 2026 Oral 발표 선정",
