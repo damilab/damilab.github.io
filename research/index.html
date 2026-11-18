@@ -553,12 +553,12 @@ dialog#fdlg::backdrop{background:rgba(6,10,25,.74)}
       <div class="head">
         <div class="hleft"><div class="kicker">AREA 01</div>
         <h3>Trustworthy AI</h3>
-        <div class="kw"><span>LLM &amp; Agent Safety</span><span>Unlearning &amp; Privacy</span><span>Adversarial Robustness</span><span>Optimization Stability</span><span>Fairness</span></div>
-        <p class="desc">모델이 언제, 왜 실패하는지를 먼저 규명하고, 그 결과를 방어 기법 설계로 연결합니다. 2020년 Optimization Stability와 Fairness에서 시작해, 최근 LLM jailbreak와 diffusion unlearning으로 확장됐습니다.</p></div>
+        <div class="kw"><span>LLM &amp; Agent Safety</span><span>Embodied AI &amp; Robot Safety</span><span>Unlearning &amp; Privacy</span><span>Adversarial Robustness</span><span>Optimization Stability</span><span>Fairness</span></div>
+        <p class="desc">모델이 언제, 왜 실패하는지를 먼저 규명하고, 그 결과를 방어 기법 설계로 연결합니다. 2020년 Optimization Stability와 Fairness에서 시작해, 최근 LLM 탈옥, AI 에이전트 보안, 언러닝, 로봇 안전으로 확장됐습니다.</p></div>
         <div class="hright"><div class="traj">
-            <div class="th"><span class="tl">연도별 논문</span><span class="tt">18편</span></div>
+            <div class="th"><span class="tl">연도별 논문</span><span class="tt">20편</span></div>
             <div class="tbox"><canvas id="mini-a1" aria-label="이 분야의 연도별 논문 수"></canvas></div>
-            <p class="tc">2026년 4편 · NRF 우수신진 과제 진행 중</p>
+            <p class="tc">2026년 7편 · NRF 우수신진 과제 진행 중</p>
           </div></div>
       </div>
       <div class="body">
@@ -569,7 +569,7 @@ dialog#fdlg::backdrop{background:rgba(6,10,25,.74)}
               <div class="nm">LLM &amp; Agent Safety</div>
               <div class="nmko">챗봇과 AI 에이전트를 먼저 공격해보고 막는 연구</div>
               <ul class="pts"><li>대화형 AI가 유해한 답을 내놓게 만드는 공격 기법 설계</li><li>뚫리는 지점을 찾아 방어에 반영, 한국어 포함 여러 언어에서 검증</li></ul>
-              <ul class="paps"><li><span class="vchip conf">FAGEN@ICML<b>2026</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/covert-ipi-fagen-icml2026-poster.pdf" target="_blank">What Did You Do Behind My Back?! Covert Indirect Prompt Injection on Tool-Using LLM Agents</a></span></li><li><span class="vchip conf">ICLR<b>2026</b></span><span class="pt"><a href="https://arxiv.org/abs/2606.05609" target="_blank">SlotGCG: Exploiting the Positional Vulnerability in LLMs for Jailbreak Attacks</a></span></li><li><span class="vchip jr">Information Sciences<b>2025</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Towards%20undetectable%20adversarial%20attack%20on%20time%20series%20classification.pdf" target="_blank">Towards undetectable adversarial attack on time series classification</a></span></li><li><span class="vchip jr">Applied Soft Computing<b>2025</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Black-box%20adversarial%20examples%20via%20frequency%20distortion%20against%20fault%20diagnosis%20systems.pdf" target="_blank">Black-box adversarial examples via frequency distortion</a></span></li></ul>
+              <ul class="paps"><li><span class="vchip conf">EMNLP<b>2026</b></span><span class="pt"><a href="/news/54/" target="_blank">Will the User Ever Know? Covert Indirect Prompt Injection Attacks on Tool-Using LLM Agents</a></span></li><li><span class="vchip conf">ICLR<b>2026</b></span><span class="pt"><a href="https://arxiv.org/abs/2606.05609" target="_blank">SlotGCG: Exploiting the Positional Vulnerability in LLMs for Jailbreak Attacks</a></span></li><li><span class="vchip jr">Information Sciences<b>2025</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Towards%20undetectable%20adversarial%20attack%20on%20time%20series%20classification.pdf" target="_blank">Towards undetectable adversarial attack on time series classification</a></span></li><li><span class="vchip jr">Applied Soft Computing<b>2025</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Black-box%20adversarial%20examples%20via%20frequency%20distortion%20against%20fault%20diagnosis%20systems.pdf" target="_blank">Black-box adversarial examples via frequency distortion</a></span></li></ul>
             </div>
                       <div class="rfigwrap" data-n="3">
               <button class="rfig" style="height:205px" onclick="rfigClick(event,this)" aria-label="figure 크게 보기. 오른쪽 끝을 누르면 다음 그림"
@@ -579,12 +579,27 @@ dialog#fdlg::backdrop{background:rgba(6,10,25,.74)}
             </div>
           </div>
           <div class="sub"
+               data-nm="Embodied AI &amp; Robot Safety" data-img="/images/news/emnlp2026/safebranch-fig1.webp" data-cap="" data-v="EMNLP 2026 Findings" data-vc="conf" data-t="SafeBranch: Branch-Pair Safety Alignment for Embodied Agents">
+            <div class="txt">
+              <div class="nm">Embodied AI &amp; Robot Safety</div>
+              <div class="nmko">로봇이 실제 환경에서 위험한 행동으로 넘어가지 않게 만드는 연구</div>
+              <ul class="pts"><li>가정용 로봇이 위험한 순간을 알아채고 안전하게 다시 행동하도록 학습</li><li>여러 로봇이 함께 일하다 실패하면 그 지점만 찾아 복구</li></ul>
+              <ul class="paps"><li><span class="vchip conf">EMNLP Findings<b>2026</b></span><span class="pt"><a href="https://arxiv.org/abs/2608.19729" target="_blank">SafeBranch: Branch-Pair Safety Alignment for Embodied Agents</a></span></li><li><span class="vchip conf">EMNLP Findings<b>2026</b></span><span class="pt"><a href="/news/58/" target="_blank">HiP-LR: Hierarchical Planning with Localized Failure Recovery for Long-Horizon Multi-Robot Tasks</a></span></li></ul>
+            </div>
+                      <div class="rfigwrap" data-n="2">
+              <button class="rfig" onclick="rfigClick(event,this)" aria-label="figure 크게 보기. 오른쪽 끝을 누르면 다음 그림"
+                      data-img="/images/news/emnlp2026/safebranch-fig1.webp" data-v="EMNLP 2026 Findings" data-t="SafeBranch: Branch-Pair Safety Alignment for Embodied Agents" data-cap=""><img class="on" src="/images/news/emnlp2026/safebranch-fig1.webp" alt="SafeBranch: Branch-Pair Safety Alignment for Embodied Agents figure" data-v="EMNLP 2026 Findings" data-t="SafeBranch: Branch-Pair Safety Alignment for Embodied Agents"><img src="/images/news/emnlp2026/hiplr-fig1.webp" alt="HiP-LR figure" data-v="EMNLP 2026 Findings" data-t="HiP-LR: Hierarchical Planning with Localized Failure Recovery"><span class="fnx" aria-hidden="true"><i></i></span><span class="fbar"><i></i></span></button>
+              <div class="fmeta"><span class="fv">EMNLP 2026 Findings</span><span class="ft">SafeBranch: Branch-Pair Safety Alignment for Embodied Agents</span></div>
+              <div class="fdots"><button type="button" class="fd on" onclick="goFig(this,0)" aria-label="1번째 그림"></button><button type="button" class="fd" onclick="goFig(this,1)" aria-label="2번째 그림"></button></div>
+            </div>
+          </div>
+          <div class="sub"
                data-nm="Unlearning &amp; Privacy" data-img="https://damilab.github.io/images/publications/recare.png" data-cap="개념 제거 이후 생성 결과 비교. 기존 방법은 무해한 동반 개념까지 잃지만 제안 방법은 그것을 보존합니다." data-v="ICLR 2026" data-vc="conf" data-t="Co-occurring Associated REtained concepts in Diffusion Unlearning">
             <div class="txt">
               <div class="nm">Unlearning &amp; Privacy</div>
               <div class="nmko">AI가 배운 것 중 지워야 할 정보만 골라 지우는 기술</div>
               <ul class="pts"><li>지울 정보만 선택적으로 삭제하고 나머지 성능은 그대로 유지</li><li>데이터를 암호화된 채로 두고 학습하는 방법 연구</li></ul>
-              <ul class="paps"><li><span class="vchip conf">ICLR<b>2026</b></span><span class="pt"><a href="https://arxiv.org/abs/2606.24192" target="_blank">Co-occurring Associated REtained concepts in Diffusion Unlearning</a></span></li><li><span class="vchip conf">NeurIPS<b>2021</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Parameter-free%20HE-friendly%20Logistic%20Regression.pdf" target="_blank">Parameter-free HE-friendly Logistic Regression</a></span></li></ul>
+              <ul class="paps"><li><span class="vchip conf">EMNLP<b>2026</b></span><span class="pt"><a href="/news/55/" target="_blank">Confess What You Know: Forget-Set Misalignment with Model Knowledge in LLM Unlearning</a></span></li><li><span class="vchip conf">ICLR<b>2026</b></span><span class="pt"><a href="https://arxiv.org/abs/2606.24192" target="_blank">Co-occurring Associated REtained concepts in Diffusion Unlearning</a></span></li><li><span class="vchip conf">NeurIPS<b>2021</b></span><span class="pt"><a href="https://damilab.github.io/images/publications/pdf/Parameter-free%20HE-friendly%20Logistic%20Regression.pdf" target="_blank">Parameter-free HE-friendly Logistic Regression</a></span></li></ul>
             </div>
                       <div class="rfigwrap" data-n="2">
               <button class="rfig" onclick="rfigClick(event,this)" aria-label="figure 크게 보기. 오른쪽 끝을 누르면 다음 그림"
@@ -641,7 +656,7 @@ dialog#fdlg::backdrop{background:rgba(6,10,25,.74)}
         </div>
         </div>
       <div class="foot">
-        <span class="venues">ICLR 2026 2건 · NeurIPS · AAAI · Neural Networks · Information Sciences</span>
+        <span class="venues">EMNLP 2026 4건 · ICLR 2026 2건 · NeurIPS · AAAI · Neural Networks · Information Sciences</span>
         <a class="go" href="/research/trustworthy-ai/">자세히</a>
       </div>
     </article>
@@ -720,9 +735,9 @@ dialog#fdlg::backdrop{background:rgba(6,10,25,.74)}
         <div class="kw"><span>Climate &amp; Satellite</span><span>Geoscience Risk Mapping</span><span>Sports Analytics</span><span>Finance &amp; Business</span><span>Video &amp; Multimodal</span></div>
         <p class="desc">실제 계측 데이터가 존재하는 문제에 방법론을 적용합니다. Climate &amp; Satellite, Geoscience Risk Mapping, Sports Analytics, Finance &amp; Business 네 분야가 현재 진행 중입니다.</p></div>
         <div class="hright"><div class="traj">
-            <div class="th"><span class="tl">연도별 논문</span><span class="tt">16편</span></div>
+            <div class="th"><span class="tl">연도별 논문</span><span class="tt">18편</span></div>
             <div class="tbox"><canvas id="mini-a3" aria-label="이 분야의 연도별 논문 수"></canvas></div>
-            <p class="tc">2026년 6편 · 논문 외 수행 과제 2건 (기상청 2027년까지)</p>
+            <p class="tc">2026년 7편 · 논문 외 수행 과제 2건 (기상청 2027년까지)</p>
           </div></div>
       </div>
       <div class="body">
@@ -778,7 +793,7 @@ dialog#fdlg::backdrop{background:rgba(6,10,25,.74)}
               <div class="nm">Finance &amp; Business</div>
               <div class="nmko">AI로 종목을 고르고 그 판단 근거를 검증</div>
               <ul class="pts"><li>산업 흐름을 반영한 종목 선별 모델 연구</li><li>모델이 든 근거가 실제 결과와 맞는지 검증</li></ul>
-              <ul class="paps"><li><span class="vchip jr">Research in International Business and Finance<b>2026</b></span><span class="pt"><a href="https://doi.org/10.1016/j.ribaf.2026.103585" target="_blank" rel="noopener">Who provides liquidity in retail-dominated markets? Evidence from Korea</a></span></li><li><span class="vchip jr">Computational Economics<b>2026</b></span><span class="pt">Large Language Models as Financial Analysts: Sector-Aware Reasoning</span></li><li><span class="vchip jr">Finance Research Letters<b>2025</b></span><span class="pt">Interconnected dynamics of sustainable cryptocurrencies</span></li><li class="ex"><span class="vchip jr">J. Theoretical and Applied E-Commerce<b>2026</b></span><span class="pt">Disconfirmation Dynamics in Service Recovery</span></li><li class="ex"><span class="vchip prj">한국데이터마이닝학회<b>2024</b></span><span class="pt">섹터 정보를 활용한 대규모 언어 모델(LLM)의 재무 데이터 분석</span></li><li class="ex"><span class="vchip prj">ACK<b>2025</b></span><span class="pt">산업별 맥락을 활용한 대규모 언어모델 기반 주식 선택 연구</span></li><li class="more"><button type="button" onclick="toggleMore(this)" data-n="3">+3편 더 보기</button></li></ul>
+              <ul class="paps"><li><span class="vchip conf">EMNLP Findings<b>2026</b></span><span class="pt"><a href="/news/56/" target="_blank">FaVOR: LLM-Based Agentic Framework for Factor Mining via Empirical Validation</a></span></li><li><span class="vchip jr">Research in International Business and Finance<b>2026</b></span><span class="pt"><a href="https://doi.org/10.1016/j.ribaf.2026.103585" target="_blank" rel="noopener">Who provides liquidity in retail-dominated markets? Evidence from Korea</a></span></li><li><span class="vchip jr">Computational Economics<b>2026</b></span><span class="pt">Large Language Models as Financial Analysts: Sector-Aware Reasoning</span></li><li><span class="vchip jr">Finance Research Letters<b>2025</b></span><span class="pt">Interconnected dynamics of sustainable cryptocurrencies</span></li><li class="ex"><span class="vchip jr">J. Theoretical and Applied E-Commerce<b>2026</b></span><span class="pt">Disconfirmation Dynamics in Service Recovery</span></li><li class="ex"><span class="vchip prj">한국데이터마이닝학회<b>2024</b></span><span class="pt">섹터 정보를 활용한 대규모 언어 모델(LLM)의 재무 데이터 분석</span></li><li class="ex"><span class="vchip prj">ACK<b>2025</b></span><span class="pt">산업별 맥락을 활용한 대규모 언어모델 기반 주식 선택 연구</span></li><li class="more"><button type="button" onclick="toggleMore(this)" data-n="3">+3편 더 보기</button></li></ul>
             </div>
                       <div class="rfigwrap" data-n="3">
               <button class="rfig" onclick="rfigClick(event,this)" aria-label="figure 크게 보기. 오른쪽 끝을 누르면 다음 그림"
@@ -805,7 +820,7 @@ dialog#fdlg::backdrop{background:rgba(6,10,25,.74)}
         </div>
       </div>
       <div class="foot">
-        <span class="venues">Applied Sciences · CVPR Workshop · J. Environmental Management · Computational Economics · 기상청 · 김캐디 협력 과제</span>
+        <span class="venues">EMNLP 2026 Findings · Applied Sciences · CVPR Workshop · J. Environmental Management · Computational Economics · 기상청 · 김캐디 협력 과제</span>
         <a class="go" href="/research/ai-applications/">자세히</a>
       </div>
     </article>
@@ -901,9 +916,9 @@ document.querySelectorAll('.rfigwrap').forEach(function(wrap){
 });
 
 /* 축별 연도별 논문 그래프 (헤더, 연도순 등장) */
-var MD={a1:{'2020':2,'2021':3,'2023':4,'2024':2,'2025':2,'2026':4},
+var MD={a1:{'2020':2,'2021':3,'2023':4,'2024':2,'2025':2,'2026':7},
         a2:{'2018':1,'2019':1,'2020':1,'2021':1,'2022':3,'2024':2,'2025':2},
-        a3:{'2024':3,'2025':8,'2026':5}};
+        a3:{'2024':3,'2025':8,'2026':7}};
 var miniBuilt={}, miniC={}, miniAt={};
 function buildMini(k){
   if(typeof Chart==='undefined'||miniBuilt[k]) return;
