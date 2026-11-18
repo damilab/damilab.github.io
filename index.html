@@ -876,22 +876,23 @@ document.addEventListener('DOMContentLoaded', function() {
 </style>
   <style>
   .dami-rule{margin-top:12px;height:4px;width:96px;border-radius:2px;background:#001456}
-  .dami-collab{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:38px;
+  .dami-collab{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));margin-top:38px;
     border-top:1px solid #E5E9F0;border-left:1px solid #E5E9F0}
   .dami-collab .dc-tile{display:flex;flex-direction:column;min-width:0;background:#fff;color:inherit;
     text-decoration:none;border-right:1px solid #E5E9F0;border-bottom:1px solid #E5E9F0;
     transition:background .3s ease}
   .dami-collab a.dc-tile:hover{background:#F7F9FD}
-  .dami-collab .dc-logo{height:108px;margin:16px 16px 14px;border-radius:12px;display:flex;
+  .dami-collab .dc-logo{height:104px;margin:14px 14px 14px;border-radius:12px;display:flex;
     align-items:center;justify-content:center}
   .dami-collab .dc-logo.dc-light{background:#F3F5F9}
   .dami-collab .dc-logo.dc-light img{mix-blend-mode:multiply}
   .dami-collab .dc-logo img{display:block;max-width:80%;height:auto;object-fit:contain;
     transition:transform .35s ease}
   .dami-collab a.dc-tile:hover .dc-logo img{transform:scale(1.06)}
-  .dami-collab .dc-name{font-size:15.5px;font-weight:800;color:#0f172a;padding:0 18px 10px}
-  .dami-collab .dc-dl{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:12px;row-gap:6px;
-    align-items:baseline;margin:0 18px 18px;padding-top:10px;border-top:1px solid #E5E9F0}
+  .dami-collab .dc-name{font-size:15.5px;font-weight:800;color:#0f172a;padding:0 14px 10px}
+  .dami-collab .dc-dl{display:grid;grid-template-columns:minmax(0,1fr);row-gap:2px;
+    margin:0 14px 16px;padding-top:10px;border-top:1px solid #E5E9F0}
+  .dami-collab .dc-dl > span{margin-bottom:6px}
   .dami-collab .dc-dl small{font-size:10.5px;font-weight:800;letter-spacing:.04em;color:#8a94a8;white-space:nowrap}
   .dami-collab .dc-dl span{font-size:12.5px;line-height:1.45;color:#374151;white-space:nowrap;
     overflow:hidden;text-overflow:ellipsis;min-width:0}
@@ -901,8 +902,11 @@ document.addEventListener('DOMContentLoaded', function() {
   .dami-collab.dc-anim .dc-tile{opacity:0;transform:translateY(14px);
     transition:opacity .6s ease var(--d,0ms),transform .6s cubic-bezier(.2,.7,.2,1) var(--d,0ms),background .3s ease}
   .dami-collab.dc-anim.dc-on .dc-tile{opacity:1;transform:none}
-  @media (max-width:900px){
+  .dami-collab .dc-name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  @media (max-width:1180px){
     .dami-collab{grid-template-columns:repeat(2,minmax(0,1fr))}
+  }
+  @media (max-width:900px){
     .dami-collab .dc-logo{height:92px;margin:12px}
     .dami-collab .dc-logo img{max-width:72%}
     .dami-collab .dc-name{font-size:14.5px;padding:0 12px 8px;word-break:keep-all}
@@ -939,36 +943,28 @@ document.addEventListener('DOMContentLoaded', function() {
           <small>논문</small><span class="dc-ps"><span>ChainQABench</span></span>
         </span>
       </a>
-      <a class="dc-tile" href="https://www.snu.ac.kr/index.html" target="_blank" rel="noopener" style="--d:90ms">
-        <span class="dc-logo dc-light"><img src="/images/collab/tile/snu.png" alt="서울대학교" width="56" height="58" loading="lazy"></span>
-        <span class="dc-name">서울대학교</span>
-        <span class="dc-dl">
-          <small>공동연구</small><span>AI 안전성, 강건성</span>
-          <small>논문</small><span class="dc-ps"><span>SafeBranch<u>EMNLP 2026</u></span><span>Catastrophic Overfitting<u>AAAI 2021</u></span><span>Certified Robustness<u>NeurIPS 2021</u></span></span>
-        </span>
-      </a>
-      <a class="dc-tile" href="https://www.nrf.re.kr/" target="_blank" rel="noopener" style="--d:135ms">
+      <a class="dc-tile" href="https://www.nrf.re.kr/" target="_blank" rel="noopener" style="--d:90ms">
         <span class="dc-logo dc-light"><img src="/images/collab/tile/nrf.png" alt="한국연구재단" width="79" height="58" loading="lazy"></span>
         <span class="dc-name">한국연구재단</span>
         <span class="dc-dl">
           <small>산학과제</small><span>우수신진, 기본연구</span>
         </span>
       </a>
-      <a class="dc-tile" href="https://www.weather.go.kr/w/index.do" target="_blank" rel="noopener" style="--d:180ms">
+      <a class="dc-tile" href="https://www.weather.go.kr/w/index.do" target="_blank" rel="noopener" style="--d:135ms">
         <span class="dc-logo dc-light"><img src="/images/collab/tile/cma.png" alt="기상청" width="38" height="58" loading="lazy"></span>
         <span class="dc-name">기상청</span>
         <span class="dc-dl">
           <small>산학과제</small><span>초해상화 기후자료 AI</span>
         </span>
       </a>
-      <a class="dc-tile" href="https://www.kisti.re.kr/" target="_blank" rel="noopener" style="--d:225ms">
+      <a class="dc-tile" href="https://www.kisti.re.kr/" target="_blank" rel="noopener" style="--d:180ms">
         <span class="dc-logo dc-light"><img src="/images/collab/tile/kisti.png" alt="한국과학기술정보연구원" width="90" height="50" loading="lazy"></span>
         <span class="dc-name">한국과학기술정보연구원</span>
         <span class="dc-dl">
           <small>산학과제</small><span>AI 학습데이터 큐레이션</span>
         </span>
       </a>
-      <a class="dc-tile" href="https://www.kigam.re.kr/" target="_blank" rel="noopener" style="--d:270ms">
+      <a class="dc-tile" href="https://www.kigam.re.kr/" target="_blank" rel="noopener" style="--d:225ms">
         <span class="dc-logo" style="background:#0f2a4a"><img src="/images/collab/tile/kigam.png" alt="한국지질자원연구원" width="121" height="40" loading="lazy"></span>
         <span class="dc-name">한국지질자원연구원</span>
         <span class="dc-dl">
@@ -976,15 +972,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <small>논문</small><span class="dc-ps"><span>Flood Susceptibility<u>GNHR 2026</u></span><span>Indoor Radon Mapping<u>GNHR 2025</u></span></span>
         </span>
       </a>
-      <a class="dc-tile" href="https://www.cau.ac.kr/index.do" target="_blank" rel="noopener" style="--d:315ms">
-        <span class="dc-logo dc-light"><img src="/images/collab/tile/cau.png" alt="중앙대학교" width="62" height="58" loading="lazy"></span>
-        <span class="dc-name">중앙대학교</span>
-        <span class="dc-dl">
-          <small>공동연구</small><span>확산모델 언러닝</span>
-          <small>논문</small><span class="dc-ps"><span>ReCARE<u>ICLR 2026</u></span></span>
-        </span>
-      </a>
-      <a class="dc-tile" href="https://home.genesislab.ai/" target="_blank" rel="noopener" style="--d:360ms">
+      <a class="dc-tile" href="https://home.genesislab.ai/" target="_blank" rel="noopener" style="--d:270ms">
         <span class="dc-logo dc-light"><img src="/images/collab/tile/genesislab.png" alt="제네시스랩" width="160" height="35" loading="lazy"></span>
         <span class="dc-name">제네시스랩</span>
         <span class="dc-dl">
@@ -992,7 +980,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <small>논문</small><span class="dc-ps"><span>DNF<u>EAAI 2026</u></span><span>Fair Interview<u>IEEE Access 2023</u></span></span>
         </span>
       </a>
-      <a class="dc-tile" href="https://kimcaddie.com/" target="_blank" rel="noopener" style="--d:405ms">
+      <a class="dc-tile" href="https://kimcaddie.com/" target="_blank" rel="noopener" style="--d:315ms">
         <span class="dc-logo" style="background:#3FC3B0"><img src="/images/collab/tile/kimcaddie.png" alt="김캐디" width="66" height="58" loading="lazy"></span>
         <span class="dc-name">김캐디</span>
         <span class="dc-dl">
@@ -1000,7 +988,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <small>논문</small><span class="dc-ps"><span>CaddieSet<u>CVPRW 2025</u></span><span>Golf Swing Graph<u>Appl. Sci. 2026</u></span></span>
         </span>
       </a>
-      <div class="dc-tile" style="--d:450ms">
+      <div class="dc-tile" style="--d:360ms">
         <span class="dc-logo" style="background:#000000"><img src="/images/collab/tile/pixt.png" alt="Pixt (스톡폴리오)" width="116" height="32" loading="lazy"></span>
         <span class="dc-name">Pixt (스톡폴리오)</span>
         <span class="dc-dl">
@@ -1008,7 +996,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <small>논문</small><span class="dc-ps"><span>LM-CLIP<u>IEEE Access 2025</u></span></span>
         </span>
       </div>
-      <a class="dc-tile" href="https://moai.co/" target="_blank" rel="noopener" style="--d:495ms">
+      <a class="dc-tile" href="https://moai.co/" target="_blank" rel="noopener" style="--d:405ms">
         <span class="dc-logo" style="background:#0b1220"><img src="/images/collab/tile/moai.png" alt="모아이 테크놀로지" width="113" height="34" loading="lazy"></span>
         <span class="dc-name">모아이 테크놀로지</span>
         <span class="dc-dl">
