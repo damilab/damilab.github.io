@@ -182,6 +182,9 @@ html, body, * {
 .pq-card .im.logo img{max-height:44px}
 .pq-card .tx{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
 .pq-ax{font-size:12.5px;font-weight:700;color:#5A6378}
+.pq-meta{display:flex;flex-wrap:wrap;column-gap:10px;row-gap:2px;font-size:12.5px;font-weight:700;color:#5A6378}
+.pq-meta .st.live{color:#15803D}
+.pq-sub{display:flex;gap:14px}
 .pq-card h3{margin:0;font-size:17px;font-weight:800;letter-spacing:-.02em;line-height:1.4}
 .pq-card p{margin:0;font-size:14px;line-height:1.6;color:#4B5568}
 .pq-card .mt{margin-top:auto;padding-top:10px;display:flex;justify-content:space-between;gap:12px;font-size:13px;font-weight:600;color:#5A6378}
@@ -224,9 +227,9 @@ html, body, * {
 </style>
 <div class="pq"><div class="pq-wrap"><div class="pq-d pq-fade">
 <a class="pq-back" href="/projects/"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Projects</a>
-<div class="pq-lb">공동연구 · 참여 과제</div><h1>블록체인 데이터 AI</h1>
-<dl class="pq-facts"><div><dt>주관·협력 기관</dt><dd>두나무<small>산학협력</small></dd></div><div><dt>연구 기간</dt><dd>2026.06 – </dd></div><div><dt>상태</dt><dd>진행 중</dd></div><div><dt>역할</dt><dd>공동연구원</dd></div></dl>
-<p class="pq-intro">블록체인은 모든 거래 기록이 공개되어 있으나, 특정 주소의 수익과 같은 단순한 질문에도 다수의 원시 기록을 해석하고 결합해야 하는 어려움이 있음. 본 과제는 두나무와 함께 온체인 데이터를 근거 기반으로 분석하는 AI 방법론을 연구함. 첫 성과인 ChainQABench는 자산 흐름, 거래소 지갑 추정, MEV, 탈중앙화 거래소의 자전거래 패턴을 다루는 전문가 검증 질문 160개와, 원시 기록을 프로토콜 행위·분석 단위·귀속 정보로 정리한 근거 계층으로 구성된 벤치마크임. LLM 11종을 평가한 결과 최고 성능 모델도 정확도 53.1%에 그쳐, 블록체인 데이터 분석이 LLM에게 여전히 어려운 과제임을 확인함. 또한 MEV 사례별로 필요한 분석을 계획·실행·검토하는 LLM 멀티에이전트 프레임워크 AIM을 개발함. 이더리움 150개 연속 블록에서 MEV 주장 357건을 확인하였으며(조건부 확인율 82.8%), 비교한 8개 기법 중 가장 많은 주장을 확인함.</p>
+<div class="pq-lb"><span class="pq-meta"><span>공동연구</span><span>참여 과제</span><span class="st live">진행 중</span></span></div><h1>블록체인 데이터 AI</h1>
+<dl class="pq-facts"><div><dt>협력 기관</dt><dd>두나무<small>산학협력</small></dd></div><div><dt>연구 기간</dt><dd>2026.06 – </dd></div><div><dt>상태</dt><dd>진행 중</dd></div><div><dt>역할</dt><dd>공동연구원</dd></div></dl>
+<p class="pq-intro">블록체인은 모든 거래 기록이 공개되어 있으나, 특정 주소의 수익과 같은 단순한 질문에도 다수의 원시 기록을 해석하고 결합해야 하는 어려움이 있음. 본 과제는 두나무와 함께 온체인 데이터를 근거 기반으로 분석하는 AI 방법론을 연구함. 첫 성과인 ChainQABench는 자산 흐름, 거래소 지갑 추정, MEV, 탈중앙화 거래소의 자전거래 패턴을 다루는 전문가 검증 질문 160개와, 원시 기록을 프로토콜 행위, 분석 단위, 귀속 정보로 정리한 근거 계층으로 구성된 벤치마크임. LLM 11종을 평가한 결과 최고 성능 모델도 정확도 53.1%에 그쳐, 블록체인 데이터 분석이 LLM에게 여전히 어려운 과제임을 확인함. 또한 MEV 사례별로 필요한 분석을 계획, 실행, 검토하는 LLM 멀티에이전트 프레임워크 AIM을 개발함. 이더리움 150개 연속 블록에서 MEV 주장 357건을 확인하였으며(조건부 확인율 82.8%), 비교한 8개 기법 중 가장 많은 주장을 확인함.</p>
 <figure class="pq-fig"><img src="/images/projects/dunamu_2026/chainqabench_fig1.webp" alt="블록체인 원시 기록을 근거 계층으로 정리해 질문에 답하는 ChainQABench 구성"></figure>
 <h2 class="pq-h2">성과</h2><ul class="pq-out"><li><span class="k">논문</span><span>ChainQABench: A Benchmark for Evidence-Grounded Question Answering over Blockchain Data</span><span class="v">심사 중</span></li><li><span class="k">논문</span><span>AIM: LLM Multi-Agent Framework for Adaptive MEV Investigation in Blockchain Transactions</span><span class="v">심사 중</span></li></ul>
 <div class="pq-two"><div><h2 class="pq-h2">참여 연구원</h2><div class="pq-chips"><span>정승현</span></div></div><div><h2 class="pq-h2">키워드</h2><div class="pq-chips"><span>Blockchain</span><span>On-chain Data</span><span>Benchmark</span></div></div></div>
