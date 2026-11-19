@@ -12,10 +12,9 @@
 <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
-<title itemprop="name">  | DAMI LAB 
-</title>
+<title itemprop="name">골프 스윙 분석 플랫폼 | DAMI LAB</title>
 <meta name="description" content="DAMI Lab. 동국대학교 DAMI Lab은 Trustworthy AI, AI Safety &amp; Security, Embodied AI &amp; Robot Safety를 연구합니다." />
-<meta property="og:title" content=" | DAMI LAB" />
+<meta property="og:title" content="골프 스윙 분석 플랫폼 | DAMI LAB" />
 <meta name="twitter:title" content=" | DAMI LAB" />
 <meta itemprop="name" content=" | DAMI LAB" />
 <meta name="application-name" content=" | DAMI LAB" />
@@ -153,311 +152,85 @@ html, body, * {
 </div>
     
 <main class="mt-10">
-
 <style>
-/* ---------- Projects 목록·상세 (research 페이지와 같은 디자인 언어) ---------- */
-.pj{--navy:#001456;--ink:#0F172A;--ink-2:#3F4A60;--line:#C9D0DE;
-  --a1:#B91C1C;--a2:#1D4ED8;--a3:#15803D;
-  background:#E8ECF4;font-family:'Pretendard',system-ui,-apple-system,sans-serif;color:#0F172A}
-.pj *{box-sizing:border-box}
-.pj img{display:block;max-width:100%}
-.pj a{color:inherit;text-decoration:none}
-.pj ul{list-style:none;margin:0;padding:0}
-.pj-wrap{max-width:1180px;margin:0 auto;padding:0 24px}
-.pj :focus-visible{outline:3px solid #FBBF24;outline-offset:2px}
-
-.pj-hero{background:linear-gradient(115deg,#000B2E 0%,#001456 45%,#123A9E 100%);color:#fff}
-.pj-hero .in{max-width:1180px;margin:0 auto;padding:44px 24px 48px}
-.pj-hero h1{font-size:46px;font-weight:900;letter-spacing:-.035em;line-height:1.06;margin:0}
-
-.pj-tag{font-size:11.5px;font-weight:900;padding:4px 10px;border-radius:5px;white-space:nowrap;
-  display:inline-block}
-.pj-tag.live{background:#15803D;color:#fff}
-.pj-tag.done{background:#6B7280;color:#fff}
-.pj-tag.unknown{background:#B45309;color:#fff}
-.pj-tag.fund{background:var(--navy);color:#fff}
-.pj-tag.ax1{background:#fff;border:2px solid var(--a1);color:var(--a1)}
-.pj-tag.ax2{background:#fff;border:2px solid var(--a2);color:var(--a2)}
-.pj-tag.ax3{background:#fff;border:2px solid var(--a3);color:var(--a3)}
-
-/* ---------- 목록 ---------- */
-.pj-list-sec{padding:34px 0 74px}
-.pj-filter{display:flex;align-items:center;gap:9px;flex-wrap:wrap;background:#fff;
-  border:2px solid var(--line);border-radius:12px;padding:13px 16px}
-.pj-filter .lb{font-size:11.5px;font-weight:900;letter-spacing:.1em;color:#5A6478;margin-right:4px}
-.pj-filter button{font-family:inherit;font-size:13px;font-weight:800;padding:8px 14px;
-  border-radius:8px;border:2px solid #CBD3E3;background:#fff;color:#33405C;cursor:pointer}
-.pj-filter button:hover{background:#F1F4FA}
-.pj-filter button[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
-
-.pj-ledger{border:2px solid var(--line);border-radius:14px;overflow:hidden;margin-top:18px;background:#fff}
-.pj-lhd,.pj-row{display:grid;grid-template-columns:118px 1fr 214px 172px;gap:20px;align-items:center}
-.pj-lhd{padding:12px 20px;background:#111827;color:#fff;font-size:11.5px;font-weight:900;
-  letter-spacing:.1em}
-.pj-lhd .r{text-align:right}
-.pj-row{padding:16px 20px;border-top:1.5px solid #E9EDF4;transition:background .15s ease}
-.pj-row:hover{background:#F1F5FF}
-.pj-list li:first-child .pj-row{border-top:none}
-.pj-row .th{height:74px;border:1.5px solid #E2E6EF;border-radius:8px;background:#fff;
-  display:flex;align-items:center;justify-content:center;padding:5px;overflow:hidden}
-.pj-row .th img{max-height:100%;width:auto;object-fit:contain}
-.pj-row h3{font-size:16px;font-weight:800;letter-spacing:-.02em;line-height:1.42;margin:0;color:var(--ink)}
-.pj-row .meta{margin-top:8px;display:flex;gap:7px;flex-wrap:wrap;align-items:center}
-.pj-row .who{font-size:13px;font-weight:800;color:#33405C}
-.pj-row .per{font-size:13px;font-weight:800;color:#5A6478;font-variant-numeric:tabular-nums}
-.pj-row .pnote{margin-top:6px;font-size:11.5px;font-weight:800;color:#B45309}
-.pj-row .prog{margin-top:8px;display:flex;align-items:center;gap:9px}
-.pj-row .bar{flex:1;height:7px;background:#EDF0F6;border:1px solid #DDE3ED;border-radius:4px;overflow:hidden}
-.pj-row .bar i{display:block;height:100%;background:var(--a3)}
-.pj-row .bar.gy i{background:#7B8598}
-.pj-row .pct{font-size:12px;font-weight:900;color:#5A6478;font-variant-numeric:tabular-nums}
-.pj-row .rt{display:flex;align-items:center;justify-content:flex-end;gap:8px}
-.pj-row .go{font-size:13px;font-weight:900;color:var(--navy);border-bottom:2px solid var(--navy);
-  padding-bottom:1px}
-.pj-empty{padding:26px 20px;font-size:14.5px;font-weight:700;color:#5A6478}
-
-/* ---------- 상세 ---------- */
-.pj-dhero{color:#fff}
-.pj-dhero.k1{background:linear-gradient(115deg,#3D0A11 0%,#7F1220 48%,#B91C1C 100%)}
-.pj-dhero.k2{background:linear-gradient(115deg,#0A1440 0%,#132A78 48%,#1D4ED8 100%)}
-.pj-dhero.k3{background:linear-gradient(115deg,#062B14 0%,#0A4A24 48%,#15803D 100%)}
-.pj-dhero .in{max-width:1180px;margin:0 auto;padding:22px 24px 36px}
-.pj-crumb{display:flex;align-items:center;gap:9px;font-size:12.5px;font-weight:800;
-  color:rgba(255,255,255,.86);margin-bottom:22px;flex-wrap:wrap}
-.pj-crumb a.back{background:rgba(255,255,255,.16);border:2px solid rgba(255,255,255,.45);color:#fff;
-  font-size:12.5px;font-weight:800;padding:7px 13px;border-radius:8px}
-.pj-crumb a.back:hover{background:rgba(255,255,255,.3)}
-.pj-crumb .sl{opacity:.6}
-.pj-chips{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-.pj-chips .c{font-size:11.5px;font-weight:900;padding:5px 11px;border-radius:5px;
-  background:rgba(255,255,255,.17);border:1.8px solid rgba(255,255,255,.5)}
-.pj-chips .c.now{background:#FBBF24;border-color:#FBBF24;color:#3B2606}
-.pj-dhero h1{margin:13px 0 0;font-size:36px;font-weight:900;letter-spacing:-.035em;
-  line-height:1.2;max-width:960px}
-.pj-fulltitle{margin:11px 0 0;font-size:13.5px;font-weight:700;line-height:1.6;
-  color:rgba(255,255,255,.82);max-width:900px}
-.pj-pills{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:26px 0 0}
-.pj-pills>div{background:rgba(255,255,255,.13);border:2px solid rgba(255,255,255,.4);
-  border-radius:11px;padding:12px 15px}
-.pj-pills dt{font-size:10.5px;font-weight:900;letter-spacing:.1em;color:rgba(255,255,255,.82)}
-.pj-pills dd{margin:6px 0 0;font-size:15.5px;font-weight:900;letter-spacing:-.02em}
-.pj-pills dd small{font-size:12px;font-weight:700;opacity:.85;margin-left:4px}
-.pj-pbar{margin-top:8px;height:7px;background:rgba(255,255,255,.25);border-radius:4px;overflow:hidden}
-.pj-pbar i{display:block;height:100%;background:#FBBF24}
-
-.pj-dbody{padding:34px 0 74px}
-.pj-split{display:grid;grid-template-columns:1fr 342px;gap:28px;align-items:start}
-.pj-blk{background:#fff;border:2px solid var(--line);border-radius:14px;padding:24px 26px;margin-bottom:20px}
-.pj-blk h2{font-size:22px;font-weight:900;letter-spacing:-.03em;color:var(--navy);margin:0;
-  padding-bottom:10px;border-bottom:2px solid #E3E7F0}
-.pj-blk p{font-size:15px;line-height:1.85;color:var(--ink-2);margin:16px 0 0}
-
-.pj-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px}
-.pj-card{background:#fff;border:2px solid var(--line);border-top-width:7px;border-radius:12px;padding:17px 18px}
-.pj-card.n0{border-top-color:var(--a1)}
-.pj-card.n1{border-top-color:var(--navy)}
-.pj-card.n2{border-top-color:var(--a3)}
-.pj-card .t{font-size:11px;font-weight:900;letter-spacing:.1em;color:#5A6478}
-.pj-card h3{margin:7px 0 0;font-size:16px;font-weight:900;letter-spacing:-.02em;line-height:1.4}
-.pj-card p{margin:8px 0 0;font-size:13.5px;line-height:1.65;color:var(--ink-2)}
-
-.pj-long{position:relative}
-.pj-long .txt{margin-top:16px}
-.pj-long.folded .txt{max-height:176px;overflow:hidden}
-.pj-long.folded::after{content:"";position:absolute;left:0;right:0;bottom:46px;height:76px;
-  background:linear-gradient(180deg,rgba(255,255,255,0),#fff);pointer-events:none}
-.pj-long .more{margin-top:14px;font-family:inherit;font-size:13px;font-weight:900;color:var(--navy);
-  background:#EDF0F6;border:2px solid #CBD3E3;border-radius:8px;padding:9px 15px;cursor:pointer;
-  position:relative;z-index:2}
-.pj-long .more:hover{background:#E1E7F2}
-
-.pj-figs{display:grid;gap:16px;margin-top:16px}
-.pj-fig{border:2px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
-.pj-fig .fh{padding:10px 16px;background:#111827;color:#fff;font-size:11.5px;font-weight:900;
-  letter-spacing:.08em;display:flex;justify-content:space-between;align-items:center;gap:12px}
-.pj-fig .fh em{font-style:normal;font-size:11px;color:#9CA3AF}
-.pj-fig .fb{display:block;width:100%;border:none;background:#fff;padding:16px;cursor:zoom-in;
-  font-family:inherit;position:relative}
-.pj-fig .fb img{max-height:400px;width:auto;margin:0 auto;object-fit:contain}
-.pj-fig .fb::after{content:"크게 보기";opacity:0;position:absolute;right:14px;bottom:14px;
-  background:var(--navy);color:#fff;padding:6px 10px;border-radius:6px;font-size:11.5px;
-  font-weight:900;transition:opacity .16s ease}
-.pj-fig .fb:hover::after,.pj-fig .fb:focus-visible::after{opacity:1}
-
-.pj-side{position:sticky;top:24px;display:grid;gap:16px}
-.pj-cardbox{background:#fff;border:2px solid var(--line);border-radius:14px;overflow:hidden}
-.pj-cardbox .ch{padding:11px 18px;background:#111827;color:#fff;font-size:11.5px;font-weight:900;
-  letter-spacing:.1em}
-.pj-cardbox .cb{padding:16px 18px}
-.pj-cardbox dl{margin:0}
-.pj-cardbox dl>div{padding:11px 0;border-top:1.5px solid #EEF1F7}
-.pj-cardbox dl>div:first-child{border-top:none;padding-top:0}
-.pj-cardbox dt{font-size:11px;font-weight:900;letter-spacing:.08em;color:#5A6478}
-.pj-cardbox dd{margin:6px 0 0;font-size:14px;font-weight:800;line-height:1.6;color:var(--ink)}
-.pj-cardbox dd .nt{display:block;margin-top:4px;font-size:11.5px;font-weight:800;color:#B45309}
-.pj-cardbox dd .nt2{display:block;margin-top:4px;font-size:13px;font-weight:700;color:#5A6478}
-.pj-mem{display:flex;gap:7px;flex-wrap:wrap;list-style:none;margin:0;padding:0}
-.pj-mem li{display:inline-flex;align-items:center;gap:5px;font-size:13.5px;font-weight:800;
-  color:var(--ink);background:#EDF0F6;border:1.5px solid #CBD3E3;border-radius:7px;padding:5px 10px}
-.pj-mem li a{border-bottom:1.5px solid #A9B4CA}
-.pj-mem li a:hover{border-bottom-color:var(--navy);color:var(--navy)}
-.pj-mem li b{font-size:10.5px;font-weight:900;letter-spacing:.04em;color:#fff;background:var(--navy);
-  border-radius:4px;padding:2px 6px}
-.pj-kws{display:flex;gap:7px;flex-wrap:wrap}
-.pj-kws span{font-size:12px;font-weight:800;padding:5px 11px;border-radius:6px;background:#EDF0F6;
-  border:1.5px solid #CBD3E3;color:var(--ink-2)}
-.pj-lnk{display:block;padding:13px 16px;border-top:1.5px solid #EEF1F7;font-size:13.5px;font-weight:800}
-.pj-cardbox .pj-lnk:first-of-type{border-top:none}
-.pj-lnk:hover{background:#F4F6FB}
-.pj-lnk .s{display:block;font-size:11px;font-weight:900;letter-spacing:.08em;color:#5A6478;margin-bottom:5px}
-.pj a.pj-back{display:block;text-align:center;background:var(--navy);color:#fff;font-weight:900;
-  font-size:14px;padding:14px;border-radius:11px}
-.pj a.pj-back:hover{background:#00206E}
-
-.pj-pager{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
-.pj-pager a{background:#fff;border:2px solid var(--line);border-radius:13px;padding:17px 20px}
-.pj-pager a:hover{background:#F4F6FB}
-.pj-pager .s{font-size:11px;font-weight:900;letter-spacing:.1em;color:#5A6478}
-.pj-pager h2{margin:7px 0 0;font-size:15.5px;font-weight:800;line-height:1.45;letter-spacing:-.02em}
-.pj-pager a.nx{text-align:right}
-
-.pj-dlg{border:none;border-radius:16px;padding:0;max-width:1040px;width:88vw;
-  box-shadow:0 30px 80px rgba(0,0,0,.45)}
-.pj-dlg::backdrop{background:rgba(6,10,25,.74)}
-.pj-dlg .dt{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px;
-  background:#111827;color:#fff;font-size:13px;font-weight:900}
-.pj-dlg .dt button{font-family:inherit;font-size:22px;font-weight:900;background:none;border:none;
-  color:#fff;cursor:pointer;line-height:1}
-.pj-dlg .di{padding:20px;display:flex;justify-content:center;background:#fff}
-.pj-dlg .di img{max-height:68vh;width:auto;object-fit:contain}
-
-/* ---------- 좁은 화면 대비 (viewport width=1240 고정이라 평소엔 발동 안 함, research 페이지와 동일) ---------- */
-@media (max-width:1023px){
-  .pj-split{grid-template-columns:1fr}
-  .pj-side{position:static}
-  .pj-pills{grid-template-columns:repeat(2,1fr)}
-  .pj-lhd,.pj-row{grid-template-columns:96px 1fr 190px 150px;gap:14px}
-}
-@media (max-width:767px){
-  .pj-hero .in{padding:38px 20px 42px}
-  .pj-hero h1{font-size:32px}
-  .pj-wrap{padding:0 18px}
-  .pj-dhero .in{padding:18px 20px 28px}
-  .pj-dhero h1{font-size:26px}
-  .pj-pills{grid-template-columns:1fr}
-  .pj-cards{grid-template-columns:1fr}
-  .pj-lhd{display:none}
-  .pj-row{grid-template-columns:76px 1fr;gap:14px;row-gap:12px;padding:16px}
-  .pj-row .th{height:60px}
-  .pj-row .when,.pj-row .rt{grid-column:1 / -1}
-  .pj-row .rt{justify-content:flex-start}
-  .pj-blk{padding:20px 18px}
-  .pj-pager{grid-template-columns:1fr}
-  .pj-pager a.nx{text-align:left}
-  .pj-fig .fb img{max-height:260px}
-}
-@media (prefers-reduced-motion:reduce){
-  .pj *,.pj *::before,.pj *::after{transition-duration:.01ms !important}
+/* ---------- Projects (2026.11 개편: 카드 목록 + 간결한 상세) ---------- */
+.pq{font-family:'Pretendard',system-ui,-apple-system,sans-serif;color:#0F172A;background:#fff}
+.pq *{box-sizing:border-box}
+.pq a{color:inherit;text-decoration:none}
+.pq img{display:block;max-width:100%}
+.pq-wrap{max-width:1120px;margin:0 auto;padding:48px 40px 96px}
+.pq :focus-visible{outline:3px solid #FBBF24;outline-offset:2px}
+.pq-fade{animation:pqFade .45s ease-out both}
+@keyframes pqFade{from{opacity:0;transform:translateY(8px)}}
+@media (prefers-reduced-motion:reduce){.pq *{animation:none !important;transition:none !important}}
+.pq-hd{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;padding-bottom:18px;border-bottom:1px solid #E5E8EF}
+.pq-h1{margin:0;font-size:40px;font-weight:800;letter-spacing:-.03em;color:#001456}
+.pq-sub{margin:8px 0 0;font-size:15px;font-weight:600;color:#5A6378}
+.pq-tabs{display:flex;gap:22px}
+.pq-tabs button{font:inherit;font-size:15px;font-weight:700;color:#5A6378;background:none;border:0;border-bottom:2px solid transparent;padding:10px 0;min-height:44px;cursor:pointer}
+.pq-tabs button:hover{color:#0F172A}
+.pq-tabs button[aria-pressed="true"]{color:#001456;border-bottom-color:#001456}
+.pq-sec{margin:44px 0 16px;font-size:14px;font-weight:800;letter-spacing:.04em;color:#5A6378}
+.pq-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.pq-card{display:flex;flex-direction:column;border:1px solid #E5E8EF;border-radius:12px;overflow:hidden;background:#fff;transition:border-color .2s,box-shadow .2s}
+.pq-card:hover,.pq-card:focus-visible{border-color:#9AA6C4;box-shadow:0 6px 18px -10px rgba(0,20,86,.25)}
+.pq-card .im{height:170px;border-bottom:1px solid #EEF0F5;display:flex;align-items:center;justify-content:center;padding:14px;background:#fff}
+.pq-card .im img{max-height:100%;object-fit:contain;transition:transform .4s ease}
+.pq-card:hover .im img{transform:scale(1.03)}
+.pq-card .im.logo{padding:28px 40px}
+.pq-card .im.logo img{max-height:44px}
+.pq-card .tx{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.pq-ax{font-size:12.5px;font-weight:700;color:#5A6378}
+.pq-card h3{margin:0;font-size:17px;font-weight:800;letter-spacing:-.02em;line-height:1.4}
+.pq-card p{margin:0;font-size:14px;line-height:1.6;color:#4B5568}
+.pq-card .mt{margin-top:auto;padding-top:10px;display:flex;justify-content:space-between;gap:12px;font-size:13px;font-weight:600;color:#5A6378}
+.pq-d{max-width:860px}
+.pq-back{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:700;color:#4B5568;min-height:44px}
+.pq-back:hover{color:#001456}
+.pq-lb{margin-top:18px;font-size:13.5px;font-weight:700;color:#5A6378}
+.pq-d h1{margin:8px 0 0;font-size:34px;font-weight:800;letter-spacing:-.03em;line-height:1.28;color:#0F172A}
+.pq-full{margin:8px 0 0;font-size:15px;line-height:1.55;color:#5A6378}
+.pq-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));margin:26px 0 0;border-top:1px solid #E5E8EF;border-bottom:1px solid #E5E8EF}
+.pq-facts div{padding:15px 18px 15px 0}
+.pq-facts dt{font-size:12.5px;font-weight:700;color:#5A6378}
+.pq-facts dd{margin:5px 0 0;font-size:15.5px;font-weight:700}
+.pq-facts dd small{display:block;margin-top:2px;font-size:13px;font-weight:600;color:#5A6378}
+.pq-intro{margin:28px 0 0;font-size:16.5px;line-height:1.85;color:#2B3345}
+.pq-fig{margin:28px 0 0;border:1px solid #E5E8EF;border-radius:12px;padding:20px}
+.pq-fig img{margin:0 auto;max-height:420px;object-fit:contain}
+.pq-fig.logo{padding:28px;display:flex;justify-content:center}
+.pq-fig.logo img{max-height:48px}
+.pq-h2{margin:40px 0 12px;font-size:18px;font-weight:800;letter-spacing:-.02em;color:#001456}
+.pq-out{list-style:none;margin:0;padding:0;border-top:1px solid #E5E8EF}
+.pq-out li{display:grid;grid-template-columns:72px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:13px 0;border-bottom:1px solid #EEF0F5;font-size:15px}
+.pq-out .k{font-size:12.5px;font-weight:800;color:#5A6378}
+.pq-out .v{font-size:13.5px;font-weight:600;color:#5A6378;white-space:nowrap}
+.pq-chips{display:flex;gap:8px;flex-wrap:wrap}
+.pq-chips span{font-size:13.5px;font-weight:700;padding:6px 12px;border-radius:999px;background:#F2F4F8;color:#33405C}
+.pq-two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.pq-pager{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:56px}
+.pq-pager a{border:1px solid #E5E8EF;border-radius:12px;padding:15px 18px;transition:border-color .2s}
+.pq-pager a:hover{border-color:#9AA6C4}
+.pq-pager small{font-size:12.5px;font-weight:700;color:#5A6378}
+.pq-pager b{display:block;margin-top:4px;font-size:15px;font-weight:800}
+.pq-pager .nx{text-align:right}
+@media (max-width:900px){.pq-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){
+  .pq-wrap{padding:36px 18px 64px}.pq-h1{font-size:32px}
+  .pq-grid,.pq-two,.pq-pager{grid-template-columns:minmax(0,1fr)}
+  .pq-d h1{font-size:26px}.pq-out li{grid-template-columns:minmax(0,1fr);gap:4px}.pq-pager .nx{text-align:left}
 }
 </style>
-
-<div class="pj">
-  <div class="pj-dhero k3"><div class="in">
-    <nav class="pj-crumb" aria-label="현재 위치">
-      <a class="back" href="/projects/">프로젝트 목록으로</a><span class="sl" aria-hidden="true">/</span>
-      <a href="/projects/">Projects</a><span class="sl" aria-hidden="true">/</span>
-      <a href="/research/ai-applications/">AI Applications</a><span class="sl" aria-hidden="true">/</span>
-      <span>Sports Analytics</span>
-    </nav>
-    <div class="pj-chips">
-      <span class="c">완료</span>
-      <span class="c">김캐디</span>
-      <span class="c">Sports Analytics</span>
-    </div>
-    <h1>골프 클럽과 관절 정보를 활용한 골프 스윙 분석</h1>
-    <dl class="pj-pills">
-      <div><dt>지원 기관</dt><dd>김캐디</dd></div>
-      <div><dt>연구 기간</dt><dd>2025.09 – 2026.01<small>5개월</small></dd></div>
-      <div><dt>상태</dt><dd>완료</dd></div>
-      <div><dt>연구 분야</dt><dd>AI Applications<small>Sports Analytics</small></dd></div>
-    </dl>
-  </div></div>
-
-  <div class="pj-dbody"><div class="pj-wrap">
-    <div class="pj-split">
-      <article>
-        
-        <section class="pj-blk"><h2>연구 목표</h2><p>본 연구는 골프 도메인에 특화된 인체-장비 통합 분석 모델을 구축하여 기존 주관적 피드백의 한계를 극복하는 것을 목표로 수행함. Club Keypoint Detection에서 mAP 0.95 이상, Ball Information 예측에서 분류 정확도 80% 이상, 회귀 R² 0.9 이상의 성능을 달성하여 실용화 수준의 정확도를 확보함. 또한 Integrated Gradients 기반 해석 가능한 AI를 통해 각 키포인트의 기여도를 정량화하여 구체적이고 실행 가능한 개선점을 제시하는 시스템을 구현함. 최종적으로 실시간 분석이 가능한 상용화 수준의 골프 스윙 분석 플랫폼을 완성하여 김캐디 애플리케이션을 통한 서비스 제공을 목표로 수행함.</p></section>
-        
-        <section class="pj-blk"><h2>연구 그림</h2><div class="pj-figs">
-          <figure class="pj-fig">
-          <figcaption class="fh"><span>스윙 8단계별 클럽과 인체 관절 키포인트 추출 결과</span><em>그림 확대 보기</em></figcaption>
-          <button type="button" class="fb" data-label="스윙 8단계별 클럽과 인체 관절 키포인트 추출 결과"
-                  aria-label="스윙 8단계별 클럽과 인체 관절 키포인트 추출 결과 확대 보기">
-            <img src="/images/projects/kimcaddie_2025/01_hu_756947eba05272c7.png" alt="스윙 8단계별 클럽과 인체 관절 키포인트 추출 결과" loading="lazy" decoding="async">
-          </button>
-        </figure>
-        </div></section>
-      </article>
-
-      <aside class="pj-side" aria-label="과제 정보">
-        <div class="pj-cardbox"><div class="ch">참여 연구자</div><div class="cb">
-          <ul class="pj-mem"><li><a href="/researcher/seunghyun/">정승현</a><b>팀장</b></li><li><a href="/researcher/minseok/">김민석</a></li><li><a href="/researcher/hyeonjin/">김현진</a></li></ul>
-        </div></div>
-
-        <div class="pj-cardbox"><div class="ch">핵심어</div><div class="cb"><div class="pj-kws">
-          <span>Explainability</span><span>AI Application</span><span>Multimodal</span><span>Deep Learning</span><span>Domain Adaptation</span>
-        </div></div></div>
-
-        <div class="pj-cardbox"><div class="ch">관련 연구와 과제</div>
-          <a class="pj-lnk" href="/research/ai-applications/"><span class="s">연구 분야</span>AI Applications 전체 보기</a>
-          <a class="pj-lnk" href="/projects/cma_2025/"><span class="s">같은 분야의 과제 · 기상청</span>전천(All-sky) 기후자료 산출 및 초해상화 인공지능 모델 개발</a><a class="pj-lnk" href="/projects/kimcaddie_2024/"><span class="s">같은 분야의 과제 · 김캐디</span>XAI를 활용한 골프 스윙 피드백 모델 개발</a>
-        </div>
-
-        <a class="pj-back" href="/projects/">프로젝트 목록으로</a>
-      </aside>
-    </div>
-
-    <nav class="pj-pager" aria-label="다른 과제">
-      <a href="/projects/nrf_2025/"><div class="s">더 최근에 시작한 과제</div><h2>다국어 LLM 탈옥 취약점 탐지·방어 연구</h2></a>
-      <a class="nx" href="/projects/kisti_2025/"><div class="s">더 이전에 시작한 과제</div><h2>지능형 데이터 큐레이션 및 통합 구축 기술 개발</h2></a>
-    </nav>
-  </div></div>
-
-  <dialog class="pj-dlg" id="pj-figdlg" aria-label="연구 그림 확대">
-    <div class="dt"><span>연구 그림</span>
-      <button type="button" aria-label="닫기" onclick="this.closest('dialog').close()">&times;</button></div>
-    <div class="di"><img src="" alt=""></div>
-  </dialog>
-</div>
-
-<script>
-(function(){
-  var long = document.querySelector('.pj-long');
-  if(long){
-    var btn = long.querySelector('.more');
-    var txt = long.querySelector('.txt');
-    btn.addEventListener('click', function(){
-      var folded = long.classList.toggle('folded');
-      btn.setAttribute('aria-expanded', folded ? 'false' : 'true');
-      btn.textContent = folded ? btn.dataset.open : '접기';
-      if(folded) txt.scrollIntoView({block:'nearest'});
-    });
-  }
-  var dlg = document.getElementById('pj-figdlg');
-  if(!dlg) return;
-  var img = dlg.querySelector('img'), cap = dlg.querySelector('.dt span');
-  document.querySelectorAll('.pj-fig .fb').forEach(function(b){
-    b.addEventListener('click', function(){
-      img.src = b.querySelector('img').src;
-      img.alt = b.querySelector('img').alt;
-      cap.textContent = b.dataset.label;
-      if(dlg.showModal) dlg.showModal();
-    });
-  });
-})();
-</script>
-
+<div class="pq"><div class="pq-wrap"><div class="pq-d pq-fade">
+<a class="pq-back" href="/projects/"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Projects</a>
+<div class="pq-lb">AI Applications · 완료</div><h1>골프 스윙 분석 플랫폼</h1>
+<p class="pq-full">골프 클럽과 관절 정보를 활용한 골프 스윙 분석</p>
+<dl class="pq-facts"><div><dt>지원 기관</dt><dd>김캐디<small>산학과제</small></dd></div><div><dt>연구 기간</dt><dd>2025.09 – 2026.01<small>5개월</small></dd></div><div><dt>상태</dt><dd>완료</dd></div></dl>
+<p class="pq-intro">기존 골프 스윙 피드백은 코치의 주관적 판단이나 신체 동작 분석에 의존해 왔음. 본 과제는 클럽과 관절 키포인트를 함께 추출하여 스윙과 볼 결과를 연결하고, Integrated Gradients로 결과에 영향을 준 동작을 정량화함. 클럽 키포인트 검출 mAP 0.95 이상을 달성하였으며, 김캐디 앱에서 실시간 활용 가능한 수준을 목표로 수행함.</p>
+<figure class="pq-fig"><img src="/images/projects/kimcaddie_2025/01_hu_756947eba05272c7.png" alt="스윙 8단계별 클럽과 인체 관절 키포인트 추출 결과"></figure>
+<div class="pq-two"><div><h2 class="pq-h2">참여 연구원</h2><div class="pq-chips"><span>정승현 · 팀장</span><span>김민석</span><span>김현진</span></div></div><div><h2 class="pq-h2">키워드</h2><div class="pq-chips"><span>Explainability</span><span>AI Application</span><span>Multimodal</span></div></div></div>
+<nav class="pq-pager" aria-label="다른 과제"><a href="/projects/dunamu_2026/"><small>이전 과제</small><b>블록체인 데이터 AI</b></a><a class="nx" href="/projects/kisti_2025/"><small>다음 과제</small><b>연구데이터 자동 품질관리</b></a></nav>
+</div></div></div>
 </main>
 
     <footer class="bg-gray-900 text-gray-300">
