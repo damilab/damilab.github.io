@@ -85,6 +85,7 @@
       "image": "/images/news/emnlp2026/safebranch-fig1.webp",
       "links": {
         "paper": "https://arxiv.org/abs/2608.19729",
+        "poster": "/images/publications/pdf/safebranch-emnlp2026-poster.pdf",
         "해설": "/news/57/"
       },
       "id": "safebranch-branch-pair-safety-alignment-for-embodied-agents",
@@ -116,6 +117,7 @@
       "map_label": "Factor Mining",
       "image": "/images/news/emnlp2026/favor-fig1.webp",
       "links": {
+        "poster": "/images/publications/pdf/favor-emnlp2026-poster.pdf",
         "해설": "/news/56/"
       },
       "id": "favor-llm-based-agentic-framework-for-factor-mining-via-empirical-validation",
@@ -144,6 +146,7 @@
       "map_label": "Indirect Prompt Injection",
       "image": "/images/news/emnlp2026/icoa-fig1.webp",
       "links": {
+        "slides": "/images/publications/pdf/icoa-emnlp2026-oral-slides.pdf",
         "해설": "/news/54/"
       },
       "id": "will-the-user-ever-know-covert-indirect-prompt-injection-attacks-on-tool-using-llm-agents",
@@ -173,6 +176,7 @@
       "map_label": "LLM Unlearning",
       "image": "/images/news/emnlp2026/confess-fig1.webp",
       "links": {
+        "poster": "/images/publications/pdf/confess-what-you-know-emnlp2026-poster.pdf",
         "해설": "/news/55/"
       },
       "id": "confess-what-you-know-forget-set-misalignment-with-model-knowledge-in-llm-unlearning",
