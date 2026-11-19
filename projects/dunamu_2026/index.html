@@ -12,9 +12,9 @@
 <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
-<title itemprop="name">블록체인 데이터 AI | DAMI LAB</title>
+<title itemprop="name">검증 가능한 온체인 분석 에이전트에 관한 연구 | DAMI LAB</title>
 <meta name="description" content="DAMI Lab. 동국대학교 DAMI Lab은 Trustworthy AI, AI Safety &amp; Security, Embodied AI &amp; Robot Safety를 연구합니다." />
-<meta property="og:title" content="블록체인 데이터 AI | DAMI LAB" />
+<meta property="og:title" content="검증 가능한 온체인 분석 에이전트에 관한 연구 | DAMI LAB" />
 <meta name="twitter:title" content=" | DAMI LAB" />
 <meta itemprop="name" content=" | DAMI LAB" />
 <meta name="application-name" content=" | DAMI LAB" />
@@ -199,6 +199,7 @@ html, body, * {
 .pq-facts dt{font-size:12.5px;font-weight:700;color:#5A6378}
 .pq-facts dd{margin:5px 0 0;font-size:15.5px;font-weight:700}
 .pq-facts dd small{display:block;margin-top:2px;font-size:13px;font-weight:600;color:#5A6378}
+.pq-intro+.pq-intro{margin-top:14px}
 .pq-intro{margin:28px 0 0;font-size:16.5px;line-height:1.85;color:#2B3345}
 .pq-fig{margin:28px 0 0;border:1px solid #E5E8EF;border-radius:12px;padding:20px}
 .pq-fig img{margin:0 auto;max-height:420px;object-fit:contain}
@@ -227,12 +228,12 @@ html, body, * {
 </style>
 <div class="pq"><div class="pq-wrap"><div class="pq-d pq-fade">
 <a class="pq-back" href="/projects/"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Projects</a>
-<div class="pq-lb"><span class="pq-meta"><span>공동연구</span><span>참여 과제</span><span class="st live">진행 중</span></span></div><h1>블록체인 데이터 AI</h1>
-<dl class="pq-facts"><div><dt>협력 기관</dt><dd>두나무<small>산학협력</small></dd></div><div><dt>연구 기간</dt><dd>2026.06 – </dd></div><div><dt>상태</dt><dd>진행 중</dd></div><div><dt>역할</dt><dd>공동연구원</dd></div></dl>
-<p class="pq-intro">블록체인은 모든 거래 기록이 공개되어 있으나, 특정 주소의 수익과 같은 단순한 질문에도 다수의 원시 기록을 해석하고 결합해야 하는 어려움이 있음. 본 과제는 두나무와 함께 온체인 데이터를 근거 기반으로 분석하는 AI 방법론을 연구함. 첫 성과인 ChainQABench는 자산 흐름, 거래소 지갑 추정, MEV, 탈중앙화 거래소의 자전거래 패턴을 다루는 전문가 검증 질문 160개와, 원시 기록을 프로토콜 행위, 분석 단위, 귀속 정보로 정리한 근거 계층으로 구성된 벤치마크임. LLM 11종을 평가한 결과 최고 성능 모델도 정확도 53.1%에 그쳐, 블록체인 데이터 분석이 LLM에게 여전히 어려운 과제임을 확인함. 또한 MEV 사례별로 필요한 분석을 계획, 실행, 검토하는 LLM 멀티에이전트 프레임워크 AIM을 개발함. 이더리움 150개 연속 블록에서 MEV 주장 357건을 확인하였으며(조건부 확인율 82.8%), 비교한 8개 기법 중 가장 많은 주장을 확인함.</p>
+<div class="pq-lb"><span class="pq-meta"><span>공동연구</span><span>참여 과제</span><span class="st live">진행 중</span></span></div><h1>검증 가능한 온체인 분석 에이전트에 관한 연구</h1>
+<dl class="pq-facts"><div><dt>협력 기관</dt><dd>두나무<small>산학협력</small></dd></div><div><dt>연구 기간</dt><dd>2026.07 – 2026.12<small>6개월</small></dd></div><div><dt>상태</dt><dd>진행 중</dd></div><div><dt>역할</dt><dd>공동연구원</dd></div></dl>
+<p class="pq-intro">암호화폐와 온체인 분석에서 어려운 것은 데이터를 가져오는 일이 아니라 사람이 신뢰할 수 있는 정답(ground truth)을 만드는 일임. 특정 지갑 집단의 매집 여부, 대규모 거래소 입금이 실제 매도 압력으로 이어지는지, TVL 변화가 가격 효과인지 유동성 이탈인지와 같은 질문은 트랜잭션 하나로 풀리지 않으며, 주소 신원, 자산 흐름, 프로토콜 행위, 원장 증거를 함께 연결해야 함. 현재 LLM 에이전트는 이 연결에 약해 오래된 정보 사용, 약한 출처 인용, 잘못된 데이터 통합, 근거 없는 추론을 반복함.</p><p class="pq-intro">본 과제는 온체인 데이터를 사람이 검증하기 쉬운 분석 단위로 재구성함. 원시 기록을 원장 수준의 거래와 이벤트(L1), swap과 유동성 공급 같은 프로토콜 행위(L2), 주소와 entity 단위의 자산 흐름 및 포지션 변화(L3), 거래소, whale, 마켓메이커 같은 신원 귀속(L4)의 네 계층으로 정리하고, 모든 상위 주장이 하위 거래 증거로 역추적되도록 연결함. 이 계층 구조는 에이전트가 정보를 찾는 메모리, 복잡한 질문을 계층별 증거로 나눠 푸는 분석 구조, 전문가가 에이전트의 주장을 검증하고 교정하여 정답 데이터를 만드는 인터페이스 역할을 함께 수행함.</p><p class="pq-intro">핵심 연구 질문은 전문가가 온체인 분석 주장을 가장 빠르고 정확하게 검증할 수 있는 추상화 수준이 어디인지임. 원시 거래는 정보가 많지만 검증 비용이 크고, 높은 수준의 요약은 읽기 쉽지만 근거가 사라지므로, 과제별로 어느 계층에서 검증 효율이 가장 높은지 실험으로 측정함.</p><p class="pq-intro">하나의 공유 기반(L1~L4 계층형 메모리와 1회의 전문가 검증 캠페인) 위에서 두 갈래의 연구를 병렬로 수행함. 첫째는 계층별 검증 효율 곡선과 Cross-Layer On-Chain Analysis Benchmark를 산출하는 벤치마크 연구이며, 둘째는 기존에 식별이 쉽지 않던 MEV(최대추출가치)를 에이전트 기반으로 식별하여 MEV 노이즈를 제거한 경제지표를 산출하는 시스템 연구임. 관련 성과로 전문가 검증 질문 160개로 구성된 ChainQABench와 MEV 분석 멀티에이전트 프레임워크 AIM을 정리함.</p>
 <figure class="pq-fig"><img src="/images/projects/dunamu_2026/chainqabench_fig1.webp" alt="블록체인 원시 기록을 근거 계층으로 정리해 질문에 답하는 ChainQABench 구성"></figure>
 <h2 class="pq-h2">성과</h2><ul class="pq-out"><li><span class="k">논문</span><span>ChainQABench: A Benchmark for Evidence-Grounded Question Answering over Blockchain Data</span><span class="v">심사 중</span></li><li><span class="k">논문</span><span>AIM: LLM Multi-Agent Framework for Adaptive MEV Investigation in Blockchain Transactions</span><span class="v">심사 중</span></li></ul>
-<div class="pq-two"><div><h2 class="pq-h2">참여 연구원</h2><div class="pq-chips"><span>정승현</span></div></div><div><h2 class="pq-h2">키워드</h2><div class="pq-chips"><span>Blockchain</span><span>On-chain Data</span><span>Benchmark</span></div></div></div>
+<div class="pq-two"><div><h2 class="pq-h2">참여 연구원</h2><div class="pq-chips"><span>정승현</span></div></div><div><h2 class="pq-h2">키워드</h2><div class="pq-chips"><span>On-chain Analysis</span><span>LLM Agent</span><span>Benchmark</span><span>MEV</span></div></div></div>
 <nav class="pq-pager" aria-label="다른 과제"><a href="/projects/samsungcnt_2026/"><small>이전 과제</small><b>시니어 케어 AI</b></a><a class="nx" href="/projects/cma_2025/"><small>다음 과제</small><b>위성 기후자료 초해상화</b></a></nav>
 </div></div></div>
 </main>
