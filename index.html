@@ -228,6 +228,7 @@ html, body, * {
 .dh-d{margin-top:16px;font-size:17px;line-height:1.7;color:#DBEAFE;max-width:520px}
 .dh-ch{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px}
 .dh-chip{display:inline-flex;gap:6px;align-items:baseline;padding:6px 11px;border-radius:999px;font-size:13px;font-weight:800;background:rgba(255,255,255,.12);color:#fff;white-space:nowrap}.dh-chip u{text-decoration:none;font-size:11.5px;font-weight:700;color:#BFDBFE}
+.dh-go{display:inline-flex;align-items:center;gap:8px;margin-top:22px;padding:11px 20px;border-radius:999px;border:1.5px solid rgba(255,255,255,.55);color:#fff;font-size:14.5px;font-weight:800;text-decoration:none;transition:background .2s,color .2s,border-color .2s}.dh-go:hover{background:#fff;color:#001456;border-color:#fff}.dh-go span{transition:transform .2s}.dh-go:hover span{transform:translateX(3px)}
 .dh-fig{background:#fff;border-radius:16px;padding:14px;box-shadow:0 24px 60px rgba(0,0,0,.35);margin:0}.dh-fig img{width:100%;height:290px;object-fit:contain;display:block}.dh-fig figcaption{margin-top:8px;font-size:12px;font-weight:700;color:#475569}
 .dh-fig-motion{padding:0;background:none;box-shadow:0 24px 60px rgba(0,0,0,.35);border-radius:16px}
 .mg-seq{position:relative}.mg-seq .mg-pane{display:none}.mg-seq .mg-pane.on{display:block;animation:dhf .45s ease}
@@ -242,7 +243,7 @@ html, body, * {
 @keyframes dhp{to{width:100%}}
 @media (max-width:900px){.dh-sl{grid-template-columns:1fr;gap:24px}.dh-sl h1{font-size:38px}.dh-fig img{height:200px}.dh-in{padding:28px 20px 76px}.dh-tabs{left:20px;right:20px;bottom:18px;gap:8px}.dh-tabs button{font-size:11.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.dh-tabs .dh-full{display:none}.dh-tabs .dh-short{display:inline}.dh-d{font-size:15.5px}.dh-lab{font-size:13px}}
 @media (prefers-reduced-motion:reduce){.dh-sl.on{animation:none}.dh-tabs button.on::after{animation:none;width:100%}}
-</style><section class="dh" aria-label="Research directions"><div class="dh-in"><div class="dh-lab"><b>DAMI Lab</b>Data Analysis &amp; Machine Intelligence Lab, Dongguk University</div><div class="dh-sl on" data-dur="26" style="--a:#93C5FD"><div><div class="dh-k">01&nbsp;&nbsp;RESEARCH</div><h1>Trustworthy AI</h1><div class="dh-ko">신뢰할 수 있는 AI</div><p class="dh-d">AI가 언제, 왜 잘못된 결과를 내는지 밝히고 막는 방법을 설계합니다. 대상은 LLM, AI 에이전트, 로봇입니다.</p><div class="dh-ch"><span class="dh-chip">SlotGCG<u>ICLR 2026</u></span><span class="dh-chip">ReCARE<u>ICLR 2026</u></span><span class="dh-chip">Will the User Ever Know?<u>EMNLP 2026 Oral</u></span><span class="dh-chip">Confess What You Know<u>EMNLP 2026</u></span></div></div><div class="dh-fig dh-fig-motion mg-seq"><div class="mg-pane on" data-dur="12"><!-- DAMI Lab motion graphic 01, Trustworthy AI. Paste as-is; everything is scoped under .mg-trust -->
+</style><section class="dh" aria-label="Research directions"><div class="dh-in"><div class="dh-lab"><b>DAMI Lab</b>Data Analysis &amp; Machine Intelligence Lab, Dongguk University</div><div class="dh-sl on" data-dur="26" style="--a:#93C5FD"><div><div class="dh-k">01&nbsp;&nbsp;RESEARCH</div><h1>Trustworthy AI</h1><div class="dh-ko">신뢰할 수 있는 AI</div><p class="dh-d">AI가 언제, 왜 잘못된 결과를 내는지 밝히고 막는 방법을 설계합니다. 대상은 LLM, AI 에이전트, 로봇입니다.</p><div class="dh-ch"><span class="dh-chip">SlotGCG<u>ICLR 2026</u></span><span class="dh-chip">ReCARE<u>ICLR 2026</u></span><span class="dh-chip">Will the User Ever Know?<u>EMNLP 2026 Oral</u></span><span class="dh-chip">Confess What You Know<u>EMNLP 2026</u></span></div><a class="dh-go" href="/research/">View Research<span aria-hidden="true">&rarr;</span></a></div><div class="dh-fig dh-fig-motion mg-seq"><div class="mg-pane on" data-dur="12"><!-- DAMI Lab motion graphic 01, Trustworthy AI. Paste as-is; everything is scoped under .mg-trust -->
 <div class="mg-trust" role="img" aria-label="Animated illustration of an AI agent session: a user asks for an invoice summary, a guardrail scans the tool result, detects and blocks an instruction injected into it, and the assistant returns a safe, verified answer.">
 <svg viewBox="0 0 560 340" aria-hidden="true" focusable="false">
   <rect width="560" height="340" fill="#fff"/>
@@ -654,7 +655,7 @@ function init(root){
 var els=document.querySelectorAll(SEL);for(var i=0;i<els.length;i++)init(els[i]);
 })();
 </script>
-</div><div class="mg-dots"><button type="button" class="mg-dot on" data-p="0" aria-label="장면 1"></button><button type="button" class="mg-dot" data-p="1" aria-label="장면 2"></button></div></div></div><div class="dh-sl" data-dur="28" style="--a:#C4B5FD"><div><div class="dh-k">02&nbsp;&nbsp;RESEARCH</div><h1>Physical AI</h1><div class="dh-ko">피지컬 AI</div><p class="dh-d">VLM과 VLA 기반 로봇이 실제 환경에서 보고, 계획하고, 안전하게 행동하는 방법을 연구합니다.</p><div class="dh-ch"><span class="dh-chip">SafeBranch<u>EMNLP 2026 Findings</u></span><span class="dh-chip">HiP-LR<u>EMNLP 2026 Findings</u></span></div></div><div class="dh-fig dh-fig-motion mg-seq"><div class="mg-pane on" data-dur="12"><!-- DAMI Lab motion graphic, Physical AI (3D). Paste as-is; everything is scoped under .mg-phys3d
+</div><div class="mg-dots"><button type="button" class="mg-dot on" data-p="0" aria-label="장면 1"></button><button type="button" class="mg-dot" data-p="1" aria-label="장면 2"></button></div></div></div><div class="dh-sl" data-dur="28" style="--a:#C4B5FD"><div><div class="dh-k">02&nbsp;&nbsp;RESEARCH</div><h1>Physical AI</h1><div class="dh-ko">피지컬 AI</div><p class="dh-d">VLM과 VLA 기반 로봇이 실제 환경에서 보고, 계획하고, 안전하게 행동하는 방법을 연구합니다.</p><div class="dh-ch"><span class="dh-chip">SafeBranch<u>EMNLP 2026 Findings</u></span><span class="dh-chip">HiP-LR<u>EMNLP 2026 Findings</u></span></div><a class="dh-go" href="/research/">View Research<span aria-hidden="true">&rarr;</span></a></div><div class="dh-fig dh-fig-motion mg-seq"><div class="mg-pane on" data-dur="12"><!-- DAMI Lab motion graphic, Physical AI (3D). Paste as-is; everything is scoped under .mg-phys3d
      Assets: /images/home/motion/physical3d.{webm,mp4} and physical3d-poster.jpg
      Robot model: Franka Emika Panda, google-deepmind/mujoco_menagerie (Apache-2.0); rendered offline with three.js (MIT) -->
 <div class="mg-phys3d" role="img" aria-label="Animated illustration of safety-aware robot planning: a robot arm is asked to move a cup of water to a coaster. Its first planned path would carry the water over an open laptop, so it is flagged unsafe and rejected. The robot re-plans a path around the laptop and delivers the cup safely.">
@@ -1081,7 +1082,7 @@ function init(root){
 var els=document.querySelectorAll(SEL);for(var i=0;i<els.length;i++)init(els[i]);
 })();
 </script>
-</div><div class="mg-dots"><button type="button" class="mg-dot on" data-p="0" aria-label="장면 1"></button><button type="button" class="mg-dot" data-p="1" aria-label="장면 2"></button></div></div></div><div class="dh-sl" data-dur="28" style="--a:#6EE7B7"><div><div class="dh-k">03&nbsp;&nbsp;RESEARCH</div><h1>LLM Data &amp; Agents</h1><div class="dh-ko">LLM 데이터 생성과 에이전트</div><p class="dh-d">LLM을 학습시키고 평가할 데이터를 만들고, 제조, 블록체인, 금융 문제를 푸는 LLM 에이전트를 연구합니다.</p><div class="dh-ch"><span class="dh-chip">PLCWorld<u>arXiv 2026</u></span><span class="dh-chip">FaVOR<u>EMNLP 2026 Findings</u></span></div></div><div class="dh-fig dh-fig-motion mg-seq"><div class="mg-pane on" data-dur="14"><!-- DAMI Lab motion graphic 03, LLM Data & Agents (PLCWorld). Paste as-is; everything is scoped under .mg-agents
+</div><div class="mg-dots"><button type="button" class="mg-dot on" data-p="0" aria-label="장면 1"></button><button type="button" class="mg-dot" data-p="1" aria-label="장면 2"></button></div></div></div><div class="dh-sl" data-dur="28" style="--a:#6EE7B7"><div><div class="dh-k">03&nbsp;&nbsp;RESEARCH</div><h1>LLM Data &amp; Agents</h1><div class="dh-ko">LLM 데이터 생성과 에이전트</div><p class="dh-d">LLM을 학습시키고 평가할 데이터를 만들고, 제조, 블록체인, 금융 문제를 푸는 LLM 에이전트를 연구합니다.</p><div class="dh-ch"><span class="dh-chip">PLCWorld<u>arXiv 2026</u></span><span class="dh-chip">FaVOR<u>EMNLP 2026 Findings</u></span></div><a class="dh-go" href="/research/">View Research<span aria-hidden="true">&rarr;</span></a></div><div class="dh-fig dh-fig-motion mg-seq"><div class="mg-pane on" data-dur="14"><!-- DAMI Lab motion graphic 03, LLM Data & Agents (PLCWorld). Paste as-is; everything is scoped under .mg-agents
      Assets: /images/home/motion/plcworld-replay.{webm,mp4} and plcworld-replay-poster.jpg -->
 <div class="mg-agents" role="img" aria-label="Animated illustration of PLCWorld: an LLM agent writes a Structured Text PLC program, the program is deployed to a PLC runtime that drives a simulated factory cell in a closed loop, a pick-and-place arm moves two parts onto conveyor belts, and the run is marked PASS after execution in the plant.">
 <video class="a-v" muted playsinline loop preload="none" poster="/images/home/motion/plcworld-replay-poster.jpg" tabindex="-1" aria-hidden="true" disablepictureinpicture>
@@ -1562,112 +1563,7 @@ h.style.setProperty('--dur',dur(0)/1000+'s');run();})();
   </div>
 </div>
 
-  <style>
-  .dami-dirs{background:#ffffff;padding:40px 0 44px}
-  .dami-dirs .dwrap{max-width:1280px;margin:0 auto;padding:0 32px;
-    font-family:'Pretendard',system-ui,-apple-system,sans-serif;color:#0F172A}
-  .dami-dirs h2{font-size:36px;font-weight:900;letter-spacing:-.03em;color:#111827;margin:0}
-  .dami-dirs .rule{margin-top:12px;height:4px;width:96px;background:#001456}
-  .dami-dirs .band{margin-top:20px;border-radius:14px;padding:26px 32px;
-    background:linear-gradient(115deg,#000B2E 0%,#001456 45%,#123A9E 100%)}
-  .dami-dirs .band .bt{font-size:34px;font-weight:900;letter-spacing:-.035em;color:#fff;line-height:1.1}
-  .dami-dirs .band .bs{margin-top:10px;font-size:16px;line-height:1.75;color:#DBEAFE;max-width:760px}
-  .dami-dirs .cols{display:grid;grid-template-columns:repeat(4,1fr);margin-top:30px}
-  .dami-dirs .col{padding:0 26px;border-left:2px solid #DDE3ED}
-  .dami-dirs .col:first-child{padding-left:0;border-left:none}
-  .dami-dirs .col:last-child{padding-right:0}
-  .dami-dirs .col .num{font-size:12px;font-weight:900;letter-spacing:.18em;color:#123A9E}
-  .dami-dirs .col h3{margin-top:8px;font-size:19px;font-weight:900;letter-spacing:-.02em;
-    line-height:1.3;color:#111827}
-  .dami-dirs .col .ko{margin-top:9px;padding-bottom:14px;border-bottom:1.5px solid #EDF0F6;
-    min-height:59px;font-size:14px;line-height:1.6;color:#3F4A60}
-  .dami-dirs .col ul{list-style:none;margin:14px 0 0;padding:0}
-  .dami-dirs .col li{position:relative;padding-left:14px;margin-top:9px;
-    font-size:14.5px;font-weight:700;line-height:1.5;color:#1F2937}
-  .dami-dirs .col li:first-child{margin-top:0}
-  .dami-dirs .col li::before{content:"";position:absolute;left:0;top:.6em;width:5px;height:5px;
-    border-radius:1px;background:#123A9E}
-  .dami-dirs .go{display:inline-block;margin-top:28px;background:#001456;color:#fff;
-    font-size:15px;font-weight:900;padding:13px 24px;border-radius:9px;text-decoration:none}
-  .dami-dirs .go:hover{background:#123A9E}
-  @media (max-width:1024px){
-    .dami-dirs .cols{grid-template-columns:repeat(2,1fr);row-gap:34px}
-    .dami-dirs .col:nth-child(3){padding-left:0;border-left:none}
-  }
-  @media (max-width:640px){
-    .dami-dirs{padding:32px 0 36px}
-    .dami-dirs .dwrap{padding:0 20px}
-    .dami-dirs h2{font-size:30px}
-    .dami-dirs .band{padding:26px 24px}
-    .dami-dirs .band .bt{font-size:26px}
-    .dami-dirs .cols{grid-template-columns:1fr;row-gap:28px}
-    .dami-dirs .col{padding:0;border-left:none;border-top:2px solid #DDE3ED;padding-top:22px}
-    .dami-dirs .col:first-child{border-top:none;padding-top:0}
-    .dami-dirs .col:nth-child(3){padding-left:0}
-    .dami-dirs .col .ko{min-height:0}
-  }
-  </style>
-  <section id="research-directions" class="dami-dirs">
-    <div class="dwrap">
-      <h2>Research Directions</h2>
-      <div class="rule"></div>
-
-      <div class="band">
-        <div class="bt">Trustworthy AI</div>
-        <p class="bs">AI가 언제, 왜 잘못된 결과를 내는지 먼저 밝히고, 그것을 막는 방법을 설계합니다. 대상은 챗봇 같은 대규모 언어모델, 스스로 도구를 쓰는 AI 에이전트, 그리고 로봇처럼 실제 환경에서 움직이는 시스템입니다.</p>
-      </div>
-
-      <div class="cols">
-
-        <div class="col">
-          <div class="num">01</div>
-          <h3>AI Safety &amp; Security</h3>
-          <p class="ko">챗봇과 AI 에이전트를 먼저 공격해 위험한 답이 나오는 지점을 찾고 막습니다.</p>
-          <ul>
-            <li>LLM Safety &amp; Security</li>
-            <li>Jailbreaking &amp; Adversarial Attacks</li>
-            <li>Agent Safety</li>
-          </ul>
-        </div>
-
-        <div class="col">
-          <div class="num">02</div>
-          <h3>Embodied AI &amp; Robot Safety</h3>
-          <p class="ko">로봇이 지시받은 일을 하다가 위험한 행동으로 넘어가지 않게 만듭니다.</p>
-          <ul>
-            <li>Safety-aware Robot Planning</li>
-            <li>Safe Vision-Language-Action / VLM Systems</li>
-            <li>Physical AI Safety</li>
-            <li>Robot Security</li>
-          </ul>
-        </div>
-
-        <div class="col">
-          <div class="num">03</div>
-          <h3>Privacy &amp; Unlearning</h3>
-          <p class="ko">AI가 배운 것 중 지워야 할 정보만 골라 지우고, 데이터는 보호한 채 학습합니다.</p>
-          <ul>
-            <li>Machine Unlearning</li>
-            <li>Privacy-Preserving Learning</li>
-          </ul>
-        </div>
-
-        <div class="col">
-          <div class="num">04</div>
-          <h3>Robustness &amp; Fairness</h3>
-          <p class="ko">눈에 띄지 않는 노이즈나 데이터 편향 때문에 판단이 틀어지는 문제를 줄입니다.</p>
-          <ul>
-            <li>Adversarial Robustness</li>
-            <li>Optimization Stability</li>
-            <li>Fairness</li>
-          </ul>
-        </div>
-
-      </div>
-
-      <a class="go" href="https://damilab.github.io/research/">View Research</a>
-    </div>
-  </section>
+  
 
   <div class="relative py-16 bg-gray-100 dark:bg-gray-900/50">
   <div class="relative px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
