@@ -1,5 +1,16 @@
 [
  {
+  "id": 64,
+  "url": "https://damilab.github.io/news/64/",
+  "title": "산업 로봇 VLA 안전성 연구, KISTI 국가슈퍼컴퓨터 6호기 혁신지원사업 선정",
+  "date": "2026-11-20",
+  "cover": "/images/news/kisti2026/cover.webp",
+  "excerpt": "산업 로봇 VLA 안전성 과제가 KISTI 국가슈퍼컴퓨터 6호기 혁신지원사업 R&D혁신 프로그램에 선정되었습니다.",
+  "cat": "notice",
+  "catLabel": "공지",
+  "fit": "contain"
+ },
+ {
   "id": 63,
   "url": "https://damilab.github.io/news/63/",
   "title": "인공지능 면접의 공정성 관련 연구 EAAI 게재",

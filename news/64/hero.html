@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<title>DAMI Lab KISTI 6호기 hero</title>
+<style>
+@font-face{font-family:Pretendard;font-weight:900;src:url("/fonts/Pretendard-Black.ttf")}
+@font-face{font-family:Pretendard;font-weight:800;src:url("/fonts/Pretendard-ExtraBold.ttf")}
+@font-face{font-family:Pretendard;font-weight:700;src:url("/fonts/Pretendard-Bold.ttf")}
+@font-face{font-family:Pretendard;font-weight:600;src:url("/fonts/Pretendard-SemiBold.ttf")}
+@font-face{font-family:Pretendard;font-weight:500;src:url("/fonts/Pretendard-Medium.ttf")}
+@font-face{font-family:Pretendard;font-weight:400;src:url("/fonts/Pretendard-Regular.ttf")}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#030a1c;overflow:hidden}
+html.fit,html.fit body{width:100%;height:100%;background:#061433}
+body{font-family:Pretendard,system-ui,sans-serif;color:#fff;-webkit-font-smoothing:antialiased}
+#stage{position:relative;overflow:hidden;width:var(--W);height:var(--H);
+  background:
+    radial-gradient(55% 85% at 80% 55%, rgba(70,118,255,.36), transparent 70%),
+    radial-gradient(40% 60% at 18% 30%, rgba(91,140,255,.16), transparent 70%),
+    linear-gradient(135deg,#061433 0%,#081b46 55%,#0a2257 100%);}
+.grid{position:absolute;inset:0;opacity:.55;
+  background-image:linear-gradient(rgba(143,179,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(143,179,255,.055) 1px,transparent 1px);
+  background-size:40px 40px;
+  -webkit-mask-image:radial-gradient(90% 90% at 70% 40%,#000 20%,transparent 85%);}
+.vig{position:absolute;inset:0;background:radial-gradient(120% 100% at 60% 40%,transparent 55%,rgba(2,7,22,.6) 100%);pointer-events:none}
+
+/* ───────── rack row ───────── */
+.rackscene{position:absolute;left:var(--rx);top:var(--ry);width:400px;height:620px;
+  transform:scale(var(--rs));transform-origin:0 100%;
+  perspective:1300px;perspective-origin:20% 100%;
+  -webkit-box-reflect:below 2px linear-gradient(transparent 62%,rgba(255,255,255,.26));}
+.row{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateY(var(--ra,-34deg));transform-origin:50% 100%}
+.cab{position:absolute;left:0;top:0;width:400px;height:620px;border-radius:7px;
+  padding:40px 16px 16px 30px;
+  background:linear-gradient(180deg,#0e1d45 0%,#081230 40%,#050c22 100%);
+  border:1px solid rgba(143,179,255,.42);
+  box-shadow:inset 0 0 0 3px #050b1f, inset 0 0 0 4px rgba(143,179,255,.14), 0 0 70px rgba(80,130,255,.32);}
+.cab::before{/* top rim light */content:"";position:absolute;left:0;right:0;top:0;height:2px;border-radius:7px 7px 0 0;
+  background:linear-gradient(90deg,transparent,#cfe0ff 30%,#8fb3ff 70%,transparent)}
+.plate{position:absolute;left:30px;right:16px;top:12px;height:20px;display:flex;align-items:center;justify-content:space-between;
+  font-size:9.5px;font-weight:700;letter-spacing:.12em;color:rgba(214,228,255,.9)}
+.plate i{display:flex;gap:4px}
+.plate i b{width:5px;height:5px;border-radius:50%;background:#7dffbf;box-shadow:0 0 6px #4dffa8}
+.plate i b:nth-child(2){background:#8fb3ff;box-shadow:0 0 6px #5b8cff}
+.rail{position:absolute;left:11px;top:40px;bottom:16px;width:6px;border-radius:3px;overflow:hidden;
+  background:#0a1a44;box-shadow:0 0 10px rgba(91,140,255,.6)}
+.rail::after{content:"";position:absolute;left:0;right:0;top:-100%;height:200%;
+  background:repeating-linear-gradient(180deg,#3b6bff 0,#e6efff 12%,#5b8cff 25%,#2449c9 50%);
+  animation:railrun 4s linear infinite}
+@keyframes railrun{to{transform:translateY(50%)}}
+
+.blade{position:relative;height:45px;margin-bottom:6.4px;display:flex;align-items:stretch;border-radius:3px;
+  background:linear-gradient(180deg,#1b2f63 0%,#111f47 18%,#0a1431 100%);
+  border:1px solid rgba(143,179,255,.26);box-shadow:0 2px 0 rgba(0,0,0,.5)}
+.blade::after{content:"";position:absolute;inset:-1px;border-radius:3px;pointer-events:none;
+  border:1px solid #b9cfff;box-shadow:0 0 12px 1px rgba(120,165,255,.55), inset 0 0 16px rgba(120,165,255,.3);
+  opacity:0;animation:sweep 6s ease-in-out infinite;animation-delay:var(--sd)}
+@keyframes sweep{0%,50%,100%{opacity:0}75%{opacity:.5}}
+.ear{width:20px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px;
+  border-right:1px solid rgba(143,179,255,.16);background:rgba(4,10,28,.5)}
+.led{width:5px;height:5px;border-radius:50%;background:#6fe0ac;box-shadow:0 0 4px #35f09a;opacity:.8}
+.led.b{background:#a9c5ff;box-shadow:0 0 5px #5b8cff;animation:blink var(--bd,4s) ease-in-out infinite;animation-delay:var(--bl,0s)}
+@keyframes blink{0%,100%{opacity:.9}50%{opacity:.3}}
+.mods{flex:1;display:flex;gap:5px;padding:5px 6px}
+.mod{flex:1;position:relative;border-radius:2px;overflow:hidden;background:#03081a;
+  box-shadow:inset 0 0 0 1px rgba(143,179,255,.22)}
+.core{position:absolute;inset:0;
+  background:radial-gradient(72% 92% at 50% 60%,#dce8ff 0%,#9dbfff 24%,#4573f5 56%,rgba(40,80,220,.22) 90%);
+  animation:load var(--cd,2s) ease-in-out infinite;animation-delay:var(--cl,0s)}
+@keyframes load{0%,100%{opacity:.36}50%{opacity:.82}}
+.fins{position:absolute;inset:0;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.16) 0,transparent 16%,transparent 80%,rgba(0,0,0,.55) 100%),
+    repeating-linear-gradient(90deg,rgba(5,11,32,.95) 0 2.7px,rgba(190,214,255,.22) 2.7px 3.5px,transparent 3.5px 5.6px)}
+.bar{position:absolute;left:3px;right:3px;bottom:2px;height:2px;border-radius:1px;background:rgba(143,179,255,.25);overflow:hidden}
+.bar::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,#fff,transparent);width:45%;
+  animation:barrun var(--cd,2s) linear infinite;animation-delay:var(--cl,0s)}
+@keyframes barrun{from{transform:translateX(-110%)}to{transform:translateX(240%)}}
+.meter{width:58px;padding:5px 7px 5px 5px;display:flex;flex-direction:column;justify-content:space-between;
+  border-left:1px solid rgba(143,179,255,.16)}
+.meter span{font-size:6.6px;font-weight:700;letter-spacing:.1em;color:rgba(200,218,255,.8);line-height:1}
+.eq{display:flex;align-items:flex-end;gap:2.4px;height:21px}
+.eq u{flex:1;height:100%;background:linear-gradient(180deg,#e9f1ff,#5b8cff);border-radius:1px;transform-origin:50% 100%;opacity:.85;
+  animation:eq var(--ed,1s) ease-in-out infinite alternate;animation-delay:var(--el,0s)}
+@keyframes eq{from{transform:scaleY(.3)}to{transform:scaleY(.95)}}
+.cab.dim{filter:brightness(.95)}
+.side{position:absolute;left:100%;top:-1px;bottom:-1px;width:230px;transform-origin:0 50%;transform:rotateY(90deg);
+  background:linear-gradient(90deg,#0c1a40,#040a1c 70%),#050b1f;border:1px solid rgba(143,179,255,.3);border-left-color:rgba(207,224,255,.7);
+  background-image:radial-gradient(rgba(143,179,255,.22) 1px,transparent 1.4px),linear-gradient(90deg,#0d1c46,#040a1c 75%);background-size:9px 9px,100% 100%}
+.cab.near{filter:brightness(1.1)}
+
+.floorglow{position:absolute;left:calc(var(--rx) - 260px*var(--rs));top:calc(var(--ry) + 620px - 46px*var(--rs));
+  width:calc(1000px*var(--rs));height:calc(92px*var(--rs));pointer-events:none;
+  background:radial-gradient(50% 50% at 50% 50%,rgba(120,165,255,.42),rgba(70,120,255,.14) 45%,transparent 72%);
+  animation:breath 6s ease-in-out infinite}
+.heat{position:absolute;left:calc(var(--rx) - 60px*var(--rs));top:calc(var(--ry) + 620px - 760px*var(--rs));
+  width:calc(620px*var(--rs));height:calc(300px*var(--rs));pointer-events:none;filter:blur(26px);
+  background:radial-gradient(50% 60% at 50% 100%,rgba(130,170,255,.26),transparent 70%);
+  animation:breath 6s ease-in-out infinite}
+@keyframes breath{0%,100%{opacity:.72}50%{opacity:1}}
+
+/* ───────── streams ───────── */
+#streams{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.s-base{fill:none;stroke:url(#gbase);stroke-width:1.1;opacity:.6}
+.s-glow{fill:none;stroke:#6f9bff;stroke-width:5;stroke-linecap:round;opacity:.42;filter:blur(4px);
+  stroke-dasharray:var(--dl) calc(100 - var(--dl));animation:flow var(--fd) linear infinite;animation-delay:var(--fl)}
+.s-pulse{fill:none;stroke:#e3ecff;stroke-width:1.8;opacity:.9;stroke-linecap:round;
+  stroke-dasharray:var(--dl) calc(100 - var(--dl));animation:flow var(--fd) linear infinite;animation-delay:var(--fl)}
+@keyframes flow{from{stroke-dashoffset:0}to{stroke-dashoffset:-100}}
+
+/* ───────── simulation viewport ───────── */
+.sim{position:absolute;left:var(--sx);top:var(--sy);width:560px;height:349px;transform:scale(var(--ss));transform-origin:0 0}
+.ghost{position:absolute;inset:0;border-radius:14px;overflow:hidden;border:1px solid rgba(143,179,255,.4);
+  background:#0b1c48 url(/images/news/kisti2026/sim_poster.webp) center/cover;}
+.ghost::after{content:"";position:absolute;inset:0;background:rgba(8,24,66,var(--ga))}
+.frame{position:absolute;inset:0;border-radius:14px;overflow:hidden;background:#dfe5ea;
+  box-shadow:0 0 0 1px rgba(190,212,255,.85),0 0 0 7px rgba(8,20,52,.85),0 0 0 8px rgba(143,179,255,.35),
+             0 34px 80px rgba(0,0,0,.55),0 0 70px rgba(91,140,255,.32)}
+.frame video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;background:#dfe5ea url(/images/news/kisti2026/sim_poster.webp) center/cover}
+.tint{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,34,87,.20),rgba(6,20,51,.30));mix-blend-mode:multiply}
+.scan{position:absolute;top:0;bottom:0;left:0;width:14%;
+  background:linear-gradient(90deg,transparent,rgba(91,140,255,.09) 80%,rgba(190,212,255,.26) 98%,transparent);
+  animation:scan 6s linear infinite}
+@keyframes scan{from{transform:translateX(-110%)}to{transform:translateX(730%)}}
+.chip{position:absolute;left:14px;top:14px;display:flex;align-items:center;gap:8px;height:30px;padding:0 13px 0 11px;border-radius:15px;
+  background:rgba(6,18,48,.88);border:1px solid rgba(143,179,255,.35);font-size:13px;font-weight:700;letter-spacing:-.01em}
+.rec{width:8px;height:8px;border-radius:50%;background:#ff5a5a;box-shadow:0 0 6px #ff5a5a;animation:recb 2s ease-in-out infinite}
+@keyframes recb{0%,100%{opacity:1}50%{opacity:.35}}
+.portbar{position:absolute;right:-12px;top:18%;bottom:18%;width:4px;border-radius:2px;background:#dbe7ff;
+  box-shadow:0 0 12px 3px rgba(91,140,255,.6);animation:breath 3s ease-in-out infinite}
+.tiles{position:absolute;left:0;right:0;top:calc(100% + 16px);display:flex;gap:10px}
+.tiles div{flex:1;aspect-ratio:1.607;border-radius:7px;overflow:hidden;position:relative;border:1px solid rgba(143,179,255,.45);
+  background:#0b1c48 center/cover}
+.tiles div::after{content:"";position:absolute;inset:0;background:rgba(8,24,66,.30);animation:tile 6s ease-in-out infinite;animation-delay:var(--tl)}
+@keyframes tile{0%,100%{opacity:1}50%{opacity:.55}}
+
+/* ───────── labels ───────── */
+.kicker{position:absolute;left:var(--kx,56px);top:var(--ky,44px);display:flex;align-items:center;gap:14px;
+  font-size:var(--kf,16px);font-weight:700;letter-spacing:.01em;color:#8fb3ff;white-space:nowrap}
+.kicker em{font-style:normal;color:#fff;font-weight:800;letter-spacing:.08em}
+.hud{position:absolute;left:var(--hx);top:var(--hy);transform:scale(var(--hs,1));transform-origin:0 0;
+  padding:13px 18px 14px;border-radius:12px;white-space:nowrap;
+  background:linear-gradient(180deg,rgba(14,32,80,.82),rgba(6,16,44,.82));border:1px solid rgba(143,179,255,.38);
+  box-shadow:0 14px 40px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.08)}
+.hud small{display:flex;align-items:center;gap:7px;font-size:11.5px;font-weight:700;letter-spacing:.1em;color:#8fb3ff}
+.hud p{margin-top:6px;font-size:21px;font-weight:800;letter-spacing:-.01em}
+.hud p{display:flex;align-items:center}
+.hud p span{width:1px;height:17px;background:rgba(143,179,255,.5);margin:0 13px}
+.hud q{display:block;quotes:none;margin-top:4px;font-size:12.5px;font-weight:500;color:rgba(214,228,255,.72)}
+.hud .wave{display:flex;gap:3px;align-items:flex-end;height:16px;margin-top:10px}
+.hud .wave u{flex:1;height:100%;border-radius:1px;background:linear-gradient(180deg,#cfe0ff,#5b8cff);transform-origin:50% 100%;
+  animation:eq var(--ed) ease-in-out infinite alternate;animation-delay:var(--el)}
+
+/* card text */
+.txt{position:absolute;left:60px;top:0;bottom:0;width:600px;display:none;flex-direction:column;justify-content:center}
+.txt .k{font-size:17px;font-weight:800;letter-spacing:.1em;color:#8fb3ff;display:flex;align-items:center;gap:10px}
+.txt .k::before{content:"";width:26px;height:2px;background:#5b8cff}
+.txt .k span{margin-left:6px;color:#fff;letter-spacing:.04em}
+.txt h1{margin-top:22px;font-size:55px;line-height:1.19;font-weight:900;letter-spacing:-.025em}
+.txt h1 b{color:#8fb3ff;font-weight:900}
+.txt .sub{margin-top:22px;font-size:20.5px;line-height:1.5;font-weight:500;color:rgba(226,235,255,.86);letter-spacing:-.01em}
+.stats{margin-top:34px;display:flex;gap:0}
+.stats div{padding:0 26px;border-left:1px solid rgba(143,179,255,.3)}
+.stats div:first-child{padding-left:0;border-left:0}
+.stats strong{display:block;font-size:30px;font-weight:900;letter-spacing:-.02em}
+.stats strong small{font-size:17px;font-weight:800;margin-left:2px}
+.stats span{display:block;margin-top:3px;font-size:14px;font-weight:600;color:#8fb3ff}
+
+/* ───────── variants ───────── */
+body[data-v=wide]{--W:1600px;--H:686px}
+body[data-v=mob]{--W:1200px;--H:900px}
+body[data-v=card]{--W:1200px;--H:734px}
+body[data-v=card] .txt{display:flex}
+body[data-v=card] .kicker{display:none}
+body[data-v=wide] .tiles, body[data-v=card] .tiles{display:none}
+body[data-v=card] .hud{display:none}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="grid"></div>
+  <div class="heat"></div>
+  <div class="floorglow"></div>
+  <div class="rackscene" id="racks"><div class="row" id="row"></div></div>
+  <svg id="streams">
+    <defs>
+      <linearGradient id="gbase" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#8fb3ff" stop-opacity=".75"/>
+        <stop offset="1" stop-color="#5b8cff" stop-opacity=".18"/>
+      </linearGradient>
+    </defs>
+    <g id="paths"></g>
+  </svg>
+  <div class="vig"></div>
+  <div class="sim" id="sim">
+    <div class="ghost" style="transform:translate(-30px,-26px) scale(.94);opacity:.45;--ga:.72"></div>
+    <div class="ghost" style="transform:translate(-15px,-13px) scale(.97);opacity:.8;--ga:.6"></div>
+    <div class="frame">
+      <video id="vid" src="/images/news/kisti2026/sim.mp4" poster="/images/news/kisti2026/sim_poster.webp" autoplay muted loop playsinline preload="auto"></video>
+      <div class="tint"></div>
+      <div class="scan"></div>
+      <div class="chip"><i class="rec"></i>산업 공정 시뮬레이션</div>
+    </div>
+    <div class="portbar"></div>
+    <div class="tiles" id="tiles"></div>
+  </div>
+  <div class="kicker"><em>KISTI</em>국가슈퍼컴퓨터 6호기 혁신지원사업</div>
+  <div class="hud" id="hud">
+    <small>GH200 GPU 파티션</small>
+    <p>44구좌<span></span>13,200 노드-시간</p>
+    <q>2026.12 – 2027.12</q>
+    <div class="wave" id="wave"></div>
+  </div>
+  <div class="txt">
+    <div class="k">DAMI LAB<span>연구과제 선정</span></div>
+    <h1>KISTI 국가슈퍼컴퓨터<br><b>6호기</b> 혁신지원사업<br>과제 선정</h1>
+    <div class="sub">대규모 산업 로봇 위험상황 시뮬레이션 및<br>안전 학습 기반 VLA 모델의 안전성 확보</div>
+    <div class="stats">
+      <div><strong>44<small>구좌</small></strong><span>GPU 파티션</span></div>
+      <div><strong>13,200</strong><span>노드-시간</span></div>
+      <div><strong>2026.12</strong><span>착수, 1년</span></div>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  const q=new URLSearchParams(location.search);
+  const FIT=q.get('v')==='auto';
+  const v=FIT?(innerWidth/Math.max(1,innerHeight)>1.6?'wide':'mob'):(({wide:1,mob:1,card:1})[q.get('v')]?q.get('v'):'wide');
+  if(FIT)document.documentElement.classList.add('fit');
+  document.body.dataset.v=v;
+  const LOOP=12;                                  // every duration divides 12s → seamless loop
+  /* layout per variant: rack base-left x / base y / scale / cabinets, sim x/y/scale, hud */
+  const L={
+    wide:{rx:1118,by:604,rs:.90,ra:-34,cabs:[-1,0,1],sx:56,sy:92,ss:.925,hx:632,hy:44,hs:1,maxEar:7},
+    mob :{rx:732,by:800,rs:1.10,ra:-30,cabs:[0,1],sx:54,sy:128,ss:1.07,hx:54,hy:690,hs:1.3},
+    card:{rx:890,by:640,rs:.74,ra:-32,cabs:[0,1],sx:572,sy:232,ss:.52,hx:0,hy:0,hs:1}
+  }[v];
+  const st=document.getElementById('stage').style;
+  st.setProperty('--rx',L.rx+'px');st.setProperty('--ry',(L.by-620)+'px');st.setProperty('--rs',L.rs);st.setProperty('--ra',L.ra+'deg');
+  st.setProperty('--sx',L.sx+'px');st.setProperty('--sy',L.sy+'px');st.setProperty('--ss',L.ss);
+  st.setProperty('--hx',L.hx+'px');st.setProperty('--hy',L.hy+'px');st.setProperty('--hs',L.hs);
+
+  let seed=20261214;const R=()=>(seed=(seed*1664525+1013904223)>>>0)/4294967296;
+  const pick=a=>a[Math.floor(R()*a.length)];
+  const el=(t,c,p)=>{const e=document.createElement(t);if(c)e.className=c;if(p)p.appendChild(e);return e};
+
+  /* cabinets: 11 blades × 4 accelerator modules */
+  const row=document.getElementById('row');let lead=null;
+  L.cabs.forEach(ci=>{
+    const cab=el('div','cab'+(ci<0?' dim':ci>0?' near':''),row);
+    cab.style.transform=`translateX(${ci*412}px)`;
+    const pl=el('div','plate',cab);pl.innerHTML='<span>KISTI 국가슈퍼컴퓨터 6호기</span><i><b></b><b></b><b></b></i>';
+    el('div','rail',cab);el('div','side',cab);
+    for(let r=0;r<11;r++){
+      const b=el('div','blade',cab);b.style.setProperty('--sd',(-(6-((r*0.36+ci*1.8)%6)))+'s');
+      const ear=el('div','ear',b);
+      [0,1].forEach(k=>{const l=el('i','led'+(k?' b':''),ear);l.style.setProperty('--bd',pick([3,4,6])+'s');l.style.setProperty('--bl',(-R()*6)+'s')});
+      const m=el('div','mods',b);
+      for(let c=0;c<4;c++){const mod=el('div','mod',m);const d=pick([3,4,6]);
+        mod.style.setProperty('--cd',d+'s');mod.style.setProperty('--cl',(-R()*d)+'s');
+        el('div','core',mod);el('div','fins',mod);el('div','bar',mod)}
+      const mt=el('div','meter',b);el('span','',mt).textContent='GH200';
+      const eq=el('div','eq',mt);for(let k=0;k<7;k++){const u=el('u','',eq);u.style.setProperty('--ed',pick([1,1.2,1.5,2])+'s');u.style.setProperty('--el',(-R()*4)+'s')}
+    }
+    if(ci===L.cabs[0])lead=cab;
+  });
+  const wave=document.getElementById('wave');
+  for(let k=0;k<44;k++){const u=el('u','',wave);u.style.setProperty('--ed',pick([1,1.5,2,3])+'s');u.style.setProperty('--el',(-R()*3)+'s')}
+  const tiles=document.getElementById('tiles');
+  for(let k=0;k<4;k++){const d=el('div','',tiles);d.style.setProperty('--tl',(-k*1.5)+'s');d.style.backgroundImage=`url(/images/news/kisti2026/thumb${k}.webp)`}
+
+  /* data streams: lead cabinet blades → simulation viewport */
+  function build(){
+    const sr=document.getElementById('stage').getBoundingClientRect();
+    const sim=document.querySelector('.frame').getBoundingClientRect();
+    const g=document.getElementById('paths');g.innerHTML='';
+    const NS='http://www.w3.org/2000/svg';
+    const ears=[...lead.querySelectorAll('.ear')].slice(0,L.maxEar||99);
+    const tx=sim.right-sr.left+12, ty0=sim.top-sr.top+sim.height*.2, ty1=sim.top-sr.top+sim.height*.8;
+    ears.forEach((e,i)=>{
+      const r=e.getBoundingClientRect();const sx=r.left-sr.left-2, sy=r.top-sr.top+r.height/2;
+      const ty=ty0+(ty1-ty0)*i/(ears.length-1);
+      const dx=Math.max(60,(sx-tx)*.5);
+      const d=`M${sx.toFixed(1)},${sy.toFixed(1)} C${(sx-dx).toFixed(1)},${sy.toFixed(1)} ${(tx+dx).toFixed(1)},${ty.toFixed(1)} ${tx.toFixed(1)},${ty.toFixed(1)}`;
+      const mk=(cls)=>{const p=document.createElementNS(NS,'path');p.setAttribute('d',d);p.setAttribute('pathLength','100');p.setAttribute('class',cls);g.appendChild(p);return p};
+      mk('s-base');
+      const n=(i%4===3)?0:1;                    // sparse pulses: 3 of every 4 fibres carry one
+      for(let k=0;k<n;k++){
+        const fd=pick([3,4,6]), fl=-(R()*fd), dl=5+R()*6;
+        ['s-glow','s-pulse'].forEach(c=>{const p=mk(c);p.style.setProperty('--fd',fd+'s');p.style.setProperty('--fl',fl+'s');p.style.setProperty('--dl',dl.toFixed(1))});
+      }
+    });
+    const gb=document.getElementById('gbase');
+    const lr=lead.getBoundingClientRect();gb.setAttribute('x1',lr.left-sr.left);gb.setAttribute('x2',tx);
+  }
+  const VLEN=18, vid=document.getElementById('vid');
+  /* resolves once the video shows a decoded frame at time x (or after a short timeout → poster fallback) */
+  function vseek(x){return new Promise(res=>{
+    let done=false;const fin=()=>{if(!done){done=true;res()}};
+    const doSeek=()=>{vid.pause();vid.addEventListener('seeked',()=>requestAnimationFrame(fin),{once:true});
+      vid.currentTime=Math.min(((x%VLEN)+VLEN)%VLEN,(vid.duration||VLEN)-.05)};
+    if(vid.readyState>=2)doSeek();else{vid.addEventListener('loadeddata',doSeek,{once:true});vid.addEventListener('error',fin,{once:true})}
+    setTimeout(fin,4000)})}
+  function seek(t){document.getAnimations().forEach(a=>{a.pause();a.currentTime=((t%LOOP)+LOOP*10)*1000});return vseek(t)}
+  window.seek=seek;window.LOOP=LOOP;
+  const fit=()=>{if(!FIT)return;const S=document.getElementById('stage');const W=S.offsetWidth,H=S.offsetHeight;
+    const k=Math.max(innerWidth/W,innerHeight/H);S.style.transformOrigin='0 0';
+    S.style.transform=`translate(${(innerWidth-W*k)/2}px,${(innerHeight-H*k)/2}px) scale(${k})`};
+  if(FIT){const w0=innerWidth/Math.max(1,innerHeight)>1.6;addEventListener('resize',()=>{if((innerWidth/Math.max(1,innerHeight)>1.6)!==w0)location.reload();else fit()})}
+  const go=()=>{build();fit();
+    const p=q.has('t')?seek(parseFloat(q.get('t'))||0):Promise.resolve();
+    p.then(()=>{document.body.dataset.ready='1'})};
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(()=>requestAnimationFrame(go));
+})();
+</script>
+</body>
+</html>
